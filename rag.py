@@ -417,25 +417,41 @@ def main():
     print("INSURANCE CLAIM RAG")
     print("=" * 70)
 
-    # -----------------------------------------
-    # Load documents
-    # -----------------------------------------
-
-    documents = load_documents()
-
-    # -----------------------------------------
-    # Chunk documents
-    # -----------------------------------------
-
-    chunks = create_chunks(documents)
-
-    # -----------------------------------------
-    # Store embeddings in vector DB
-    # -----------------------------------------
-
-    collection = create_vector_database(
-        chunks
+    # Initialize Chroma client to check if collection already exists
+    chroma_client = chromadb.PersistentClient(
+        path=CHROMA_PATH
     )
+
+    collection = None
+    try:
+        # Try to retrieve the existing collection
+        existing_collection = chroma_client.get_collection(
+            name=COLLECTION_NAME
+        )
+        if existing_collection.count() > 0:
+            collection = existing_collection
+            print(f"\nUsing existing Chroma database from '{CHROMA_PATH}' with {collection.count()} chunks.")
+    except Exception:
+        # Collection does not exist or has an issue
+        pass
+
+    if collection is None:
+        # -----------------------------------------
+        # Load documents
+        # -----------------------------------------
+        documents = load_documents()
+
+        # -----------------------------------------
+        # Chunk documents
+        # -----------------------------------------
+        chunks = create_chunks(documents)
+
+        # -----------------------------------------
+        # Store embeddings in vector DB
+        # -----------------------------------------
+        collection = create_vector_database(
+            chunks
+        )
 
     print("\nRAG system is ready!")
 

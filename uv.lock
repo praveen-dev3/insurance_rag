@@ -1917,6 +1917,7 @@ dependencies = [
     { name = "chromadb" },
     { name = "openai" },
     { name = "pypdf" },
+    { name = "python-dotenv" },
     { name = "sentence-transformers" },
     { name = "tiktoken" },
 ]
@@ -1926,6 +1927,7 @@ requires-dist = [
     { name = "chromadb", specifier = ">=1.5.9" },
     { name = "openai", specifier = ">=3.0.0" },
     { name = "pypdf", specifier = ">=6.15.0" },
+    { name = "python-dotenv", specifier = ">=1.2.2" },
     { name = "sentence-transformers", specifier = ">=5.7.0" },
     { name = "tiktoken", specifier = ">=0.13.0" },
 ]

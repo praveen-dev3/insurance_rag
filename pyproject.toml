@@ -8,6 +8,7 @@ dependencies = [
     "chromadb>=1.5.9",
     "openai>=3.0.0",
     "pypdf>=6.15.0",
+    "python-dotenv>=1.2.2",
     "sentence-transformers>=5.7.0",
     "tiktoken>=0.13.0",
 ]

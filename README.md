@@ -13,6 +13,8 @@ It uses **local embeddings** for private and cost-free document indexing, combin
   * **Cross-Encoder**: Uses a local `cross-encoder/ms-marco-MiniLM-L-6-v2` model to rerank the candidates and select the top 3 most relevant chunks to send to the LLM, significantly improving retrieval precision.
 - **Ultra-Fast Generation**: Powered by **Groq** (`llama-3.3-70b-versatile`) for extremely low-latency completions.
 - **Strict Grounding Rules**: The LLM is strictly constrained to only answer from the provided documents and always cite the source file and page number. If the answer isn't in the documents, it will output *"I don't know based on the provided documents."*
+- **Self-invalidating Index**: The persisted index stores a fingerprint of the document contents and chunking settings. Add, edit, or remove a PDF and the next run re-indexes automatically — no need to delete `chroma_db/` by hand.
+- **Page-spanning Chunks**: Text is chunked over a continuous per-document token stream, so a clause interrupted by a page break stays in one chunk. Each chunk cites the exact page range it covers.
 
 ---
 
@@ -42,10 +44,15 @@ Run the main interactive script:
 python3 main.py
 ```
 
+Force a full rebuild of the index at any time:
+```bash
+python3 main.py --reindex
+```
+
 ### Flow of Execution:
 1. **Load**: The script extracts text page-by-page from all PDF files inside `insurance_docs/`.
-2. **Chunk**: Text is split into overlapping token-based chunks (150 tokens with 30-token overlap) using `tiktoken`.
-3. **Embed & Index**: The chunks are embedded locally and stored in a persistent directory (`./chroma_db`).
+2. **Chunk**: Text is split into overlapping token-based chunks (150 tokens with 30-token overlap) using `tiktoken`, streamed across page boundaries within each document.
+3. **Embed & Index**: The chunks are embedded locally and stored in a persistent directory (`./chroma_db`). The existing index is reused unless the documents or chunking settings have changed.
 4. **Query Loop**: Enter your question. The system:
    * Retrieves the top 10 candidate chunks using the local Bi-Encoder (Chroma).
    * Reranks them using the local Cross-Encoder.

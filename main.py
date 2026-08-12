@@ -5,6 +5,8 @@ import chromadb
 from dotenv import load_dotenv
 from openai import OpenAI
 from pypdf import PdfReader
+from sentence_transformers import CrossEncoder
+import tiktoken
 
 # Load environment variables from .env file
 load_dotenv()
@@ -26,11 +28,14 @@ GROQ_BASE_URL = "https://api.groq.com/openai/v1"
 # LLM used for final answer
 LLM_MODEL = "llama-3.3-70b-versatile"
 
-# Chunk configuration
-CHUNK_SIZE = 500
-CHUNK_OVERLAP = 100
+# Chunk configuration (in tokens)
+CHUNK_SIZE = 150
+CHUNK_OVERLAP = 30
 
-# Number of chunks retrieved
+# Number of chunks retrieved by Bi-Encoder (Chroma)
+BI_ENCODER_TOP_K = 10
+
+# Final number of chunks selected by Cross-Encoder for the LLM
 TOP_K = 3
 
 DOCUMENTS_FOLDER = "insurance_docs"
@@ -46,6 +51,14 @@ client = OpenAI(
     base_url=GROQ_BASE_URL,
     api_key=GROQ_API_KEY
 )
+
+
+# ============================================================
+# CROSS-ENCODER MODEL (RERANKER)
+# ============================================================
+
+print("Loading local Cross-Encoder model...")
+cross_encoder = CrossEncoder("cross-encoder/ms-marco-MiniLM-L-6-v2")
 
 
 
@@ -104,36 +117,28 @@ def load_documents():
 
 def create_chunks(documents):
     """
-    Split pages into overlapping chunks.
-
-    Example:
-
-    CHUNK_SIZE = 500
-    CHUNK_OVERLAP = 100
-
-    Chunk 1:
-    0 -> 500
-
-    Chunk 2:
-    400 -> 900
-
-    Chunk 3:
-    800 -> 1300
+    Split pages into overlapping token-based chunks.
     """
-
+    encoding = tiktoken.get_encoding("cl100k_base")
     chunks = []
 
     for document in documents:
 
         text = document["text"]
 
+        # Convert text into token IDs
+        tokens = encoding.encode(text)
+
         start = 0
 
-        while start < len(text):
+        while start < len(tokens):
 
             end = start + CHUNK_SIZE
 
-            chunk_text = text[start:end]
+            chunk_tokens = tokens[start:end]
+
+            # Decode token IDs back to a string
+            chunk_text = encoding.decode(chunk_tokens)
 
             if chunk_text.strip():
 
@@ -218,18 +223,17 @@ def create_vector_database(chunks):
 
 def retrieve_chunks(collection, question):
 
-    # Query Chroma using the text of the question.
-    # Chroma will automatically embed the query text using its default local embedding function.
+    # 1. Retrieve top candidates using the Bi-Encoder (Chroma DB)
     results = collection.query(
         query_texts=[question],
-        n_results=TOP_K
+        n_results=BI_ENCODER_TOP_K
     )
 
     retrieved_documents = results["documents"][0]
     retrieved_metadatas = results["metadatas"][0]
     distances = results["distances"][0]
 
-    retrieved_chunks = []
+    candidates = []
 
     for document, metadata, distance in zip(
         retrieved_documents,
@@ -237,12 +241,28 @@ def retrieve_chunks(collection, question):
         distances
     ):
 
-        retrieved_chunks.append({
+        candidates.append({
             "text": document,
             "source": metadata["source"],
             "page": metadata["page"],
             "distance": distance
         })
+
+    if not candidates:
+        return []
+
+    # 2. Rerank the candidates using the Cross-Encoder
+    pairs = [[question, chunk["text"]] for chunk in candidates]
+    scores = cross_encoder.predict(pairs)
+
+    for chunk, score in zip(candidates, scores):
+        chunk["cross_score"] = float(score)
+
+    # Sort descending by cross-encoder score (higher is more relevant)
+    candidates.sort(key=lambda x: x["cross_score"], reverse=True)
+
+    # 3. Select the top-K chunks to pass to the LLM
+    retrieved_chunks = candidates[:TOP_K]
 
     return retrieved_chunks
 
@@ -382,7 +402,11 @@ def ask_question(collection, question):
         )
 
         print(
-            f"Distance: {chunk['distance']}"
+            f"Bi-Encoder Distance: {chunk['distance']:.4f}"
+        )
+
+        print(
+            f"Cross-Encoder Score: {chunk['cross_score']:.4f}"
         )
 
         print(

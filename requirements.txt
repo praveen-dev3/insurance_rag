@@ -1,3 +1,5 @@
 chromadb
 openai
 pypdf
+tiktoken
+sentence-transformers

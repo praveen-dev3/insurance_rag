@@ -8,7 +8,9 @@ It uses **local embeddings** for private and cost-free document indexing, combin
 
 ## Features
 
-- **Cost-Free Local Embeddings**: Utilizes Chroma's built-in local embedding engine (`all-MiniLM-L6-v2` ONNX) to vectorize documents locally on your machine. No external embedding API calls or credits required.
+- **Two-Stage Retrieval (Bi-Encoder + Cross-Encoder Reranking)**:
+  * **Bi-Encoder**: Chroma's built-in local embedding engine (`all-MiniLM-L6-v2` ONNX) acts as a Bi-Encoder, quickly retrieving the top 10 candidate chunks.
+  * **Cross-Encoder**: Uses a local `cross-encoder/ms-marco-MiniLM-L-6-v2` model to rerank the candidates and select the top 3 most relevant chunks to send to the LLM, significantly improving retrieval precision.
 - **Ultra-Fast Generation**: Powered by **Groq** (`llama-3.3-70b-versatile`) for extremely low-latency completions.
 - **Strict Grounding Rules**: The LLM is strictly constrained to only answer from the provided documents and always cite the source file and page number. If the answer isn't in the documents, it will output *"I don't know based on the provided documents."*
 
@@ -37,12 +39,15 @@ Create a folder named `insurance_docs/` in the root directory (if it doesn't alr
 
 Run the main interactive script:
 ```bash
-python3 rag.py
+python3 main.py
 ```
 
 ### Flow of Execution:
 1. **Load**: The script extracts text page-by-page from all PDF files inside `insurance_docs/`.
-2. **Chunk**: Text is split into overlapping chunks (500 characters with 100-character overlap) to keep sentences intact.
+2. **Chunk**: Text is split into overlapping token-based chunks (150 tokens with 30-token overlap) using `tiktoken`.
 3. **Embed & Index**: The chunks are embedded locally and stored in a persistent directory (`./chroma_db`).
-4. **Query Loop**: Enter your question in the interactive terminal. The system retrieves the top 3 most relevant context chunks and prompts the Groq LLM to answer.
+4. **Query Loop**: Enter your question. The system:
+   * Retrieves the top 10 candidate chunks using the local Bi-Encoder (Chroma).
+   * Reranks them using the local Cross-Encoder.
+   * Prompts the Groq LLM with the top 3 most relevant chunks to generate the grounded answer.
 5. **Exit**: Type `exit` to quit the program.

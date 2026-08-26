@@ -1,0 +1,86 @@
+{
+  "label": "random sample, seed 20260826",
+  "coding_file": "eval/w5/open_coding.json",
+  "seed": 20260826,
+  "total_traces": 20,
+  "coded": 20,
+  "uncoded": [],
+  "modes_declared": 6,
+  "modes_used": 6,
+  "rows": [
+    {
+      "mode": "No failure observed",
+      "count": 5,
+      "percent": 25.0,
+      "severity": "n/a - not a failure mode",
+      "example_trace_id": "tr-wk5-0026",
+      "all_trace_ids": [
+        "tr-wk5-0026",
+        "tr-wk5-0056",
+        "tr-wk5-0062",
+        "tr-wk5-0068",
+        "tr-wk5-0069"
+      ]
+    },
+    {
+      "mode": "Coverage position field contradicts its own narrative",
+      "count": 4,
+      "percent": 20.0,
+      "severity": "wrongly denies a claim",
+      "example_trace_id": "tr-wk5-0010",
+      "all_trace_ids": [
+        "tr-wk5-0010",
+        "tr-wk5-0014",
+        "tr-wk5-0040",
+        "tr-wk5-0061"
+      ]
+    },
+    {
+      "mode": "Answers without the clause that decides the claim",
+      "count": 4,
+      "percent": 20.0,
+      "severity": "wrongly denies or wrongly pays a claim",
+      "example_trace_id": "tr-wk5-0006",
+      "all_trace_ids": [
+        "tr-wk5-0006",
+        "tr-wk5-0007",
+        "tr-wk5-0009",
+        "tr-wk5-0012"
+      ]
+    },
+    {
+      "mode": "Comes back with the wrong product's wording, or nothing, and declines",
+      "count": 3,
+      "percent": 15.0,
+      "severity": "annoys the adjuster",
+      "example_trace_id": "tr-wk5-0020",
+      "all_trace_ids": [
+        "tr-wk5-0020",
+        "tr-wk5-0027",
+        "tr-wk5-0067"
+      ]
+    },
+    {
+      "mode": "Quotes a clause under the wrong number, or cites without naming the form",
+      "count": 2,
+      "percent": 10.0,
+      "severity": "annoys the adjuster",
+      "example_trace_id": "tr-wk5-0005",
+      "all_trace_ids": [
+        "tr-wk5-0005",
+        "tr-wk5-0039"
+      ]
+    },
+    {
+      "mode": "Reports no deductible or excess figure",
+      "count": 2,
+      "percent": 10.0,
+      "severity": "annoys the adjuster",
+      "example_trace_id": "tr-wk5-0003",
+      "all_trace_ids": [
+        "tr-wk5-0003",
+        "tr-wk5-0008"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+WEEK 5 PREDICTION — committed 2026-08-26, before any fix.
+
+Mode I will attack:
+
+    "Answers without the clause that decides the claim"
+    4 of 20 traces = 20% of the random sample, severity: wrongly denies or
+    wrongly pays a claim. Example trace_id: tr-wk5-0012, where a pipe froze
+    with the heating switched off entirely and the app returned COVERED,
+    because the exclusion-table chunk it was handed carried E-15, E-16 and
+    E-17 and the E-14 freezing row was not in any retrieved chunk.
+
+The specific change:
+
+    A claim summary currently issues ONE retrieval over the whole adjuster
+    note with top_k=3, and on this corpus all three slots are won by
+    exclusion-table rows. Change it to a two-part retrieval scoped to the
+    form the claim file names:
+
+      (a) when the claim record carries a form_number, apply it as a
+          metadata filter, so the flood manual and the other policy line
+          cannot occupy a slot at all;
+      (b) issue a second, separate retrieval for the limits-and-deductible
+          clause of that form and append it, so the deductible clause is
+          not competing with the exclusion table for the same three slots;
+      (c) raise top_k for the summary task from 3 to 8.
+
+    Nothing about the model, the prompt or the chunker changes.
+
+The exact delta I expect, measured on the Week 6 eval set of 25 cases:
+
+    1. deductible_numeric assertion pass rate:      0%  ->  at least 70%
+       (it is 0/10 on the claim summaries in the Week 5 sample today)
+
+    2. "Answers without the clause that decides the claim":
+                                                    20%  ->  under 10%
+       measured by re-coding a fresh seeded sample of 20 traces
+
+    3. "Comes back with the wrong product's wording, or nothing":
+                                                    15%  ->  under 5%
+       on the cases whose claim file names a form; unchanged on the two
+       cases that record no form_number, because the filter has nothing to
+       apply there
+
+    4. tr-wk5-0012 specifically flips from COVERED to DENIED on E-14
+
+What would falsify this:
+
+    If deductible_numeric stays below 70%, the diagnosis is wrong — the
+    deductible clause is not merely losing a ranking contest, and adding
+    slots will not find it.
+
+    If (4) does not flip, then handing the model the E-14 row is not
+    sufficient and the failure is in the reading rather than the retrieval,
+    which is a different fix and a different week.
+
+    If (1) improves but (2) does not, the deductible was a special case and
+    the general "deciding clause" mode needs per-question retrieval rather
+    than one more fixed slot.
+
+Where I expect to be wrong:
+
+    I expect (1) to land and (2) to land only partly. Two of the four traces
+    in that mode failed on a clause that is on page 2 of a two-page form
+    while all three retrieved chunks came from page 1 — more slots will
+    probably fix those. But tr-wk5-0009 wanted the Clause 2.1 coverage
+    GRANT, and a query built from an adjuster's note about damage does not
+    look like a coverage grant no matter how many slots it gets.

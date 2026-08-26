@@ -357,91 +357,99 @@ context_precision  (reference-free, LLM-judged) mark each retrieved passage
                        = sum_k (precision@k * v_k) / sum_k v_k
 ```
 
-Scored on the **policy-backed cases** — the 23 that retrieved actual policy
-wording. `w6-14` and `w6-21` are excluded: they retrieved nothing but the
-flood manual, so there is no policy wording for them to be faithful *to*,
-and scoring them would put a number in the average for a reason unrelated to
-the summary.
+Scored on the **23 policy-backed cases** — the ones that retrieved actual
+policy wording. `w6-14` and `w6-21` are excluded: they retrieved nothing but
+the flood manual, so there is no policy wording for them to be faithful
+*to*, and scoring them would put a number in the average for a reason
+unrelated to the summary.
 
-### Results (first 10 of 23; the run is throttled to ~1 case per 10 min by the free tier)
+```
+mean faithfulness      0.9957      (n = 23)
+mean context precision 0.9130      (n = 23)
+```
 
-| case | faithfulness | context precision | human label | judge_v2 |
-|---|---:|---:|---|---|
-| `reg-c12` | **1.000** | 0.833 | faithful | faithful |
-| `reg-c06` | **1.000** | 1.000 | **UNFAITHFUL** | **UNFAITHFUL** |
-| `w6-01` | **1.000** | 0.833 | **UNFAITHFUL** | **UNFAITHFUL** |
-| `w6-02` | 1.000 | 1.000 | faithful | UNFAITHFUL |
-| `w6-03` | 1.000 | **0.333** | faithful | faithful |
-| `w6-04` | 1.000 | 1.000 | faithful | UNFAITHFUL |
-| `w6-05` | 1.000 | 1.000 | faithful | UNFAITHFUL |
-| `w6-06` | **1.000** | 1.000 | **UNFAITHFUL** | **UNFAITHFUL** |
-| `w6-07` | 1.000 | 1.000 | faithful | faithful |
-| `w6-08` | 0.900 | 1.000 | faithful | faithful |
-| **mean** | **0.990** | **0.900** | | |
+Both look like a healthy system. A dashboard showing that pair reads green.
 
 ### Confidently, faithfully wrong
 
 The brief asks for one summary scoring 0.9+ faithfulness while retrieving
-the wrong policy wording. This run produced something sharper:
+the wrong policy wording. The run produced something sharper, and it is not
+one case but every one of them:
 
-> **Faithfulness scores 1.000 on three summaries that both the human
-> labeller and the iterated judge agree are unfaithful** — `reg-c06`,
-> `w6-01` and `w6-06`.
+> **All five summaries I hand-labelled UNFAITHFUL score faithfulness
+> exactly 1.000.** So does the regression case whose production output paid
+> a claim it should have denied.
 
-That is not a bug in the metric. It is the metric working exactly as
-defined, and being the wrong question. Faithfulness decomposes a summary
-into claims and checks each **against the passages that were retrieved**.
-The defect in all three summaries is a claim about wording that was *not*
-retrieved:
+| case | faithfulness | context precision | human label | judge_v2 |
+|---|---:|---:|---|---|
+| `reg-c06` | **1.000** | 1.000 | **UNFAITHFUL** | UNFAITHFUL |
+| `w6-01` | **1.000** | 0.833 | **UNFAITHFUL** | UNFAITHFUL |
+| `w6-06` | **1.000** | 1.000 | **UNFAITHFUL** | UNFAITHFUL |
+| `w6-12` | **1.000** | 1.000 | **UNFAITHFUL** | UNFAITHFUL |
+| `w6-22` | **1.000** | 1.000 | **UNFAITHFUL** | UNFAITHFUL |
+| `reg-c12` | **1.000** | 0.833 | faithful | faithful |
+
+`reg-c12` is the purest case in the set: **faithfulness 1.000, context
+precision 0.833**, and it is the regression case whose production output
+returned **COVERED for a pipe that froze with the heating switched off
+entirely**, because E-14 was never among the retrieved rows. Faithfulness
+1.000 on a payout that should not have happened.
+
+This is not the metric misfiring. It is the metric working exactly as
+defined and answering a different question than the one that matters.
+Faithfulness decomposes a summary into claims and checks each **against the
+passages that were retrieved**. The defect in all five is a claim about
+wording that was *not* retrieved:
 
 - `w6-01` asserts "No other exclusions from the endorsement apply" having
   been shown 8 of 12 exclusion rows.
-- `reg-c06` treats a dead battery as a coverage condition on the strength
-  of Clause 4.1, which requires only that the power source be *retained for
-  inspection*. Clause 2.2, which does impose the requirement, was never
-  retrieved.
-- `w6-06` welds Clause 4.2's records requirement into the Clause 2.2
-  coverage grant.
+- `w6-12` concludes the exclusion table "does not cover general water damage
+  from a pipe split" from five of ten rows, with the dwelling twenty weeks
+  vacant and E-72 among the five it never saw.
+- `reg-c06` treats a dead battery as a coverage condition on Clause 4.1,
+  which requires only that the power source be *retained for inspection*.
+- `w6-06` welds Clause 4.2's records requirement into the Clause 2.2 grant.
+- `w6-22` assumes groundwater — a condition E-11 requires and the notes
+  explicitly do not establish — and denies absolutely on it.
 
-Every atomic claim in each summary is entailed by a passage that was in
+Every atomic claim in every one of them is entailed by a passage that was in
 front of it. **A metric computed against the retrieved context is
-structurally incapable of noticing that the context was incomplete**, and
-no amount of faithfulness will tell you the row that decides the claim was
-never in the prompt.
+structurally incapable of noticing the context was incomplete.**
 
-The purest case is `reg-c12`: **faithfulness 1.000**, context precision
-0.833 — and this is the regression case whose production output returned
-**COVERED for a pipe that froze with the heating switched off entirely**,
-because E-14 was not among the retrieved rows. Faithfulness 1.000 on a
-payout that should not have happened.
+### Why the averages hide it
 
-### Why the average hides it
+Two separate mechanisms, and they are worth telling apart:
+
+**1. Faithfulness has no variance left to hide anything with.**
 
 ```
-mean faithfulness      0.990
-mean context precision 0.900
+faithfulness   1.000 x 22 cases
+               0.900 x  1 case
 ```
 
-Both look like a healthy system. A dashboard showing that pair would be
-reported green.
+Twenty-two of twenty-three cases return the identical value. A metric that
+scores a correct denial, a correct coverage grant, and a summary that
+invents a coverage condition all at exactly 1.000 is not measuring what
+separates them — it is measuring whether the model quoted its inputs, and
+this model always does. Mean 0.9957, usable information content near zero.
+**The average does not hide the signal; there is no signal to hide.**
 
-The averages hide it in two separate ways:
+**2. Context precision does carry signal, and the mean flattens it.**
 
-1. **Faithfulness has no variance to hide anything with.** Nine of ten
-   cases score exactly 1.000. A metric that returns the same value for a
-   correct denial, a correct coverage grant and a summary that invents a
-   coverage condition is not measuring the thing that separates them — it is
-   measuring whether the model quoted its inputs, which this model always
-   does. Its mean is 0.990 and its usable information content is close to
-   zero.
-2. **Context precision does carry the signal, and the mean flattens it.**
-   `w6-03` scores **0.333** — two of its three retrieved passages were
-   useless — against a mean of 0.900. The mean is dragged up by seven cases
-   at 1.000, so the one case where retrieval genuinely wasted two of three
-   slots disappears into a rounding difference.
+```
+context precision   1.000 x 18      0.833 x 2
+                    0.500 x  2      0.333 x 1
+```
 
-The pair is the finding. Either number alone is reassuring and wrong:
+`w6-03` scores **0.333** — two of its three retrieved passages contributed
+nothing the answer used — against a mean of 0.913. Eighteen cases at 1.000
+drag the mean up until the three genuinely wasteful retrievals (`w6-03`,
+`w6-18`, `w6-20`) vanish into a rounding difference. Per-case, retrieval
+wasted two of three slots on 1 case in 23 and one of two on two more; in the
+mean, that is 0.913 and looks like nothing.
+
+**The pair is the finding.** Either number alone is reassuring and wrong:
 faithfulness says the summary used its sources, context precision says the
-sources were on topic, and **neither can say the source that decides the
-claim was never retrieved** — which is the top mode in `taxonomy.md`, at 20%
-of the Week 5 sample, and the one that pays out money it shouldn't.
+sources were on topic, and **neither can say that the source which decides
+the claim was never retrieved** — which is the top mode in `taxonomy.md`, at
+20% of the Week 5 sample, and the one that pays out money it shouldn't.

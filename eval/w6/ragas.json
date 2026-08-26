@@ -1,0 +1,270 @@
+{
+  "evaluator_model": "qwen/qwen3.6-27b",
+  "implementation": "RAGAS-defined metrics computed locally; NOT the ragas package (its install broke this venv). See the module docstring.",
+  "n_scored": 23,
+  "skipped_no_policy_wording": [
+    "w6-14",
+    "w6-21"
+  ],
+  "mean_faithfulness": 0.9957,
+  "mean_context_precision": 0.913,
+  "per_case": [
+    {
+      "id": "reg-c12",
+      "mode": "Answers without the clause that decides the claim",
+      "claim_policy_line": "homeowners",
+      "wrong_policy_line": [],
+      "coverage_position": "UNDETERMINED",
+      "faithfulness": 1.0,
+      "context_precision": 0.8333,
+      "n_claims": 6,
+      "unsupported_claims": []
+    },
+    {
+      "id": "reg-c06",
+      "mode": "Answers without the clause that decides the claim",
+      "claim_policy_line": "homeowners",
+      "wrong_policy_line": [],
+      "coverage_position": "UNDETERMINED",
+      "faithfulness": 1.0,
+      "context_precision": 1.0,
+      "n_claims": 12,
+      "unsupported_claims": []
+    },
+    {
+      "id": "w6-01",
+      "mode": "Reports no deductible or excess figure",
+      "claim_policy_line": "homeowners",
+      "wrong_policy_line": [],
+      "coverage_position": "COVERED",
+      "faithfulness": 1.0,
+      "context_precision": 0.8333,
+      "n_claims": 12,
+      "unsupported_claims": []
+    },
+    {
+      "id": "w6-02",
+      "mode": "Answers without the clause that decides the claim",
+      "claim_policy_line": "homeowners",
+      "wrong_policy_line": [],
+      "coverage_position": "DENIED",
+      "faithfulness": 1.0,
+      "context_precision": 1.0,
+      "n_claims": 12,
+      "unsupported_claims": []
+    },
+    {
+      "id": "w6-03",
+      "mode": "Reports no deductible or excess figure",
+      "claim_policy_line": "homeowners",
+      "wrong_policy_line": [],
+      "coverage_position": "DENIED",
+      "faithfulness": 1.0,
+      "context_precision": 0.3333,
+      "n_claims": 8,
+      "unsupported_claims": []
+    },
+    {
+      "id": "w6-04",
+      "mode": "Answers without the clause that decides the claim",
+      "claim_policy_line": "homeowners",
+      "wrong_policy_line": [],
+      "coverage_position": "COVERED",
+      "faithfulness": 1.0,
+      "context_precision": 1.0,
+      "n_claims": 10,
+      "unsupported_claims": []
+    },
+    {
+      "id": "w6-05",
+      "mode": "Answers without the clause that decides the claim",
+      "claim_policy_line": "homeowners",
+      "wrong_policy_line": [],
+      "coverage_position": "COVERED",
+      "faithfulness": 1.0,
+      "context_precision": 1.0,
+      "n_claims": 8,
+      "unsupported_claims": []
+    },
+    {
+      "id": "w6-06",
+      "mode": "Quotes a clause under the wrong number, or cites without naming the form",
+      "claim_policy_line": "homeowners",
+      "wrong_policy_line": [],
+      "coverage_position": "DENIED",
+      "faithfulness": 1.0,
+      "context_precision": 1.0,
+      "n_claims": 9,
+      "unsupported_claims": []
+    },
+    {
+      "id": "w6-07",
+      "mode": "Answers without the clause that decides the claim",
+      "claim_policy_line": "homeowners",
+      "wrong_policy_line": [],
+      "coverage_position": "DENIED",
+      "faithfulness": 1.0,
+      "context_precision": 1.0,
+      "n_claims": 9,
+      "unsupported_claims": []
+    },
+    {
+      "id": "w6-08",
+      "mode": "Answers without the clause that decides the claim",
+      "claim_policy_line": "homeowners",
+      "wrong_policy_line": [],
+      "coverage_position": "COVERED",
+      "faithfulness": 0.9,
+      "context_precision": 1.0,
+      "n_claims": 10,
+      "unsupported_claims": [
+        "The policy excludes home-sharing activity generally."
+      ]
+    },
+    {
+      "id": "w6-09",
+      "mode": "Quotes a clause under the wrong number, or cites without naming the form",
+      "claim_policy_line": "homeowners",
+      "wrong_policy_line": [],
+      "coverage_position": "DENIED",
+      "faithfulness": 1.0,
+      "context_precision": 1.0,
+      "n_claims": 10,
+      "unsupported_claims": []
+    },
+    {
+      "id": "w6-10",
+      "mode": "Coverage position field contradicts its own narrative",
+      "claim_policy_line": "homeowners",
+      "wrong_policy_line": [
+        "motor"
+      ],
+      "coverage_position": "DENIED",
+      "faithfulness": 1.0,
+      "context_precision": 1.0,
+      "n_claims": 6,
+      "unsupported_claims": []
+    },
+    {
+      "id": "w6-11",
+      "mode": "Answers without the clause that decides the claim",
+      "claim_policy_line": "dwelling_fire",
+      "wrong_policy_line": [],
+      "coverage_position": "COVERED",
+      "faithfulness": 1.0,
+      "context_precision": 1.0,
+      "n_claims": 8,
+      "unsupported_claims": []
+    },
+    {
+      "id": "w6-12",
+      "mode": "Quotes a clause under the wrong number, or cites without naming the form",
+      "claim_policy_line": "dwelling_fire",
+      "wrong_policy_line": [],
+      "coverage_position": "UNDETERMINED",
+      "faithfulness": 1.0,
+      "context_precision": 1.0,
+      "n_claims": 8,
+      "unsupported_claims": []
+    },
+    {
+      "id": "w6-13",
+      "mode": "Coverage position field contradicts its own narrative",
+      "claim_policy_line": "dwelling_fire",
+      "wrong_policy_line": [],
+      "coverage_position": "UNDETERMINED",
+      "faithfulness": 1.0,
+      "context_precision": 1.0,
+      "n_claims": 4,
+      "unsupported_claims": []
+    },
+    {
+      "id": "w6-15",
+      "mode": "Answers without the clause that decides the claim",
+      "claim_policy_line": "homeowners",
+      "wrong_policy_line": [],
+      "coverage_position": "DENIED",
+      "faithfulness": 1.0,
+      "context_precision": 1.0,
+      "n_claims": 9,
+      "unsupported_claims": []
+    },
+    {
+      "id": "w6-16",
+      "mode": "Answers without the clause that decides the claim",
+      "claim_policy_line": "homeowners",
+      "wrong_policy_line": [],
+      "coverage_position": "DENIED",
+      "faithfulness": 1.0,
+      "context_precision": 1.0,
+      "n_claims": 10,
+      "unsupported_claims": []
+    },
+    {
+      "id": "w6-17",
+      "mode": "Coverage position field contradicts its own narrative",
+      "claim_policy_line": "homeowners",
+      "wrong_policy_line": [],
+      "coverage_position": "DENIED",
+      "faithfulness": 1.0,
+      "context_precision": 1.0,
+      "n_claims": 5,
+      "unsupported_claims": []
+    },
+    {
+      "id": "w6-18",
+      "mode": "Quotes a clause under the wrong number, or cites without naming the form",
+      "claim_policy_line": "homeowners",
+      "wrong_policy_line": [],
+      "coverage_position": "DENIED",
+      "faithfulness": 1.0,
+      "context_precision": 0.5,
+      "n_claims": 12,
+      "unsupported_claims": []
+    },
+    {
+      "id": "w6-19",
+      "mode": "Coverage position field contradicts its own narrative",
+      "claim_policy_line": "homeowners",
+      "wrong_policy_line": [],
+      "coverage_position": "UNDETERMINED",
+      "faithfulness": 1.0,
+      "context_precision": 1.0,
+      "n_claims": 4,
+      "unsupported_claims": []
+    },
+    {
+      "id": "w6-20",
+      "mode": "Coverage position field contradicts its own narrative",
+      "claim_policy_line": "homeowners",
+      "wrong_policy_line": [],
+      "coverage_position": "DENIED",
+      "faithfulness": 1.0,
+      "context_precision": 0.5,
+      "n_claims": 12,
+      "unsupported_claims": []
+    },
+    {
+      "id": "w6-22",
+      "mode": "Comes back with the wrong product's wording, or nothing, and declines",
+      "claim_policy_line": "homeowners",
+      "wrong_policy_line": [],
+      "coverage_position": "DENIED",
+      "faithfulness": 1.0,
+      "context_precision": 1.0,
+      "n_claims": 4,
+      "unsupported_claims": []
+    },
+    {
+      "id": "w6-23",
+      "mode": "Reports no deductible or excess figure",
+      "claim_policy_line": "homeowners",
+      "wrong_policy_line": [],
+      "coverage_position": "COVERED",
+      "faithfulness": 1.0,
+      "context_precision": 1.0,
+      "n_claims": 11,
+      "unsupported_claims": []
+    }
+  ]
+}

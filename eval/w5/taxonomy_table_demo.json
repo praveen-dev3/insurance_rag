@@ -1,0 +1,31 @@
+{
+  "label": "curated demo set, seed 20260826",
+  "coding_file": "eval/w5/open_coding_demo.json",
+  "seed": 20260826,
+  "total_traces": 10,
+  "coded": 10,
+  "uncoded": [],
+  "modes_declared": 6,
+  "modes_used": 1,
+  "rows": [
+    {
+      "mode": "No failure observed",
+      "count": 10,
+      "percent": 100.0,
+      "severity": "n/a - not a failure mode",
+      "example_trace_id": "tr-demo-0001",
+      "all_trace_ids": [
+        "tr-demo-0001",
+        "tr-demo-0002",
+        "tr-demo-0003",
+        "tr-demo-0005",
+        "tr-demo-0006",
+        "tr-demo-0008",
+        "tr-demo-0009",
+        "tr-demo-0010",
+        "tr-demo-0011",
+        "tr-demo-0012"
+      ]
+    }
+  ]
+}

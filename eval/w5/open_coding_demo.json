@@ -1,0 +1,91 @@
+{
+  "seed": 20260826,
+  "selection": "random.Random(20260826).sample(sorted(trace_ids tagged demo), 10)",
+  "frame": "12 traces tagged `demo` - the curated set shown at the monthly review",
+  "coded_on": "2026-08-26",
+  "protocol": [
+    "Same protocol as the random sample: one sentence describing what was",
+    "seen, then modes assigned from the sentences using the SAME mode list",
+    "that was derived from the random sample. Deriving a fresh set of modes",
+    "for the demo set would make the two frequencies incomparable, which is",
+    "the only thing this bonus is for."
+  ],
+  "modes": {
+    "Answers without the clause that decides the claim": {
+      "severity": "wrongly denies or wrongly pays a claim",
+      "what_was_seen": "The exclusion row, coverage grant or condition that actually settles the question was not among the three chunks that reached the prompt. Sometimes the app noticed and declined; once it did not notice and said COVERED."
+    },
+    "Coverage position field contradicts its own narrative": {
+      "severity": "wrongly denies a claim",
+      "what_was_seen": "The labelled field says one thing and the prose underneath says another. The field is what a queue routes on."
+    },
+    "Comes back with the wrong product's wording, or nothing, and declines": {
+      "severity": "annoys the adjuster",
+      "what_was_seen": "The retrieved set held the flood manual or the motor wording for a homeowners claim, or held nothing at all after the score floor, and the app emitted the refusal sentence."
+    },
+    "Reports no deductible or excess figure": {
+      "severity": "annoys the adjuster",
+      "what_was_seen": "The Deductible field reads UNKNOWN, so the file cannot be routed on the amount."
+    },
+    "Quotes a clause under the wrong number, or cites without naming the form": {
+      "severity": "annoys the adjuster",
+      "what_was_seen": "Wording was attributed to a clause it does not come from, or the citation's form-number slot held a clause number instead of a form number, or no chunk_id was cited at all."
+    },
+    "No failure observed": {
+      "severity": "n/a - not a failure mode",
+      "what_was_seen": "The answer matched the retrieved wording, the citation resolved, and nothing in the trace contradicted anything else in it."
+    }
+  },
+  "observations": [
+    {
+      "trace_id": "tr-demo-0001",
+      "sentence": "Answered 'No' and quoted the E-17 disposition note verbatim including 'does NOT apply to a sudden and accidental discharge under Clause 2.1', with two citations that resolve, from a top chunk at rerank 7.1.",
+      "mode": "No failure observed"
+    },
+    {
+      "trace_id": "tr-demo-0002",
+      "sentence": "Concluded the loss is excluded under E-34 and quoted the row, with two resolving citations, opening with the phrase 'are covered by the exclusion for cosmetic damage', which uses the word covered to mean caught-by.",
+      "mode": "No failure observed"
+    },
+    {
+      "trace_id": "tr-demo-0003",
+      "sentence": "Named E-44, quoted the row and its 'excluded absolutely' disposition, with two citations that resolve, from a top chunk at rerank 5.7.",
+      "mode": "No failure observed"
+    },
+    {
+      "trace_id": "tr-demo-0005",
+      "sentence": "Reproduced the E-72 row - plumbing water damage in a dwelling vacant more than 60 consecutive days - with one citation that resolves, from a top chunk at rerank 6.7.",
+      "mode": "No failure observed"
+    },
+    {
+      "trace_id": "tr-demo-0006",
+      "sentence": "Reproduced the HO-0710 supply-line definition including the drain-line carve-out, with one citation that resolves.",
+      "mode": "No failure observed"
+    },
+    {
+      "trace_id": "tr-demo-0008",
+      "sentence": "Answered the deductible question with 'two percent (2%) of the Coverage A limit ... subject to a minimum of one thousand dollars ($1,000)', citing Clause 5, from a top chunk at rerank 8.9.",
+      "mode": "No failure observed"
+    },
+    {
+      "trace_id": "tr-demo-0009",
+      "sentence": "Answered that the secondary power source must carry the pump for not less than eight hours, citing HO-0521 Clause 2.2, from a top chunk at rerank 5.5.",
+      "mode": "No failure observed"
+    },
+    {
+      "trace_id": "tr-demo-0010",
+      "sentence": "Answered $25,000 in the aggregate per policy year with a citation that resolves, from a retrieved set whose second chunk was HO-0412, a different form.",
+      "mode": "No failure observed"
+    },
+    {
+      "trace_id": "tr-demo-0011",
+      "sentence": "Stated both limbs of the Clause 4.3 incidental exception - receipts not exceeding $5,000 AND no customer visit - with one citation that resolves.",
+      "mode": "No failure observed"
+    },
+    {
+      "trace_id": "tr-demo-0012",
+      "sentence": "Answered that the endorsement with the later edition date controls, citing HO-0710 Clause 3.1, from a retrieved set whose third chunk scored -5.57 on the reranker.",
+      "mode": "No failure observed"
+    }
+  ]
+}

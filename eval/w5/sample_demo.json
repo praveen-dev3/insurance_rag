@@ -1,0 +1,93 @@
+{
+  "seed": 20260826,
+  "n": 10,
+  "tag": "demo",
+  "trace_file": "traces\\claims_traces.jsonl",
+  "traces_in_file": 82,
+  "frame_size": 12,
+  "selection": "random.Random(20260826).sample(sorted(trace_ids), 10)",
+  "trace_ids": [
+    "tr-demo-0001",
+    "tr-demo-0002",
+    "tr-demo-0003",
+    "tr-demo-0005",
+    "tr-demo-0006",
+    "tr-demo-0008",
+    "tr-demo-0009",
+    "tr-demo-0010",
+    "tr-demo-0011",
+    "tr-demo-0012"
+  ],
+  "rows": [
+    {
+      "trace_id": "tr-demo-0001",
+      "task": "qa",
+      "case_id": "d01",
+      "session_id": "demo-d01",
+      "turn": 1
+    },
+    {
+      "trace_id": "tr-demo-0002",
+      "task": "qa",
+      "case_id": "d02",
+      "session_id": "demo-d02",
+      "turn": 1
+    },
+    {
+      "trace_id": "tr-demo-0003",
+      "task": "qa",
+      "case_id": "d03",
+      "session_id": "demo-d03",
+      "turn": 1
+    },
+    {
+      "trace_id": "tr-demo-0005",
+      "task": "qa",
+      "case_id": "d05",
+      "session_id": "demo-d05",
+      "turn": 1
+    },
+    {
+      "trace_id": "tr-demo-0006",
+      "task": "qa",
+      "case_id": "d06",
+      "session_id": "demo-d06",
+      "turn": 1
+    },
+    {
+      "trace_id": "tr-demo-0008",
+      "task": "qa",
+      "case_id": "d08",
+      "session_id": "demo-d08",
+      "turn": 1
+    },
+    {
+      "trace_id": "tr-demo-0009",
+      "task": "qa",
+      "case_id": "d09",
+      "session_id": "demo-d09",
+      "turn": 1
+    },
+    {
+      "trace_id": "tr-demo-0010",
+      "task": "qa",
+      "case_id": "d10",
+      "session_id": "demo-d10",
+      "turn": 1
+    },
+    {
+      "trace_id": "tr-demo-0011",
+      "task": "qa",
+      "case_id": "d11",
+      "session_id": "demo-d11",
+      "turn": 1
+    },
+    {
+      "trace_id": "tr-demo-0012",
+      "task": "qa",
+      "case_id": "d12",
+      "session_id": "demo-d12",
+      "turn": 1
+    }
+  ]
+}

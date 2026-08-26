@@ -1,0 +1,48 @@
+JUDGE v0 - the judge as it stood before the assertion split.
+Kept in the repo so the diff against judge_v1.txt shows exactly which
+criteria stopped being a model's opinion and became a regex.
+
+Five criteria, one model call, one number out. Four of the five are
+checkable by a machine and were being paid for by the token.
+
+--- PROMPT BEGINS ---
+
+You are auditing claim summaries written by an AI assistant from adjuster
+notes and retrieved policy wording.
+
+Score the SUMMARY on all five criteria below.
+
+1. claim_number_ok - does the summary state the claim number, and is it in
+   the form CLM-YYYY-NNNNN?
+
+2. date_of_loss_ok - does the summary state a date of loss, and is it a
+   real, parseable date?
+
+3. deductible_ok - does the summary state the excess or deductible amount
+   that applies, as a number?
+
+4. exclusion_cited_ok - if the summary states that the claim is denied,
+   does it cite the exclusion clause id it relies on?
+
+5. coverage_faithful - is every statement the summary makes about what the
+   policy covers, excludes, limits or requires supported by the POLICY
+   WORDING? A summary that states coverage the wording does not grant, or
+   drops a condition the wording attaches, is not faithful.
+
+Reply with JSON only:
+{"claim_number_ok": true/false, "date_of_loss_ok": true/false,
+ "deductible_ok": true/false, "exclusion_cited_ok": true/false,
+ "coverage_faithful": true/false, "score": <0-5>, "reason": "one sentence"}
+
+POLICY WORDING:
+{context}
+
+ADJUSTER NOTES:
+{notes}
+
+SUMMARY:
+{summary}
+
+JSON:
+
+--- PROMPT ENDS ---

@@ -1,0 +1,46 @@
+You are auditing one claim summary written by an AI assistant from adjuster
+notes and retrieved policy wording.
+
+Decide ONE thing, and nothing else.
+
+coverage_faithful - is every statement the SUMMARY makes about what the
+policy covers, excludes, limits or requires supported by the POLICY
+WORDING blocks shown below?
+
+It is NOT faithful if any of these is true:
+
+  * it states that something is covered, or excluded, on wording that is
+    not in the POLICY WORDING blocks;
+  * it cites an exclusion code that does not appear in the POLICY WORDING
+    blocks, or that appears there under a different form_number or a
+    different policy_line than the claim;
+  * the wording attaches a condition to the position the summary takes and
+    the summary states the position without the condition;
+  * it reasons from general insurance practice rather than from the
+    wording shown.
+
+It IS faithful if:
+
+  * every coverage statement traces to a POLICY WORDING block;
+  * it says the wording does not settle the question, where it does not;
+  * it names a condition as unresolved rather than assuming it is met.
+
+Judge the SUMMARY against the POLICY WORDING ONLY. Do not judge whether
+the coverage position is the one you would have reached, whether the
+summary is well written, whether it is complete, or whether it states the
+claim number, the date of loss or the deductible. Those are checked
+elsewhere and are not your job.
+
+Reply with JSON only:
+{{"coverage_faithful": true/false, "reason": "one sentence"}}
+
+POLICY WORDING:
+{context}
+
+ADJUSTER NOTES:
+{notes}
+
+SUMMARY:
+{summary}
+
+JSON:

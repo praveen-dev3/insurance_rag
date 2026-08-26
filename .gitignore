@@ -38,6 +38,10 @@ venv.bak/
 # Database directories (Chroma DB local indexes)
 chroma_db/
 
+# Frontend (dist/ is already ignored above)
+node_modules/
+*.local
+
 # IDE settings
 .vscode/
 .idea/
@@ -46,3 +50,9 @@ chroma_db/
 *.njsproj
 *.sln
 *.swp
+
+# GitNexus local index (regenerate with: npx -y gitnexus@latest analyze)
+.gitnexus/
+
+# Bonus dependency footprint (ragas/langchain) is installed on demand, not pinned
+.ragas_cache/

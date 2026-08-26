@@ -1,0 +1,74 @@
+Week 6 Task Set D — 25 cases, 5 taxonomy modes, 2 regression cases replayed from real traces.
+Index is up to date: 24523 chunks, 8 documents, nothing to do.
+BM25 index built over 24523 chunks.
+
+Loading embedding model 'BAAI/bge-small-en-v1.5'...
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|##########| 199/199 [00:00<00:00, 6402.68it/s]
+Loading reranker 'cross-encoder/ms-marco-MiniLM-L-6-v2'...
+Loading weights:   0%|          | 0/105 [00:00<?, ?it/s]Loading weights: 100%|##########| 105/105 [00:00<00:00, 4482.78it/s]
+  [ 1/25] reg-c12  Answers without the clause that decides the claim FAIL  UNDETERMINED
+  [ 2/25] reg-c06  Answers without the clause that decides the claim FAIL  UNDETERMINED
+  [ 3/25] w6-01    Reports no deductible or excess figure FAIL  COVERED
+  [ 4/25] w6-02    Answers without the clause that decides the claim FAIL  DENIED
+  [ 5/25] w6-03    Reports no deductible or excess figure FAIL  DENIED
+  [ 6/25] w6-04    Answers without the clause that decides the claim FAIL  COVERED
+      rate limited; waiting 11s
+  [ 7/25] w6-05    Answers without the clause that decides the claim FAIL  COVERED
+      rate limited; waiting 10s
+  [ 8/25] w6-06    Quotes a clause under the wrong number, or cites without naming the form FAIL  DENIED
+      rate limited; waiting 11s
+  [ 9/25] w6-07    Answers without the clause that decides the claim FAIL  DENIED
+      rate limited; waiting 10s
+  [10/25] w6-08    Answers without the clause that decides the claim FAIL  COVERED
+      rate limited; waiting 2s
+  [11/25] w6-09    Quotes a clause under the wrong number, or cites without naming the form FAIL  DENIED
+      rate limited; waiting 9s
+  [12/25] w6-10    Coverage position field contradicts its own narrative FAIL  DENIED
+      rate limited; waiting 7s
+  [13/25] w6-11    Answers without the clause that decides the claim FAIL  COVERED
+      rate limited; waiting 10s
+  [14/25] w6-12    Quotes a clause under the wrong number, or cites without naming the form FAIL  UNDETERMINED
+      rate limited; waiting 8s
+  [15/25] w6-13    Coverage position field contradicts its own narrative FAIL  UNDETERMINED
+      rate limited; waiting 9s
+  [16/25] w6-14    Comes back with the wrong product's wording, or nothing, and declines FAIL  UNDETERMINED
+      rate limited; waiting 4s
+  [17/25] w6-15    Answers without the clause that decides the claim FAIL  DENIED
+      rate limited; waiting 6s
+  [18/25] w6-16    Answers without the clause that decides the claim FAIL  DENIED
+      rate limited; waiting 9s
+  [19/25] w6-17    Coverage position field contradicts its own narrative PASS  DENIED
+      rate limited; waiting 14s
+      rate limited; waiting 3s
+  [20/25] w6-18    Quotes a clause under the wrong number, or cites without naming the form FAIL  DENIED
+      rate limited; waiting 8s
+  [21/25] w6-19    Coverage position field contradicts its own narrative FAIL  UNDETERMINED
+      rate limited; waiting 7s
+  [22/25] w6-20    Coverage position field contradicts its own narrative FAIL  DENIED
+      rate limited; waiting 8s
+  [23/25] w6-21    Comes back with the wrong product's wording, or nothing, and declines FAIL  UNDETERMINED
+      rate limited; waiting 5s
+      rate limited; waiting 3s
+  [24/25] w6-22    Comes back with the wrong product's wording, or nothing, and declines FAIL  DENIED
+      rate limited; waiting 5s
+  [25/25] w6-23    Reports no deductible or excess figure FAIL  COVERED
+
+Saved 25 summaries to eval\w6\summaries.json
+
+taxonomy mode                    n   assert  faithful     pass
+--------------------------------------------------------------
+Answers without the clause that decides the claim  10   0/10           -        -
+Comes back with the wrong product's wording, or nothing, and declines   3   0/3            -        -
+Coverage position field contradicts its own narrative   5   1/5            -        -
+Quotes a clause under the wrong number, or cites without naming the form   4   0/4            -        -
+Reports no deductible or excess figure   3   0/3            -        -
+--------------------------------------------------------------
+ALL                             25   1/25  
+
+assertion failures (of 25 cases):
+  claim_number_echoed            0
+  date_of_loss_parseable         0
+  deductible_numeric            24
+  exclusion_cited_on_denial      4
+  citations_resolve              6

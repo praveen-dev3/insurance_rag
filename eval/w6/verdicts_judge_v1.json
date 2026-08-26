@@ -1,0 +1,181 @@
+{
+  "judge": "judge_v1",
+  "criterion": "coverage_faithful",
+  "verdicts": {
+    "reg-c12": {
+      "case_id": "reg-c12",
+      "faithful": true,
+      "reason": "The summary accurately reflects the policy wording by citing Exclusion E-17 and its specific condition regarding the 14-day threshold and the exception for sudden and accidental discharges, correctly identifying that the adjuster notes do not provide sufficient information to determine if these conditions are met.",
+      "judge": "judge_v1",
+      "error": null
+    },
+    "reg-c06": {
+      "case_id": "reg-c06",
+      "faithful": false,
+      "reason": "The summary incorrectly attributes the requirement to retain the power source to clause 4.1, whereas the policy wording in clause 4.1 only requires the insured to retain the sump pump and its power source following a loss for inspection, not that the power source be functional or retained as a condition of coverage in the manner described.",
+      "judge": "judge_v1",
+      "error": null
+    },
+    "w6-01": {
+      "case_id": "w6-01",
+      "faithful": true,
+      "reason": "The summary correctly identifies the coverage grant for sudden and accidental discharge, accurately cites the specific exclusion E-17 and its non-applicability to this event as stated in the policy wording, and does not assert that other exclusions are inapplicable without basis (it simply states none are relied upon, which is consistent with the facts provided in the notes and the lack of trigger",
+      "judge": "judge_v1",
+      "error": null
+    },
+    "w6-02": {
+      "case_id": "w6-02",
+      "faithful": true,
+      "reason": "The summary correctly identifies Exclusion E-17 from the provided policy wording, accurately quotes its disposition including the condition regarding sudden and accidental discharge, and correctly applies it to the facts of a 14+ day seepage event to support the denial.",
+      "judge": "judge_v1",
+      "error": null
+    },
+    "w6-03": {
+      "case_id": "w6-03",
+      "faithful": true,
+      "reason": "The summary correctly identifies the E-34 exclusion and its specific condition regarding cosmetic damage versus penetration, both of which are explicitly supported by the Note in POLICY WORDING 3.",
+      "judge": "judge_v1",
+      "error": null
+    },
+    "w6-04": {
+      "case_id": "w6-04",
+      "faithful": true,
+      "reason": "The summary correctly applies Clause 2.2 for actual cash value settlement based on the roof's age and correctly identifies that E-34 (cosmetic damage) does not apply because the hail penetrated the surfacing, as supported by the note in the Exclusion Table.",
+      "judge": "judge_v1",
+      "error": null
+    },
+    "w6-05": {
+      "case_id": "w6-05",
+      "faithful": true,
+      "reason": "The summary correctly identifies that the provided service records satisfy the conditions in Clause 4.1 and 4.2 and that Exclusion E-44 does not apply based on the specific note in the policy wording regarding consistent service records.",
+      "judge": "judge_v1",
+      "error": null
+    },
+    "w6-06": {
+      "case_id": "w6-06",
+      "faithful": false,
+      "reason": "The summary incorrectly states that the coverage grant applies only if maintenance records are available, whereas the policy wording (Clause 2.1) grants coverage for mechanical breakdown and the maintenance record requirement is a condition for the exclusion (E-44) to apply, not a condition for the coverage grant itself.",
+      "judge": "judge_v1",
+      "error": null
+    },
+    "w6-07": {
+      "case_id": "w6-07",
+      "faithful": true,
+      "reason": "The summary correctly identifies that the absence of a secondary power source voids coverage under Clause 2.2, which is explicitly stated in the provided policy wording, and accurately notes that no specific exclusion code is cited for this denial.",
+      "judge": "judge_v1",
+      "error": null
+    },
+    "w6-08": {
+      "case_id": "w6-08",
+      "faithful": true,
+      "reason": "Every coverage statement in the summary, including the application of the 14-day allowance, the specific exclusion exception for bodily injury, and the satisfaction of the record-keeping condition, is directly supported by the provided policy wording blocks.",
+      "judge": "judge_v1",
+      "error": null
+    },
+    "w6-09": {
+      "case_id": "w6-09",
+      "faithful": false,
+      "reason": "The summary incorrectly attributes the presumption of exceeding the 14-day limit to Clause 4.1, whereas the policy wording explicitly states in Clause 5.1 that failure to produce the record raises this presumption.",
+      "judge": "judge_v1",
+      "error": null
+    },
+    "w6-10": {
+      "case_id": "w6-10",
+      "faithful": false,
+      "reason": "The summary cites the condition for business activity exclusion to Clause 5.3, but the provided policy wording places this condition in Clause 4.3, and Clause 5.3 does not exist in the retrieved blocks.",
+      "judge": "judge_v1",
+      "error": null
+    },
+    "w6-11": {
+      "case_id": "w6-11",
+      "faithful": true,
+      "reason": "The summary correctly identifies the coverage grant for sudden and accidental discharge under Clause 2.1, confirms the tenant occupancy condition under Clause 2.2, and accurately applies the absolute exclusion for mould under code E-76, all of which are supported by the provided policy wording.",
+      "judge": "judge_v1",
+      "error": null
+    },
+    "w6-12": {
+      "case_id": "w6-12",
+      "faithful": true,
+      "reason": "Every coverage statement in the summary, including the specific conditions regarding inspection and notice and the analysis of the exclusion table, is directly supported by the provided policy wording blocks.",
+      "judge": "judge_v1",
+      "error": null
+    },
+    "w6-13": {
+      "case_id": "w6-13",
+      "faithful": true,
+      "reason": "The summary accurately cites the coverage grant conditions and exclusion E-72 from the provided policy wording and correctly identifies the unresolved tenancy status as the reason for the undetermined coverage position.",
+      "judge": "judge_v1",
+      "error": null
+    },
+    "w6-14": {
+      "case_id": "w6-14",
+      "faithful": true,
+      "reason": "The summary correctly states that the coverage position is undetermined because the provided policy wording blocks contain only fragments regarding floor definitions and do not include any clauses defining coverage, exclusions, or limits for flood damage.",
+      "judge": "judge_v1",
+      "error": null
+    },
+    "w6-15": {
+      "case_id": "w6-15",
+      "faithful": true,
+      "reason": "The summary correctly identifies Exclusion E-14 from the provided policy wording, accurately states the condition (heat maintained at 55\u00b0F or above), and correctly applies the exclusion based on the adjuster's notes that the heating was switched off.",
+      "judge": "judge_v1",
+      "error": null
+    },
+    "w6-16": {
+      "case_id": "w6-16",
+      "faithful": true,
+      "reason": "The summary accurately reflects the 30-day notice condition and the exception for reasonable delay found in Clause 4.1 of the provided policy wording, and correctly notes that the deductible is not specified in the provided text.",
+      "judge": "judge_v1",
+      "error": null
+    },
+    "w6-17": {
+      "case_id": "w6-17",
+      "faithful": false,
+      "reason": "The summary cites the chunk_id for POLICY WORDING 2 (which contains E-35 through E-39) to support statements about E-33 and E-37, which are actually found in POLICY WORDING 1.",
+      "judge": "judge_v1",
+      "error": null
+    },
+    "w6-18": {
+      "case_id": "w6-18",
+      "faithful": true,
+      "reason": "The summary correctly identifies exclusion E-38 from the provided policy wording, accurately quotes its definition regarding repeated hail impact without single-event breach, and correctly applies it to the facts described in the adjuster notes.",
+      "judge": "judge_v1",
+      "error": null
+    },
+    "w6-19": {
+      "case_id": "w6-19",
+      "faithful": true,
+      "reason": "The summary correctly identifies that the loss type is covered under Clause 2.1, accurately cites the preservation condition in Clause 4.3 and the notice condition in Clause 4.1 from the provided policy wording, and appropriately marks the coverage position as undetermined due to unresolved conditions rather than assuming they are met or violated.",
+      "judge": "judge_v1",
+      "error": null
+    },
+    "w6-20": {
+      "case_id": "w6-20",
+      "faithful": true,
+      "reason": "The summary correctly identifies exclusion E-49 from the provided policy wording, accurately states the condition regarding prior claims and remediation certification, and correctly applies the exclusion based on the adjuster's notes confirming the condition is met.",
+      "judge": "judge_v1",
+      "error": null
+    },
+    "w6-21": {
+      "case_id": "w6-21",
+      "faithful": true,
+      "reason": "The summary correctly states that the coverage position is undetermined because the provided policy wording blocks contain no substantive text regarding coverage, exclusions, or limits, only fragmentary headers.",
+      "judge": "judge_v1",
+      "error": null
+    },
+    "w6-22": {
+      "case_id": "w6-22",
+      "faithful": false,
+      "reason": "The summary asserts that exclusion E-11 applies because the water 'appears to be groundwater,' but the adjuster notes explicitly state the source is 'genuinely not established' and could be a washing machine drain, meaning the summary assumes a condition is met that the evidence does not support.",
+      "judge": "judge_v1",
+      "error": null
+    },
+    "w6-23": {
+      "case_id": "w6-23",
+      "faithful": true,
+      "reason": "Every coverage statement, exclusion analysis, and condition precedent assessment in the summary is directly supported by the provided policy wording blocks, and the summary correctly identifies items not addressed by the wording as unresolved.",
+      "judge": "judge_v1",
+      "error": null
+    }
+  }
+}

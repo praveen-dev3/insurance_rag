@@ -1,0 +1,79 @@
+Week 6 Task Set D — 25 cases, 5 taxonomy modes, 2 regression cases replayed from real traces.
+
+  [ 1/25] reg-c12  faithful
+  [ 2/25] reg-c06  UNFAITHFUL
+      rate limited; waiting 2s
+  [ 3/25] w6-01    faithful
+      rate limited; waiting 12s
+  [ 4/25] w6-02    faithful
+      rate limited; waiting 11s
+  [ 5/25] w6-03    faithful
+      rate limited; waiting 13s
+  [ 6/25] w6-04    faithful
+      rate limited; waiting 12s
+  [ 7/25] w6-05    faithful
+      rate limited; waiting 11s
+  [ 8/25] w6-06    UNFAITHFUL
+      rate limited; waiting 9s
+  [ 9/25] w6-07    faithful
+      rate limited; waiting 13s
+  [10/25] w6-08    faithful
+      rate limited; waiting 9s
+  [11/25] w6-09    UNFAITHFUL
+      rate limited; waiting 11s
+  [12/25] w6-10    UNFAITHFUL
+      rate limited; waiting 13s
+  [13/25] w6-11    faithful
+      rate limited; waiting 13s
+  [14/25] w6-12    faithful
+      rate limited; waiting 11s
+  [15/25] w6-13    faithful
+      rate limited; waiting 8s
+  [16/25] w6-14    faithful
+      rate limited; waiting 10s
+  [17/25] w6-15    faithful
+      rate limited; waiting 12s
+  [18/25] w6-16    faithful
+      rate limited; waiting 14s
+  [19/25] w6-17    UNFAITHFUL
+      rate limited; waiting 12s
+  [20/25] w6-18    faithful
+      rate limited; waiting 12s
+  [21/25] w6-19    faithful
+      rate limited; waiting 11s
+  [22/25] w6-20    faithful
+      rate limited; waiting 7s
+  [23/25] w6-21    faithful
+      rate limited; waiting 11s
+  [24/25] w6-22    UNFAITHFUL
+      rate limited; waiting 13s
+  [25/25] w6-23    faithful
+
+Saved verdicts to eval\w6\verdicts_judge_v1.json
+
+taxonomy mode                    n   assert  faithful     pass
+--------------------------------------------------------------
+Answers without the clause that decides the claim  10   0/10        9/10     0/10
+Comes back with the wrong product's wording, or nothing, and declines   3   0/3          2/3      0/3
+Coverage position field contradicts its own narrative   5   1/5          3/5      0/5
+Quotes a clause under the wrong number, or cites without naming the form   4   0/4          2/4      0/4
+Reports no deductible or excess figure   3   0/3          3/3      0/3
+--------------------------------------------------------------
+ALL                             25   1/25     19/25     0/25
+
+assertion failures (of 25 cases):
+  claim_number_echoed            0
+  date_of_loss_parseable         0
+  deductible_numeric            24
+  exclusion_cited_on_denial      4
+  citations_resolve              6
+
+AGREEMENT with hand labels (judge_v1)
+  labelled          : 25
+  scored            : 25
+  agreement         : 20/25  =  80.0%
+  cells             : {"human_faithful_judge_faithful": 17, "human_unfaithful_judge_unfaithful": 3, "human_unfaithful_judge_faithful": 2, "human_faithful_judge_unfaithful": 3}
+  judge too lenient : ['w6-01', 'w6-12']
+  judge too strict  : ['w6-09', 'w6-10', 'w6-17']
+
+Saved agreement to eval\w6\agreement_judge_v1.json

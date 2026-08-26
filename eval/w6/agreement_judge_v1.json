@@ -1,0 +1,36 @@
+{
+  "judge": "judge_v1",
+  "labels_file": "eval\\labels_25.json",
+  "labels_sha_note": "The judge had not been run when this file was written and could not have been: tools/run_w6.py --stage judge raises SystemExit unless this file already exists. The commit containing this file therefore precedes the commit containing eval/w6/verdicts_judge_v1.json, and git log is the ordering evidence.",
+  "n_labelled": 25,
+  "n_scored": 25,
+  "n_unscored": 0,
+  "unscored": [],
+  "agreements": 20,
+  "agreement": 0.8,
+  "agreement_pct": 80.0,
+  "cells": {
+    "human_faithful_judge_faithful": 17,
+    "human_unfaithful_judge_unfaithful": 3,
+    "human_unfaithful_judge_faithful": 2,
+    "human_faithful_judge_unfaithful": 3
+  },
+  "disagreements": {
+    "judge_too_lenient": [
+      "w6-01",
+      "w6-12"
+    ],
+    "judge_too_strict": [
+      "w6-09",
+      "w6-10",
+      "w6-17"
+    ],
+    "all": [
+      "w6-01",
+      "w6-09",
+      "w6-10",
+      "w6-12",
+      "w6-17"
+    ]
+  }
+}

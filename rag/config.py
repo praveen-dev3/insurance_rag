@@ -74,10 +74,24 @@ UTILITY_MODEL = os.getenv("UTILITY_MODEL", "openai/gpt-oss-20b")
 # Kept for backwards compatibility with earlier configs.
 CONDENSE_MODEL = os.getenv("CONDENSE_MODEL", UTILITY_MODEL)
 
-# The LLM judge in rag/judge.py. Held apart from LLM_MODEL on purpose: a
-# model asked whether its own output is faithful is a poor auditor of it,
-# and separating them also separates the two daily token budgets.
-JUDGE_MODEL = os.getenv("JUDGE_MODEL", "openai/gpt-oss-120b")
+# The LLM judge in rag/judge.py. Held apart from LLM_MODEL on purpose, and
+# now held apart by MODEL FAMILY as well.
+#
+# The first attempt used gpt-oss-120b and 22 of 25 verdicts came back as
+# 429s: the Week 5 traffic had already spent that model's 200,000-token
+# daily budget, which refills at roughly 139 tokens a minute, so the API
+# was asking for a four-minute wait per call. The failure was recorded
+# honestly - rag/judge.py returns faithful=None on error and rag/judge.py's
+# agreement() drops those from the denominator rather than scoring them -
+# so the run reported "3 scored, 22 unscored" instead of a 100% agreement
+# figure computed from three cases. That is the whole reason the error
+# path returns None rather than defaulting to True.
+#
+# Qwen is a different model family from the gpt-oss generator, which is a
+# stronger independence property than a bigger sibling would have been: a
+# judge sharing a tokenizer, a training corpus and a house style with the
+# thing it grades will forgive its own idioms.
+JUDGE_MODEL = os.getenv("JUDGE_MODEL", "qwen/qwen3.8-27b")
 
 
 # ------------------------------------------------------------------

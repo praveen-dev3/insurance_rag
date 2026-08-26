@@ -1,0 +1,75 @@
+WEEK 6 PREDICTION — written 2026-08-26, BEFORE judge_v2 was authored and
+before it was run. agreement_before is already known (80.0%, 20/25); what
+follows is a claim about what the iteration will do to it.
+
+THE PREDICTION, in one sentence:
+
+    Adding w6-17 and w6-12 as few-shot examples — one for each direction
+    the judge is wrong in — will fix all three too-strict cases (w6-09,
+    w6-10, w6-17) and both too-lenient cases (w6-01, w6-12), taking
+    agreement from 80% to 100% (25/25).
+
+
+WHY I EXPECT THAT
+
+judge_v1's five disagreements are not five problems. They are two, and
+each one is the same mistake repeated:
+
+  TOO STRICT (w6-09, w6-10, w6-17) — all three ruled UNFAITHFUL because a
+  citation pointed at the wrong clause or the wrong retrieved chunk. The
+  judge's own reasons say so almost verbatim:
+      w6-09 "incorrectly attributes the presumption ... to Clause 4.1"
+      w6-10 "cites ... Clause 5.3, but the wording places this in 4.3"
+      w6-17 "cites the chunk_id for POLICY WORDING 2 ... found in 1"
+  In all three the PROPOSITION was supported by wording that had been
+  retrieved; only the pointer was wrong. judge_v1 already says "do not
+  judge whether it states the claim number, the date of loss or the
+  deductible", but it never says that a misaimed citation is somebody
+  else's job — and it is: rag/assertions.py checks it deterministically.
+
+  TOO LENIENT (w6-01, w6-12) — both ruled FAITHFUL on a summary that made
+  a blanket negative claim over an exclusion table it had only partly
+  been shown. w6-12 is the expensive one: it says the table "does not
+  cover general water damage from a pipe split" having seen five of ten
+  rows, when the sixth unseen row is E-72 and the dwelling had been
+  vacant twenty weeks. The judge's reason — "the analysis of the
+  exclusion table is directly supported" — shows it checked the rows in
+  front of it and never asked whether those were all the rows.
+
+Two rules, two examples, five cases. Hence 100%.
+
+
+WHAT WOULD FALSIFY IT
+
+  - If the too-strict three do not all flip, the citation instruction is
+    not being read as scoping and needs to be a rule rather than a note.
+  - If w6-01 does not flip while w6-12 does, the judge is keying on the
+    facts of the few-shot example rather than the principle in it, and
+    the example is doing memorisation instead of instruction.
+  - If agreement goes UP but the lenient cell does not go to zero, the
+    gain is on the cheap direction and the judge is still shipping the
+    payout, which would make an improved headline number worse than
+    useless.
+
+
+WHERE I EXPECT TO BE WRONG
+
+  I expect the too-strict three to flip cleanly; that instruction is
+  narrow and the failure is mechanical. I am much less confident about
+  w6-01. It is the borderline case in my own label file — I marked it
+  unfaithful only to stay consistent with w6-12 under rule (d), and its
+  blanket claim is about exclusion rows that genuinely do not apply,
+  whereas w6-12's hides a row that decides the claim. A judge given the
+  w6-12 example may well learn "unfaithful when the unseen row matters"
+  rather than "unfaithful when you cannot know whether it matters", and
+  that is a distinction it cannot make without the corpus in front of it.
+  If exactly one of the two lenient cases flips, it will be w6-12, and
+  the honest reading will be that the judge got the right answer for a
+  reason I did not teach it.
+
+  I also expect some risk of collateral damage: an instruction telling
+  the judge to disregard misaimed citations could make it disregard a
+  citation to a form that was never retrieved at all, which IS an
+  unfaithfulness under rule (c). None of the 25 cases tests that, so the
+  eval cannot detect it, and I am recording the gap rather than claiming
+  the set covers it.

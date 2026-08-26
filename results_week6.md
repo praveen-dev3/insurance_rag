@@ -334,3 +334,114 @@ python tools/run_w6.py --stage agreement --judge judge_v2
 - [x] Terminal output of the single eval command, pass rate by mode — `eval/w6_table.txt`
 - [x] agreement_before **80.0%** / agreement_after **80.0%**, with the cells that show what actually changed
 - [x] Assertion count **5** vs judged criteria count **1**
+
+---
+
+## Bonus — RAGAS faithfulness and context precision
+
+**Not the `ragas` package.** Installing it into this project's venv failed
+repeatedly: a locked `jiter` `.pyd` left the environment without `openai`
+at all and the pipeline had to be repaired before anything else could run.
+The two metrics are therefore computed in `tools/w6_ragas.py` against the
+published RAGAS definitions rather than by the library. That is a real
+difference and it is stated rather than glossed — these are RAGAS-*defined*
+metrics, not RAGAS-*library* outputs.
+
+```
+faithfulness       decompose the summary into atomic claims about the policy,
+                   ask of each whether the retrieved passages entail it
+                       = supported / total_claims
+
+context_precision  (reference-free, LLM-judged) mark each retrieved passage
+                   useful or not, then average precision@k over useful ranks
+                       = sum_k (precision@k * v_k) / sum_k v_k
+```
+
+Scored on the **policy-backed cases** — the 23 that retrieved actual policy
+wording. `w6-14` and `w6-21` are excluded: they retrieved nothing but the
+flood manual, so there is no policy wording for them to be faithful *to*,
+and scoring them would put a number in the average for a reason unrelated to
+the summary.
+
+### Results (first 10 of 23; the run is throttled to ~1 case per 10 min by the free tier)
+
+| case | faithfulness | context precision | human label | judge_v2 |
+|---|---:|---:|---|---|
+| `reg-c12` | **1.000** | 0.833 | faithful | faithful |
+| `reg-c06` | **1.000** | 1.000 | **UNFAITHFUL** | **UNFAITHFUL** |
+| `w6-01` | **1.000** | 0.833 | **UNFAITHFUL** | **UNFAITHFUL** |
+| `w6-02` | 1.000 | 1.000 | faithful | UNFAITHFUL |
+| `w6-03` | 1.000 | **0.333** | faithful | faithful |
+| `w6-04` | 1.000 | 1.000 | faithful | UNFAITHFUL |
+| `w6-05` | 1.000 | 1.000 | faithful | UNFAITHFUL |
+| `w6-06` | **1.000** | 1.000 | **UNFAITHFUL** | **UNFAITHFUL** |
+| `w6-07` | 1.000 | 1.000 | faithful | faithful |
+| `w6-08` | 0.900 | 1.000 | faithful | faithful |
+| **mean** | **0.990** | **0.900** | | |
+
+### Confidently, faithfully wrong
+
+The brief asks for one summary scoring 0.9+ faithfulness while retrieving
+the wrong policy wording. This run produced something sharper:
+
+> **Faithfulness scores 1.000 on three summaries that both the human
+> labeller and the iterated judge agree are unfaithful** — `reg-c06`,
+> `w6-01` and `w6-06`.
+
+That is not a bug in the metric. It is the metric working exactly as
+defined, and being the wrong question. Faithfulness decomposes a summary
+into claims and checks each **against the passages that were retrieved**.
+The defect in all three summaries is a claim about wording that was *not*
+retrieved:
+
+- `w6-01` asserts "No other exclusions from the endorsement apply" having
+  been shown 8 of 12 exclusion rows.
+- `reg-c06` treats a dead battery as a coverage condition on the strength
+  of Clause 4.1, which requires only that the power source be *retained for
+  inspection*. Clause 2.2, which does impose the requirement, was never
+  retrieved.
+- `w6-06` welds Clause 4.2's records requirement into the Clause 2.2
+  coverage grant.
+
+Every atomic claim in each summary is entailed by a passage that was in
+front of it. **A metric computed against the retrieved context is
+structurally incapable of noticing that the context was incomplete**, and
+no amount of faithfulness will tell you the row that decides the claim was
+never in the prompt.
+
+The purest case is `reg-c12`: **faithfulness 1.000**, context precision
+0.833 — and this is the regression case whose production output returned
+**COVERED for a pipe that froze with the heating switched off entirely**,
+because E-14 was not among the retrieved rows. Faithfulness 1.000 on a
+payout that should not have happened.
+
+### Why the average hides it
+
+```
+mean faithfulness      0.990
+mean context precision 0.900
+```
+
+Both look like a healthy system. A dashboard showing that pair would be
+reported green.
+
+The averages hide it in two separate ways:
+
+1. **Faithfulness has no variance to hide anything with.** Nine of ten
+   cases score exactly 1.000. A metric that returns the same value for a
+   correct denial, a correct coverage grant and a summary that invents a
+   coverage condition is not measuring the thing that separates them — it is
+   measuring whether the model quoted its inputs, which this model always
+   does. Its mean is 0.990 and its usable information content is close to
+   zero.
+2. **Context precision does carry the signal, and the mean flattens it.**
+   `w6-03` scores **0.333** — two of its three retrieved passages were
+   useless — against a mean of 0.900. The mean is dragged up by seven cases
+   at 1.000, so the one case where retrieval genuinely wasted two of three
+   slots disappears into a rounding difference.
+
+The pair is the finding. Either number alone is reassuring and wrong:
+faithfulness says the summary used its sources, context precision says the
+sources were on topic, and **neither can say the source that decides the
+claim was never retrieved** — which is the top mode in `taxonomy.md`, at 20%
+of the Week 5 sample, and the one that pays out money it shouldn't.

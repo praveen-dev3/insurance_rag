@@ -1,0 +1,67 @@
+Scoring 23 policy-backed cases (evaluator: qwen/qwen3.6-27b)
+Skipped (no policy wording retrieved): ['w6-14', 'w6-21']
+
+  [ 1/23] reg-c12  faith=1.000  ctx_p=0.833  (6 claims)
+  [ 2/23] reg-c06  faith=1.000  ctx_p=1.000  (12 claims)
+      rate limited; waiting 6s
+  [ 3/23] w6-01    faith=1.000  ctx_p=0.833  (12 claims)
+      rate limited; waiting 11s
+      rate limited; waiting 17s
+  [ 4/23] w6-02    faith=1.000  ctx_p=1.000  (12 claims)
+      rate limited; waiting 8s
+      rate limited; waiting 6s
+  [ 5/23] w6-03    faith=1.000  ctx_p=0.333  (8 claims)
+      rate limited; waiting 2s
+      rate limited; waiting 16s
+  [ 6/23] w6-04    faith=1.000  ctx_p=1.000  (10 claims)
+      rate limited; waiting 5s
+  [ 7/23] w6-05    faith=1.000  ctx_p=1.000  (8 claims)
+      rate limited; waiting 20s
+  [ 8/23] w6-06    faith=1.000  ctx_p=1.000  (9 claims)
+      rate limited; waiting 5s
+      rate limited; waiting 17s
+  [ 9/23] w6-07    faith=1.000  ctx_p=1.000  (9 claims)
+      rate limited; waiting 1s
+      rate limited; waiting 8s
+      rate limited; waiting 8s
+  [10/23] w6-08    faith=0.900  ctx_p=1.000  (10 claims)
+      rate limited; waiting 9s
+  [11/23] w6-09    faith=1.000  ctx_p=1.000  (10 claims)
+      rate limited; waiting 6s
+      rate limited; waiting 7s
+      rate limited; waiting 8s
+  [12/23] w6-10    faith=1.000  ctx_p=1.000  (6 claims)
+      rate limited; waiting 10s
+  [13/23] w6-11    faith=1.000  ctx_p=1.000  (8 claims)
+      rate limited; waiting 19s
+  [14/23] w6-12    faith=1.000  ctx_p=1.000  (8 claims)
+      rate limited; waiting 19s
+  [15/23] w6-13    faith=1.000  ctx_p=1.000  (4 claims)
+      rate limited; waiting 6s
+      rate limited; waiting 10s
+      rate limited; waiting 8s
+  [16/23] w6-15    faith=1.000  ctx_p=1.000  (9 claims)
+      rate limited; waiting 16s
+  [17/23] w6-16    faith=1.000  ctx_p=1.000  (10 claims)
+      rate limited; waiting 14s
+      rate limited; waiting 7s
+  [18/23] w6-17    faith=1.000  ctx_p=1.000  (5 claims)
+      rate limited; waiting 1s
+      rate limited; waiting 8s
+      rate limited; waiting 8s
+  [19/23] w6-18    faith=1.000  ctx_p=0.500  (12 claims)
+      rate limited; waiting 8s
+  [20/23] w6-19    faith=1.000  ctx_p=1.000  (4 claims)
+      rate limited; waiting 18s
+  [21/23] w6-20    faith=1.000  ctx_p=0.500  (12 claims)
+      rate limited; waiting 10s
+      rate limited; waiting 7s
+  [22/23] w6-22    faith=1.000  ctx_p=1.000  (4 claims)
+      rate limited; waiting 2s
+      rate limited; waiting 23s
+  [23/23] w6-23    faith=1.000  ctx_p=1.000  (11 claims)
+
+mean faithfulness      : 0.9957
+mean context precision : 0.913
+
+Saved to eval\w6\ragas.json

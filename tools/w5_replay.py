@@ -46,7 +46,7 @@ from rag.config import CHROMA_PATH, COLLECTION_NAME  # noqa: E402
 from rag.engine import RagEngine  # noqa: E402
 from rag.generation import build_prompt, generate_answer  # noqa: E402
 from rag.indexing import open_collection  # noqa: E402
-from rag.llm import get_client  # noqa: E402
+from rag.llm import complete  # noqa: E402
 from rag.retrieval import UNSPECIFIED, RetrievedChunk  # noqa: E402
 from rag.tracing import DEFAULT_TRACE_PATH, index_traces, read_traces, sha256_short  # noqa: E402
 
@@ -184,14 +184,20 @@ def replay_generation(trace, prompt):
 
     model = trace["model"]
 
+    # Every model parameter is taken from the trace, not from the current
+    # config. That is the point of the exercise: a replay that silently
+    # picks up today's defaults is not replaying anything, and a parameter
+    # the trace failed to record shows up here as a divergence rather than
+    # being quietly filled in.
     request = {
         "model": model["id"],
         "temperature": model.get("temperature", 0),
         "messages": [{"role": "user", "content": prompt["rendered"]}],
     }
 
-    if model.get("seed") is not None:
-        request["seed"] = model["seed"]
+    for name in ("seed", "reasoning_effort", "max_tokens", "top_p"):
+        if model.get(name) is not None:
+            request[name] = model[name]
 
     if trace["task"] == "qa":
         # The QA path sends a system message and replays history before
@@ -205,7 +211,7 @@ def replay_generation(trace, prompt):
             model=model["id"],
         )
 
-    response = get_client().chat.completions.create(**request)
+    response = complete(**request)
 
     return response.choices[0].message.content
 

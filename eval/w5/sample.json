@@ -1,0 +1,173 @@
+{
+  "seed": 20260826,
+  "n": 20,
+  "tag": null,
+  "trace_file": "traces\\claims_traces.jsonl",
+  "traces_in_file": 70,
+  "frame_size": 70,
+  "selection": "random.Random(20260826).sample(sorted(trace_ids), 20)",
+  "trace_ids": [
+    "tr-wk5-0003",
+    "tr-wk5-0005",
+    "tr-wk5-0006",
+    "tr-wk5-0007",
+    "tr-wk5-0008",
+    "tr-wk5-0009",
+    "tr-wk5-0010",
+    "tr-wk5-0012",
+    "tr-wk5-0014",
+    "tr-wk5-0020",
+    "tr-wk5-0026",
+    "tr-wk5-0027",
+    "tr-wk5-0039",
+    "tr-wk5-0040",
+    "tr-wk5-0056",
+    "tr-wk5-0061",
+    "tr-wk5-0062",
+    "tr-wk5-0067",
+    "tr-wk5-0068",
+    "tr-wk5-0069"
+  ],
+  "rows": [
+    {
+      "trace_id": "tr-wk5-0003",
+      "task": "summary",
+      "case_id": "c03",
+      "session_id": "claim-c03",
+      "turn": 1
+    },
+    {
+      "trace_id": "tr-wk5-0005",
+      "task": "summary",
+      "case_id": "c05",
+      "session_id": "claim-c05",
+      "turn": 1
+    },
+    {
+      "trace_id": "tr-wk5-0006",
+      "task": "summary",
+      "case_id": "c06",
+      "session_id": "claim-c06",
+      "turn": 1
+    },
+    {
+      "trace_id": "tr-wk5-0007",
+      "task": "summary",
+      "case_id": "c07",
+      "session_id": "claim-c07",
+      "turn": 1
+    },
+    {
+      "trace_id": "tr-wk5-0008",
+      "task": "summary",
+      "case_id": "c08",
+      "session_id": "claim-c08",
+      "turn": 1
+    },
+    {
+      "trace_id": "tr-wk5-0009",
+      "task": "summary",
+      "case_id": "c09",
+      "session_id": "claim-c09",
+      "turn": 1
+    },
+    {
+      "trace_id": "tr-wk5-0010",
+      "task": "summary",
+      "case_id": "c10",
+      "session_id": "claim-c10",
+      "turn": 1
+    },
+    {
+      "trace_id": "tr-wk5-0012",
+      "task": "summary",
+      "case_id": "c12",
+      "session_id": "claim-c12",
+      "turn": 1
+    },
+    {
+      "trace_id": "tr-wk5-0014",
+      "task": "summary",
+      "case_id": "c14",
+      "session_id": "claim-c14",
+      "turn": 1
+    },
+    {
+      "trace_id": "tr-wk5-0020",
+      "task": "summary",
+      "case_id": "c20",
+      "session_id": "claim-c20",
+      "turn": 1
+    },
+    {
+      "trace_id": "tr-wk5-0026",
+      "task": "qa",
+      "case_id": "q02",
+      "session_id": "desk-q01",
+      "turn": 2
+    },
+    {
+      "trace_id": "tr-wk5-0027",
+      "task": "qa",
+      "case_id": "q03",
+      "session_id": "desk-q03",
+      "turn": 1
+    },
+    {
+      "trace_id": "tr-wk5-0039",
+      "task": "qa",
+      "case_id": "q15",
+      "session_id": "desk-q15",
+      "turn": 1
+    },
+    {
+      "trace_id": "tr-wk5-0040",
+      "task": "qa",
+      "case_id": "q16",
+      "session_id": "desk-q16",
+      "turn": 1
+    },
+    {
+      "trace_id": "tr-wk5-0056",
+      "task": "qa",
+      "case_id": "q32",
+      "session_id": "desk-q32",
+      "turn": 1
+    },
+    {
+      "trace_id": "tr-wk5-0061",
+      "task": "qa",
+      "case_id": "q37",
+      "session_id": "desk-q37",
+      "turn": 1
+    },
+    {
+      "trace_id": "tr-wk5-0062",
+      "task": "qa",
+      "case_id": "q38",
+      "session_id": "desk-q38",
+      "turn": 1
+    },
+    {
+      "trace_id": "tr-wk5-0067",
+      "task": "qa",
+      "case_id": "q43",
+      "session_id": "desk-q43",
+      "turn": 1
+    },
+    {
+      "trace_id": "tr-wk5-0068",
+      "task": "qa",
+      "case_id": "q44",
+      "session_id": "desk-q44",
+      "turn": 1
+    },
+    {
+      "trace_id": "tr-wk5-0069",
+      "task": "qa",
+      "case_id": "q45",
+      "session_id": "desk-q45",
+      "turn": 1
+    }
+  ]
+}

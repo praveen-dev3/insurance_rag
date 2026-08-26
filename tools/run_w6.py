@@ -3,7 +3,7 @@
     python tools/run_w6.py                      # generate, assert, judge, table
     python tools/run_w6.py --stage summaries    # generate only, no judge
     python tools/run_w6.py --stage judge --judge judge_v2
-    python tools/run_w6.py --agreement --judge judge_v2
+    python tools/run_w6.py --stage agreement --judge judge_v2
 
 Stages, and why they are separable even though `run_w6.py` with no
 arguments does all of them:

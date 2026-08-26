@@ -1,0 +1,29 @@
+{
+  "trace_id": "tr-wk5-0009",
+  "retrieval": {
+    "original_ids": [
+      "DP-0208_dwelling_fire_water_ed_05-24.pdf#0a500f280def1639",
+      "DP-0208_dwelling_fire_water_ed_05-24.pdf#f22d15d39bf337d7",
+      "DP-0208_dwelling_fire_water_ed_05-24.pdf#ad9824de5095889a"
+    ],
+    "replayed_ids": [
+      "DP-0208_dwelling_fire_water_ed_05-24.pdf#0a500f280def1639",
+      "DP-0208_dwelling_fire_water_ed_05-24.pdf#f22d15d39bf337d7",
+      "DP-0208_dwelling_fire_water_ed_05-24.pdf#ad9824de5095889a"
+    ],
+    "identical": true
+  },
+  "prompt": {
+    "missing_chunk_ids": [],
+    "rendered_sha256": "64940c1f88a42154",
+    "recorded_rendered_sha256": "64940c1f88a42154",
+    "template_sha256": "45b782ce052f1c74",
+    "recorded_template_sha256": "45b782ce052f1c74"
+  },
+  "output": {
+    "identical": false,
+    "changed_lines": 16,
+    "original": "CLAIM SUMMARY\nClaim number: CLM-2026-67431\nDate of loss: 2026-02-27\nPolicy line: dwelling_fire\nCoverage position: UNDETERMINED\nExclusion relied on: NONE\nDeductible: UNKNOWN\nNarrative: Coverage position could not be determined from the retrieved policy wording. The loss involved water damage from a pipe failure in a tenanted rental, with subsequent mould growth. The policy wording includes exclusions for water damage and mould (E-75, E-76) but does not provide a corresponding coverage clause for water damage under the dwelling_fire line. Therefore, it is unclear whether the water damage itself is covered, and the claim remains unresolved pending further policy review.",
+    "replayed": "CLAIM SUMMARY  \nClaim number: CLM-2026-67431  \nDate of loss: 2026-02-27  \nPolicy line: dwelling_fire  \nCoverage position: UNDETERMINED  \nExclusion relied on: NONE  \nDeductible: UNKNOWN  \nNarrative: Coverage position could not be determined from the retrieved policy wording. The loss involved water damage from a pipe failure in a tenanted rental, with subsequent mould growth. The policy wording includes exclusions for water damage and mould (E-75, E-76) but does not provide a corresponding coverage clause for water damage under the dwelling_fire line. Therefore, it is unclear whether the water damage itself is covered, and the exclusion list alone does not resolve the claim. Further policy review or additional coverage clauses are needed to determine the final position."
+  }
+}

@@ -1,0 +1,121 @@
+{
+  "seed": 20260826,
+  "selection": "random.Random(20260826).sample(sorted(trace_ids), 20)",
+  "trace_file": "traces/claims_traces.jsonl",
+  "frame": "70 random-population traces; the 12 traces tagged `demo` were excluded",
+  "coded_on": "2026-08-26",
+  "protocol": [
+    "One sentence per trace describing what was SEEN in that trace.",
+    "Not a diagnosis, not a category, not a fix.",
+    "All twenty sentences were written, and this file committed, with every",
+    "`mode` field null, BEFORE any clustering was attempted. The modes were",
+    "added in a second pass over these sentences - not while reading the",
+    "traces - and that second pass is a separate commit. Deciding the",
+    "categories first is the one failure this step exists to prevent.",
+    "Zero code changes were made to the app while these were written. The",
+    "app is exactly as it was when the traces were produced: commit 582b225."
+  ],
+  "modes": {},
+  "observations": [
+    {
+      "trace_id": "tr-wk5-0003",
+      "sentence": "Denied the hail claim on E-34 with a citation that resolves, and the Deductible field says UNKNOWN even though the claim is on HO-0412; the three chunks that reached the prompt were the exclusion table, the roof-surfacing clause and the conditions clause.",
+      "mode": null
+    },
+    {
+      "trace_id": "tr-wk5-0005",
+      "sentence": "Denied on E-44 and the narrative says the exclusion applies 'unless the insured provides service records for the preceding 24 months', which is language from the separate Clause 4 conditions chunk rather than from E-44's own disposition, and the summary carries no chunk_id citation anywhere.",
+      "mode": null
+    },
+    {
+      "trace_id": "tr-wk5-0006",
+      "sentence": "Answered UNDETERMINED, attributed a power-source requirement to 'clause 4.1', and said the wording does not clarify what happens when the power source is unavailable; Clause 2.2, which states the eight-hour secondary power requirement, was not among the three chunks retrieved.",
+      "mode": null
+    },
+    {
+      "trace_id": "tr-wk5-0007",
+      "sentence": "Answered UNDETERMINED and said in terms that 'the wording of Clause 4.2 is not provided'; all three retrieved chunks came from page 1 of HO-0633 and Clause 4.2 sits on page 2.",
+      "mode": null
+    },
+    {
+      "trace_id": "tr-wk5-0008",
+      "sentence": "Denied on E-53, referring to Clause 4.1 and Clause 5.1 by number and reasoning from the 41 nights in the notes, and the summary carries no chunk_id citation.",
+      "mode": null
+    },
+    {
+      "trace_id": "tr-wk5-0009",
+      "sentence": "Answered with the bare refusal sentence and a narrative saying the wording 'includes exclusions for water damage and mould (E-75, E-76) but does not provide a corresponding coverage clause'; the three retrieved chunks were DP-0208 exclusion-table and scope chunks and did not include the Clause 2.1 coverage grant.",
+      "mode": null
+    },
+    {
+      "trace_id": "tr-wk5-0010",
+      "sentence": "Denied on Clause 2.2 with 'Exclusion relied on: NONE', and the Deductible field says UNKNOWN while the narrative in the same summary states the $5,000 figure - the Clause 5 deductible chunk was retrieved at position 2.",
+      "mode": null
+    },
+    {
+      "trace_id": "tr-wk5-0012",
+      "sentence": "Answered COVERED for a pipe that froze while the insured had the heating switched off entirely, reasoning that the burst is sudden and accidental and E-17 does not reach it; the exclusion-table chunk that reached the prompt carried only E-15, E-16 and E-17, and the E-14 freezing row was not in any retrieved chunk.",
+      "mode": null
+    },
+    {
+      "trace_id": "tr-wk5-0014",
+      "sentence": "Set the position to DENIED naming E-33, and the narrative in the same summary says the fence portion 'is covered'; three chunk_id citations, all of which resolve.",
+      "mode": null
+    },
+    {
+      "trace_id": "tr-wk5-0020",
+      "sentence": "For a claim whose file recorded no form number, all three chunks that reached the prompt were FEMA NFIP flood-manual page ranges with policy_line 'unspecified' and rerank scores near -5.4, and the output was the one-line refusal sentence and nothing else.",
+      "mode": null
+    },
+    {
+      "trace_id": "tr-wk5-0026",
+      "sentence": "Answered '$2,500 per loss' with a citation that resolves, on a second-turn question about the HO-0304 deductible, where Clause 5.3 was the top chunk at rerank 8.3.",
+      "mode": null
+    },
+    {
+      "trace_id": "tr-wk5-0027",
+      "sentence": "Nothing survived the relevance floor - three candidates dropped, zero reached the prompt - and the answer was the refusal sentence, for a question about a weeping joint running about a month.",
+      "mode": null
+    },
+    {
+      "trace_id": "tr-wk5-0039",
+      "sentence": "Answered that failing to produce the rental log raises a presumption the allowance was exceeded, with a citation whose form-number field reads '5.1 | 5.1' instead of naming HO-0633.",
+      "mode": null
+    },
+    {
+      "trace_id": "tr-wk5-0040",
+      "sentence": "Answered the question 'Is that excluded?' with 'Yes' and then said in the next two sentences that the activity is not excluded and is covered.",
+      "mode": null
+    },
+    {
+      "trace_id": "tr-wk5-0056",
+      "sentence": "Reproduced the HO-0710 definition of sudden and accidental almost verbatim with a citation that resolves, having retrieved the definition chunk at rerank 6.6 ahead of the HO-0304 and DP-0208 coverage grants.",
+      "mode": null
+    },
+    {
+      "trace_id": "tr-wk5-0061",
+      "sentence": "Answered 'Yes' to whether E-49 applies and then quoted its disposition, 'Excluded unless remediation certified', which makes the answer conditional on a fact the question never stated.",
+      "mode": null
+    },
+    {
+      "trace_id": "tr-wk5-0062",
+      "sentence": "Answered that loss of use beyond thirty days is excluded, citing the HO-0521 exclusion table, with a FEMA flood-manual page range sitting in the retrieved set at position 3 with rerank -5.4.",
+      "mode": null
+    },
+    {
+      "trace_id": "tr-wk5-0067",
+      "sentence": "For a question about theft during a short let, two candidates were dropped below the floor, the single survivor was policy.pdf - the motor wording - at rerank -4.2, and the answer was the refusal sentence.",
+      "mode": null
+    },
+    {
+      "trace_id": "tr-wk5-0068",
+      "sentence": "Answered that solar collectors are excluded unless scheduled, with a citation that resolves, from a retrieved set in which all three chunks scored negative on the reranker.",
+      "mode": null
+    },
+    {
+      "trace_id": "tr-wk5-0069",
+      "sentence": "Quoted E-39 and its disposition for a question about loss of use where the dwelling is still habitable, with a citation that resolves.",
+      "mode": null
+    }
+  ]
+}

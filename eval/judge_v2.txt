@@ -1,0 +1,113 @@
+You are auditing one claim summary written by an AI assistant from adjuster
+notes and retrieved policy wording.
+
+Decide ONE thing, and nothing else.
+
+coverage_faithful - is every statement the SUMMARY makes about what the
+policy covers, excludes, limits or requires supported by the POLICY
+WORDING blocks shown below?
+
+It is NOT faithful if any of these is true:
+
+  * it states that something is covered, or excluded, on wording that is
+    not in the POLICY WORDING blocks;
+  * it cites an exclusion code that does not appear in the POLICY WORDING
+    blocks, or that appears there under a different form_number or a
+    different policy_line than the claim;
+  * the wording attaches a condition to the position the summary takes and
+    the summary states the position without the condition, or assumes the
+    condition is met when the notes do not say it is;
+  * it reasons from general insurance practice rather than from the
+    wording shown;
+  * it makes a blanket negative claim - "no other exclusion applies", "the
+    exclusion table does not cover this" - about a clause set that the
+    POLICY WORDING blocks show you only PART of, and that claim is
+    load-bearing for the position taken. You can see which rows you were
+    given. You cannot see the rows you were not given, and neither could
+    the summary, so a conclusion that depends on there being no other
+    relevant row is unsupported no matter how the visible rows read.
+
+It IS faithful if:
+
+  * every coverage statement traces to a POLICY WORDING block;
+  * it says the wording does not settle the question, where it does not;
+  * it names a condition as unresolved rather than assuming it is met.
+
+Judge the SUMMARY against the POLICY WORDING ONLY. Do not judge whether
+the coverage position is the one you would have reached, whether the
+summary is well written, whether it is complete, or whether it states the
+claim number, the date of loss or the deductible. Those are checked
+elsewhere and are not your job.
+
+**Citations are also not your job.** A chunk_id, form number or clause
+number that points at the wrong block is checked deterministically by a
+separate assertion. Ask only whether the PROPOSITION is supported by
+wording somewhere in the blocks you were given. If the summary states a
+rule that is genuinely in the wording but attributes it to clause 4.1 when
+it is really clause 5.1, or tags it with the chunk_id of a neighbouring
+block, that is a citation defect and it is FAITHFUL for your purposes.
+Rule it unfaithful only if the proposition itself is absent from every
+block you were shown.
+
+---
+
+Two worked examples. Both are real verdicts this judge previously got
+wrong, and they are here because they are the two ways it goes wrong.
+
+EXAMPLE A — the summary said:
+
+    "The pool screen enclosure loss of $14,000 is excluded under E-33
+    ... because the exclusion applies to losses above $2,500
+    [chunk_id=...#6b80768088f8156b | HO-0412 | Exclusion Table 3.1]. The
+    fence panels and gate loss of $3,400 is not excluded because E-37
+    ... excludes only losses above $5,000
+    [chunk_id=...#6b80768088f8156b | HO-0412 | Exclusion Table 3.1]."
+
+    The blocks did contain E-33 and E-37 with exactly those dispositions —
+    but in a DIFFERENT block from the chunk_id the summary attached.
+
+  Correct answer: {{"coverage_faithful": true}}
+  Why: every proposition — E-33 caps screening at $2,500, E-37 caps fences
+  at $5,000 — is in the wording that was supplied. Only the pointers are
+  misaimed, and pointers are the assertion's job. Ruling this unfaithful
+  marks a summary that read the policy correctly as one that invented
+  coverage, and they are not the same defect.
+
+EXAMPLE B — the summary said:
+
+    "The exclusion table lists specific water damage exclusions (E-75,
+    E-76, E-77, E-78, E-79) but does not cover general water damage from
+    a pipe split, so the loss is not automatically excluded."
+
+    The blocks contained E-75 through E-79 and nothing else from that
+    table.
+
+  Correct answer: {{"coverage_faithful": false}}
+  Why: the summary reasons from the rows it was shown to a conclusion
+  about the whole table. The five rows it lists really do say what it says
+  they say — that is not the problem. The problem is "does not cover
+  general water damage from a pipe split", which is a claim about rows it
+  never saw, and it is doing the work of moving the claim away from being
+  excluded. Whether an unseen row would in fact have applied is not
+  something you can check, and that is exactly why the claim is
+  unsupported.
+
+The difference between A and B: in A the summary knew something and
+mislabelled where it came from. In B the summary did not know something
+and stated it anyway.
+
+---
+
+Reply with JSON only:
+{{"coverage_faithful": true/false, "reason": "one sentence"}}
+
+POLICY WORDING:
+{context}
+
+ADJUSTER NOTES:
+{notes}
+
+SUMMARY:
+{summary}
+
+JSON:

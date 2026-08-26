@@ -1,0 +1,28 @@
+Week 6 Task Set D — 25 cases, 5 taxonomy modes, 2 regression cases replayed from real traces.
+
+taxonomy mode                    n   assert  faithful     pass
+--------------------------------------------------------------
+Answers without the clause that decides the claim  10   0/10        5/10     0/10
+Comes back with the wrong product's wording, or nothing, and declines   3   0/3          2/3      0/3
+Coverage position field contradicts its own narrative   5   1/5          5/5      1/5
+Quotes a clause under the wrong number, or cites without naming the form   4   0/4          1/4      0/4
+Reports no deductible or excess figure   3   0/3          2/3      0/3
+--------------------------------------------------------------
+ALL                             25   1/25     15/25     1/25
+
+assertion failures (of 25 cases):
+  claim_number_echoed            0
+  date_of_loss_parseable         0
+  deductible_numeric            24
+  exclusion_cited_on_denial      4
+  citations_resolve              6
+
+AGREEMENT with hand labels (judge_v2)
+  labelled          : 25
+  scored            : 25
+  agreement         : 20/25  =  80.0%
+  cells             : {"human_faithful_judge_faithful": 15, "human_unfaithful_judge_unfaithful": 5, "human_unfaithful_judge_faithful": 0, "human_faithful_judge_unfaithful": 5}
+  judge too lenient : []
+  judge too strict  : ['w6-02', 'w6-04', 'w6-05', 'w6-09', 'w6-15']
+
+Saved agreement to eval\w6\agreement_judge_v2.json

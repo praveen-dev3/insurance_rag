@@ -41,7 +41,30 @@ GROQ_BASE_URL = "https://api.groq.com/openai/v1"
 # "The language model request failed: ..." and every citation check
 # reported zero citations - which reads like a prompting regression, not
 # an outage. Anything that pins a model id should fail loudly instead.
-LLM_MODEL = os.getenv("LLM_MODEL", "openai/gpt-oss-120b")
+# The free tier meters each model separately: 8,000 tokens per minute and
+# 200,000 per day, per model. The Week 5 traffic run spent the whole daily
+# budget of gpt-oss-120b on 70 traces and then wrote 65 rate-limit errors
+# into the trace file, so the work is split across the two budgets - and
+# the split happens to be the better design anyway, because a judge that
+# is the same model as the generator grades its own homework.
+#
+#   LLM_MODEL     writes the answers and the claim summaries.
+#   JUDGE_MODEL   grades them. Deliberately NOT the same model.
+LLM_MODEL = os.getenv("LLM_MODEL", "openai/gpt-oss-20b")
+
+# gpt-oss models emit reasoning tokens that are billed against the same
+# budget and are never shown. On this corpus "low" cost about a third of
+# the completion tokens of "medium" and changed no answer we could see, so
+# it buys roughly three times as much traffic out of a fixed daily cap.
+# Recorded in every trace, because it is a model parameter like any other.
+REASONING_EFFORT = os.getenv("REASONING_EFFORT", "low")
+
+# How many times to wait out a 429 before giving up, and the longest single
+# wait worth taking. The daily bucket refills at a trickle, so a wait of
+# more than a few minutes means the budget is gone rather than busy, and
+# blocking a batch for an hour to discover that is not useful.
+RATE_LIMIT_RETRIES = int(os.getenv("RATE_LIMIT_RETRIES", "6"))
+MAX_RATE_LIMIT_WAIT = float(os.getenv("MAX_RATE_LIMIT_WAIT", "180"))
 
 # Small, fast model used for query transforms (condensation, rewriting,
 # HyDE) and for the LLM-judge in failure separation. It never sees the
@@ -50,6 +73,11 @@ UTILITY_MODEL = os.getenv("UTILITY_MODEL", "openai/gpt-oss-20b")
 
 # Kept for backwards compatibility with earlier configs.
 CONDENSE_MODEL = os.getenv("CONDENSE_MODEL", UTILITY_MODEL)
+
+# The LLM judge in rag/judge.py. Held apart from LLM_MODEL on purpose: a
+# model asked whether its own output is faithful is a poor auditor of it,
+# and separating them also separates the two daily token budgets.
+JUDGE_MODEL = os.getenv("JUDGE_MODEL", "openai/gpt-oss-120b")
 
 
 # ------------------------------------------------------------------

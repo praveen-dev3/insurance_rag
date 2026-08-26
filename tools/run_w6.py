@@ -63,6 +63,12 @@ RUN_OPTIONS = {
 }
 
 
+def _report_wait(seconds):
+    """Report a rate-limit wait so a paused batch does not look hung."""
+
+    print(f"      rate limited; waiting {seconds:.0f}s", flush=True)
+
+
 def tolerate_console_encoding():
 
     for stream in (sys.stdout, sys.stderr):
@@ -120,7 +126,9 @@ def stage_summaries(engine, cases, out=SUMMARIES_PATH):
             reranker=RUN_OPTIONS["reranker"],
         )
 
-        summary, params, usage = generate_summary(claim, chunks)
+        summary, params, usage = generate_summary(
+            claim, chunks, on_wait=_report_wait
+        )
 
         retrieved_ids = [chunk.id for chunk in chunks]
 
@@ -204,6 +212,7 @@ def stage_judge(rows, judge="judge_v1", out=None):
     for index, row in enumerate(rows, start=1):
 
         verdict = judge_summary(
+            on_wait=_report_wait,
             summary=row["summary"],
             notes=row["notes_as_pasted"],
             context=row["context"],

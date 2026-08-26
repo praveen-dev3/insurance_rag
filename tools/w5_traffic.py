@@ -63,6 +63,19 @@ RUN_OPTIONS = {
 }
 
 
+def _report_wait(seconds):
+    """
+    Say out loud that the run is waiting on the rate limiter.
+
+    A batch that goes quiet for two minutes looks hung, and the natural
+    response to a hung batch is to kill it — which is how the first run
+    ended up with 65 rate-limit errors written into the trace file as if
+    they were answers.
+    """
+
+    print(f"      rate limited; waiting {seconds:.0f}s", flush=True)
+
+
 def tolerate_console_encoding():
 
     for stream in (sys.stdout, sys.stderr):
@@ -92,7 +105,8 @@ def trace_question(engine, writer, item, session_id, turn, history, tags):
     answer = generate_answer(
         queries["search_query"],
         chunks,
-        history=history
+        history=history,
+        on_wait=_report_wait,
     )
 
     rendered = build_prompt(queries["search_query"], chunks)
@@ -150,7 +164,9 @@ def trace_summary(engine, writer, record, session_id, tags):
         reranker=RUN_OPTIONS["reranker"],
     )
 
-    summary, params, usage = generate_summary(claim, chunks)
+    summary, params, usage = generate_summary(
+        claim, chunks, on_wait=_report_wait
+    )
 
     rendered = build_summary_prompt(claim, chunks)
 

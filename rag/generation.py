@@ -21,8 +21,8 @@ import re
 
 from openai import OpenAIError
 
-from rag.config import LLM_MODEL
-from rag.llm import get_client
+from rag.config import LLM_MODEL, REASONING_EFFORT
+from rag.llm import complete, get_client
 from rag.query import HISTORY_TURNS
 from rag.retrieval import format_pages
 
@@ -254,7 +254,8 @@ def build_messages(question, retrieved_chunks, history=None):
     return messages
 
 
-def generate_answer(question, retrieved_chunks, history=None, model=None):
+def generate_answer(question, retrieved_chunks, history=None, model=None,
+                    on_wait=None):
     """
     Produce the whole answer in one call. Used by the CLI's one-shot mode
     and by the evaluator, where streaming would only get in the way.
@@ -268,15 +269,19 @@ def generate_answer(question, retrieved_chunks, history=None, model=None):
         return NO_ANSWER
 
     try:
-        response = get_client().chat.completions.create(
+        response = complete(
             model=model or LLM_MODEL,
             temperature=0,
-            messages=build_messages(question, retrieved_chunks, history)
+            reasoning_effort=REASONING_EFFORT,
+            messages=build_messages(question, retrieved_chunks, history),
+            on_wait=on_wait,
         )
     except OpenAIError as error:
         # Returned rather than raised: a failed generation is a bad
         # answer, not a crashed application, and the caller (CLI, API,
-        # evaluator) can render it like any other answer.
+        # evaluator) can render it like any other answer. rag.llm retries
+        # rate limits before it gets here, so anything reaching this line
+        # is a real failure rather than a busy minute.
         return f"{GENERATION_ERROR} {error}"
 
     return response.choices[0].message.content
@@ -300,6 +305,7 @@ def stream_answer(question, retrieved_chunks, history=None, model=None):
         stream = get_client().chat.completions.create(
             model=model or LLM_MODEL,
             temperature=0,
+            reasoning_effort=REASONING_EFFORT,
             stream=True,
             messages=build_messages(question, retrieved_chunks, history)
         )

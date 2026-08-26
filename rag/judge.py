@@ -26,8 +26,8 @@ from pathlib import Path
 
 from openai import OpenAIError
 
-from rag.config import UTILITY_MODEL
-from rag.llm import get_client
+from rag.config import JUDGE_MODEL
+from rag.llm import complete
 
 JUDGE_DIR = Path("eval")
 
@@ -75,7 +75,7 @@ def load_judge_prompt(name=DEFAULT_JUDGE, directory=None):
 
 
 def judge_summary(summary, notes, context, case_id="", judge=DEFAULT_JUDGE,
-                  prompt=None, model=None):
+                  prompt=None, model=None, on_wait=None):
     """
     Ask the judge its one question about one summary.
 
@@ -94,12 +94,13 @@ def judge_summary(summary, notes, context, case_id="", judge=DEFAULT_JUDGE,
     )
 
     try:
-        response = get_client().chat.completions.create(
-            model=model or UTILITY_MODEL,
+        response = complete(
+            model=model or JUDGE_MODEL,
             temperature=0,
-            max_tokens=1200,
+            max_tokens=1600,
             response_format={"type": "json_object"},
             messages=[{"role": "user", "content": rendered}],
+            on_wait=on_wait,
         )
 
         payload = json.loads(response.choices[0].message.content or "{}")

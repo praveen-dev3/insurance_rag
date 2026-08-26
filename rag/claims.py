@@ -31,9 +31,9 @@ from dataclasses import asdict, dataclass, field
 
 from openai import OpenAIError
 
-from rag.config import LLM_MODEL
+from rag.config import LLM_MODEL, REASONING_EFFORT
 from rag.generation import GENERATION_ERROR
-from rag.llm import get_client
+from rag.llm import complete
 from rag.retrieval import format_pages
 
 # Bumped whenever SUMMARY_PROMPT changes. Recorded in every trace, so a
@@ -255,7 +255,8 @@ def build_summary_prompt(claim, chunks):
     )
 
 
-def generate_summary(claim, chunks, model=None, temperature=0, seed=None):
+def generate_summary(claim, chunks, model=None, temperature=0, seed=None,
+                     on_wait=None):
     """
     Produce one claim summary. Returns (text, model_params, usage).
 
@@ -269,6 +270,7 @@ def generate_summary(claim, chunks, model=None, temperature=0, seed=None):
     params = {
         "id": model or LLM_MODEL,
         "temperature": temperature,
+        "reasoning_effort": REASONING_EFFORT,
         "seed": seed,
         "max_tokens": None,
         "top_p": None,
@@ -277,6 +279,7 @@ def generate_summary(claim, chunks, model=None, temperature=0, seed=None):
     request = {
         "model": params["id"],
         "temperature": temperature,
+        "reasoning_effort": REASONING_EFFORT,
         "messages": [{
             "role": "user",
             "content": build_summary_prompt(claim, chunks),
@@ -287,7 +290,7 @@ def generate_summary(claim, chunks, model=None, temperature=0, seed=None):
         request["seed"] = seed
 
     try:
-        response = get_client().chat.completions.create(**request)
+        response = complete(on_wait=on_wait, **request)
     except OpenAIError as error:
         # Returned, not raised, for the same reason rag.generation does it:
         # one failed request must not take down a batch of 25. Callers

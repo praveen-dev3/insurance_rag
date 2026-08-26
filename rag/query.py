@@ -21,7 +21,7 @@ question is used. A degraded query beats a broken request.
 from openai import OpenAIError
 
 from rag.config import UTILITY_MODEL
-from rag.llm import get_client
+from rag.llm import complete
 
 # How many previous turns are replayed. Enough for a follow-up to make
 # sense, short enough that the documents stay dominant in the context.
@@ -30,7 +30,7 @@ HISTORY_TURNS = 6
 
 def _complete(prompt, max_tokens=220):
 
-    response = get_client().chat.completions.create(
+    response = complete(
         model=UTILITY_MODEL,
         temperature=0,
         max_tokens=max_tokens,

@@ -1,0 +1,144 @@
+{
+  "criterion": "coverage_faithful",
+  "criterion_text": "Is every statement the summary makes about what the policy covers, excludes, limits or requires supported by the POLICY WORDING that was retrieved for it? Binary. This is the single criterion left in eval/judge_v1.txt after the assertion split.",
+  "labelled_by": "the author, by hand, reading eval/w6/summaries.json",
+  "labelled_on": "2026-08-26",
+  "blind": true,
+  "committed_before_judge_run": "The judge had not been run when this file was written and could not have been: tools/run_w6.py --stage judge raises SystemExit unless this file already exists. The commit containing this file therefore precedes the commit containing eval/w6/verdicts_judge_v1.json, and git log is the ordering evidence.",
+  "what_was_shown_to_the_labeller": [
+    "the adjuster notes as pasted",
+    "the POLICY WORDING blocks actually retrieved, with form_number and policy_line",
+    "the summary produced",
+    "nothing else - no assertion results, no judge output, and not the",
+    "`wording_says` note from eval/w6_cases.json"
+  ],
+  "labelling_rule": [
+    "UNFAITHFUL if the summary:",
+    "  (a) asserts a coverage, exclusion, limit or condition proposition that",
+    "      the RETRIEVED wording does not state;",
+    "  (b) drops or assumes a condition the retrieved wording attaches to the",
+    "      position it takes;",
+    "  (c) cites a code from a different form_number or policy_line;",
+    "  (d) makes a blanket negative claim ('no other exclusion applies') about",
+    "      a clause set it was shown only part of, where that claim is",
+    "      load-bearing for the position taken.",
+    "",
+    "FAITHFUL otherwise. In particular it is NOT unfaithful for:",
+    "  - reaching a coverage position I would not have reached, where the",
+    "    deciding clause was never retrieved (reg-c12 is the clearest case);",
+    "  - being incomplete - failing to mention a retrieved exclusion that",
+    "    would also have applied (w6-13, w6-20);",
+    "  - a clause-NUMBER slip within the correct form, where the proposition",
+    "    itself is supported (w6-09);",
+    "  - a citation pointing at the wrong retrieved chunk (w6-10);",
+    "  - a field/narrative contradiction (w6-11, w6-17).",
+    "",
+    "Rule (d) decided the two hardest calls, w6-01 and w6-12, and both were",
+    "labelled unfaithful for the same reason even though only w6-12's unseen",
+    "row would have changed the outcome. The labeller must not use knowledge",
+    "of what was NOT retrieved to excuse one and condemn the other."
+  ],
+  "class_balance_warning": "20 faithful / 5 unfaithful. A judge that answered 'faithful' every time would score 80% agreement on this set without reading anything. Raw agreement is therefore a weak statistic here and the confusion cells matter more than the headline - specifically the human-unfaithful / judge-faithful cell, which is the one that ships a payout.",
+  "labels": {
+    "reg-c12": {
+      "coverage_faithful": true,
+      "note": "Declines. Every proposition stated (E-17 covers seepage of 14 days or more; does not reach a sudden discharge under 2.1; the facts do not settle which) is in the retrieved wording. E-14 would have decided it but was NOT retrieved, and the criterion is support-by-retrieved-wording, not correctness of the outcome."
+    },
+    "reg-c06": {
+      "coverage_faithful": false,
+      "note": "Says the coverage depends on whether the power source condition is met, and treats a dead battery as leaving coverage unresolved. The retrieved Clause 4.1 requires the pump and its power source to be RETAINED for inspection - it says nothing about the battery working. Clause 2.2, which does, was not retrieved. Coverage proposition not supported."
+    },
+    "w6-01": {
+      "coverage_faithful": false,
+      "note": "BORDERLINE. The COVERED position is well supported by 2.1 and the E-17 disposition. But 'No other exclusions from the endorsement apply to this loss' is a claim about the whole endorsement made from 8 of its 12 exclusion rows, and it is load-bearing for a COVERED position. Same treatment as w6-12; see rule (d)."
+    },
+    "w6-02": {
+      "coverage_faithful": true,
+      "note": "DENIED on E-17 at eleven weeks of seepage. Quotes the disposition verbatim. Fully supported."
+    },
+    "w6-03": {
+      "coverage_faithful": true,
+      "note": "DENIED on E-34. The 'unless the hail both dents and penetrates' carve-out is taken from the E-34 note in the retrieved chunk."
+    },
+    "w6-04": {
+      "coverage_faithful": true,
+      "note": "COVERED with ACV settlement on a 19-year-old roof under 2.2, which was retrieved. Scopes its negative claim correctly: 'No exclusion applies ... under the provided wording'."
+    },
+    "w6-05": {
+      "coverage_faithful": true,
+      "note": "Every statement traces to the retrieved Clause 4 and the E-44 note. Clause 2.2's secondary-power requirement was not retrieved, so its absence is not an unfaithfulness."
+    },
+    "w6-06": {
+      "coverage_faithful": false,
+      "note": "States the coverage grant applies only if the pump has a functioning secondary power source AND maintenance records are available. The retrieved Clause 2.2 conditions the grant on the power source only. The records requirement is welded in from Clause 4.2, which is a condition, not a limb of the grant."
+    },
+    "w6-07": {
+      "coverage_faithful": true,
+      "note": "DENIED on Clause 2.2, retrieved, and stated exactly as the wording has it - absence of a secondary power source at the time of loss voids cover under the endorsement."
+    },
+    "w6-08": {
+      "coverage_faithful": true,
+      "note": "COVERED. 9 days is within the Clause 4.1 allowance; Clause 4.2 puts bodily injury back under the base liability wording; Clause 5.1 record kept. All three clauses retrieved."
+    },
+    "w6-09": {
+      "coverage_faithful": true,
+      "note": "DENIED at 63 nights against a 14-day allowance. Attributes the missing-log presumption to Clause 4.1 when it is Clause 5.1 - a clause-number slip within the right form, and both clauses were retrieved. The proposition itself is supported."
+    },
+    "w6-10": {
+      "coverage_faithful": true,
+      "note": "States both limbs of the Clause 4.3 incidental exception and denies because customer visits occur. Clause 4.3 was retrieved. The citation points at the Clause 5 chunk instead - a citation error, not an unsupported claim."
+    },
+    "w6-11": {
+      "coverage_faithful": true,
+      "note": "Water damage covered under 2.1, tenancy condition in 2.2 met, mould excluded absolutely under E-76. All three retrieved. The COVERED field sitting next to a named exclusion is a field/narrative problem, not a faithfulness one."
+    },
+    "w6-12": {
+      "coverage_faithful": false,
+      "note": "Says the exclusion table lists specific water damage exclusions (E-75 to E-79) but does not cover general water damage from a pipe split, so the loss is not automatically excluded. It saw five of the ten rows. E-72 - plumbing water damage in a dwelling vacant over 60 days - is exactly this loss at 20 weeks vacant, and was not retrieved. A claim about the whole table from half of it, and it pushes toward coverage."
+    },
+    "w6-13": {
+      "coverage_faithful": true,
+      "note": "Declines. 2.1/2.2 and E-72 were all retrieved and are stated accurately. It never mentions E-73 despite the deliberate-damage facts, but that is incompleteness, which the criterion explicitly does not judge."
+    },
+    "w6-14": {
+      "coverage_faithful": true,
+      "note": "Retrieved three FEMA flood-manual chunks and emitted the bare refusal sentence. Asserts nothing, so there is nothing unsupported."
+    },
+    "w6-15": {
+      "coverage_faithful": true,
+      "note": "DENIED on E-14, retrieved, and stated with its condition intact (unless heat is maintained at 55F or above)."
+    },
+    "w6-16": {
+      "coverage_faithful": true,
+      "note": "DENIED on the Clause 4.1 thirty-day notice condition, retrieved, including the carve-out for notice that could not reasonably have been given sooner."
+    },
+    "w6-17": {
+      "coverage_faithful": true,
+      "note": "Handles three items against three different dispositions (E-33 above $2,500, E-37 above $5,000, E-31 absolute) and computes 2% of $580,000 = $11,600 against a $1,000 minimum. All four propositions supported; the arithmetic is right. The DENIED field contradicting 'the fence may be covered' is a field problem, not a faithfulness one."
+    },
+    "w6-18": {
+      "coverage_faithful": true,
+      "note": "DENIED on E-38, retrieved, matching the facts as recorded."
+    },
+    "w6-19": {
+      "coverage_faithful": true,
+      "note": "Declines. 2.1, 4.1 and 4.3 all retrieved. Reads 4.3 as a preservation requirement without inflating it into an automatic denial."
+    },
+    "w6-20": {
+      "coverage_faithful": true,
+      "note": "DENIED on E-49 with its 'unless remediation certified' condition intact. Does not mention E-48 despite 38 days in a hotel - incompleteness again, not unfaithfulness."
+    },
+    "w6-21": {
+      "coverage_faithful": true,
+      "note": "Bare refusal against three unusable chunks. Asserts nothing."
+    },
+    "w6-22": {
+      "coverage_faithful": false,
+      "note": "The notes say the source is genuinely not established and the plumber would not commit. The summary asserts the water appears to be groundwater exerting pressure on the foundation and denies absolutely on E-11. E-11's trigger is a condition the notes do not establish, and the summary takes the position without it."
+    },
+    "w6-23": {
+      "coverage_faithful": true,
+      "note": "BORDERLINE the other way. Concludes COVERED partly on conditions presumably taken, but flags the presumption explicitly rather than asserting it as fact - which is what separates it from w6-22."
+    }
+  }
+}

@@ -1,0 +1,181 @@
+{
+  "judge": "judge_v2",
+  "criterion": "coverage_faithful",
+  "verdicts": {
+    "reg-c12": {
+      "case_id": "reg-c12",
+      "faithful": true,
+      "reason": "The summary accurately reflects the wording of Exclusion E-17, including the 14-day threshold and the exception for sudden and accidental discharges, and correctly identifies that the adjuster notes do not provide sufficient information to determine if the exclusion applies.",
+      "judge": "judge_v2",
+      "error": null
+    },
+    "reg-c06": {
+      "case_id": "reg-c06",
+      "faithful": false,
+      "reason": "The summary claims that clause 4.1 requires the insured to retain a power source, but the provided wording for clause 4.1 only requires retaining the sump pump and its power source for inspection and testing, not that the power source be functional or retained as a condition of coverage in the manner described.",
+      "judge": "judge_v2",
+      "error": null
+    },
+    "w6-01": {
+      "case_id": "w6-01",
+      "faithful": false,
+      "reason": "The summary makes a blanket negative claim that 'No other exclusions from the endorsement apply to this loss,' which is unsupported because the provided policy wording blocks only show a partial list of exclusions (E-10 through E-17) and do not confirm the absence of other relevant exclusions.",
+      "judge": "judge_v2",
+      "error": null
+    },
+    "w6-02": {
+      "case_id": "w6-02",
+      "faithful": false,
+      "reason": "The summary relies on a blanket negative claim that no other exclusion applies (specifically ignoring E-16 for wet rot, which is explicitly listed in the provided wording and directly applicable to the loss), which is unsupported because the exclusion table is only partially shown.",
+      "judge": "judge_v2",
+      "error": null
+    },
+    "w6-03": {
+      "case_id": "w6-03",
+      "faithful": true,
+      "reason": "The summary's coverage position is fully supported by the policy wording, which explicitly defines E-34 as excluding cosmetic damage that does not reduce water-shedding ability, and the adjuster notes confirm the damage fits this definition without penetration.",
+      "judge": "judge_v2",
+      "error": null
+    },
+    "w6-04": {
+      "case_id": "w6-04",
+      "faithful": false,
+      "reason": "The summary makes a blanket negative claim that 'No exclusion applies' based on the provided wording blocks, which only show a partial list of exclusions (E-30 to E-34) and do not contain the full exclusion table, making this conclusion unsupported by the visible text.",
+      "judge": "judge_v2",
+      "error": null
+    },
+    "w6-05": {
+      "case_id": "w6-05",
+      "faithful": false,
+      "reason": "The summary makes a blanket negative claim that no exclusion applies ('Exclusion relied on: NONE') based on the visible rows of the exclusion table, which is unsupported because the policy wording blocks only show a partial list of exclusions (E-40 to E-44) and do not confirm that no other relevant exclusions exist.",
+      "judge": "judge_v2",
+      "error": null
+    },
+    "w6-06": {
+      "case_id": "w6-06",
+      "faithful": false,
+      "reason": "The summary claims the coverage grant (Clause 2.1) requires maintenance records, but the provided policy wording for Clause 2.1 only lists the secondary power source as a condition for coverage, not maintenance records.",
+      "judge": "judge_v2",
+      "error": null
+    },
+    "w6-07": {
+      "case_id": "w6-07",
+      "faithful": true,
+      "reason": "The summary correctly identifies that the absence of a secondary power source voids coverage under Clause 2.2, which is explicitly supported by the provided policy wording, and correctly notes that no specific exclusion code is applied.",
+      "judge": "judge_v2",
+      "error": null
+    },
+    "w6-08": {
+      "case_id": "w6-08",
+      "faithful": true,
+      "reason": "Every coverage statement in the summary, including the application of the 14-day allowance, the specific exception for bodily injury under Clause 4.2, and the satisfaction of the record-keeping condition in Clause 5.1, is directly supported by the provided policy wording blocks.",
+      "judge": "judge_v2",
+      "error": null
+    },
+    "w6-09": {
+      "case_id": "w6-09",
+      "faithful": false,
+      "reason": "The summary makes a blanket negative claim that the policy does not provide a specific exclusion code or different coverage clause to override the presumption, which is unsupported because the provided policy wording blocks do not contain the exclusion table (Clause 3) or the base liability coverage definitions required to verify the existence or absence of such clauses.",
+      "judge": "judge_v2",
+      "error": null
+    },
+    "w6-10": {
+      "case_id": "w6-10",
+      "faithful": true,
+      "reason": "The summary correctly identifies that the business activity is excluded because the condition in Clause 4.3 (no customer visits) is not met, and this proposition is fully supported by the provided policy wording.",
+      "judge": "judge_v2",
+      "error": null
+    },
+    "w6-11": {
+      "case_id": "w6-11",
+      "faithful": true,
+      "reason": "The summary correctly identifies that the sudden and accidental discharge is covered under Clause 2.1 and 2.2, and that the mould damage is excluded under E-76, all of which are explicitly supported by the provided policy wording blocks.",
+      "judge": "judge_v2",
+      "error": null
+    },
+    "w6-12": {
+      "case_id": "w6-12",
+      "faithful": false,
+      "reason": "The summary makes a blanket negative claim that the exclusion table 'does not cover general water damage from a pipe split' based only on the five visible rows (E-75 to E-79), which is an unsupported inference about unseen rows in the table.",
+      "judge": "judge_v2",
+      "error": null
+    },
+    "w6-13": {
+      "case_id": "w6-13",
+      "faithful": true,
+      "reason": "Every coverage statement and exclusion reference in the summary is directly supported by the provided policy wording blocks, and the summary correctly identifies unresolved conditions regarding tenancy status and vacancy duration without making unsupported blanket claims about unseen exclusions.",
+      "judge": "judge_v2",
+      "error": null
+    },
+    "w6-14": {
+      "case_id": "w6-14",
+      "faithful": true,
+      "reason": "The summary correctly states that the coverage position is undetermined because the provided policy wording blocks contain only fragments regarding floor definitions and do not include any coverage grants, exclusions, or limits necessary to support a definitive coverage determination.",
+      "judge": "judge_v2",
+      "error": null
+    },
+    "w6-15": {
+      "case_id": "w6-15",
+      "faithful": false,
+      "reason": "The summary makes a blanket negative claim that 'No other coverage clauses apply' based on a partial view of the policy wording, which is unsupported because the provided blocks do not contain the full set of coverage clauses or the complete exclusion table.",
+      "judge": "judge_v2",
+      "error": null
+    },
+    "w6-16": {
+      "case_id": "w6-16",
+      "faithful": true,
+      "reason": "The summary's denial is based on the failure to meet the 30-day notice condition precedent found in Clause 4.1, and the statement that no exclusion code applies is supported by the absence of any exclusion table or code in the provided policy wording blocks.",
+      "judge": "judge_v2",
+      "error": null
+    },
+    "w6-17": {
+      "case_id": "w6-17",
+      "faithful": true,
+      "reason": "Every coverage statement in the summary, including the specific exclusions (E-31, E-33, E-37) and the deductible calculation, is directly supported by the provided policy wording blocks, and the summary correctly identifies the fence loss as not excluded based on the specific limit in E-37 without making unsupported blanket claims about the entire exclusion table.",
+      "judge": "judge_v2",
+      "error": null
+    },
+    "w6-18": {
+      "case_id": "w6-18",
+      "faithful": true,
+      "reason": "The summary correctly identifies exclusion E-38 from the provided policy wording and accurately applies its condition (repeated hail impact with no single event causing breach) to the facts stated in the adjuster notes.",
+      "judge": "judge_v2",
+      "error": null
+    },
+    "w6-19": {
+      "case_id": "w6-19",
+      "faithful": true,
+      "reason": "Every coverage statement in the summary, including the applicability of Clause 2.1, the violation of Clause 4.3, and the unresolved status of Clause 4.1, is directly supported by the provided policy wording blocks.",
+      "judge": "judge_v2",
+      "error": null
+    },
+    "w6-20": {
+      "case_id": "w6-20",
+      "faithful": true,
+      "reason": "The summary correctly identifies E-49 from the provided policy wording, accurately states the condition (two or more prior claims in five years) and the exception (remediation certificate), and correctly applies these to the facts in the adjuster notes (three prior claims, no certificate) to support the denial.",
+      "judge": "judge_v2",
+      "error": null
+    },
+    "w6-21": {
+      "case_id": "w6-21",
+      "faithful": true,
+      "reason": "The summary correctly states that the coverage position is undetermined because the provided policy wording blocks contain no substantive coverage or exclusion clauses, only fragmentary text about building elevations.",
+      "judge": "judge_v2",
+      "error": null
+    },
+    "w6-22": {
+      "case_id": "w6-22",
+      "faithful": false,
+      "reason": "The summary asserts that the exclusion E-11 applies because the water 'appears to be groundwater exerting pressure on the foundation,' but the adjuster notes explicitly state the source is 'genuinely not established' and could be a washing machine drain, meaning the summary assumes a condition is met that the notes do not support.",
+      "judge": "judge_v2",
+      "error": null
+    },
+    "w6-23": {
+      "case_id": "w6-23",
+      "faithful": true,
+      "reason": "Every coverage statement, including the application of Clause 2.1, the satisfaction of conditions precedent in Clause 4, and the non-application of Exclusion E-17 based on the specific note in the exclusion table, is directly supported by the provided policy wording blocks.",
+      "judge": "judge_v2",
+      "error": null
+    }
+  }
+}

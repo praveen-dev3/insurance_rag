@@ -23,16 +23,25 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from claims_population import CLAIM_FILES, DEMO_QUESTIONS, QUESTIONS  # noqa: E402
+from data.claims_population import CLAIM_FILES, DEMO_QUESTIONS, QUESTIONS  # noqa: E402
 
 from rag.claims import (  # noqa: E402
+    CLAIM_RETRIEVAL_VERSION,
     SUMMARY_PROMPT,
     SUMMARY_PROMPT_VERSION,
     ClaimFile,
     build_summary_prompt,
     generate_summary,
+    retrieve_for_claim,
 )
-from rag.config import DEFAULT_MODE, LLM_MODEL, TOP_K  # noqa: E402
+from rag.config import (  # noqa: E402
+    DEFAULT_MODE,
+    LLM_MODEL,
+    SUMMARY_DEDUCTIBLE_TOP_K,
+    SUMMARY_SCOPE_TO_FORM,
+    SUMMARY_TOP_K,
+    TOP_K,
+)
 from rag.engine import RagEngine  # noqa: E402
 from rag.generation import (  # noqa: E402
     ANSWER_PROMPT_VERSION,
@@ -60,6 +69,18 @@ RUN_OPTIONS = {
     "use_hyde": False,
     "reranker": "ms-marco",
     "filters": None,
+}
+
+# The claim-summary task's own retrieval shape — see rag/claims.py for why
+# it is not just RUN_OPTIONS["top_k"]. Kept separate rather than folded
+# into RUN_OPTIONS because RUN_OPTIONS is also what a QA-turn trace
+# records, and a QA trace claiming a "deductible_top_k" it never used
+# would be describing a retrieval that did not happen.
+SUMMARY_OPTIONS = {
+    "top_k": SUMMARY_TOP_K,
+    "deductible_top_k": SUMMARY_DEDUCTIBLE_TOP_K,
+    "scope_to_form": SUMMARY_SCOPE_TO_FORM,
+    "claim_retrieval_version": CLAIM_RETRIEVAL_VERSION,
 }
 
 
@@ -154,10 +175,13 @@ def trace_summary(engine, writer, record, session_id, tags):
 
     claim = ClaimFile(**record).redacted(writer.redactor)
 
-    queries, chunks, trace = engine.prepare(
-        claim.search_query(),
+    queries, chunks, trace = retrieve_for_claim(
+        engine,
+        claim,
+        top_k=SUMMARY_OPTIONS["top_k"],
+        deductible_top_k=SUMMARY_OPTIONS["deductible_top_k"],
+        scope_to_form=SUMMARY_OPTIONS["scope_to_form"],
         mode=RUN_OPTIONS["mode"],
-        top_k=RUN_OPTIONS["top_k"],
         use_mmr=RUN_OPTIONS["use_mmr"],
         use_rewrite=RUN_OPTIONS["use_rewrite"],
         use_hyde=RUN_OPTIONS["use_hyde"],
@@ -180,7 +204,7 @@ def trace_summary(engine, writer, record, session_id, tags):
             "rendered_sha256": sha256_short(rendered),
         },
         model=params,
-        options=RUN_OPTIONS,
+        options={**RUN_OPTIONS, **SUMMARY_OPTIONS},
         session_id=session_id,
         turn=1,
         citations=verify_citations(summary, chunks),

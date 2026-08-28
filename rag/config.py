@@ -161,6 +161,44 @@ DEFAULT_MODE = os.getenv("DEFAULT_MODE", "hybrid")
 
 
 # ------------------------------------------------------------------
+# Retrieval for the claim-summary task
+# ------------------------------------------------------------------
+
+# A claim summary retrieves differently from an adjuster's question, and
+# the reason was counted rather than assumed. Week 5 read 20 traces by
+# hand: the Deductible field said UNKNOWN in 10 of the 10 claim-summary
+# traces in the sample. One retrieval over a whole adjuster note with
+# top_k=3 spends all three slots on exclusion-table rows, because that is
+# what the notes are mostly about, so the deductible clause is never in
+# the running. It is not unretrievable — tr-wk5-0026 asked for it directly
+# and got it at rerank 8.3. The summary task simply never asked.
+#
+# Hence three knobs, matching the three parts of the Week 5 prediction in
+# prediction.txt:
+#
+#   SUMMARY_SCOPE_TO_FORM      (a) scope retrieval to the form the claim
+#                                  file names, so the flood manual and the
+#                                  other policy line cannot win a slot
+#   SUMMARY_DEDUCTIBLE_TOP_K   (b) a second, separate retrieval for the
+#                                  limits-and-deductible clause, so it is
+#                                  not competing with the exclusion table
+#   SUMMARY_TOP_K              (c) more slots for the notes retrieval
+#
+# None of these belong in index_signature(). They change which stored
+# chunks a query selects, not what is stored, so they must NOT invalidate
+# an index — adding them to the signature would force a pointless rebuild
+# and, worse, would teach the next person that query-time settings live
+# there.
+SUMMARY_TOP_K = int(os.getenv("SUMMARY_TOP_K", "8"))
+
+# 0 disables the second leg, which is how the before/after comparison in
+# tools/w7_retrieval_delta.py reproduces the old one-retrieval shape.
+SUMMARY_DEDUCTIBLE_TOP_K = int(os.getenv("SUMMARY_DEDUCTIBLE_TOP_K", "2"))
+
+SUMMARY_SCOPE_TO_FORM = _flag("SUMMARY_SCOPE_TO_FORM", True)
+
+
+# ------------------------------------------------------------------
 # MMR (Maximal Marginal Relevance)
 # ------------------------------------------------------------------
 

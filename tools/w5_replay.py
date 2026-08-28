@@ -41,7 +41,11 @@ import chromadb
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from rag.claims import SUMMARY_PROMPT, build_summary_prompt  # noqa: E402
+from rag.claims import (  # noqa: E402
+    SUMMARY_PROMPT,
+    build_summary_prompt,
+    merge_retrieved,
+)
 from rag.config import CHROMA_PATH, COLLECTION_NAME  # noqa: E402
 from rag.engine import RagEngine  # noqa: E402
 from rag.generation import build_prompt, generate_answer  # noqa: E402
@@ -119,22 +123,59 @@ def resolve_chunks(chunk_rows, collection_name=None):
 
 
 def replay_retrieval(engine, trace):
-    """Re-run the search using only what the trace recorded."""
+    """
+    Re-run the search using only what the trace recorded.
+
+    A claim-summary trace carries a `claim_retrieval` block (see
+    rag/tracing.py's retrieval_block) naming one or two legs, each with
+    its own question, filters and top_k, because retrieve_for_claim runs
+    the notes and the deductible query separately and merges the results
+    (see rag/claims.py). Replaying only the notes leg would silently
+    reconstruct the OLD one-retrieval shape and report a mismatch that is
+    actually a missing field, not drift in the index — so a trace with a
+    `claim_retrieval` block replays leg by leg and merges the same way
+    retrieve_for_claim does; every other trace replays as one search, as
+    before.
+    """
 
     retrieval = trace["retrieval"]
     queries = retrieval.get("queries") or {}
     options = retrieval.get("options") or {}
+    claim_retrieval = retrieval.get("claim_retrieval")
 
-    chunks, _ = engine.retrieve(
-        queries.get("condensed") or trace["input"]["question"],
-        mode=retrieval.get("mode"),
-        top_k=options.get("top_k", 3),
-        filters=retrieval.get("filters"),
-        search_query=queries.get("search_query"),
-        dense_query=queries.get("dense_query"),
-        use_mmr=options.get("use_mmr"),
-        reranker=options.get("reranker"),
-    )
+    if claim_retrieval and claim_retrieval.get("legs"):
+
+        leg_results = []
+
+        for leg in claim_retrieval["legs"]:
+
+            leg_chunks, _ = engine.retrieve(
+                leg["question"],
+                mode=retrieval.get("mode"),
+                top_k=leg.get("top_k", 3),
+                filters=leg.get("filters"),
+                search_query=(leg.get("queries") or {}).get("search_query"),
+                dense_query=(leg.get("queries") or {}).get("dense_query"),
+                use_mmr=options.get("use_mmr"),
+                reranker=options.get("reranker"),
+            )
+
+            leg_results.append(leg_chunks)
+
+        chunks = merge_retrieved(*leg_results)
+
+    else:
+
+        chunks, _ = engine.retrieve(
+            queries.get("condensed") or trace["input"]["question"],
+            mode=retrieval.get("mode"),
+            top_k=options.get("top_k", 3),
+            filters=retrieval.get("filters"),
+            search_query=queries.get("search_query"),
+            dense_query=queries.get("dense_query"),
+            use_mmr=options.get("use_mmr"),
+            reranker=options.get("reranker"),
+        )
 
     original_ids = [row["chunk_id"] for row in retrieval["final"]]
     replayed_ids = [chunk.id for chunk in chunks]

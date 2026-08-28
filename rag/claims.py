@@ -31,9 +31,16 @@ from dataclasses import asdict, dataclass, field
 
 from openai import OpenAIError
 
-from rag.config import LLM_MODEL, REASONING_EFFORT
+from rag.config import (
+    LLM_MODEL,
+    REASONING_EFFORT,
+    SUMMARY_DEDUCTIBLE_TOP_K,
+    SUMMARY_SCOPE_TO_FORM,
+    SUMMARY_TOP_K,
+)
 from rag.generation import GENERATION_ERROR
 from rag.llm import complete
+from rag.metadata import UNSPECIFIED
 from rag.retrieval import format_pages
 
 # Bumped whenever SUMMARY_PROMPT changes. Recorded in every trace, so a
@@ -153,6 +160,217 @@ class ClaimFile:
             header.append(f"Date reported: {self.reported_date}")
 
         return "\n".join(header) + "\n\nAdjuster notes:\n" + self.notes.strip()
+
+
+# ============================================================
+# RETRIEVING THE WORDING A CLAIM ENGAGES
+# ============================================================
+
+# Bumped whenever the leg structure or DEDUCTIBLE_QUERY changes, and
+# recorded in every trace beside the prompt version. "The summaries got
+# worse" has two candidate causes that are fixed in different files, and
+# a trace that versions only the prompt cannot tell them apart.
+CLAIM_RETRIEVAL_VERSION = "claim-retrieval-v2"
+
+# The second leg's query, written in the vocabulary of the CLAUSE rather
+# than of the claim. The notes say "burst pipe"; the clause says "amount
+# payable by the insured in respect of each loss". Querying on the notes
+# has already been tried — that is what v1 did with its single retrieval,
+# and the deductible clause lost every slot to the exclusion table in 10
+# of the 10 claim-summary traces Week 5 read.
+DEDUCTIBLE_QUERY = (
+    "deductible excess amount payable by the insured in respect of each "
+    "loss, limits of liability, amount of insurance"
+)
+
+
+def claim_filters(claim, scope_to_form=None):
+    """
+    Scope retrieval to the form the claim file names, when it names one.
+
+    This is not a shortcut around a hard retrieval problem. The claim
+    record really does say which form is attached, and an unfiltered
+    search over the whole corpus is free to answer a homeowners basement
+    claim out of the FEMA flood manual — which is what it did in
+    tr-wk5-0020, where all three retrieved chunks were flood-manual page
+    ranges scoring around -5.4.
+
+    Returns None rather than an empty filter when no form is recorded, so
+    the two claims in the Week 6 set that carry no form_number keep
+    searching the whole corpus instead of being filtered down to nothing.
+    A filter that silently matched zero documents would turn "we do not
+    know the form" into "there is no policy wording", and the app would
+    refuse for a reason that is not true.
+    """
+
+    scope = SUMMARY_SCOPE_TO_FORM if scope_to_form is None else scope_to_form
+
+    form = getattr(claim, "form_number", None)
+
+    if not scope or not form or form == UNSPECIFIED:
+        return None
+
+    return {"form_numbers": [form]}
+
+
+def deductible_query(claim):
+    """The limits-and-deductible query, prefixed with the form when known.
+
+    The prefix earns its place on the sparse half: the metadata filter
+    already keeps the other forms out of the dense results, but when a
+    claim records no form there is no filter, and the form token is then
+    the only thing pulling BM25 towards the right document.
+    """
+
+    form = getattr(claim, "form_number", None)
+
+    prefix = f"{form} " if form and form != UNSPECIFIED else ""
+
+    return f"{prefix}{DEDUCTIBLE_QUERY}"
+
+
+def merge_retrieved(*groups, renumber=True):
+    """
+    Concatenate retrieved chunk lists, first occurrence wins, renumbered.
+
+    Order is leg order, not score order, and deliberately so. The two legs
+    are reranked against different queries, so their scores are not on a
+    comparable scale — sorting the merged list by rerank_score would rank
+    a deductible chunk scored against "amount payable per loss" against an
+    exclusion row scored against the adjuster's notes, and the number that
+    won would mean nothing.
+
+    `final_rank` is renumbered over the merged list because it is what the
+    trace and the UI print as position, and leaving two chunks both
+    claiming rank 1 would make a trace unreadable at exactly the moment
+    someone is trying to work out which leg found what.
+
+    `renumber=False` is for merging the two legs' *rejects*. A chunk the
+    relevance floor dropped never reached the prompt, so stamping a final
+    position on it would be asserting the opposite of what happened.
+    """
+
+    merged, seen = [], set()
+
+    for group in groups:
+
+        for chunk in group:
+
+            if chunk.id in seen:
+                continue
+
+            seen.add(chunk.id)
+            merged.append(chunk)
+
+    if renumber:
+
+        for rank, chunk in enumerate(merged, start=1):
+            chunk.final_rank = rank
+
+    return merged
+
+
+def retrieve_for_claim(engine, claim, top_k=None, deductible_top_k=None,
+                       scope_to_form=None, **options):
+    """
+    Retrieve the wording one claim engages. Returns (queries, chunks, trace).
+
+    Two retrievals, not one, and the second is the whole point. A claim
+    summary has to state a coverage position AND a deductible, and those
+    two facts live in clauses that no single query reaches: the notes
+    describe damage, so a query built from them ranks the exclusion table,
+    and on this corpus the exclusion table wins every slot it is allowed
+    to contest. Week 5 measured the consequence — Deductible read UNKNOWN
+    in 10 of 10 summary traces — and tr-wk5-0026 proved the clause was
+    retrievable all along by asking for it directly and getting it at
+    rerank 8.3. So the summary task asks twice.
+
+    Shaped to match `engine.prepare`'s return so the two front ends that
+    call it need no other change. The returned trace is the notes leg's,
+    with two fields corrected to describe the merged result:
+
+      * `final` is the merged list, because the trace's contract is "what
+        reached the prompt" and a trace that recorded only the first leg
+        would make every replay of a summary diverge — and it would look
+        like model nondeterminism rather than a missing field;
+      * `dropped_below_floor` merges both legs, because a deductible
+        clause that was found and then rejected by the relevance floor is
+        the answer to "why is this still UNKNOWN", and it is invisible if
+        the second leg's drops are discarded.
+
+    `reranked` stays the notes leg's own candidate list. It is a per-query
+    ranking and merging two of them would fabricate an ordering that no
+    reranker produced.
+
+    The relevance floor is NOT relaxed for the second leg. If the
+    deductible clause cannot clear the bar, the honest outcome is that the
+    field stays UNKNOWN and the trace says why.
+    """
+
+    top_k = SUMMARY_TOP_K if top_k is None else top_k
+
+    deductible_top_k = (
+        SUMMARY_DEDUCTIBLE_TOP_K if deductible_top_k is None
+        else deductible_top_k
+    )
+
+    filters = claim_filters(claim, scope_to_form=scope_to_form)
+
+    legs, results = [], []
+
+    for name, question, leg_top_k in (
+        ("notes", claim.search_query(), top_k),
+        ("deductible", deductible_query(claim), deductible_top_k),
+    ):
+
+        if not leg_top_k:
+            # Setting a leg's top_k to 0 disables it. That is how
+            # tools/w7_retrieval_delta.py reproduces the old single-leg
+            # shape for a before/after comparison without keeping a
+            # second copy of this function around to rot.
+            continue
+
+        leg_queries, leg_chunks, leg_trace = engine.prepare(
+            question,
+            top_k=leg_top_k,
+            filters=filters,
+            **options,
+        )
+
+        results.append((name, leg_queries, leg_chunks, leg_trace))
+
+        legs.append({
+            "name": name,
+            "question": question,
+            "queries": leg_queries,
+            "filters": filters,
+            "top_k": leg_top_k,
+            "chunk_ids": [chunk.id for chunk in leg_chunks],
+        })
+
+    queries, trace = results[0][1], results[0][3]
+
+    chunks = merge_retrieved(*[chunks for _, _, chunks, _ in results])
+
+    kept = {chunk.id for chunk in chunks}
+
+    trace.final = chunks
+
+    trace.dropped_below_floor = merge_retrieved(
+        *[
+            [chunk for chunk in leg_trace.dropped_below_floor
+             if chunk.id not in kept]
+            for _, _, _, leg_trace in results
+        ],
+        renumber=False,
+    )
+
+    trace.config["claim_retrieval"] = {
+        "version": CLAIM_RETRIEVAL_VERSION,
+        "legs": legs,
+    }
+
+    return queries, chunks, trace
 
 
 SUMMARY_PROMPT = """You are a claims adjuster's assistant. Write a claim summary from the

@@ -31,22 +31,28 @@ import sys
 from collections import Counter, defaultdict
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+from _runner import read_json, write_json
 
-from rag.assertions import ASSERTIONS, run_assertions  # noqa: E402
-from rag.claims import (  # noqa: E402
+from rag.assertions import ASSERTIONS, run_assertions
+from rag.claims import (
+    CLAIM_RETRIEVAL_VERSION,
     SUMMARY_PROMPT_VERSION,
     ClaimFile,
     build_context,
     coverage_position,
     generate_summary,
+    retrieve_for_claim,
 )
-from rag.config import DEFAULT_MODE, TOP_K  # noqa: E402
-from rag.engine import RagEngine  # noqa: E402
-from rag.generation import is_generation_error  # noqa: E402
-from rag.judge import CRITERION, Verdict, agreement, judge_summary, load_judge_prompt  # noqa: E402
-from rag.tracing import Redactor  # noqa: E402
+from rag.config import (
+    DEFAULT_MODE,
+    SUMMARY_DEDUCTIBLE_TOP_K,
+    SUMMARY_SCOPE_TO_FORM,
+    SUMMARY_TOP_K,
+)
+from rag.engine import RagEngine
+from rag.generation import is_generation_error
+from rag.judge import CRITERION, Verdict, agreement, judge_summary, load_judge_prompt
+from rag.tracing import Redactor
 
 CASES_PATH = Path("eval/w6_cases.json")
 SUMMARIES_PATH = Path("eval/w6/summaries.json")
@@ -55,7 +61,14 @@ RESULTS_DIR = Path("eval/w6")
 
 RUN_OPTIONS = {
     "mode": DEFAULT_MODE,
-    "top_k": TOP_K,
+    # The claim-summary retrieval shape, not the app-wide TOP_K. Recorded
+    # here rather than read from config at print time so a saved
+    # summaries.json says which shape produced it — the Week 5 numbers and
+    # the Week 7 numbers come out of the same file and are otherwise
+    # indistinguishable.
+    "top_k": SUMMARY_TOP_K,
+    "deductible_top_k": SUMMARY_DEDUCTIBLE_TOP_K,
+    "scope_to_form": SUMMARY_SCOPE_TO_FORM,
     "use_mmr": False,
     "use_rewrite": False,
     "use_hyde": False,
@@ -81,7 +94,7 @@ def tolerate_console_encoding():
 
 def load_cases(path=CASES_PATH):
 
-    payload = json.loads(Path(path).read_text(encoding="utf-8"))
+    payload = read_json(path)
 
     return payload["cases"], payload
 
@@ -116,15 +129,31 @@ def stage_summaries(engine, cases, out=SUMMARIES_PATH):
             form_number=case.get("form_number"),
         ).redacted(redactor)
 
-        _, chunks, trace = engine.prepare(
-            claim.search_query(),
-            mode=RUN_OPTIONS["mode"],
+        _, chunks, trace = retrieve_for_claim(
+            engine,
+            claim,
             top_k=RUN_OPTIONS["top_k"],
+            deductible_top_k=RUN_OPTIONS["deductible_top_k"],
+            scope_to_form=RUN_OPTIONS["scope_to_form"],
+            mode=RUN_OPTIONS["mode"],
             use_mmr=RUN_OPTIONS["use_mmr"],
             use_rewrite=RUN_OPTIONS["use_rewrite"],
             use_hyde=RUN_OPTIONS["use_hyde"],
             reranker=RUN_OPTIONS["reranker"],
         )
+
+        # Which retrieval leg put each chunk in the prompt. Recorded
+        # because the whole claim of this change is "the second leg finds
+        # the deductible clause", and that claim is only checkable if the
+        # saved row says which leg found what.
+        # setdefault, not assignment: a chunk both legs found is the notes
+        # leg's, because that is the copy the merge kept.
+        found_by = {}
+
+        for leg in trace.config["claim_retrieval"]["legs"]:
+
+            for chunk_id in leg["chunk_ids"]:
+                found_by.setdefault(chunk_id, leg["name"])
 
         summary, params, usage = generate_summary(
             claim, chunks, on_wait=_report_wait
@@ -145,11 +174,13 @@ def stage_summaries(engine, cases, out=SUMMARIES_PATH):
             "coverage_position": coverage_position(summary),
             "generation_error": is_generation_error(summary),
             "prompt_version": SUMMARY_PROMPT_VERSION,
+            "claim_retrieval_version": CLAIM_RETRIEVAL_VERSION,
             "model": params,
             "usage": usage,
             "retrieved": [
                 {
                     "chunk_id": chunk.id,
+                    "found_by": found_by.get(chunk.id),
                     "form_number": chunk.form_number,
                     "edition_date": chunk.edition_date,
                     "policy_line": chunk.policy_line,
@@ -184,14 +215,9 @@ def stage_summaries(engine, cases, out=SUMMARIES_PATH):
               f"{'PASS' if all_passed else 'FAIL'}  "
               f"{coverage_position(summary)}")
 
-    out = Path(out)
-    out.parent.mkdir(parents=True, exist_ok=True)
-    out.write_text(
-        json.dumps({"prompt_version": SUMMARY_PROMPT_VERSION,
-                    "options": RUN_OPTIONS,
-                    "rows": rows}, indent=2, default=str),
-        encoding="utf-8",
-    )
+    out = write_json(out, {"prompt_version": SUMMARY_PROMPT_VERSION,
+                           "options": RUN_OPTIONS,
+                           "rows": rows})
 
     print(f"\nSaved {len(rows)} summaries to {out}")
 
@@ -230,15 +256,14 @@ def stage_judge(rows, judge="judge_v1", out=None):
 
         print(f"  [{index:>2}/{len(rows)}] {row['id']:<8} {flag}")
 
-    out = Path(out or RESULTS_DIR / f"verdicts_{judge}.json")
-    out.parent.mkdir(parents=True, exist_ok=True)
-    out.write_text(
-        json.dumps({
+    out = write_json(
+        out or RESULTS_DIR / f"verdicts_{judge}.json",
+        {
             "judge": judge,
             "criterion": CRITERION,
             "verdicts": {k: v.to_dict() for k, v in verdicts.items()},
-        }, indent=2),
-        encoding="utf-8",
+        },
+        default=None,
     )
 
     print(f"\nSaved verdicts to {out}")
@@ -248,7 +273,7 @@ def stage_judge(rows, judge="judge_v1", out=None):
 
 def load_verdicts(path):
 
-    payload = json.loads(Path(path).read_text(encoding="utf-8"))
+    payload = read_json(path)
 
     return {
         case_id: Verdict(**data)
@@ -266,7 +291,7 @@ def load_labels(path=LABELS_PATH):
     arithmetic.
     """
 
-    payload = json.loads(Path(path).read_text(encoding="utf-8"))
+    payload = read_json(path)
 
     return {
         case_id: bool(entry[CRITERION])
@@ -424,9 +449,7 @@ def main():
         print()
         rows = stage_summaries(engine, cases, out=args.summaries)
     else:
-        rows = json.loads(
-            Path(args.summaries).read_text(encoding="utf-8")
-        )["rows"]
+        rows = read_json(args.summaries)["rows"]
 
     if args.stage in ("all", "judge"):
 
@@ -470,14 +493,16 @@ def main():
         print(f"  judge too lenient : {scores['disagreements']['judge_too_lenient']}")
         print(f"  judge too strict  : {scores['disagreements']['judge_too_strict']}")
 
-        out = Path(RESULTS_DIR / f"agreement_{args.judge}.json")
-        out.parent.mkdir(parents=True, exist_ok=True)
-        out.write_text(json.dumps({
-            "judge": args.judge,
-            "labels_file": args.labels,
-            "labels_sha_note": label_payload.get("committed_before_judge_run"),
-            **scores,
-        }, indent=2), encoding="utf-8")
+        out = write_json(
+            RESULTS_DIR / f"agreement_{args.judge}.json",
+            {
+                "judge": args.judge,
+                "labels_file": args.labels,
+                "labels_sha_note": label_payload.get("committed_before_judge_run"),
+                **scores,
+            },
+            default=None,
+        )
 
         print(f"\nSaved agreement to {out}")
 

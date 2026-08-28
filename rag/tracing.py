@@ -402,6 +402,14 @@ def retrieval_block(trace, options=None):
             "search_query": trace.search_query,
             "dense_query": trace.dense_query,
         },
+        # Present only for a claim summary: which leg(s) retrieve_for_claim
+        # ran and what each one asked for. A summary trace's "final" is a
+        # merge of two independently-retrieved and independently-reranked
+        # lists (see rag/claims.py), and a replay that re-ran only the
+        # notes query would silently reproduce the OLD one-retrieval shape
+        # instead of what the app actually did — the mismatch would look
+        # like the index moved, not like a missing field.
+        "claim_retrieval": (trace.config or {}).get("claim_retrieval"),
         "timings_ms": trace.timings_ms,
         "counts": {
             "dense": len(trace.dense),

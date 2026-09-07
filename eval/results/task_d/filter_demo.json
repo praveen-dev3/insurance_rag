@@ -1,0 +1,164 @@
+{
+  "query": "water damage from a plumbing system while the dwelling was vacant for more than 60 days",
+  "filter": {
+    "policy_lines": [
+      "homeowners"
+    ]
+  },
+  "runs": {
+    "unfiltered": [
+      {
+        "rank": 1,
+        "chunk_id": "DP-0208_dwelling_fire_water_ed_05-24.pdf#453be6c836c15c62",
+        "form_number": "DP-0208",
+        "edition_date": "05-24",
+        "policy_line": "dwelling_fire",
+        "clause": "Exclusion Table 3.1",
+        "pages": [
+          1,
+          1
+        ],
+        "rerank_score": 7.4485,
+        "rrf_score": 0.032787,
+        "text": "FORM DP-0208 ED. 05-24 | POLICY LINE: DWELLING_FIRE | Dwelling Fire - Water Damage Limitation (Tenant-Occupied)\nSECTION: Exclusion Table 3.1\nEXCLUSION TABLE 3.1 - WATER DAMAGE EXCLUSIONS, DWELLING FIRE LINE\nCODE  EXCLUSION AND DISPOSITION\n\nE-70  Flood, surface water or overflow of a body of water.\n            Disposition: Excluded absolutely.\nE-71  Constant or repeated seepage or leakage of water over fourteen (14) days or more.\n            Disposition: Excluded absolutely.\nE-72  Water damage from a plumbing system in a dwelling vacant more than 60 consecutive days.\n            Disposition: Excluded absolutely.\nE-73  Water damage caused deliberately or recklessly by a tenant or their guest.\n            Disposition: Excluded absolutely.\nE-74  Loss caused by freezing where the dwelling was not heated during the tenancy.\n            Disposition: Excluded absolutely."
+      },
+      {
+        "rank": 2,
+        "chunk_id": "HO-0304_water_damage_ed_03-24.pdf#0d68a4bd8744a51c",
+        "form_number": "HO-0304",
+        "edition_date": "03-24",
+        "policy_line": "homeowners",
+        "clause": "Exclusion Table 3.1",
+        "pages": [
+          1,
+          2
+        ],
+        "rerank_score": 7.2746,
+        "rrf_score": 0.031754,
+        "text": "FORM HO-0304 ED. 03-24 | POLICY LINE: HOMEOWNERS | Water Damage, Discharge and Overflow Endorsement\nSECTION: Exclusion Table 3.1\nEXCLUSION TABLE 3.1 - WATER DAMAGE EXCLUSIONS\nCODE  EXCLUSION AND DISPOSITION\n\nE-10  Flood, surface water, waves, tidal water or overflow of a body of water.\n            Disposition: Excluded absolutely.\nE-11  Water below the surface of the ground exerting pressure on foundations.\n            Disposition: Excluded absolutely.\nE-12  Water damage occurring while the dwelling is vacant for more than 60 consecutive days.\n            Disposition: Excluded unless heat maintained and water shut off.\nE-13  Discharge from a system the insured failed to drain before a period of vacancy.\n            Disposition: Excluded absolutely.\nE-14  Loss caused by freezing of a plumbing system during the heating season.\n            Disposition: Excluded unless heat maintained at 55F or above."
+      },
+      {
+        "rank": 3,
+        "chunk_id": "DP-0208_dwelling_fire_water_ed_05-24.pdf#0a500f280def1639",
+        "form_number": "DP-0208",
+        "edition_date": "05-24",
+        "policy_line": "dwelling_fire",
+        "clause": "Exclusion Table 3.1",
+        "pages": [
+          1,
+          2
+        ],
+        "rerank_score": 3.6531,
+        "rrf_score": 0.032002,
+        "text": "FORM DP-0208 ED. 05-24 | POLICY LINE: DWELLING_FIRE | Dwelling Fire - Water Damage Limitation (Tenant-Occupied)\nSECTION: Exclusion Table 3.1\nEXCLUSION TABLE 3.1 - WATER DAMAGE EXCLUSIONS, DWELLING FIRE LINE\nCODE  EXCLUSION AND DISPOSITION\n\nE-75  Cost of repairing the system or appliance from which the water escaped.\n            Disposition: Excluded absolutely.\nE-76  Mould, fungus or wet rot however caused.\n            Disposition: Excluded absolutely, no sublimit applies.\nE-77  Water damage occurring during a period in which rent was more than 60 days in arrears.\n            Disposition: Excluded absolutely.\nE-78  Sewer or drain back-up of any kind.\n            Disposition: Excluded absolutely, no buy-back available.\nE-79  Loss of rental income beyond twelve months following a water damage loss.\n            Disposition: Excluded absolutely."
+      },
+      {
+        "rank": 4,
+        "chunk_id": "DP-0208_dwelling_fire_water_ed_05-24.pdf#f942e78921ff50b6",
+        "form_number": "DP-0208",
+        "edition_date": "05-24",
+        "policy_line": "dwelling_fire",
+        "clause": "2. Coverage Grant - Sudden And Accidental Discharge",
+        "pages": [
+          1,
+          1
+        ],
+        "rerank_score": 2.5157,
+        "rrf_score": 0.03101,
+        "text": "FORM DP-0208 ED. 05-24 | POLICY LINE: DWELLING_FIRE | Dwelling Fire - Water Damage Limitation (Tenant-Occupied)\nSECTION: 2. Coverage Grant - Sudden And Accidental Discharge\n\n2. COVERAGE GRANT - SUDDEN AND ACCIDENTAL DISCHARGE\n2.1 We cover direct physical loss to covered property caused by the sudden and accidental discharge, leakage or overflow of water or steam from a plumbing, heating or air conditioning system located within the described dwelling, subject to the exclusions in Clause 3. A supply line which ruptures abruptly is a sudden and accidental discharge for the purposes of this clause.\n2.2 Coverage under this endorsement is conditional on the dwelling being occupied by a tenant under a written tenancy agreement at the date of loss. A dwelling between tenancies is treated as vacant from the sixty-first day after the previous tenancy ended."
+      },
+      {
+        "rank": 5,
+        "chunk_id": "DP-0208_dwelling_fire_water_ed_05-24.pdf#78c7600fbdb8d7dd",
+        "form_number": "DP-0208",
+        "edition_date": "05-24",
+        "policy_line": "dwelling_fire",
+        "clause": "4. Conditions",
+        "pages": [
+          2,
+          2
+        ],
+        "rerank_score": -0.5042,
+        "rrf_score": 0.030579,
+        "text": "FORM DP-0208 ED. 05-24 | POLICY LINE: DWELLING_FIRE | Dwelling Fire - Water Damage Limitation (Tenant-Occupied)\nSECTION: 4. Conditions\n\n4. CONDITIONS\n4.1 The insured must inspect the dwelling not less than once in every ninety (90) day period during which it is unoccupied, and must keep a record of those inspections.\n4.2 The insured must give notice of a water damage loss within thirty (30) days of discovery."
+      }
+    ],
+    "filtered": [
+      {
+        "rank": 1,
+        "chunk_id": "HO-0304_water_damage_ed_03-24.pdf#0d68a4bd8744a51c",
+        "form_number": "HO-0304",
+        "edition_date": "03-24",
+        "policy_line": "homeowners",
+        "clause": "Exclusion Table 3.1",
+        "pages": [
+          1,
+          2
+        ],
+        "rerank_score": 7.2746,
+        "rrf_score": 0.032787,
+        "text": "FORM HO-0304 ED. 03-24 | POLICY LINE: HOMEOWNERS | Water Damage, Discharge and Overflow Endorsement\nSECTION: Exclusion Table 3.1\nEXCLUSION TABLE 3.1 - WATER DAMAGE EXCLUSIONS\nCODE  EXCLUSION AND DISPOSITION\n\nE-10  Flood, surface water, waves, tidal water or overflow of a body of water.\n            Disposition: Excluded absolutely.\nE-11  Water below the surface of the ground exerting pressure on foundations.\n            Disposition: Excluded absolutely.\nE-12  Water damage occurring while the dwelling is vacant for more than 60 consecutive days.\n            Disposition: Excluded unless heat maintained and water shut off.\nE-13  Discharge from a system the insured failed to drain before a period of vacancy.\n            Disposition: Excluded absolutely.\nE-14  Loss caused by freezing of a plumbing system during the heating season.\n            Disposition: Excluded unless heat maintained at 55F or above."
+      },
+      {
+        "rank": 2,
+        "chunk_id": "HO-0304_water_damage_ed_03-24.pdf#b6984390e80358cb",
+        "form_number": "HO-0304",
+        "edition_date": "03-24",
+        "policy_line": "homeowners",
+        "clause": "Clause 2.2",
+        "pages": [
+          1,
+          1
+        ],
+        "rerank_score": -1.761,
+        "rrf_score": 0.030769,
+        "text": "FORM HO-0304 ED. 03-24 | POLICY LINE: HOMEOWNERS | Water Damage, Discharge and Overflow Endorsement\nSECTION: Clause 2.2\n\n2.2 We also cover the reasonable cost of tearing out and replacing any part of the dwelling necessary to gain access to the system or appliance from which the water escaped. We do not cover the cost of repairing or replacing the system or appliance itself, except where that system or appliance is itself damaged by a separate covered peril.\n2.3 Coverage under this clause is available only where the discharge is first detected and reported in accordance with Clause 4. A discharge that the insured knew of, or reasonably should have known of, and did not report is not a sudden and accidental discharge regardless of how the failure began."
+      },
+      {
+        "rank": 3,
+        "chunk_id": "HO-0304_water_damage_ed_03-24.pdf#41a175ccd467f366",
+        "form_number": "HO-0304",
+        "edition_date": "03-24",
+        "policy_line": "homeowners",
+        "clause": "Exclusion Table 3.1",
+        "pages": [
+          2,
+          2
+        ],
+        "rerank_score": -2.0203,
+        "rrf_score": 0.031025,
+        "text": "FORM HO-0304 ED. 03-24 | POLICY LINE: HOMEOWNERS | Water Damage, Discharge and Overflow Endorsement\nSECTION: Exclusion Table 3.1\nEXCLUSION TABLE 3.1 - WATER DAMAGE EXCLUSIONS\nCODE  EXCLUSION AND DISPOSITION\n\nE-15  Cost of repairing the appliance or system from which the water escaped.\n            Disposition: Excluded, tear-out still covered under Clause 2.2.\nE-16  Rust, corrosion, wet rot or dry rot forming before the discharge.\n            Disposition: Excluded absolutely.\nE-17  Constant or repeated seepage or leakage of water occurring over a period of fourteen (14)\n      days or more, whether or not the insured was aware of it.\n            Disposition: Excluded absolutely; does NOT apply to a sudden and accidental\n            discharge under Clause 2.1."
+      },
+      {
+        "rank": 4,
+        "chunk_id": "HO-0304_water_damage_ed_03-24.pdf#58951661516ea86b",
+        "form_number": "HO-0304",
+        "edition_date": "03-24",
+        "policy_line": "homeowners",
+        "clause": "2. Coverage Grant - Sudden And Accidental Discharge",
+        "pages": [
+          1,
+          1
+        ],
+        "rerank_score": -2.8577,
+        "rrf_score": 0.029643,
+        "text": "FORM HO-0304 ED. 03-24 | POLICY LINE: HOMEOWNERS | Water Damage, Discharge and Overflow Endorsement\nSECTION: 2. Coverage Grant - Sudden And Accidental Discharge\n\n2. COVERAGE GRANT - SUDDEN AND ACCIDENTAL DISCHARGE\n2.1 We cover direct physical loss to covered property caused by the sudden and accidental discharge, leakage or overflow of water or steam from a plumbing, heating, air conditioning, fire protective sprinkler system, or household appliance located within the described dwelling. A supply line that ruptures, splits or otherwise fails abruptly is a sudden and accidental discharge for the purposes of this clause, and loss resulting from it is covered subject to the exclusions in Clause 3 and the limits in Clause 5."
+      },
+      {
+        "rank": 5,
+        "chunk_id": "HO-0304_water_damage_ed_03-24.pdf#e7618fa4726be500",
+        "form_number": "HO-0304",
+        "edition_date": "03-24",
+        "policy_line": "homeowners",
+        "clause": "4. Conditions Precedent To Payment",
+        "pages": [
+          2,
+          2
+        ],
+        "rerank_score": -3.0174,
+        "rrf_score": 0.031054,
+        "text": "FORM HO-0304 ED. 03-24 | POLICY LINE: HOMEOWNERS | Water Damage, Discharge and Overflow Endorsement\nSECTION: 4. Conditions Precedent To Payment\n\n4. CONDITIONS PRECEDENT TO PAYMENT\n4.1 The insured must give notice of a water damage loss within thirty (30) days of the date the discharge is first discovered. Notice given after that period voids coverage for the loss unless the insured shows that notice could not reasonably have been given sooner.\n4.2 The insured must take reasonable steps to protect the property from further damage, including shutting off the water supply to the affected system. Costs reasonably incurred in doing so are covered and are not subject to the deductible in Clause 5.3.\n4.3 The insured must preserve the failed component and make it available for inspection. Disposal of the failed component before we have had a reasonable opportunity to inspect it may prejudice the claim to the extent our investigation is impaired."
+      }
+    ]
+  }
+}

@@ -1,0 +1,1694 @@
+{
+  "recursive": {
+    "strategy": "recursive",
+    "k": 5,
+    "chunks_indexed": 50,
+    "hit_at_5": 7,
+    "of": 8,
+    "rows": [
+      {
+        "id": "e01",
+        "question": "Does exclusion E-17 apply to water damage from a burst supply line under HO-0304 ed. 03-24?",
+        "expected_form": "HO-0304",
+        "expected_clause": "3.1",
+        "exclusion_code": "E-17",
+        "tags": [
+          "exclusion-row",
+          "table"
+        ],
+        "hit_at_5": false,
+        "first_hit_rank": null,
+        "results": [
+          {
+            "rank": 1,
+            "hit": false,
+            "chunk_id": "HO-0304_water_damage_ed_03-24.pdf#61063947ac023d64",
+            "form_number": "HO-0304",
+            "edition_date": "03-24",
+            "policy_line": "homeowners",
+            "clause": "4. Conditions Precedent To Payment",
+            "pages": [
+              2,
+              2
+            ],
+            "rerank_score": 6.5392,
+            "rrf_score": 0.032522,
+            "dense_rank": 1,
+            "sparse_rank": 2,
+            "text": "discharge under Clause 2.1.\nE-18  Mould, fungus or wet rot except as provided by the sublimit in Clause 5.2.\n            Disposition: Excluded above sublimit.\nE-19  Water damage caused by or resulting from a sewer or drain back-up.\n            Disposition: Excluded here; see Form HO-0521.\nE-20  Loss to landscaping, paving or fencing caused by escaping water.\n            Disposition: Excluded absolutely.\nE-21  Water damage arising out of a home-sharing occupancy.\n            Disposition: Excluded; see Form HO-0633.\nNote: Exclusion E-17 is directed at a slow, ongoing failure. It is not triggered by an abrupt rupture. A burst supply line that\ndischarges water over a period shorter than fourteen days is adjudicated under Clause 2.1 and remains covered.\n4. CONDITIONS PRECEDENT TO PAYMENT"
+          },
+          {
+            "rank": 2,
+            "hit": false,
+            "chunk_id": "HO-0304_water_damage_ed_03-24.pdf#f236f9cdffeb477b",
+            "form_number": "HO-0304",
+            "edition_date": "03-24",
+            "policy_line": "homeowners",
+            "clause": "1. Purpose And Scope",
+            "pages": [
+              1,
+              1
+            ],
+            "rerank_score": 4.3613,
+            "rrf_score": 0.030478,
+            "dense_rank": 11,
+            "sparse_rank": 1,
+            "text": "ENDORSEMENT HO-0304 (ED. 03-24)\nWater Damage, Discharge and Overflow Endorsement\nForm Number: HO-0304\nEdition Date: 03-24\nPolicy Line: homeowners\nEffective Date: March 1, 2024\nSupersedes: HO-0304 ed. 08-21\nATTACHING TO AND FORMING PART OF THE POLICY SHOWN IN THE DECLARATIONS. ALL OTHER\nTERMS AND CONDITIONS REMAIN UNCHANGED.\n1. PURPOSE AND SCOPE\nThis endorsement amends the water damage provisions of the homeowners policy wording to which it is attached. Where\nthe language of this endorsement conflicts with the base wording, this endorsement controls. All other terms, conditions and\nexclusions of the policy remain in full force. This endorsement applies only to direct physical loss to covered property\narising from the escape of water within the described premises, and does not extend to flood, surface water or tidal action,\nwhich remain excluded under the base wording."
+          },
+          {
+            "rank": 3,
+            "hit": false,
+            "chunk_id": "DP-0208_dwelling_fire_water_ed_05-24.pdf#41a21e34465d1249",
+            "form_number": "DP-0208",
+            "edition_date": "05-24",
+            "policy_line": "dwelling_fire",
+            "clause": "1. Purpose And Scope",
+            "pages": [
+              1,
+              1
+            ],
+            "rerank_score": 3.5194,
+            "rrf_score": 0.028694,
+            "dense_rank": 18,
+            "sparse_rank": 3,
+            "text": "ENDORSEMENT DP-0208 (ED. 05-24)\nDwelling Fire - Water Damage Limitation (Tenant-Occupied)\nForm Number: DP-0208\nEdition Date: 05-24\nPolicy Line: dwelling_fire\nEffective Date: May 1, 2024\nSupersedes: DP-0208 ed. 10-21\nATTACHING TO AND FORMING PART OF THE POLICY SHOWN IN THE DECLARATIONS. ALL OTHER\nTERMS AND CONDITIONS REMAIN UNCHANGED.\n1. PURPOSE AND SCOPE\nThis endorsement amends the water damage provisions of the dwelling fire policy wording issued in respect of\ntenant-occupied dwellings. It does not apply to any homeowners policy line, and the exclusion codes in the E-70 series used\nhere are specific to the dwelling fire line. Where a dwelling is owner-occupied, Form HO-0304 applies instead.\n2. COVERAGE GRANT - SUDDEN AND ACCIDENTAL DISCHARGE"
+          },
+          {
+            "rank": 4,
+            "hit": false,
+            "chunk_id": "HO-0521_water_backup_sump_ed_01-24.pdf#3910c01a3667aac7",
+            "form_number": "HO-0521",
+            "edition_date": "01-24",
+            "policy_line": "homeowners",
+            "clause": "1. Purpose And Scope",
+            "pages": [
+              1,
+              1
+            ],
+            "rerank_score": 3.1904,
+            "rrf_score": 0.028783,
+            "dense_rank": 16,
+            "sparse_rank": 4,
+            "text": "ENDORSEMENT HO-0521 (ED. 01-24)\nWater Back-Up and Sump Discharge or Overflow\nForm Number: HO-0521\nEdition Date: 01-24\nPolicy Line: homeowners\nEffective Date: January 1, 2024\nSupersedes: None - new form\nATTACHING TO AND FORMING PART OF THE POLICY SHOWN IN THE DECLARATIONS. ALL OTHER\nTERMS AND CONDITIONS REMAIN UNCHANGED.\n1. PURPOSE AND SCOPE\nThis endorsement provides limited coverage for loss caused by water which backs up through sewers or drains, or which\noverflows or is discharged from a sump, sump pump or related equipment. Loss of this kind is excluded under Form\nHO-0304 by exclusion E-19 and is covered only to the extent set out here.\n2. COVERAGE GRANT\n2.1 We cover direct physical loss to covered property caused by water or waterborne material which backs up through"
+          },
+          {
+            "rank": 5,
+            "hit": false,
+            "chunk_id": "DP-0208_dwelling_fire_water_ed_05-24.pdf#a8a90648b028c62e",
+            "form_number": "DP-0208",
+            "edition_date": "05-24",
+            "policy_line": "dwelling_fire",
+            "clause": "4. Conditions",
+            "pages": [
+              1,
+              2
+            ],
+            "rerank_score": 1.7405,
+            "rrf_score": 0.029644,
+            "dense_rank": 9,
+            "sparse_rank": 6,
+            "text": "Disposition: Excluded absolutely.\nE-78  Sewer or drain back-up of any kind.\n            Disposition: Excluded absolutely, no buy-back available.\nE-79  Loss of rental income beyond twelve months following a water damage loss.\n            Disposition: Excluded absolutely.\nNote: The dwelling fire line carries no mould sublimit. E-76 excludes mould outright, which is the principal difference\nbetween this form and Form HO-0304 on the homeowners line.\n4. CONDITIONS\n4.1 The insured must inspect the dwelling not less than once in every ninety (90) day period during which it is unoccupied,\nand must keep a record of those inspections.\n4.2 The insured must give notice of a water damage loss within thirty (30) days of discovery.\n5. LIMIT AND DEDUCTIBLE\n5.1 A deductible of five thousand dollars ($5,000) applies to each water damage loss under this endorsement, reflecting the\nelevated exposure of tenant-occupied property.\nEND OF FORM DP-0208 ED. 05-24."
+          }
+        ]
+      },
+      {
+        "id": "e02",
+        "question": "Under HO-0412, is cosmetic hail damage to roof surfacing covered if the roof still sheds water?",
+        "expected_form": "HO-0412",
+        "expected_clause": "3.1",
+        "exclusion_code": "E-34",
+        "tags": [
+          "exclusion-row",
+          "table"
+        ],
+        "hit_at_5": true,
+        "first_hit_rank": 2,
+        "results": [
+          {
+            "rank": 1,
+            "hit": false,
+            "chunk_id": "HO-0412_windstorm_hail_ed_06-24.pdf#7ea8d0d68155b0b8",
+            "form_number": "HO-0412",
+            "edition_date": "06-24",
+            "policy_line": "homeowners",
+            "clause": "4. Conditions",
+            "pages": [
+              2,
+              2
+            ],
+            "rerank_score": 4.9842,
+            "rrf_score": 0.032002,
+            "dense_rank": 2,
+            "sparse_rank": 3,
+            "text": "Disposition: Excluded absolutely.\nNote: Cosmetic damage under E-34 means damage that alters the appearance of roof surfacing without reducing its ability to\nshed water. Where hail both dents and penetrates the surfacing, E-34 does not apply and the loss is settled under Clause 2.\n4. CONDITIONS\n4.1 The insured must report windstorm or hail damage within one year of the date of the storm event. A claim reported after\nthat period is not payable under this endorsement.\n4.2 We may require a roof inspection by an inspector of our choosing before settling a claim under this endorsement. The\ninsured must provide reasonable access for that inspection.\n5. DEDUCTIBLE\n5.1 A windstorm and hail deductible of two percent (2%) of the Coverage A limit shown in the declarations applies to each\nwindstorm or hail loss. This deductible replaces the all-perils deductible for losses under this endorsement and is subject to\na minimum of one thousand dollars ($1,000)."
+          },
+          {
+            "rank": 2,
+            "hit": true,
+            "chunk_id": "HO-0412_windstorm_hail_ed_06-24.pdf#078d2ddbdef6c6f9",
+            "form_number": "HO-0412",
+            "edition_date": "06-24",
+            "policy_line": "homeowners",
+            "clause": "unspecified",
+            "pages": [
+              1,
+              2
+            ],
+            "rerank_score": 4.3504,
+            "rrf_score": 0.031754,
+            "dense_rank": 4,
+            "sparse_rank": 2,
+            "text": "Disposition: Excluded above $2,500.\nE-34  Cosmetic damage to roof surfacing that does not compromise the water-shedding function of\n      the roof.\n            Disposition: Excluded absolutely.\nE-35  Loss to solar collectors or their mountings caused by hail.\n            Disposition: Excluded unless scheduled.\nE-36  Marring, scuffing or granule loss not accompanied by penetration.\n            Disposition: Excluded absolutely.\nE-37  Loss to fences, gates and retaining walls caused by windstorm.\n            Disposition: Excluded above $5,000.\nE-38  Repeated hail impact over multiple storm events where no single event caused breach.\n            Disposition: Excluded absolutely.\nE-39  Consequential loss of use where the dwelling remains habitable.\n            Disposition: Excluded absolutely.\nNote: Cosmetic damage under E-34 means damage that alters the appearance of roof surfacing without reducing its ability to"
+          },
+          {
+            "rank": 3,
+            "hit": false,
+            "chunk_id": "HO-0412_windstorm_hail_ed_06-24.pdf#b02f52624e62da34",
+            "form_number": "HO-0412",
+            "edition_date": "06-24",
+            "policy_line": "homeowners",
+            "clause": "1. Purpose And Scope",
+            "pages": [
+              1,
+              1
+            ],
+            "rerank_score": 2.7724,
+            "rrf_score": 0.032787,
+            "dense_rank": 1,
+            "sparse_rank": 1,
+            "text": "ENDORSEMENT HO-0412 (ED. 06-24)\nWindstorm and Hail - Exterior Surfaces Limitation\nForm Number: HO-0412\nEdition Date: 06-24\nPolicy Line: homeowners\nEffective Date: June 15, 2024\nSupersedes: HO-0412 ed. 02-22\nATTACHING TO AND FORMING PART OF THE POLICY SHOWN IN THE DECLARATIONS. ALL OTHER\nTERMS AND CONDITIONS REMAIN UNCHANGED.\n1. PURPOSE AND SCOPE\nThis endorsement limits the coverage otherwise provided for windstorm and hail damage to exterior surfaces of the\ndwelling and other structures. It does not restrict coverage for resulting interior water damage where the exterior surface has\nbeen physically breached by wind or hail.\n2. COVERAGE BASIS FOR ROOF SURFACING\n2.1 Loss to roof surfacing caused by windstorm or hail is settled on a replacement cost basis where the roof surfacing is"
+          },
+          {
+            "rank": 4,
+            "hit": true,
+            "chunk_id": "HO-0412_windstorm_hail_ed_06-24.pdf#2a6a8de711a82b0c",
+            "form_number": "HO-0412",
+            "edition_date": "06-24",
+            "policy_line": "homeowners",
+            "clause": "3. Exclusions Applicable To Windstorm And Hail",
+            "pages": [
+              1,
+              1
+            ],
+            "rerank_score": 1.2565,
+            "rrf_score": 0.030536,
+            "dense_rank": 6,
+            "sparse_rank": 5,
+            "text": "3. EXCLUSIONS APPLICABLE TO WINDSTORM AND HAIL\n3.1 We do not cover loss described in the exclusion table below. Codes in the E-30 series are specific to windstorm and hail\nand do not apply to perils addressed by other endorsements.\nEXCLUSION TABLE 3.1 - WINDSTORM AND HAIL EXCLUSIONS\nCODE  EXCLUSION AND DISPOSITION\nE-30  Loss to awnings, canopies or shade structures not permanently attached.\n            Disposition: Excluded absolutely.\nE-31  Loss to outdoor antennas, satellite dishes and their masts.\n            Disposition: Excluded absolutely.\nE-32  Wind-driven rain entering through an opening not caused by wind or hail.\n            Disposition: Excluded absolutely.\nE-33  Loss to screening, screen enclosures and pool cages.\n            Disposition: Excluded above $2,500.\nE-34  Cosmetic damage to roof surfacing that does not compromise the water-shedding function of\n      the roof."
+          },
+          {
+            "rank": 5,
+            "hit": false,
+            "chunk_id": "HO-0710_definitions_general_conditions_ed_11-23.pdf#290a41a3bf761530",
+            "form_number": "HO-0710",
+            "edition_date": "11-23",
+            "policy_line": "homeowners",
+            "clause": "Clause 2.4",
+            "pages": [
+              1,
+              1
+            ],
+            "rerank_score": 0.4599,
+            "rrf_score": 0.03031,
+            "dense_rank": 5,
+            "sparse_rank": 7,
+            "text": "its duration and not by the volume of water escaping.\n2.4 Cosmetic damage means physical damage to a surface which alters its appearance without reducing the ability of that\nsurface to perform its intended function. In the case of roof surfacing, the intended function is the shedding of water.\n2.5 Described dwelling means the building shown as the insured location in the declarations, including attached structures\nand permanently installed fixtures, but excluding other structures set apart from the dwelling by clear space.\n2.6 Policy year means the twelve month period commencing on the inception date shown in the declarations, or on any\nanniversary of that date.\n3. GENERAL CONDITIONS\n3.1 Where two or more endorsements attached to this policy address the same loss, the endorsement bearing the later\nedition date controls to the extent of the inconsistency.\n3.2 Where an exclusion in one endorsement refers a loss to another form, coverage for that loss is determined solely under\nthe form referred to, and the referring endorsement neither grants nor restricts coverage for it."
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "question": "If the insured never serviced the sump pump, is the resulting back-up covered under HO-0521?",
+        "expected_form": "HO-0521",
+        "expected_clause": "3.1",
+        "exclusion_code": "E-44",
+        "tags": [
+          "exclusion-row",
+          "table"
+        ],
+        "hit_at_5": true,
+        "first_hit_rank": 4,
+        "results": [
+          {
+            "rank": 1,
+            "hit": false,
+            "chunk_id": "HO-0521_water_backup_sump_ed_01-24.pdf#3910c01a3667aac7",
+            "form_number": "HO-0521",
+            "edition_date": "01-24",
+            "policy_line": "homeowners",
+            "clause": "1. Purpose And Scope",
+            "pages": [
+              1,
+              1
+            ],
+            "rerank_score": 3.4789,
+            "rrf_score": 0.032787,
+            "dense_rank": 1,
+            "sparse_rank": 1,
+            "text": "ENDORSEMENT HO-0521 (ED. 01-24)\nWater Back-Up and Sump Discharge or Overflow\nForm Number: HO-0521\nEdition Date: 01-24\nPolicy Line: homeowners\nEffective Date: January 1, 2024\nSupersedes: None - new form\nATTACHING TO AND FORMING PART OF THE POLICY SHOWN IN THE DECLARATIONS. ALL OTHER\nTERMS AND CONDITIONS REMAIN UNCHANGED.\n1. PURPOSE AND SCOPE\nThis endorsement provides limited coverage for loss caused by water which backs up through sewers or drains, or which\noverflows or is discharged from a sump, sump pump or related equipment. Loss of this kind is excluded under Form\nHO-0304 by exclusion E-19 and is covered only to the extent set out here.\n2. COVERAGE GRANT\n2.1 We cover direct physical loss to covered property caused by water or waterborne material which backs up through"
+          },
+          {
+            "rank": 2,
+            "hit": false,
+            "chunk_id": "HO-0521_water_backup_sump_ed_01-24.pdf#85087ea043c02db4",
+            "form_number": "HO-0521",
+            "edition_date": "01-24",
+            "policy_line": "homeowners",
+            "clause": "4. Conditions",
+            "pages": [
+              2,
+              2
+            ],
+            "rerank_score": 2.7162,
+            "rrf_score": 0.032258,
+            "dense_rank": 2,
+            "sparse_rank": 2,
+            "text": "schedule, E-44 does not apply and the loss is adjudicated under Clause 2.1 even where the pump ultimately failed.\n4. CONDITIONS\n4.1 The insured must retain the sump pump and its power source following a loss and make them available for inspection\nand testing.\n4.2 The insured must provide service records for the sump pump covering the twenty-four (24) months preceding the loss\nwhere such records are requested by us.\n5. LIMIT AND DEDUCTIBLE\n5.1 The most we will pay under this endorsement is twenty-five thousand dollars ($25,000) in the aggregate for all losses\noccurring in any one policy year, regardless of the number of back-up events. This limit is part of, and not in addition to, the\nCoverage A limit.\n5.2 A deductible of one thousand dollars ($1,000) applies to each loss under this endorsement.\nEND OF FORM HO-0521 ED. 01-24."
+          },
+          {
+            "rank": 3,
+            "hit": false,
+            "chunk_id": "HO-0521_water_backup_sump_ed_01-24.pdf#08af7acfccf5f9f5",
+            "form_number": "HO-0521",
+            "edition_date": "01-24",
+            "policy_line": "homeowners",
+            "clause": "4. Conditions",
+            "pages": [
+              1,
+              2
+            ],
+            "rerank_score": 2.5883,
+            "rrf_score": 0.03101,
+            "dense_rank": 4,
+            "sparse_rank": 5,
+            "text": "Disposition: Excluded absolutely.\nE-45  Back-up originating from a sewer or drain that does not serve the described dwelling.\n            Disposition: Excluded absolutely.\nE-46  Loss caused by a sump pump discharge line that was not disconnected before a freeze.\n            Disposition: Excluded absolutely.\nE-47  Mould, fungus or wet rot resulting from a back-up.\n            Disposition: Excluded above $5,000.\nE-48  Loss of use exceeding thirty days following a back-up.\n            Disposition: Excluded absolutely.\nE-49  Back-up in a dwelling with a history of two or more prior back-up claims in five years.\n            Disposition: Excluded unless remediation certified.\nNote: E-44 turns on maintenance records. Where the insured produces a service record consistent with the manufacturer\nschedule, E-44 does not apply and the loss is adjudicated under Clause 2.1 even where the pump ultimately failed.\n4. CONDITIONS"
+          },
+          {
+            "rank": 4,
+            "hit": true,
+            "chunk_id": "HO-0521_water_backup_sump_ed_01-24.pdf#3600f4ada4fc9f04",
+            "form_number": "HO-0521",
+            "edition_date": "01-24",
+            "policy_line": "homeowners",
+            "clause": "Exclusion Table 3.1",
+            "pages": [
+              1,
+              1
+            ],
+            "rerank_score": 2.5341,
+            "rrf_score": 0.031746,
+            "dense_rank": 3,
+            "sparse_rank": 3,
+            "text": "EXCLUSION TABLE 3.1 - BACK-UP AND SUMP OVERFLOW EXCLUSIONS\nCODE  EXCLUSION AND DISPOSITION\nE-40  Back-up caused by flood or surface water entering the sewer system.\n            Disposition: Excluded absolutely.\nE-41  Back-up occurring while the dwelling is under construction or renovation.\n            Disposition: Excluded absolutely.\nE-42  Loss to the sump, sump pump or related equipment itself.\n            Disposition: Excluded absolutely.\nE-43  Back-up caused by roots, debris or blockage the insured was on notice of.\n            Disposition: Excluded absolutely.\nE-44  Back-up or overflow caused by the failure of the insured to maintain, service or test the\n      sump pump in accordance with the manufacturer schedule.\n            Disposition: Excluded absolutely.\nE-45  Back-up originating from a sewer or drain that does not serve the described dwelling.\n            Disposition: Excluded absolutely."
+          },
+          {
+            "rank": 5,
+            "hit": false,
+            "chunk_id": "HO-0521_water_backup_sump_ed_01-24.pdf#2be226be2718f945",
+            "form_number": "HO-0521",
+            "edition_date": "01-24",
+            "policy_line": "homeowners",
+            "clause": "2. Coverage Grant",
+            "pages": [
+              1,
+              1
+            ],
+            "rerank_score": 0.8328,
+            "rrf_score": 0.03101,
+            "dense_rank": 5,
+            "sparse_rank": 4,
+            "text": "2. COVERAGE GRANT\n2.1 We cover direct physical loss to covered property caused by water or waterborne material which backs up through\nsewers or drains serving the described dwelling, or which overflows or is discharged from a sump, sump pump or related\nequipment, even where the overflow results from mechanical breakdown of the pump.\n2.2 Coverage under this endorsement applies only where the dwelling is equipped with a sump pump fitted with a\nfunctioning secondary power source capable of operating the pump for not less than eight (8) hours in the event of a mains\npower failure. Absence of a secondary power source at the time of loss voids coverage under this endorsement.\n3. EXCLUSIONS APPLICABLE TO BACK-UP AND OVERFLOW\n3.1 We do not cover loss described in the exclusion table below. Codes in the E-40 series are specific to this endorsement.\nEXCLUSION TABLE 3.1 - BACK-UP AND SUMP OVERFLOW EXCLUSIONS\nCODE  EXCLUSION AND DISPOSITION"
+          }
+        ]
+      },
+      {
+        "id": "e04",
+        "question": "Under HO-0633, does exclusion E-53 bar a bodily injury claim by a home-sharing guest when the home was rented for only 10 days in the policy year?",
+        "expected_form": "HO-0633",
+        "expected_clause": "3.1",
+        "exclusion_code": "E-53",
+        "tags": [
+          "exclusion-row",
+          "table",
+          "exception"
+        ],
+        "hit_at_5": true,
+        "first_hit_rank": 1,
+        "results": [
+          {
+            "rank": 1,
+            "hit": true,
+            "chunk_id": "HO-0633_home_sharing_business_ed_09-23.pdf#ec0e63444eaefa7e",
+            "form_number": "HO-0633",
+            "edition_date": "09-23",
+            "policy_line": "homeowners",
+            "clause": "Clause 4.1",
+            "pages": [
+              2,
+              2
+            ],
+            "rerank_score": 3.2379,
+            "rrf_score": 0.032266,
+            "dense_rank": 1,
+            "sparse_rank": 3,
+            "text": "4.1 The exclusions in Clause 3 do not apply to a rental of the described dwelling to a person who is not an insured where the\ntotal number of days on which any part of the dwelling is rented does not exceed fourteen (14) days in any one policy year.\n4.2 Exclusion E-53 does not apply where the total rental period in the policy year is within the fourteen (14) day allowance\nin Clause 4.1. In that case bodily injury to an occupant is adjudicated under the liability coverages of the base wording.\n4.3 Business activity conducted from the described dwelling is incidental, and is not excluded, where the annual gross\nreceipts of the activity do not exceed five thousand dollars ($5,000) and the activity involves no visit by a customer or client\nto the dwelling.\n5. CONDITIONS\n5.1 The insured must maintain a record of all days on which any part of the dwelling was rented, and must produce that"
+          },
+          {
+            "rank": 2,
+            "hit": true,
+            "chunk_id": "HO-0633_home_sharing_business_ed_09-23.pdf#06018d33372e511d",
+            "form_number": "HO-0633",
+            "edition_date": "09-23",
+            "policy_line": "homeowners",
+            "clause": "Exclusion Table 3.1",
+            "pages": [
+              1,
+              1
+            ],
+            "rerank_score": 3.1724,
+            "rrf_score": 0.032522,
+            "dense_rank": 2,
+            "sparse_rank": 1,
+            "text": "this endorsement.\nEXCLUSION TABLE 3.1 - HOME-SHARING AND BUSINESS EXCLUSIONS\nCODE  EXCLUSION AND DISPOSITION\nE-50  Property damage to the dwelling caused by a home-sharing occupant.\n            Disposition: Excluded absolutely.\nE-51  Theft of personal property occurring during a home-sharing occupancy.\n            Disposition: Excluded absolutely.\nE-52  Loss of rental income arising out of home-sharing activity.\n            Disposition: Excluded absolutely.\nE-53  Bodily injury to a home-sharing occupant however caused.\n            Disposition: Excluded absolutely, subject to the exception in Clause 4.2.\nE-54  Liability arising out of the rendering of any service for a fee at the dwelling.\n            Disposition: Excluded absolutely.\nE-55  Property damage to business property held on the premises for sale or distribution.\n            Disposition: Excluded above $2,500.\nE-56  Bodily injury to an employee of a business conducted from the dwelling.\n            Disposition: Excluded absolutely."
+          },
+          {
+            "rank": 3,
+            "hit": false,
+            "chunk_id": "HO-0633_home_sharing_business_ed_09-23.pdf#85c05116b9bfe4a3",
+            "form_number": "HO-0633",
+            "edition_date": "09-23",
+            "policy_line": "homeowners",
+            "clause": "4. Exceptions To The Exclusions",
+            "pages": [
+              1,
+              2
+            ],
+            "rerank_score": 1.9411,
+            "rrf_score": 0.030777,
+            "dense_rank": 4,
+            "sparse_rank": 6,
+            "text": "Disposition: Excluded above $2,500.\nE-56  Bodily injury to an employee of a business conducted from the dwelling.\n            Disposition: Excluded absolutely.\nE-57  Liability arising out of the preparation or sale of food to the public.\n            Disposition: Excluded absolutely.\nE-58  Loss arising out of the storage of goods for a business at the dwelling.\n            Disposition: Excluded absolutely.\nE-59  Liability arising out of the operation of a day nursery or child care service.\n            Disposition: Excluded absolutely.\nNote: The E-50 series operates on occupancy and purpose, not on the peril. Where the same physical loss would have been\ncovered absent the home-sharing occupancy, the exclusion still applies.\n4. EXCEPTIONS TO THE EXCLUSIONS\n4.1 The exclusions in Clause 3 do not apply to a rental of the described dwelling to a person who is not an insured where the"
+          },
+          {
+            "rank": 4,
+            "hit": false,
+            "chunk_id": "HO-0633_home_sharing_business_ed_09-23.pdf#bba5fa59d47d904a",
+            "form_number": "HO-0633",
+            "edition_date": "09-23",
+            "policy_line": "homeowners",
+            "clause": "1. Purpose And Scope",
+            "pages": [
+              1,
+              1
+            ],
+            "rerank_score": 1.6282,
+            "rrf_score": 0.032002,
+            "dense_rank": 3,
+            "sparse_rank": 2,
+            "text": "ENDORSEMENT HO-0633 (ED. 09-23)\nHome-Sharing and Home Business Activity Exclusion\nForm Number: HO-0633\nEdition Date: 09-23\nPolicy Line: homeowners\nEffective Date: September 1, 2023\nSupersedes: HO-0633 ed. 04-20\nATTACHING TO AND FORMING PART OF THE POLICY SHOWN IN THE DECLARATIONS. ALL OTHER\nTERMS AND CONDITIONS REMAIN UNCHANGED.\n1. PURPOSE AND SCOPE\nThis endorsement excludes coverage for loss, liability and expense arising out of home-sharing activity and out of business\nactivity conducted from the described dwelling. It applies to Coverage A, Coverage B, Coverage C and to the liability\ncoverages alike.\n2. DEFINITIONS SPECIFIC TO THIS ENDORSEMENT\n2.1 Home-sharing activity means the rental or holding for rental of the described dwelling, or any part of it, to a person who"
+          },
+          {
+            "rank": 5,
+            "hit": false,
+            "chunk_id": "HO-0304_water_damage_ed_03-24.pdf#61063947ac023d64",
+            "form_number": "HO-0304",
+            "edition_date": "03-24",
+            "policy_line": "homeowners",
+            "clause": "4. Conditions Precedent To Payment",
+            "pages": [
+              2,
+              2
+            ],
+            "rerank_score": -0.1515,
+            "rrf_score": 0.02967,
+            "dense_rank": 10,
+            "sparse_rank": 5,
+            "text": "discharge under Clause 2.1.\nE-18  Mould, fungus or wet rot except as provided by the sublimit in Clause 5.2.\n            Disposition: Excluded above sublimit.\nE-19  Water damage caused by or resulting from a sewer or drain back-up.\n            Disposition: Excluded here; see Form HO-0521.\nE-20  Loss to landscaping, paving or fencing caused by escaping water.\n            Disposition: Excluded absolutely.\nE-21  Water damage arising out of a home-sharing occupancy.\n            Disposition: Excluded; see Form HO-0633.\nNote: Exclusion E-17 is directed at a slow, ongoing failure. It is not triggered by an abrupt rupture. A burst supply line that\ndischarges water over a period shorter than fourteen days is adjudicated under Clause 2.1 and remains covered.\n4. CONDITIONS PRECEDENT TO PAYMENT"
+          }
+        ]
+      },
+      {
+        "id": "e05",
+        "question": "What is the mould sublimit for a covered water damage loss under HO-0304?",
+        "expected_form": "HO-0304",
+        "expected_clause": "5.2",
+        "exclusion_code": null,
+        "tags": [
+          "limit"
+        ],
+        "hit_at_5": true,
+        "first_hit_rank": 3,
+        "results": [
+          {
+            "rank": 1,
+            "hit": false,
+            "chunk_id": "DP-0208_dwelling_fire_water_ed_05-24.pdf#a8a90648b028c62e",
+            "form_number": "DP-0208",
+            "edition_date": "05-24",
+            "policy_line": "dwelling_fire",
+            "clause": "4. Conditions",
+            "pages": [
+              1,
+              2
+            ],
+            "rerank_score": 4.782,
+            "rrf_score": 0.032258,
+            "dense_rank": 2,
+            "sparse_rank": 2,
+            "text": "Disposition: Excluded absolutely.\nE-78  Sewer or drain back-up of any kind.\n            Disposition: Excluded absolutely, no buy-back available.\nE-79  Loss of rental income beyond twelve months following a water damage loss.\n            Disposition: Excluded absolutely.\nNote: The dwelling fire line carries no mould sublimit. E-76 excludes mould outright, which is the principal difference\nbetween this form and Form HO-0304 on the homeowners line.\n4. CONDITIONS\n4.1 The insured must inspect the dwelling not less than once in every ninety (90) day period during which it is unoccupied,\nand must keep a record of those inspections.\n4.2 The insured must give notice of a water damage loss within thirty (30) days of discovery.\n5. LIMIT AND DEDUCTIBLE\n5.1 A deductible of five thousand dollars ($5,000) applies to each water damage loss under this endorsement, reflecting the\nelevated exposure of tenant-occupied property.\nEND OF FORM DP-0208 ED. 05-24."
+          },
+          {
+            "rank": 2,
+            "hit": false,
+            "chunk_id": "HO-0304_water_damage_ed_03-24.pdf#61063947ac023d64",
+            "form_number": "HO-0304",
+            "edition_date": "03-24",
+            "policy_line": "homeowners",
+            "clause": "4. Conditions Precedent To Payment",
+            "pages": [
+              2,
+              2
+            ],
+            "rerank_score": 4.2911,
+            "rrf_score": 0.032266,
+            "dense_rank": 1,
+            "sparse_rank": 3,
+            "text": "discharge under Clause 2.1.\nE-18  Mould, fungus or wet rot except as provided by the sublimit in Clause 5.2.\n            Disposition: Excluded above sublimit.\nE-19  Water damage caused by or resulting from a sewer or drain back-up.\n            Disposition: Excluded here; see Form HO-0521.\nE-20  Loss to landscaping, paving or fencing caused by escaping water.\n            Disposition: Excluded absolutely.\nE-21  Water damage arising out of a home-sharing occupancy.\n            Disposition: Excluded; see Form HO-0633.\nNote: Exclusion E-17 is directed at a slow, ongoing failure. It is not triggered by an abrupt rupture. A burst supply line that\ndischarges water over a period shorter than fourteen days is adjudicated under Clause 2.1 and remains covered.\n4. CONDITIONS PRECEDENT TO PAYMENT"
+          },
+          {
+            "rank": 3,
+            "hit": true,
+            "chunk_id": "HO-0304_water_damage_ed_03-24.pdf#2a8de8bc2744fe8b",
+            "form_number": "HO-0304",
+            "edition_date": "03-24",
+            "policy_line": "homeowners",
+            "clause": "5. Limits, Sublimits And Deductible",
+            "pages": [
+              2,
+              2
+            ],
+            "rerank_score": 3.4629,
+            "rrf_score": 0.032266,
+            "dense_rank": 3,
+            "sparse_rank": 1,
+            "text": "before we have had a reasonable opportunity to inspect it may prejudice the claim to the extent our investigation is\nimpaired.\n5. LIMITS, SUBLIMITS AND DEDUCTIBLE\n5.1 The most we will pay for any one water damage loss under this endorsement is the Coverage A limit shown in the\ndeclarations, less the deductible in Clause 5.3.\n5.2 Our total liability for mould, fungus or wet rot resulting from a covered water damage loss is limited to ten thousand\ndollars ($10,000) in any one policy year, regardless of the number of losses or claimants. This sublimit is part of, and not in\naddition to, the Coverage A limit.\n5.3 A deductible of two thousand five hundred dollars ($2,500) applies separately to each water damage loss under this\nendorsement. This deductible replaces, and is not in addition to, the all-perils deductible shown in the declarations.\nEND OF FORM HO-0304 ED. 03-24."
+          },
+          {
+            "rank": 4,
+            "hit": false,
+            "chunk_id": "HO-0304_water_damage_ed_03-24.pdf#f236f9cdffeb477b",
+            "form_number": "HO-0304",
+            "edition_date": "03-24",
+            "policy_line": "homeowners",
+            "clause": "1. Purpose And Scope",
+            "pages": [
+              1,
+              1
+            ],
+            "rerank_score": 2.2464,
+            "rrf_score": 0.03125,
+            "dense_rank": 4,
+            "sparse_rank": 4,
+            "text": "ENDORSEMENT HO-0304 (ED. 03-24)\nWater Damage, Discharge and Overflow Endorsement\nForm Number: HO-0304\nEdition Date: 03-24\nPolicy Line: homeowners\nEffective Date: March 1, 2024\nSupersedes: HO-0304 ed. 08-21\nATTACHING TO AND FORMING PART OF THE POLICY SHOWN IN THE DECLARATIONS. ALL OTHER\nTERMS AND CONDITIONS REMAIN UNCHANGED.\n1. PURPOSE AND SCOPE\nThis endorsement amends the water damage provisions of the homeowners policy wording to which it is attached. Where\nthe language of this endorsement conflicts with the base wording, this endorsement controls. All other terms, conditions and\nexclusions of the policy remain in full force. This endorsement applies only to direct physical loss to covered property\narising from the escape of water within the described premises, and does not extend to flood, surface water or tidal action,\nwhich remain excluded under the base wording."
+          },
+          {
+            "rank": 5,
+            "hit": false,
+            "chunk_id": "HO-0521_water_backup_sump_ed_01-24.pdf#3910c01a3667aac7",
+            "form_number": "HO-0521",
+            "edition_date": "01-24",
+            "policy_line": "homeowners",
+            "clause": "1. Purpose And Scope",
+            "pages": [
+              1,
+              1
+            ],
+            "rerank_score": 1.7259,
+            "rrf_score": 0.030769,
+            "dense_rank": 5,
+            "sparse_rank": 5,
+            "text": "ENDORSEMENT HO-0521 (ED. 01-24)\nWater Back-Up and Sump Discharge or Overflow\nForm Number: HO-0521\nEdition Date: 01-24\nPolicy Line: homeowners\nEffective Date: January 1, 2024\nSupersedes: None - new form\nATTACHING TO AND FORMING PART OF THE POLICY SHOWN IN THE DECLARATIONS. ALL OTHER\nTERMS AND CONDITIONS REMAIN UNCHANGED.\n1. PURPOSE AND SCOPE\nThis endorsement provides limited coverage for loss caused by water which backs up through sewers or drains, or which\noverflows or is discharged from a sump, sump pump or related equipment. Loss of this kind is excluded under Form\nHO-0304 by exclusion E-19 and is covered only to the extent set out here.\n2. COVERAGE GRANT\n2.1 We cover direct physical loss to covered property caused by water or waterborne material which backs up through"
+          }
+        ]
+      },
+      {
+        "id": "e06",
+        "question": "What windstorm and hail deductible applies under HO-0412?",
+        "expected_form": "HO-0412",
+        "expected_clause": "5.1",
+        "exclusion_code": null,
+        "tags": [
+          "deductible"
+        ],
+        "hit_at_5": true,
+        "first_hit_rank": 3,
+        "results": [
+          {
+            "rank": 1,
+            "hit": false,
+            "chunk_id": "HO-0412_windstorm_hail_ed_06-24.pdf#8d362db22f1581a9",
+            "form_number": "HO-0412",
+            "edition_date": "06-24",
+            "policy_line": "homeowners",
+            "clause": "unspecified",
+            "pages": [
+              2,
+              2
+            ],
+            "rerank_score": 6.7404,
+            "rrf_score": 0.032522,
+            "dense_rank": 2,
+            "sparse_rank": 1,
+            "text": "windstorm or hail loss. This deductible replaces the all-perils deductible for losses under this endorsement and is subject to\na minimum of one thousand dollars ($1,000).\nEND OF FORM HO-0412 ED. 06-24."
+          },
+          {
+            "rank": 2,
+            "hit": false,
+            "chunk_id": "HO-0412_windstorm_hail_ed_06-24.pdf#b02f52624e62da34",
+            "form_number": "HO-0412",
+            "edition_date": "06-24",
+            "policy_line": "homeowners",
+            "clause": "1. Purpose And Scope",
+            "pages": [
+              1,
+              1
+            ],
+            "rerank_score": 4.8824,
+            "rrf_score": 0.032522,
+            "dense_rank": 1,
+            "sparse_rank": 2,
+            "text": "ENDORSEMENT HO-0412 (ED. 06-24)\nWindstorm and Hail - Exterior Surfaces Limitation\nForm Number: HO-0412\nEdition Date: 06-24\nPolicy Line: homeowners\nEffective Date: June 15, 2024\nSupersedes: HO-0412 ed. 02-22\nATTACHING TO AND FORMING PART OF THE POLICY SHOWN IN THE DECLARATIONS. ALL OTHER\nTERMS AND CONDITIONS REMAIN UNCHANGED.\n1. PURPOSE AND SCOPE\nThis endorsement limits the coverage otherwise provided for windstorm and hail damage to exterior surfaces of the\ndwelling and other structures. It does not restrict coverage for resulting interior water damage where the exterior surface has\nbeen physically breached by wind or hail.\n2. COVERAGE BASIS FOR ROOF SURFACING\n2.1 Loss to roof surfacing caused by windstorm or hail is settled on a replacement cost basis where the roof surfacing is"
+          },
+          {
+            "rank": 3,
+            "hit": true,
+            "chunk_id": "HO-0412_windstorm_hail_ed_06-24.pdf#7ea8d0d68155b0b8",
+            "form_number": "HO-0412",
+            "edition_date": "06-24",
+            "policy_line": "homeowners",
+            "clause": "4. Conditions",
+            "pages": [
+              2,
+              2
+            ],
+            "rerank_score": 2.1838,
+            "rrf_score": 0.031746,
+            "dense_rank": 3,
+            "sparse_rank": 3,
+            "text": "Disposition: Excluded absolutely.\nNote: Cosmetic damage under E-34 means damage that alters the appearance of roof surfacing without reducing its ability to\nshed water. Where hail both dents and penetrates the surfacing, E-34 does not apply and the loss is settled under Clause 2.\n4. CONDITIONS\n4.1 The insured must report windstorm or hail damage within one year of the date of the storm event. A claim reported after\nthat period is not payable under this endorsement.\n4.2 We may require a roof inspection by an inspector of our choosing before settling a claim under this endorsement. The\ninsured must provide reasonable access for that inspection.\n5. DEDUCTIBLE\n5.1 A windstorm and hail deductible of two percent (2%) of the Coverage A limit shown in the declarations applies to each\nwindstorm or hail loss. This deductible replaces the all-perils deductible for losses under this endorsement and is subject to\na minimum of one thousand dollars ($1,000)."
+          },
+          {
+            "rank": 4,
+            "hit": false,
+            "chunk_id": "HO-0412_windstorm_hail_ed_06-24.pdf#2a6a8de711a82b0c",
+            "form_number": "HO-0412",
+            "edition_date": "06-24",
+            "policy_line": "homeowners",
+            "clause": "3. Exclusions Applicable To Windstorm And Hail",
+            "pages": [
+              1,
+              1
+            ],
+            "rerank_score": 0.6849,
+            "rrf_score": 0.03101,
+            "dense_rank": 4,
+            "sparse_rank": 5,
+            "text": "3. EXCLUSIONS APPLICABLE TO WINDSTORM AND HAIL\n3.1 We do not cover loss described in the exclusion table below. Codes in the E-30 series are specific to windstorm and hail\nand do not apply to perils addressed by other endorsements.\nEXCLUSION TABLE 3.1 - WINDSTORM AND HAIL EXCLUSIONS\nCODE  EXCLUSION AND DISPOSITION\nE-30  Loss to awnings, canopies or shade structures not permanently attached.\n            Disposition: Excluded absolutely.\nE-31  Loss to outdoor antennas, satellite dishes and their masts.\n            Disposition: Excluded absolutely.\nE-32  Wind-driven rain entering through an opening not caused by wind or hail.\n            Disposition: Excluded absolutely.\nE-33  Loss to screening, screen enclosures and pool cages.\n            Disposition: Excluded above $2,500.\nE-34  Cosmetic damage to roof surfacing that does not compromise the water-shedding function of\n      the roof."
+          },
+          {
+            "rank": 5,
+            "hit": false,
+            "chunk_id": "HO-0710_definitions_general_conditions_ed_11-23.pdf#784faf290ded64d1",
+            "form_number": "HO-0710",
+            "edition_date": "11-23",
+            "policy_line": "homeowners",
+            "clause": "Clause 3.3",
+            "pages": [
+              1,
+              2
+            ],
+            "rerank_score": -3.9901,
+            "rrf_score": 0.015625,
+            "dense_rank": null,
+            "sparse_rank": 4,
+            "text": "the form referred to, and the referring endorsement neither grants nor restricts coverage for it.\n3.3 A deductible stated in an endorsement replaces the all-perils deductible for losses under that endorsement. Where a loss\nengages two endorsements carrying different deductibles, the higher deductible applies, and only once.\n3.4 The burden of showing that a loss falls within a coverage grant rests on the insured. The burden of showing that an\nexclusion applies rests on us.\nEND OF FORM HO-0710 ED. 11-23."
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "question": "How does HO-0710 define 'sudden and accidental'?",
+        "expected_form": "HO-0710",
+        "expected_clause": "2.1",
+        "exclusion_code": null,
+        "tags": [
+          "definition"
+        ],
+        "hit_at_5": true,
+        "first_hit_rank": 1,
+        "results": [
+          {
+            "rank": 1,
+            "hit": true,
+            "chunk_id": "HO-0710_definitions_general_conditions_ed_11-23.pdf#e3eb2a6e40fde79a",
+            "form_number": "HO-0710",
+            "edition_date": "11-23",
+            "policy_line": "homeowners",
+            "clause": "1. Purpose And Scope",
+            "pages": [
+              1,
+              1
+            ],
+            "rerank_score": 6.8966,
+            "rrf_score": 0.032787,
+            "dense_rank": 1,
+            "sparse_rank": 1,
+            "text": "ENDORSEMENT HO-0710 (ED. 11-23)\nDefinitions and General Conditions Amendment\nForm Number: HO-0710\nEdition Date: 11-23\nPolicy Line: homeowners\nEffective Date: November 1, 2023\nSupersedes: HO-0710 ed. 07-19\nATTACHING TO AND FORMING PART OF THE POLICY SHOWN IN THE DECLARATIONS. ALL OTHER\nTERMS AND CONDITIONS REMAIN UNCHANGED.\n1. PURPOSE AND SCOPE\nThis endorsement replaces the definitions section of the base homeowners wording and supplies the meanings used by\nevery other endorsement attached to this policy line. Where another endorsement uses a term defined here, the meaning\ngiven here controls, and any inconsistent definition in the base wording is deleted.\n2. DEFINITIONS\n2.1 Sudden and accidental means an event which is both abrupt in onset and unintended by the insured, and which occurs at\nan identifiable point in time. An event is not sudden and accidental merely because its consequences were unexpected. A"
+          },
+          {
+            "rank": 2,
+            "hit": false,
+            "chunk_id": "HO-0304_water_damage_ed_03-24.pdf#7c74282154e9c775",
+            "form_number": "HO-0304",
+            "edition_date": "03-24",
+            "policy_line": "homeowners",
+            "clause": "2. Coverage Grant - Sudden And Accidental Discharge",
+            "pages": [
+              1,
+              1
+            ],
+            "rerank_score": 6.4469,
+            "rrf_score": 0.032258,
+            "dense_rank": 2,
+            "sparse_rank": 2,
+            "text": "arising from the escape of water within the described premises, and does not extend to flood, surface water or tidal action,\nwhich remain excluded under the base wording.\nCapitalised terms used but not defined in this endorsement have the meaning given to them in Form HO-0710, Definitions\nand General Conditions Amendment. The insured is directed to that form for the meaning of sudden and accidental, supply\nline, and seepage, each of which materially affects the operation of Clause 3 below.\n2. COVERAGE GRANT - SUDDEN AND ACCIDENTAL DISCHARGE\n2.1 We cover direct physical loss to covered property caused by the sudden and accidental discharge, leakage or overflow\nof water or steam from a plumbing, heating, air conditioning, fire protective sprinkler system, or household appliance\nlocated within the described dwelling. A supply line that ruptures, splits or otherwise fails abruptly is a sudden and\naccidental discharge for the purposes of this clause, and loss resulting from it is covered subject to the exclusions in Clause"
+          },
+          {
+            "rank": 3,
+            "hit": false,
+            "chunk_id": "DP-0208_dwelling_fire_water_ed_05-24.pdf#34b98b9af3996fc2",
+            "form_number": "DP-0208",
+            "edition_date": "05-24",
+            "policy_line": "dwelling_fire",
+            "clause": "2. Coverage Grant - Sudden And Accidental Discharge",
+            "pages": [
+              1,
+              1
+            ],
+            "rerank_score": -0.6861,
+            "rrf_score": 0.031746,
+            "dense_rank": 3,
+            "sparse_rank": 3,
+            "text": "2. COVERAGE GRANT - SUDDEN AND ACCIDENTAL DISCHARGE\n2.1 We cover direct physical loss to covered property caused by the sudden and accidental discharge, leakage or overflow\nof water or steam from a plumbing, heating or air conditioning system located within the described dwelling, subject to the\nexclusions in Clause 3. A supply line which ruptures abruptly is a sudden and accidental discharge for the purposes of this\nclause.\n2.2 Coverage under this endorsement is conditional on the dwelling being occupied by a tenant under a written tenancy\nagreement at the date of loss. A dwelling between tenancies is treated as vacant from the sixty-first day after the previous\ntenancy ended.\n3. EXCLUSIONS APPLICABLE TO WATER DAMAGE\n3.1 We do not cover loss described in the exclusion table below. Codes in the E-70 series apply only to the dwelling fire\npolicy line.\nEXCLUSION TABLE 3.1 - WATER DAMAGE EXCLUSIONS, DWELLING FIRE LINE\nCODE  EXCLUSION AND DISPOSITION"
+          },
+          {
+            "rank": 4,
+            "hit": false,
+            "chunk_id": "HO-0710_definitions_general_conditions_ed_11-23.pdf#ee8c04643e625807",
+            "form_number": "HO-0710",
+            "edition_date": "11-23",
+            "policy_line": "homeowners",
+            "clause": "Clause 2.2",
+            "pages": [
+              1,
+              1
+            ],
+            "rerank_score": -1.4652,
+            "rrf_score": 0.03125,
+            "dense_rank": 4,
+            "sparse_rank": 4,
+            "text": "an identifiable point in time. An event is not sudden and accidental merely because its consequences were unexpected. A\nprocess which develops gradually over a period of fourteen (14) days or more is not sudden and accidental however\nunintended its result, and is adjudicated as seepage.\n2.2 Supply line means any pipe, hose, tube, fitting or connector which conveys water under mains pressure to a fixture,\nappliance or system within the described dwelling, up to and including the shut-off valve serving that fixture, appliance or\nsystem. A supply line does not include a waste, soil or drainage pipe, which is a drain line.\n2.3 Seepage means the escape of water in small quantities over a continuous or repeated period, whether or not the escape is\nvisible and whether or not the insured was aware of it. Seepage is distinguished from a sudden and accidental discharge by\nits duration and not by the volume of water escaping.\n2.4 Cosmetic damage means physical damage to a surface which alters its appearance without reducing the ability of that"
+          },
+          {
+            "rank": 5,
+            "hit": false,
+            "chunk_id": "DP-0208_dwelling_fire_water_ed_05-24.pdf#41a21e34465d1249",
+            "form_number": "DP-0208",
+            "edition_date": "05-24",
+            "policy_line": "dwelling_fire",
+            "clause": "1. Purpose And Scope",
+            "pages": [
+              1,
+              1
+            ],
+            "rerank_score": -2.1764,
+            "rrf_score": 0.015152,
+            "dense_rank": null,
+            "sparse_rank": 6,
+            "text": "ENDORSEMENT DP-0208 (ED. 05-24)\nDwelling Fire - Water Damage Limitation (Tenant-Occupied)\nForm Number: DP-0208\nEdition Date: 05-24\nPolicy Line: dwelling_fire\nEffective Date: May 1, 2024\nSupersedes: DP-0208 ed. 10-21\nATTACHING TO AND FORMING PART OF THE POLICY SHOWN IN THE DECLARATIONS. ALL OTHER\nTERMS AND CONDITIONS REMAIN UNCHANGED.\n1. PURPOSE AND SCOPE\nThis endorsement amends the water damage provisions of the dwelling fire policy wording issued in respect of\ntenant-occupied dwellings. It does not apply to any homeowners policy line, and the exclusion codes in the E-70 series used\nhere are specific to the dwelling fire line. Where a dwelling is owner-occupied, Form HO-0304 applies instead.\n2. COVERAGE GRANT - SUDDEN AND ACCIDENTAL DISCHARGE"
+          }
+        ]
+      },
+      {
+        "id": "e08",
+        "question": "What is the aggregate annual limit for water back-up losses under HO-0521?",
+        "expected_form": "HO-0521",
+        "expected_clause": "5.1",
+        "exclusion_code": null,
+        "tags": [
+          "limit"
+        ],
+        "hit_at_5": true,
+        "first_hit_rank": 4,
+        "results": [
+          {
+            "rank": 1,
+            "hit": false,
+            "chunk_id": "HO-0521_water_backup_sump_ed_01-24.pdf#3910c01a3667aac7",
+            "form_number": "HO-0521",
+            "edition_date": "01-24",
+            "policy_line": "homeowners",
+            "clause": "1. Purpose And Scope",
+            "pages": [
+              1,
+              1
+            ],
+            "rerank_score": 2.5305,
+            "rrf_score": 0.032522,
+            "dense_rank": 1,
+            "sparse_rank": 2,
+            "text": "ENDORSEMENT HO-0521 (ED. 01-24)\nWater Back-Up and Sump Discharge or Overflow\nForm Number: HO-0521\nEdition Date: 01-24\nPolicy Line: homeowners\nEffective Date: January 1, 2024\nSupersedes: None - new form\nATTACHING TO AND FORMING PART OF THE POLICY SHOWN IN THE DECLARATIONS. ALL OTHER\nTERMS AND CONDITIONS REMAIN UNCHANGED.\n1. PURPOSE AND SCOPE\nThis endorsement provides limited coverage for loss caused by water which backs up through sewers or drains, or which\noverflows or is discharged from a sump, sump pump or related equipment. Loss of this kind is excluded under Form\nHO-0304 by exclusion E-19 and is covered only to the extent set out here.\n2. COVERAGE GRANT\n2.1 We cover direct physical loss to covered property caused by water or waterborne material which backs up through"
+          },
+          {
+            "rank": 2,
+            "hit": false,
+            "chunk_id": "DP-0208_dwelling_fire_water_ed_05-24.pdf#a8a90648b028c62e",
+            "form_number": "DP-0208",
+            "edition_date": "05-24",
+            "policy_line": "dwelling_fire",
+            "clause": "4. Conditions",
+            "pages": [
+              1,
+              2
+            ],
+            "rerank_score": 0.676,
+            "rrf_score": 0.031498,
+            "dense_rank": 3,
+            "sparse_rank": 4,
+            "text": "Disposition: Excluded absolutely.\nE-78  Sewer or drain back-up of any kind.\n            Disposition: Excluded absolutely, no buy-back available.\nE-79  Loss of rental income beyond twelve months following a water damage loss.\n            Disposition: Excluded absolutely.\nNote: The dwelling fire line carries no mould sublimit. E-76 excludes mould outright, which is the principal difference\nbetween this form and Form HO-0304 on the homeowners line.\n4. CONDITIONS\n4.1 The insured must inspect the dwelling not less than once in every ninety (90) day period during which it is unoccupied,\nand must keep a record of those inspections.\n4.2 The insured must give notice of a water damage loss within thirty (30) days of discovery.\n5. LIMIT AND DEDUCTIBLE\n5.1 A deductible of five thousand dollars ($5,000) applies to each water damage loss under this endorsement, reflecting the\nelevated exposure of tenant-occupied property.\nEND OF FORM DP-0208 ED. 05-24."
+          },
+          {
+            "rank": 3,
+            "hit": false,
+            "chunk_id": "HO-0304_water_damage_ed_03-24.pdf#61063947ac023d64",
+            "form_number": "HO-0304",
+            "edition_date": "03-24",
+            "policy_line": "homeowners",
+            "clause": "4. Conditions Precedent To Payment",
+            "pages": [
+              2,
+              2
+            ],
+            "rerank_score": 0.1745,
+            "rrf_score": 0.031258,
+            "dense_rank": 5,
+            "sparse_rank": 3,
+            "text": "discharge under Clause 2.1.\nE-18  Mould, fungus or wet rot except as provided by the sublimit in Clause 5.2.\n            Disposition: Excluded above sublimit.\nE-19  Water damage caused by or resulting from a sewer or drain back-up.\n            Disposition: Excluded here; see Form HO-0521.\nE-20  Loss to landscaping, paving or fencing caused by escaping water.\n            Disposition: Excluded absolutely.\nE-21  Water damage arising out of a home-sharing occupancy.\n            Disposition: Excluded; see Form HO-0633.\nNote: Exclusion E-17 is directed at a slow, ongoing failure. It is not triggered by an abrupt rupture. A burst supply line that\ndischarges water over a period shorter than fourteen days is adjudicated under Clause 2.1 and remains covered.\n4. CONDITIONS PRECEDENT TO PAYMENT"
+          },
+          {
+            "rank": 4,
+            "hit": true,
+            "chunk_id": "HO-0521_water_backup_sump_ed_01-24.pdf#85087ea043c02db4",
+            "form_number": "HO-0521",
+            "edition_date": "01-24",
+            "policy_line": "homeowners",
+            "clause": "4. Conditions",
+            "pages": [
+              2,
+              2
+            ],
+            "rerank_score": -0.3267,
+            "rrf_score": 0.032522,
+            "dense_rank": 2,
+            "sparse_rank": 1,
+            "text": "schedule, E-44 does not apply and the loss is adjudicated under Clause 2.1 even where the pump ultimately failed.\n4. CONDITIONS\n4.1 The insured must retain the sump pump and its power source following a loss and make them available for inspection\nand testing.\n4.2 The insured must provide service records for the sump pump covering the twenty-four (24) months preceding the loss\nwhere such records are requested by us.\n5. LIMIT AND DEDUCTIBLE\n5.1 The most we will pay under this endorsement is twenty-five thousand dollars ($25,000) in the aggregate for all losses\noccurring in any one policy year, regardless of the number of back-up events. This limit is part of, and not in addition to, the\nCoverage A limit.\n5.2 A deductible of one thousand dollars ($1,000) applies to each loss under this endorsement.\nEND OF FORM HO-0521 ED. 01-24."
+          },
+          {
+            "rank": 5,
+            "hit": false,
+            "chunk_id": "HO-0304_water_damage_ed_03-24.pdf#2a8de8bc2744fe8b",
+            "form_number": "HO-0304",
+            "edition_date": "03-24",
+            "policy_line": "homeowners",
+            "clause": "5. Limits, Sublimits And Deductible",
+            "pages": [
+              2,
+              2
+            ],
+            "rerank_score": -2.0796,
+            "rrf_score": 0.03009,
+            "dense_rank": 8,
+            "sparse_rank": 5,
+            "text": "before we have had a reasonable opportunity to inspect it may prejudice the claim to the extent our investigation is\nimpaired.\n5. LIMITS, SUBLIMITS AND DEDUCTIBLE\n5.1 The most we will pay for any one water damage loss under this endorsement is the Coverage A limit shown in the\ndeclarations, less the deductible in Clause 5.3.\n5.2 Our total liability for mould, fungus or wet rot resulting from a covered water damage loss is limited to ten thousand\ndollars ($10,000) in any one policy year, regardless of the number of losses or claimants. This sublimit is part of, and not in\naddition to, the Coverage A limit.\n5.3 A deductible of two thousand five hundred dollars ($2,500) applies separately to each water damage loss under this\nendorsement. This deductible replaces, and is not in addition to, the all-perils deductible shown in the declarations.\nEND OF FORM HO-0304 ED. 03-24."
+          }
+        ]
+      }
+    ]
+  },
+  "structure": {
+    "strategy": "structure",
+    "k": 5,
+    "chunks_indexed": 123,
+    "hit_at_5": 8,
+    "of": 8,
+    "rows": [
+      {
+        "id": "e01",
+        "question": "Does exclusion E-17 apply to water damage from a burst supply line under HO-0304 ed. 03-24?",
+        "expected_form": "HO-0304",
+        "expected_clause": "3.1",
+        "exclusion_code": "E-17",
+        "tags": [
+          "exclusion-row",
+          "table"
+        ],
+        "hit_at_5": true,
+        "first_hit_rank": 2,
+        "results": [
+          {
+            "rank": 1,
+            "hit": false,
+            "chunk_id": "HO-0304_water_damage_ed_03-24.pdf#ad1f3ac26ec308ef",
+            "form_number": "HO-0304",
+            "edition_date": "03-24",
+            "policy_line": "homeowners",
+            "clause": "Exclusion Table 3.1",
+            "pages": [
+              2,
+              2
+            ],
+            "rerank_score": 8.8721,
+            "rrf_score": 0.032787,
+            "dense_rank": 1,
+            "sparse_rank": 1,
+            "text": "FORM HO-0304 ED. 03-24 | POLICY LINE: HOMEOWNERS | Water Damage, Discharge and Overflow Endorsement\nSECTION: Exclusion Table 3.1\nEXCLUSION TABLE 3.1 - WATER DAMAGE EXCLUSIONS\nCODE  EXCLUSION AND DISPOSITION\n\nNote: Exclusion E-17 is directed at a slow, ongoing failure. It is not triggered by an abrupt rupture. A burst supply line that\ndischarges water over a period shorter than fourteen days is adjudicated under Clause 2.1 and remains covered."
+          },
+          {
+            "rank": 2,
+            "hit": true,
+            "chunk_id": "HO-0304_water_damage_ed_03-24.pdf#41a175ccd467f366",
+            "form_number": "HO-0304",
+            "edition_date": "03-24",
+            "policy_line": "homeowners",
+            "clause": "Exclusion Table 3.1",
+            "pages": [
+              2,
+              2
+            ],
+            "rerank_score": 6.338,
+            "rrf_score": 0.032258,
+            "dense_rank": 2,
+            "sparse_rank": 2,
+            "text": "FORM HO-0304 ED. 03-24 | POLICY LINE: HOMEOWNERS | Water Damage, Discharge and Overflow Endorsement\nSECTION: Exclusion Table 3.1\nEXCLUSION TABLE 3.1 - WATER DAMAGE EXCLUSIONS\nCODE  EXCLUSION AND DISPOSITION\n\nE-15  Cost of repairing the appliance or system from which the water escaped.\n            Disposition: Excluded, tear-out still covered under Clause 2.2.\nE-16  Rust, corrosion, wet rot or dry rot forming before the discharge.\n            Disposition: Excluded absolutely.\nE-17  Constant or repeated seepage or leakage of water occurring over a period of fourteen (14)\n      days or more, whether or not the insured was aware of it.\n            Disposition: Excluded absolutely; does NOT apply to a sudden and accidental\n            discharge under Clause 2.1."
+          },
+          {
+            "rank": 3,
+            "hit": false,
+            "chunk_id": "HO-0304_water_damage_ed_03-24.pdf#efccbcedeb5ca741",
+            "form_number": "HO-0304",
+            "edition_date": "03-24",
+            "policy_line": "homeowners",
+            "clause": "3. Exclusions Applicable To Water Damage",
+            "pages": [
+              1,
+              1
+            ],
+            "rerank_score": 5.4219,
+            "rrf_score": 0.030798,
+            "dense_rank": 3,
+            "sparse_rank": 7,
+            "text": "FORM HO-0304 ED. 03-24 | POLICY LINE: HOMEOWNERS | Water Damage, Discharge and Overflow Endorsement\nSECTION: 3. Exclusions Applicable To Water Damage\n\n3. EXCLUSIONS APPLICABLE TO WATER DAMAGE\n3.1 We do not cover loss described in the exclusion table below. Each exclusion is identified by a code which is used consistently across all endorsements attached to this policy line. Where an exclusion is shown as conditional, it applies only in the circumstances stated in the disposition column."
+          },
+          {
+            "rank": 4,
+            "hit": false,
+            "chunk_id": "HO-0304_water_damage_ed_03-24.pdf#400f9878fd2dd04d",
+            "form_number": "HO-0304",
+            "edition_date": "03-24",
+            "policy_line": "homeowners",
+            "clause": "Exclusion Table 3.1",
+            "pages": [
+              2,
+              2
+            ],
+            "rerank_score": 5.351,
+            "rrf_score": 0.03101,
+            "dense_rank": 4,
+            "sparse_rank": 5,
+            "text": "FORM HO-0304 ED. 03-24 | POLICY LINE: HOMEOWNERS | Water Damage, Discharge and Overflow Endorsement\nSECTION: Exclusion Table 3.1\nEXCLUSION TABLE 3.1 - WATER DAMAGE EXCLUSIONS\nCODE  EXCLUSION AND DISPOSITION\n\nE-18  Mould, fungus or wet rot except as provided by the sublimit in Clause 5.2.\n            Disposition: Excluded above sublimit.\nE-19  Water damage caused by or resulting from a sewer or drain back-up.\n            Disposition: Excluded here; see Form HO-0521.\nE-20  Loss to landscaping, paving or fencing caused by escaping water.\n            Disposition: Excluded absolutely.\nE-21  Water damage arising out of a home-sharing occupancy.\n            Disposition: Excluded; see Form HO-0633."
+          },
+          {
+            "rank": 5,
+            "hit": false,
+            "chunk_id": "HO-0304_water_damage_ed_03-24.pdf#0d68a4bd8744a51c",
+            "form_number": "HO-0304",
+            "edition_date": "03-24",
+            "policy_line": "homeowners",
+            "clause": "Exclusion Table 3.1",
+            "pages": [
+              1,
+              2
+            ],
+            "rerank_score": 5.1826,
+            "rrf_score": 0.029644,
+            "dense_rank": 6,
+            "sparse_rank": 9,
+            "text": "FORM HO-0304 ED. 03-24 | POLICY LINE: HOMEOWNERS | Water Damage, Discharge and Overflow Endorsement\nSECTION: Exclusion Table 3.1\nEXCLUSION TABLE 3.1 - WATER DAMAGE EXCLUSIONS\nCODE  EXCLUSION AND DISPOSITION\n\nE-10  Flood, surface water, waves, tidal water or overflow of a body of water.\n            Disposition: Excluded absolutely.\nE-11  Water below the surface of the ground exerting pressure on foundations.\n            Disposition: Excluded absolutely.\nE-12  Water damage occurring while the dwelling is vacant for more than 60 consecutive days.\n            Disposition: Excluded unless heat maintained and water shut off.\nE-13  Discharge from a system the insured failed to drain before a period of vacancy.\n            Disposition: Excluded absolutely.\nE-14  Loss caused by freezing of a plumbing system during the heating season.\n            Disposition: Excluded unless heat maintained at 55F or above."
+          }
+        ]
+      },
+      {
+        "id": "e02",
+        "question": "Under HO-0412, is cosmetic hail damage to roof surfacing covered if the roof still sheds water?",
+        "expected_form": "HO-0412",
+        "expected_clause": "3.1",
+        "exclusion_code": "E-34",
+        "tags": [
+          "exclusion-row",
+          "table"
+        ],
+        "hit_at_5": true,
+        "first_hit_rank": 2,
+        "results": [
+          {
+            "rank": 1,
+            "hit": false,
+            "chunk_id": "HO-0412_windstorm_hail_ed_06-24.pdf#28c02e316c19107f",
+            "form_number": "HO-0412",
+            "edition_date": "06-24",
+            "policy_line": "homeowners",
+            "clause": "Exclusion Table 3.1",
+            "pages": [
+              2,
+              2
+            ],
+            "rerank_score": 6.6937,
+            "rrf_score": 0.032787,
+            "dense_rank": 1,
+            "sparse_rank": 1,
+            "text": "FORM HO-0412 ED. 06-24 | POLICY LINE: HOMEOWNERS | Windstorm and Hail - Exterior Surfaces Limitation\nSECTION: Exclusion Table 3.1\nEXCLUSION TABLE 3.1 - WINDSTORM AND HAIL EXCLUSIONS\nCODE  EXCLUSION AND DISPOSITION\n\nNote: Cosmetic damage under E-34 means damage that alters the appearance of roof surfacing without reducing its ability to\nshed water. Where hail both dents and penetrates the surfacing, E-34 does not apply and the loss is settled under Clause 2."
+          },
+          {
+            "rank": 2,
+            "hit": true,
+            "chunk_id": "HO-0412_windstorm_hail_ed_06-24.pdf#ad3bf2520b492b14",
+            "form_number": "HO-0412",
+            "edition_date": "06-24",
+            "policy_line": "homeowners",
+            "clause": "Exclusion Table 3.1",
+            "pages": [
+              1,
+              1
+            ],
+            "rerank_score": 4.5304,
+            "rrf_score": 0.031498,
+            "dense_rank": 4,
+            "sparse_rank": 3,
+            "text": "FORM HO-0412 ED. 06-24 | POLICY LINE: HOMEOWNERS | Windstorm and Hail - Exterior Surfaces Limitation\nSECTION: Exclusion Table 3.1\nEXCLUSION TABLE 3.1 - WINDSTORM AND HAIL EXCLUSIONS\nCODE  EXCLUSION AND DISPOSITION\n\nE-30  Loss to awnings, canopies or shade structures not permanently attached.\n            Disposition: Excluded absolutely.\nE-31  Loss to outdoor antennas, satellite dishes and their masts.\n            Disposition: Excluded absolutely.\nE-32  Wind-driven rain entering through an opening not caused by wind or hail.\n            Disposition: Excluded absolutely.\nE-33  Loss to screening, screen enclosures and pool cages.\n            Disposition: Excluded above $2,500.\nE-34  Cosmetic damage to roof surfacing that does not compromise the water-shedding function of\n      the roof.\n            Disposition: Excluded absolutely."
+          },
+          {
+            "rank": 3,
+            "hit": false,
+            "chunk_id": "HO-0710_definitions_general_conditions_ed_11-23.pdf#d9277886e6b25334",
+            "form_number": "HO-0710",
+            "edition_date": "11-23",
+            "policy_line": "homeowners",
+            "clause": "Clause 2.3",
+            "pages": [
+              1,
+              1
+            ],
+            "rerank_score": 1.3313,
+            "rrf_score": 0.02967,
+            "dense_rank": 10,
+            "sparse_rank": 5,
+            "text": "FORM HO-0710 ED. 11-23 | POLICY LINE: HOMEOWNERS | Definitions and General Conditions Amendment\nSECTION: Clause 2.3\n\n2.3 Seepage means the escape of water in small quantities over a continuous or repeated period, whether or not the escape is visible and whether or not the insured was aware of it. Seepage is distinguished from a sudden and accidental discharge by its duration and not by the volume of water escaping.\n2.4 Cosmetic damage means physical damage to a surface which alters its appearance without reducing the ability of that surface to perform its intended function. In the case of roof surfacing, the intended function is the shedding of water.\n2.5 Described dwelling means the building shown as the insured location in the declarations, including attached structures and permanently installed fixtures, but excluding other structures set apart from the dwelling by clear space.\n2.6 Policy year means the twelve month period commencing on the inception date shown in the declarations, or on any anniversary of that date."
+          },
+          {
+            "rank": 4,
+            "hit": false,
+            "chunk_id": "HO-0412_windstorm_hail_ed_06-24.pdf#4dcd4c55d0c3a315",
+            "form_number": "HO-0412",
+            "edition_date": "06-24",
+            "policy_line": "homeowners",
+            "clause": "2. Coverage Basis For Roof Surfacing",
+            "pages": [
+              1,
+              1
+            ],
+            "rerank_score": 1.1727,
+            "rrf_score": 0.032258,
+            "dense_rank": 2,
+            "sparse_rank": 2,
+            "text": "FORM HO-0412 ED. 06-24 | POLICY LINE: HOMEOWNERS | Windstorm and Hail - Exterior Surfaces Limitation\nSECTION: 2. Coverage Basis For Roof Surfacing\n\n2. COVERAGE BASIS FOR ROOF SURFACING\n2.1 Loss to roof surfacing caused by windstorm or hail is settled on a replacement cost basis where the roof surfacing is fifteen (15) years old or less at the date of loss, measured from the date of original installation as shown in the inspection record.\n2.2 Where the roof surfacing is more than fifteen (15) years old at the date of loss, loss is settled on an actual cash value basis. Actual cash value is replacement cost less depreciation calculated on the schedule maintained by us and available to the insured on request.\n2.3 Where the insured cannot establish the installation date of the roof surfacing, the roof is presumed to be more than fifteen years old and Clause 2.2 applies. This presumption may be rebutted by documentary evidence of installation."
+          },
+          {
+            "rank": 5,
+            "hit": false,
+            "chunk_id": "HO-0412_windstorm_hail_ed_06-24.pdf#cf08c08355fc282b",
+            "form_number": "HO-0412",
+            "edition_date": "06-24",
+            "policy_line": "homeowners",
+            "clause": "4. Conditions",
+            "pages": [
+              2,
+              2
+            ],
+            "rerank_score": -0.0046,
+            "rrf_score": 0.03101,
+            "dense_rank": 5,
+            "sparse_rank": 4,
+            "text": "FORM HO-0412 ED. 06-24 | POLICY LINE: HOMEOWNERS | Windstorm and Hail - Exterior Surfaces Limitation\nSECTION: 4. Conditions\n\n4. CONDITIONS\n4.1 The insured must report windstorm or hail damage within one year of the date of the storm event. A claim reported after that period is not payable under this endorsement.\n4.2 We may require a roof inspection by an inspector of our choosing before settling a claim under this endorsement. The insured must provide reasonable access for that inspection."
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "question": "If the insured never serviced the sump pump, is the resulting back-up covered under HO-0521?",
+        "expected_form": "HO-0521",
+        "expected_clause": "3.1",
+        "exclusion_code": "E-44",
+        "tags": [
+          "exclusion-row",
+          "table"
+        ],
+        "hit_at_5": true,
+        "first_hit_rank": 3,
+        "results": [
+          {
+            "rank": 1,
+            "hit": false,
+            "chunk_id": "HO-0521_water_backup_sump_ed_01-24.pdf#c1b4ec2e0ee7f0af",
+            "form_number": "HO-0521",
+            "edition_date": "01-24",
+            "policy_line": "homeowners",
+            "clause": "Exclusion Table 3.1",
+            "pages": [
+              2,
+              2
+            ],
+            "rerank_score": 5.107,
+            "rrf_score": 0.030777,
+            "dense_rank": 6,
+            "sparse_rank": 4,
+            "text": "FORM HO-0521 ED. 01-24 | POLICY LINE: HOMEOWNERS | Water Back-Up and Sump Discharge or Overflow\nSECTION: Exclusion Table 3.1\nEXCLUSION TABLE 3.1 - BACK-UP AND SUMP OVERFLOW EXCLUSIONS\nCODE  EXCLUSION AND DISPOSITION\n\nNote: E-44 turns on maintenance records. Where the insured produces a service record consistent with the manufacturer\nschedule, E-44 does not apply and the loss is adjudicated under Clause 2.1 even where the pump ultimately failed."
+          },
+          {
+            "rank": 2,
+            "hit": false,
+            "chunk_id": "HO-0521_water_backup_sump_ed_01-24.pdf#115b7ca030f51fab",
+            "form_number": "HO-0521",
+            "edition_date": "01-24",
+            "policy_line": "homeowners",
+            "clause": "4. Conditions",
+            "pages": [
+              2,
+              2
+            ],
+            "rerank_score": 4.9911,
+            "rrf_score": 0.032002,
+            "dense_rank": 2,
+            "sparse_rank": 3,
+            "text": "FORM HO-0521 ED. 01-24 | POLICY LINE: HOMEOWNERS | Water Back-Up and Sump Discharge or Overflow\nSECTION: 4. Conditions\n\n4. CONDITIONS\n4.1 The insured must retain the sump pump and its power source following a loss and make them available for inspection and testing.\n4.2 The insured must provide service records for the sump pump covering the twenty-four (24) months preceding the loss where such records are requested by us."
+          },
+          {
+            "rank": 3,
+            "hit": true,
+            "chunk_id": "HO-0521_water_backup_sump_ed_01-24.pdf#46e937071b908b3a",
+            "form_number": "HO-0521",
+            "edition_date": "01-24",
+            "policy_line": "homeowners",
+            "clause": "Exclusion Table 3.1",
+            "pages": [
+              1,
+              1
+            ],
+            "rerank_score": 4.8061,
+            "rrf_score": 0.032018,
+            "dense_rank": 4,
+            "sparse_rank": 1,
+            "text": "FORM HO-0521 ED. 01-24 | POLICY LINE: HOMEOWNERS | Water Back-Up and Sump Discharge or Overflow\nSECTION: Exclusion Table 3.1\nEXCLUSION TABLE 3.1 - BACK-UP AND SUMP OVERFLOW EXCLUSIONS\nCODE  EXCLUSION AND DISPOSITION\n\nE-40  Back-up caused by flood or surface water entering the sewer system.\n            Disposition: Excluded absolutely.\nE-41  Back-up occurring while the dwelling is under construction or renovation.\n            Disposition: Excluded absolutely.\nE-42  Loss to the sump, sump pump or related equipment itself.\n            Disposition: Excluded absolutely.\nE-43  Back-up caused by roots, debris or blockage the insured was on notice of.\n            Disposition: Excluded absolutely.\nE-44  Back-up or overflow caused by the failure of the insured to maintain, service or test the\n      sump pump in accordance with the manufacturer schedule.\n            Disposition: Excluded absolutely."
+          },
+          {
+            "rank": 4,
+            "hit": false,
+            "chunk_id": "HO-0521_water_backup_sump_ed_01-24.pdf#bac1f2ae7f51ea9a",
+            "form_number": "HO-0521",
+            "edition_date": "01-24",
+            "policy_line": "homeowners",
+            "clause": "2. Coverage Grant",
+            "pages": [
+              1,
+              1
+            ],
+            "rerank_score": 3.9396,
+            "rrf_score": 0.031778,
+            "dense_rank": 1,
+            "sparse_rank": 5,
+            "text": "FORM HO-0521 ED. 01-24 | POLICY LINE: HOMEOWNERS | Water Back-Up and Sump Discharge or Overflow\nSECTION: 2. Coverage Grant\n\n2. COVERAGE GRANT\n2.1 We cover direct physical loss to covered property caused by water or waterborne material which backs up through sewers or drains serving the described dwelling, or which overflows or is discharged from a sump, sump pump or related equipment, even where the overflow results from mechanical breakdown of the pump.\n2.2 Coverage under this endorsement applies only where the dwelling is equipped with a sump pump fitted with a functioning secondary power source capable of operating the pump for not less than eight (8) hours in the event of a mains power failure. Absence of a secondary power source at the time of loss voids coverage under this endorsement."
+          },
+          {
+            "rank": 5,
+            "hit": false,
+            "chunk_id": "HO-0521_water_backup_sump_ed_01-24.pdf#7880bf1acd4dc79b",
+            "form_number": "HO-0521",
+            "edition_date": "01-24",
+            "policy_line": "homeowners",
+            "clause": "1. Purpose And Scope",
+            "pages": [
+              1,
+              1
+            ],
+            "rerank_score": 3.1733,
+            "rrf_score": 0.032002,
+            "dense_rank": 3,
+            "sparse_rank": 2,
+            "text": "FORM HO-0521 ED. 01-24 | POLICY LINE: HOMEOWNERS | Water Back-Up and Sump Discharge or Overflow\nSECTION: 1. Purpose And Scope\n\n1. PURPOSE AND SCOPE\nThis endorsement provides limited coverage for loss caused by water which backs up through sewers or drains, or which overflows or is discharged from a sump, sump pump or related equipment. Loss of this kind is excluded under Form HO-0304 by exclusion E-19 and is covered only to the extent set out here."
+          }
+        ]
+      },
+      {
+        "id": "e04",
+        "question": "Under HO-0633, does exclusion E-53 bar a bodily injury claim by a home-sharing guest when the home was rented for only 10 days in the policy year?",
+        "expected_form": "HO-0633",
+        "expected_clause": "3.1",
+        "exclusion_code": "E-53",
+        "tags": [
+          "exclusion-row",
+          "table",
+          "exception"
+        ],
+        "hit_at_5": true,
+        "first_hit_rank": 1,
+        "results": [
+          {
+            "rank": 1,
+            "hit": true,
+            "chunk_id": "HO-0633_home_sharing_business_ed_09-23.pdf#1acf2836c995db59",
+            "form_number": "HO-0633",
+            "edition_date": "09-23",
+            "policy_line": "homeowners",
+            "clause": "4. Exceptions To The Exclusions",
+            "pages": [
+              2,
+              2
+            ],
+            "rerank_score": 5.6362,
+            "rrf_score": 0.032522,
+            "dense_rank": 1,
+            "sparse_rank": 2,
+            "text": "FORM HO-0633 ED. 09-23 | POLICY LINE: HOMEOWNERS | Home-Sharing and Home Business Activity Exclusion\nSECTION: 4. Exceptions To The Exclusions\n\n4. EXCEPTIONS TO THE EXCLUSIONS\n4.1 The exclusions in Clause 3 do not apply to a rental of the described dwelling to a person who is not an insured where the total number of days on which any part of the dwelling is rented does not exceed fourteen (14) days in any one policy year.\n4.2 Exclusion E-53 does not apply where the total rental period in the policy year is within the fourteen (14) day allowance in Clause 4.1. In that case bodily injury to an occupant is adjudicated under the liability coverages of the base wording.\n4.3 Business activity conducted from the described dwelling is incidental, and is not excluded, where the annual gross receipts of the activity do not exceed five thousand dollars ($5,000) and the activity involves no visit by a customer or client to the dwelling."
+          },
+          {
+            "rank": 2,
+            "hit": true,
+            "chunk_id": "HO-0633_home_sharing_business_ed_09-23.pdf#fcd483afbf55f3b3",
+            "form_number": "HO-0633",
+            "edition_date": "09-23",
+            "policy_line": "homeowners",
+            "clause": "Exclusion Table 3.1",
+            "pages": [
+              1,
+              1
+            ],
+            "rerank_score": 5.0105,
+            "rrf_score": 0.032522,
+            "dense_rank": 2,
+            "sparse_rank": 1,
+            "text": "FORM HO-0633 ED. 09-23 | POLICY LINE: HOMEOWNERS | Home-Sharing and Home Business Activity Exclusion\nSECTION: Exclusion Table 3.1\nEXCLUSION TABLE 3.1 - HOME-SHARING AND BUSINESS EXCLUSIONS\nCODE  EXCLUSION AND DISPOSITION\n\nE-50  Property damage to the dwelling caused by a home-sharing occupant.\n            Disposition: Excluded absolutely.\nE-51  Theft of personal property occurring during a home-sharing occupancy.\n            Disposition: Excluded absolutely.\nE-52  Loss of rental income arising out of home-sharing activity.\n            Disposition: Excluded absolutely.\nE-53  Bodily injury to a home-sharing occupant however caused.\n            Disposition: Excluded absolutely, subject to the exception in Clause 4.2.\nE-54  Liability arising out of the rendering of any service for a fee at the dwelling.\n            Disposition: Excluded absolutely."
+          },
+          {
+            "rank": 3,
+            "hit": false,
+            "chunk_id": "HO-0633_home_sharing_business_ed_09-23.pdf#6377611bb8f65bab",
+            "form_number": "HO-0633",
+            "edition_date": "09-23",
+            "policy_line": "homeowners",
+            "clause": "Exclusion Table 3.1",
+            "pages": [
+              1,
+              2
+            ],
+            "rerank_score": 4.2117,
+            "rrf_score": 0.031258,
+            "dense_rank": 3,
+            "sparse_rank": 5,
+            "text": "FORM HO-0633 ED. 09-23 | POLICY LINE: HOMEOWNERS | Home-Sharing and Home Business Activity Exclusion\nSECTION: Exclusion Table 3.1\nEXCLUSION TABLE 3.1 - HOME-SHARING AND BUSINESS EXCLUSIONS\nCODE  EXCLUSION AND DISPOSITION\n\nE-55  Property damage to business property held on the premises for sale or distribution.\n            Disposition: Excluded above $2,500.\nE-56  Bodily injury to an employee of a business conducted from the dwelling.\n            Disposition: Excluded absolutely.\nE-57  Liability arising out of the preparation or sale of food to the public.\n            Disposition: Excluded absolutely.\nE-58  Loss arising out of the storage of goods for a business at the dwelling.\n            Disposition: Excluded absolutely.\nE-59  Liability arising out of the operation of a day nursery or child care service.\n            Disposition: Excluded absolutely."
+          },
+          {
+            "rank": 4,
+            "hit": false,
+            "chunk_id": "HO-0633_home_sharing_business_ed_09-23.pdf#3efbd15988750ba9",
+            "form_number": "HO-0633",
+            "edition_date": "09-23",
+            "policy_line": "homeowners",
+            "clause": "5. Conditions",
+            "pages": [
+              2,
+              2
+            ],
+            "rerank_score": 1.8876,
+            "rrf_score": 0.03055,
+            "dense_rank": 7,
+            "sparse_rank": 4,
+            "text": "FORM HO-0633 ED. 09-23 | POLICY LINE: HOMEOWNERS | Home-Sharing and Home Business Activity Exclusion\nSECTION: 5. Conditions\n\n5. CONDITIONS\n5.1 The insured must maintain a record of all days on which any part of the dwelling was rented, and must produce that record on request following a loss. Failure to produce the record raises a presumption that the fourteen day allowance in Clause 4.1 has been exceeded. END OF FORM HO-0633 ED. 09-23."
+          },
+          {
+            "rank": 5,
+            "hit": false,
+            "chunk_id": "HO-0633_home_sharing_business_ed_09-23.pdf#7193769bb8209cfa",
+            "form_number": "HO-0633",
+            "edition_date": "09-23",
+            "policy_line": "homeowners",
+            "clause": "Exclusion Table 3.1",
+            "pages": [
+              2,
+              2
+            ],
+            "rerank_score": 0.7815,
+            "rrf_score": 0.03031,
+            "dense_rank": 5,
+            "sparse_rank": 7,
+            "text": "FORM HO-0633 ED. 09-23 | POLICY LINE: HOMEOWNERS | Home-Sharing and Home Business Activity Exclusion\nSECTION: Exclusion Table 3.1\nEXCLUSION TABLE 3.1 - HOME-SHARING AND BUSINESS EXCLUSIONS\nCODE  EXCLUSION AND DISPOSITION\n\nNote: The E-50 series operates on occupancy and purpose, not on the peril. Where the same physical loss would have been\ncovered absent the home-sharing occupancy, the exclusion still applies."
+          }
+        ]
+      },
+      {
+        "id": "e05",
+        "question": "What is the mould sublimit for a covered water damage loss under HO-0304?",
+        "expected_form": "HO-0304",
+        "expected_clause": "5.2",
+        "exclusion_code": null,
+        "tags": [
+          "limit"
+        ],
+        "hit_at_5": true,
+        "first_hit_rank": 1,
+        "results": [
+          {
+            "rank": 1,
+            "hit": true,
+            "chunk_id": "HO-0304_water_damage_ed_03-24.pdf#78a58d7c6b096028",
+            "form_number": "HO-0304",
+            "edition_date": "03-24",
+            "policy_line": "homeowners",
+            "clause": "5. Limits, Sublimits And Deductible",
+            "pages": [
+              2,
+              2
+            ],
+            "rerank_score": 6.1129,
+            "rrf_score": 0.032522,
+            "dense_rank": 2,
+            "sparse_rank": 1,
+            "text": "FORM HO-0304 ED. 03-24 | POLICY LINE: HOMEOWNERS | Water Damage, Discharge and Overflow Endorsement\nSECTION: 5. Limits, Sublimits And Deductible\n\n5. LIMITS, SUBLIMITS AND DEDUCTIBLE\n5.1 The most we will pay for any one water damage loss under this endorsement is the Coverage A limit shown in the declarations, less the deductible in Clause 5.3.\n5.2 Our total liability for mould, fungus or wet rot resulting from a covered water damage loss is limited to ten thousand dollars ($10,000) in any one policy year, regardless of the number of losses or claimants. This sublimit is part of, and not in addition to, the Coverage A limit."
+          },
+          {
+            "rank": 2,
+            "hit": false,
+            "chunk_id": "HO-0304_water_damage_ed_03-24.pdf#400f9878fd2dd04d",
+            "form_number": "HO-0304",
+            "edition_date": "03-24",
+            "policy_line": "homeowners",
+            "clause": "Exclusion Table 3.1",
+            "pages": [
+              2,
+              2
+            ],
+            "rerank_score": 5.0212,
+            "rrf_score": 0.032266,
+            "dense_rank": 1,
+            "sparse_rank": 3,
+            "text": "FORM HO-0304 ED. 03-24 | POLICY LINE: HOMEOWNERS | Water Damage, Discharge and Overflow Endorsement\nSECTION: Exclusion Table 3.1\nEXCLUSION TABLE 3.1 - WATER DAMAGE EXCLUSIONS\nCODE  EXCLUSION AND DISPOSITION\n\nE-18  Mould, fungus or wet rot except as provided by the sublimit in Clause 5.2.\n            Disposition: Excluded above sublimit.\nE-19  Water damage caused by or resulting from a sewer or drain back-up.\n            Disposition: Excluded here; see Form HO-0521.\nE-20  Loss to landscaping, paving or fencing caused by escaping water.\n            Disposition: Excluded absolutely.\nE-21  Water damage arising out of a home-sharing occupancy.\n            Disposition: Excluded; see Form HO-0633."
+          },
+          {
+            "rank": 3,
+            "hit": false,
+            "chunk_id": "DP-0208_dwelling_fire_water_ed_05-24.pdf#ad9824de5095889a",
+            "form_number": "DP-0208",
+            "edition_date": "05-24",
+            "policy_line": "dwelling_fire",
+            "clause": "Exclusion Table 3.1",
+            "pages": [
+              2,
+              2
+            ],
+            "rerank_score": 4.2465,
+            "rrf_score": 0.032002,
+            "dense_rank": 3,
+            "sparse_rank": 2,
+            "text": "FORM DP-0208 ED. 05-24 | POLICY LINE: DWELLING_FIRE | Dwelling Fire - Water Damage Limitation (Tenant-Occupied)\nSECTION: Exclusion Table 3.1\nEXCLUSION TABLE 3.1 - WATER DAMAGE EXCLUSIONS, DWELLING FIRE LINE\nCODE  EXCLUSION AND DISPOSITION\n\nNote: The dwelling fire line carries no mould sublimit. E-76 excludes mould outright, which is the principal difference\nbetween this form and Form HO-0304 on the homeowners line."
+          },
+          {
+            "rank": 4,
+            "hit": false,
+            "chunk_id": "HO-0304_water_damage_ed_03-24.pdf#58951661516ea86b",
+            "form_number": "HO-0304",
+            "edition_date": "03-24",
+            "policy_line": "homeowners",
+            "clause": "2. Coverage Grant - Sudden And Accidental Discharge",
+            "pages": [
+              1,
+              1
+            ],
+            "rerank_score": 2.3294,
+            "rrf_score": 0.029857,
+            "dense_rank": 6,
+            "sparse_rank": 8,
+            "text": "FORM HO-0304 ED. 03-24 | POLICY LINE: HOMEOWNERS | Water Damage, Discharge and Overflow Endorsement\nSECTION: 2. Coverage Grant - Sudden And Accidental Discharge\n\n2. COVERAGE GRANT - SUDDEN AND ACCIDENTAL DISCHARGE\n2.1 We cover direct physical loss to covered property caused by the sudden and accidental discharge, leakage or overflow of water or steam from a plumbing, heating, air conditioning, fire protective sprinkler system, or household appliance located within the described dwelling. A supply line that ruptures, splits or otherwise fails abruptly is a sudden and accidental discharge for the purposes of this clause, and loss resulting from it is covered subject to the exclusions in Clause 3 and the limits in Clause 5."
+          },
+          {
+            "rank": 5,
+            "hit": false,
+            "chunk_id": "HO-0304_water_damage_ed_03-24.pdf#e656d6f87ac58f92",
+            "form_number": "HO-0304",
+            "edition_date": "03-24",
+            "policy_line": "homeowners",
+            "clause": "1. Purpose And Scope",
+            "pages": [
+              1,
+              1
+            ],
+            "rerank_score": 1.962,
+            "rrf_score": 0.029469,
+            "dense_rank": 5,
+            "sparse_rank": 11,
+            "text": "FORM HO-0304 ED. 03-24 | POLICY LINE: HOMEOWNERS | Water Damage, Discharge and Overflow Endorsement\nSECTION: 1. Purpose And Scope\n\n1. PURPOSE AND SCOPE\nThis endorsement amends the water damage provisions of the homeowners policy wording to which it is attached. Where the language of this endorsement conflicts with the base wording, this endorsement controls. All other terms, conditions and exclusions of the policy remain in full force. This endorsement applies only to direct physical loss to covered property arising from the escape of water within the described premises, and does not extend to flood, surface water or tidal action, which remain excluded under the base wording. Capitalised terms used but not defined in this endorsement have the meaning given to them in Form HO-0710, Definitions and General Conditions Amendment. The insured is directed to that form for the meaning of sudden and accidental, supply line, and seepage, each of which materially affects the operation of Clause 3 below."
+          }
+        ]
+      },
+      {
+        "id": "e06",
+        "question": "What windstorm and hail deductible applies under HO-0412?",
+        "expected_form": "HO-0412",
+        "expected_clause": "5.1",
+        "exclusion_code": null,
+        "tags": [
+          "deductible"
+        ],
+        "hit_at_5": true,
+        "first_hit_rank": 1,
+        "results": [
+          {
+            "rank": 1,
+            "hit": true,
+            "chunk_id": "HO-0412_windstorm_hail_ed_06-24.pdf#74bc08047bdcfa9a",
+            "form_number": "HO-0412",
+            "edition_date": "06-24",
+            "policy_line": "homeowners",
+            "clause": "5. Deductible",
+            "pages": [
+              2,
+              2
+            ],
+            "rerank_score": 8.013,
+            "rrf_score": 0.032787,
+            "dense_rank": 1,
+            "sparse_rank": 1,
+            "text": "FORM HO-0412 ED. 06-24 | POLICY LINE: HOMEOWNERS | Windstorm and Hail - Exterior Surfaces Limitation\nSECTION: 5. Deductible\n\n5. DEDUCTIBLE\n5.1 A windstorm and hail deductible of two percent (2%) of the Coverage A limit shown in the declarations applies to each windstorm or hail loss. This deductible replaces the all-perils deductible for losses under this endorsement and is subject to a minimum of one thousand dollars ($1,000). END OF FORM HO-0412 ED. 06-24."
+          },
+          {
+            "rank": 2,
+            "hit": false,
+            "chunk_id": "HO-0412_windstorm_hail_ed_06-24.pdf#8b4f0201855da74a",
+            "form_number": "HO-0412",
+            "edition_date": "06-24",
+            "policy_line": "homeowners",
+            "clause": "3. Exclusions Applicable To Windstorm And Hail",
+            "pages": [
+              1,
+              1
+            ],
+            "rerank_score": 6.4327,
+            "rrf_score": 0.031281,
+            "dense_rank": 6,
+            "sparse_rank": 2,
+            "text": "FORM HO-0412 ED. 06-24 | POLICY LINE: HOMEOWNERS | Windstorm and Hail - Exterior Surfaces Limitation\nSECTION: 3. Exclusions Applicable To Windstorm And Hail\n\n3. EXCLUSIONS APPLICABLE TO WINDSTORM AND HAIL\n3.1 We do not cover loss described in the exclusion table below. Codes in the E-30 series are specific to windstorm and hail and do not apply to perils addressed by other endorsements."
+          },
+          {
+            "rank": 3,
+            "hit": false,
+            "chunk_id": "HO-0412_windstorm_hail_ed_06-24.pdf#28c02e316c19107f",
+            "form_number": "HO-0412",
+            "edition_date": "06-24",
+            "policy_line": "homeowners",
+            "clause": "Exclusion Table 3.1",
+            "pages": [
+              2,
+              2
+            ],
+            "rerank_score": 5.4783,
+            "rrf_score": 0.030118,
+            "dense_rank": 9,
+            "sparse_rank": 4,
+            "text": "FORM HO-0412 ED. 06-24 | POLICY LINE: HOMEOWNERS | Windstorm and Hail - Exterior Surfaces Limitation\nSECTION: Exclusion Table 3.1\nEXCLUSION TABLE 3.1 - WINDSTORM AND HAIL EXCLUSIONS\nCODE  EXCLUSION AND DISPOSITION\n\nNote: Cosmetic damage under E-34 means damage that alters the appearance of roof surfacing without reducing its ability to\nshed water. Where hail both dents and penetrates the surfacing, E-34 does not apply and the loss is settled under Clause 2."
+          },
+          {
+            "rank": 4,
+            "hit": false,
+            "chunk_id": "HO-0412_windstorm_hail_ed_06-24.pdf#c1731a7093e4669e",
+            "form_number": "HO-0412",
+            "edition_date": "06-24",
+            "policy_line": "homeowners",
+            "clause": "1. Purpose And Scope",
+            "pages": [
+              1,
+              1
+            ],
+            "rerank_score": 5.0017,
+            "rrf_score": 0.03031,
+            "dense_rank": 7,
+            "sparse_rank": 5,
+            "text": "FORM HO-0412 ED. 06-24 | POLICY LINE: HOMEOWNERS | Windstorm and Hail - Exterior Surfaces Limitation\nSECTION: 1. Purpose And Scope\n\n1. PURPOSE AND SCOPE\nThis endorsement limits the coverage otherwise provided for windstorm and hail damage to exterior surfaces of the dwelling and other structures. It does not restrict coverage for resulting interior water damage where the exterior surface has been physically breached by wind or hail."
+          },
+          {
+            "rank": 5,
+            "hit": false,
+            "chunk_id": "HO-0412_windstorm_hail_ed_06-24.pdf#6b80768088f8156b",
+            "form_number": "HO-0412",
+            "edition_date": "06-24",
+            "policy_line": "homeowners",
+            "clause": "Exclusion Table 3.1",
+            "pages": [
+              1,
+              2
+            ],
+            "rerank_score": 4.9122,
+            "rrf_score": 0.030798,
+            "dense_rank": 3,
+            "sparse_rank": 7,
+            "text": "FORM HO-0412 ED. 06-24 | POLICY LINE: HOMEOWNERS | Windstorm and Hail - Exterior Surfaces Limitation\nSECTION: Exclusion Table 3.1\nEXCLUSION TABLE 3.1 - WINDSTORM AND HAIL EXCLUSIONS\nCODE  EXCLUSION AND DISPOSITION\n\nE-35  Loss to solar collectors or their mountings caused by hail.\n            Disposition: Excluded unless scheduled.\nE-36  Marring, scuffing or granule loss not accompanied by penetration.\n            Disposition: Excluded absolutely.\nE-37  Loss to fences, gates and retaining walls caused by windstorm.\n            Disposition: Excluded above $5,000.\nE-38  Repeated hail impact over multiple storm events where no single event caused breach.\n            Disposition: Excluded absolutely.\nE-39  Consequential loss of use where the dwelling remains habitable.\n            Disposition: Excluded absolutely."
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "question": "How does HO-0710 define 'sudden and accidental'?",
+        "expected_form": "HO-0710",
+        "expected_clause": "2.1",
+        "exclusion_code": null,
+        "tags": [
+          "definition"
+        ],
+        "hit_at_5": true,
+        "first_hit_rank": 1,
+        "results": [
+          {
+            "rank": 1,
+            "hit": true,
+            "chunk_id": "HO-0710_definitions_general_conditions_ed_11-23.pdf#4a3af5524b7032d0",
+            "form_number": "HO-0710",
+            "edition_date": "11-23",
+            "policy_line": "homeowners",
+            "clause": "2. Definitions",
+            "pages": [
+              1,
+              1
+            ],
+            "rerank_score": 7.8683,
+            "rrf_score": 0.032787,
+            "dense_rank": 1,
+            "sparse_rank": 1,
+            "text": "FORM HO-0710 ED. 11-23 | POLICY LINE: HOMEOWNERS | Definitions and General Conditions Amendment\nSECTION: 2. Definitions\n\n2. DEFINITIONS\n2.1 Sudden and accidental means an event which is both abrupt in onset and unintended by the insured, and which occurs at an identifiable point in time. An event is not sudden and accidental merely because its consequences were unexpected. A process which develops gradually over a period of fourteen (14) days or more is not sudden and accidental however unintended its result, and is adjudicated as seepage.\n2.2 Supply line means any pipe, hose, tube, fitting or connector which conveys water under mains pressure to a fixture, appliance or system within the described dwelling, up to and including the shut-off valve serving that fixture, appliance or system. A supply line does not include a waste, soil or drainage pipe, which is a drain line."
+          },
+          {
+            "rank": 2,
+            "hit": false,
+            "chunk_id": "HO-0710_definitions_general_conditions_ed_11-23.pdf#d9277886e6b25334",
+            "form_number": "HO-0710",
+            "edition_date": "11-23",
+            "policy_line": "homeowners",
+            "clause": "Clause 2.3",
+            "pages": [
+              1,
+              1
+            ],
+            "rerank_score": 3.8732,
+            "rrf_score": 0.028665,
+            "dense_rank": 14,
+            "sparse_rank": 6,
+            "text": "FORM HO-0710 ED. 11-23 | POLICY LINE: HOMEOWNERS | Definitions and General Conditions Amendment\nSECTION: Clause 2.3\n\n2.3 Seepage means the escape of water in small quantities over a continuous or repeated period, whether or not the escape is visible and whether or not the insured was aware of it. Seepage is distinguished from a sudden and accidental discharge by its duration and not by the volume of water escaping.\n2.4 Cosmetic damage means physical damage to a surface which alters its appearance without reducing the ability of that surface to perform its intended function. In the case of roof surfacing, the intended function is the shedding of water.\n2.5 Described dwelling means the building shown as the insured location in the declarations, including attached structures and permanently installed fixtures, but excluding other structures set apart from the dwelling by clear space.\n2.6 Policy year means the twelve month period commencing on the inception date shown in the declarations, or on any anniversary of that date."
+          },
+          {
+            "rank": 3,
+            "hit": false,
+            "chunk_id": "HO-0304_water_damage_ed_03-24.pdf#e656d6f87ac58f92",
+            "form_number": "HO-0304",
+            "edition_date": "03-24",
+            "policy_line": "homeowners",
+            "clause": "1. Purpose And Scope",
+            "pages": [
+              1,
+              1
+            ],
+            "rerank_score": 3.5847,
+            "rrf_score": 0.03101,
+            "dense_rank": 4,
+            "sparse_rank": 5,
+            "text": "FORM HO-0304 ED. 03-24 | POLICY LINE: HOMEOWNERS | Water Damage, Discharge and Overflow Endorsement\nSECTION: 1. Purpose And Scope\n\n1. PURPOSE AND SCOPE\nThis endorsement amends the water damage provisions of the homeowners policy wording to which it is attached. Where the language of this endorsement conflicts with the base wording, this endorsement controls. All other terms, conditions and exclusions of the policy remain in full force. This endorsement applies only to direct physical loss to covered property arising from the escape of water within the described premises, and does not extend to flood, surface water or tidal action, which remain excluded under the base wording. Capitalised terms used but not defined in this endorsement have the meaning given to them in Form HO-0710, Definitions and General Conditions Amendment. The insured is directed to that form for the meaning of sudden and accidental, supply line, and seepage, each of which materially affects the operation of Clause 3 below."
+          },
+          {
+            "rank": 4,
+            "hit": false,
+            "chunk_id": "HO-0304_water_damage_ed_03-24.pdf#58951661516ea86b",
+            "form_number": "HO-0304",
+            "edition_date": "03-24",
+            "policy_line": "homeowners",
+            "clause": "2. Coverage Grant - Sudden And Accidental Discharge",
+            "pages": [
+              1,
+              1
+            ],
+            "rerank_score": 3.439,
+            "rrf_score": 0.032258,
+            "dense_rank": 2,
+            "sparse_rank": 2,
+            "text": "FORM HO-0304 ED. 03-24 | POLICY LINE: HOMEOWNERS | Water Damage, Discharge and Overflow Endorsement\nSECTION: 2. Coverage Grant - Sudden And Accidental Discharge\n\n2. COVERAGE GRANT - SUDDEN AND ACCIDENTAL DISCHARGE\n2.1 We cover direct physical loss to covered property caused by the sudden and accidental discharge, leakage or overflow of water or steam from a plumbing, heating, air conditioning, fire protective sprinkler system, or household appliance located within the described dwelling. A supply line that ruptures, splits or otherwise fails abruptly is a sudden and accidental discharge for the purposes of this clause, and loss resulting from it is covered subject to the exclusions in Clause 3 and the limits in Clause 5."
+          },
+          {
+            "rank": 5,
+            "hit": false,
+            "chunk_id": "HO-0304_water_damage_ed_03-24.pdf#b6984390e80358cb",
+            "form_number": "HO-0304",
+            "edition_date": "03-24",
+            "policy_line": "homeowners",
+            "clause": "Clause 2.2",
+            "pages": [
+              1,
+              1
+            ],
+            "rerank_score": 0.3677,
+            "rrf_score": 0.014925,
+            "dense_rank": null,
+            "sparse_rank": 7,
+            "text": "FORM HO-0304 ED. 03-24 | POLICY LINE: HOMEOWNERS | Water Damage, Discharge and Overflow Endorsement\nSECTION: Clause 2.2\n\n2.2 We also cover the reasonable cost of tearing out and replacing any part of the dwelling necessary to gain access to the system or appliance from which the water escaped. We do not cover the cost of repairing or replacing the system or appliance itself, except where that system or appliance is itself damaged by a separate covered peril.\n2.3 Coverage under this clause is available only where the discharge is first detected and reported in accordance with Clause 4. A discharge that the insured knew of, or reasonably should have known of, and did not report is not a sudden and accidental discharge regardless of how the failure began."
+          }
+        ]
+      },
+      {
+        "id": "e08",
+        "question": "What is the aggregate annual limit for water back-up losses under HO-0521?",
+        "expected_form": "HO-0521",
+        "expected_clause": "5.1",
+        "exclusion_code": null,
+        "tags": [
+          "limit"
+        ],
+        "hit_at_5": true,
+        "first_hit_rank": 1,
+        "results": [
+          {
+            "rank": 1,
+            "hit": true,
+            "chunk_id": "HO-0521_water_backup_sump_ed_01-24.pdf#bdf919e11b2faf1a",
+            "form_number": "HO-0521",
+            "edition_date": "01-24",
+            "policy_line": "homeowners",
+            "clause": "5. Limit And Deductible",
+            "pages": [
+              2,
+              2
+            ],
+            "rerank_score": 7.138,
+            "rrf_score": 0.032787,
+            "dense_rank": 1,
+            "sparse_rank": 1,
+            "text": "FORM HO-0521 ED. 01-24 | POLICY LINE: HOMEOWNERS | Water Back-Up and Sump Discharge or Overflow\nSECTION: 5. Limit And Deductible\n\n5. LIMIT AND DEDUCTIBLE\n5.1 The most we will pay under this endorsement is twenty-five thousand dollars ($25,000) in the aggregate for all losses occurring in any one policy year, regardless of the number of back-up events. This limit is part of, and not in addition to, the Coverage A limit.\n5.2 A deductible of one thousand dollars ($1,000) applies to each loss under this endorsement. END OF FORM HO-0521 ED. 01-24."
+          },
+          {
+            "rank": 2,
+            "hit": false,
+            "chunk_id": "HO-0521_water_backup_sump_ed_01-24.pdf#fbaa91660378f93e",
+            "form_number": "HO-0521",
+            "edition_date": "01-24",
+            "policy_line": "homeowners",
+            "clause": "Exclusion Table 3.1",
+            "pages": [
+              1,
+              2
+            ],
+            "rerank_score": 2.792,
+            "rrf_score": 0.030777,
+            "dense_rank": 4,
+            "sparse_rank": 6,
+            "text": "FORM HO-0521 ED. 01-24 | POLICY LINE: HOMEOWNERS | Water Back-Up and Sump Discharge or Overflow\nSECTION: Exclusion Table 3.1\nEXCLUSION TABLE 3.1 - BACK-UP AND SUMP OVERFLOW EXCLUSIONS\nCODE  EXCLUSION AND DISPOSITION\n\nE-45  Back-up originating from a sewer or drain that does not serve the described dwelling.\n            Disposition: Excluded absolutely.\nE-46  Loss caused by a sump pump discharge line that was not disconnected before a freeze.\n            Disposition: Excluded absolutely.\nE-47  Mould, fungus or wet rot resulting from a back-up.\n            Disposition: Excluded above $5,000.\nE-48  Loss of use exceeding thirty days following a back-up.\n            Disposition: Excluded absolutely.\nE-49  Back-up in a dwelling with a history of two or more prior back-up claims in five years.\n            Disposition: Excluded unless remediation certified."
+          },
+          {
+            "rank": 3,
+            "hit": false,
+            "chunk_id": "HO-0521_water_backup_sump_ed_01-24.pdf#7880bf1acd4dc79b",
+            "form_number": "HO-0521",
+            "edition_date": "01-24",
+            "policy_line": "homeowners",
+            "clause": "1. Purpose And Scope",
+            "pages": [
+              1,
+              1
+            ],
+            "rerank_score": 1.4611,
+            "rrf_score": 0.030798,
+            "dense_rank": 3,
+            "sparse_rank": 7,
+            "text": "FORM HO-0521 ED. 01-24 | POLICY LINE: HOMEOWNERS | Water Back-Up and Sump Discharge or Overflow\nSECTION: 1. Purpose And Scope\n\n1. PURPOSE AND SCOPE\nThis endorsement provides limited coverage for loss caused by water which backs up through sewers or drains, or which overflows or is discharged from a sump, sump pump or related equipment. Loss of this kind is excluded under Form HO-0304 by exclusion E-19 and is covered only to the extent set out here."
+          },
+          {
+            "rank": 4,
+            "hit": false,
+            "chunk_id": "HO-0304_water_damage_ed_03-24.pdf#78a58d7c6b096028",
+            "form_number": "HO-0304",
+            "edition_date": "03-24",
+            "policy_line": "homeowners",
+            "clause": "5. Limits, Sublimits And Deductible",
+            "pages": [
+              2,
+              2
+            ],
+            "rerank_score": 0.9085,
+            "rrf_score": 0.029857,
+            "dense_rank": 6,
+            "sparse_rank": 8,
+            "text": "FORM HO-0304 ED. 03-24 | POLICY LINE: HOMEOWNERS | Water Damage, Discharge and Overflow Endorsement\nSECTION: 5. Limits, Sublimits And Deductible\n\n5. LIMITS, SUBLIMITS AND DEDUCTIBLE\n5.1 The most we will pay for any one water damage loss under this endorsement is the Coverage A limit shown in the declarations, less the deductible in Clause 5.3.\n5.2 Our total liability for mould, fungus or wet rot resulting from a covered water damage loss is limited to ten thousand dollars ($10,000) in any one policy year, regardless of the number of losses or claimants. This sublimit is part of, and not in addition to, the Coverage A limit."
+          },
+          {
+            "rank": 5,
+            "hit": false,
+            "chunk_id": "HO-0521_water_backup_sump_ed_01-24.pdf#115b7ca030f51fab",
+            "form_number": "HO-0521",
+            "edition_date": "01-24",
+            "policy_line": "homeowners",
+            "clause": "4. Conditions",
+            "pages": [
+              2,
+              2
+            ],
+            "rerank_score": 0.6023,
+            "rrf_score": 0.028778,
+            "dense_rank": 9,
+            "sparse_rank": 10,
+            "text": "FORM HO-0521 ED. 01-24 | POLICY LINE: HOMEOWNERS | Water Back-Up and Sump Discharge or Overflow\nSECTION: 4. Conditions\n\n4. CONDITIONS\n4.1 The insured must retain the sump pump and its power source following a loss and make them available for inspection and testing.\n4.2 The insured must provide service records for the sump pump covering the twenty-four (24) months preceding the loss where such records are requested by us."
+          }
+        ]
+      }
+    ]
+  }
+}

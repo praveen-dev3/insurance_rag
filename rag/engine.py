@@ -1,4 +1,34 @@
-"""The facade the CLI, the HTTP server and the evaluator all talk to."""
+"""The facade the CLI, the HTTP server and the evaluator all talk to.
+
+Why one engine instead of three retrieval paths
+-----------------------------------------------
+Nothing forces `main.py`, `server.py` and `evaluate.py` to share a class.
+Each could build its own retriever in ten lines, and the first version of
+a project like this usually does.
+
+They share one because of what the evaluator is *for*. `evaluate.py`
+exists to produce a number that describes the shipped system - if the
+evaluator assembles its own pipeline, that number describes the
+evaluator's pipeline, and the two drift the first time someone changes a
+default in one front end and not the others. The drift is silent: both
+paths keep working, the metric keeps looking plausible, and it has quietly
+stopped measuring the app. The same argument covers the CLI and the
+server, which must not disagree about what the system answers.
+
+So the rule the repo follows is: retrieval and generation logic lives in
+`rag/`, the three front ends only marshal input and render output. This
+class is the seam that makes that enforceable rather than a convention.
+
+There is a cost, stated honestly: every front end pays for the whole
+import graph, including the local encoders, and one lock serialises
+retrieval across HTTP requests. Both are acceptable at this corpus size
+and neither is hidden.
+
+Note also that the keyword defaults below (`top_k=TOP_K`,
+`mmr_lambda=MMR_LAMBDA`, ...) are bound when this module is imported, the
+same moment `rag.config` reads the environment. Changing an environment
+variable after import therefore has no effect - override per call instead.
+"""
 
 import threading
 
@@ -50,10 +80,18 @@ class RagEngine:
     """
     Owns the index and the retriever for the life of the process.
 
-    A single instance is shared across requests. The lock serialises the
-    retrieval stages, because neither the Chroma client nor the local
-    encoders are guaranteed safe to drive from several threads, and
-    FastAPI hands each request to a different worker thread.
+    A single instance is shared across requests, because the expensive
+    parts - the Chroma collection, the in-memory BM25 index, the encoder
+    and the cross-encoder weights - are read-only after construction and
+    cost seconds and hundreds of MB to build. Per-request construction
+    would make the first token of every answer arrive after a model load.
+
+    The lock serialises the retrieval stages, because neither the Chroma
+    client nor the local encoders are guaranteed safe to drive from several
+    threads, and FastAPI hands each request to a different worker thread.
+    A lock rather than a pool of engines: the corpus is small enough that
+    retrieval is tens of milliseconds, so contention is not the bottleneck,
+    and N copies of the models would be.
     """
 
     def __init__(self, force_reindex=False, on_progress=None):
@@ -155,7 +193,11 @@ class RagEngine:
 
         No LLM is involved, which is what lets the evaluator measure
         retrieval quality without spending tokens or waiting on a
-        network round trip per question.
+        network round trip per question. That is the reason retrieval and
+        answering are separate entry points at all: `evaluate.py retrieval`
+        is free and fast enough to run before and after every change, so
+        "prove it with a number" stays a cheap habit rather than a budget
+        decision.
         """
 
         with self._lock:

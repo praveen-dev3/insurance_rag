@@ -29,18 +29,13 @@ better rank and a worse answer.
 Usage:  python tools/run_bonus.py
 """
 
-import json
-import sys
 from pathlib import Path
 
-import chromadb
+from _runner import chroma_client, drop_collection, write_json
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-
-from rag.config import CHROMA_PATH  # noqa: E402
-from rag.generation import generate_answer, is_generation_error  # noqa: E402
-from rag.indexing import build_collection  # noqa: E402
-from rag.retrieval import HybridRetriever  # noqa: E402
+from rag.generation import generate_answer, is_generation_error
+from rag.indexing import build_collection
+from rag.retrieval import HybridRetriever
 
 OUTPUT = Path("eval/results/task_d/bonus.json")
 
@@ -132,7 +127,7 @@ def run(client, strategy, question, retriever=None):
 
 def main():
 
-    client = chromadb.PersistentClient(path=CHROMA_PATH)
+    client = chroma_client()
 
     results = {}
 
@@ -157,17 +152,9 @@ def main():
 
             print(f"  answer:\n{result['answer']}\n")
 
-        try:
-            client.delete_collection(f"bonus_{strategy}")
-        except Exception:
-            pass
+        drop_collection(client, f"bonus_{strategy}")
 
-    OUTPUT.parent.mkdir(parents=True, exist_ok=True)
-    OUTPUT.write_text(
-        json.dumps({"probes": PROBES, "top_k": TOP_K, "runs": results},
-                   indent=2, default=str),
-        encoding="utf-8",
-    )
+    write_json(OUTPUT, {"probes": PROBES, "top_k": TOP_K, "runs": results})
 
     print(f"wrote {OUTPUT}")
 

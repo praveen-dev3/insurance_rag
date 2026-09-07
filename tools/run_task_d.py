@@ -18,24 +18,25 @@ Usage:
     python tools/run_task_d.py retrieval  # skip the LLM stages
 """
 
-import json
-import sys
 from pathlib import Path
 
-import chromadb
+from _runner import (
+    chroma_client,
+    drop_collection,
+    make_saver,
+    positional_stage,
+    read_json,
+)
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-
-from rag.config import CHROMA_PATH  # noqa: E402
-from rag.engine import RagEngine  # noqa: E402
-from rag.generation import (  # noqa: E402
+from rag.engine import RagEngine
+from rag.generation import (
     NO_ANSWER,
     is_generation_error,
     is_refusal,
     verify_citations,
 )
-from rag.indexing import build_collection  # noqa: E402
-from rag.retrieval import HybridRetriever  # noqa: E402
+from rag.indexing import build_collection
+from rag.retrieval import HybridRetriever
 
 GOLDEN_SET = Path("eval/endorsements_golden.json")
 OUTPUT_DIR = Path("eval/results/task_d")
@@ -53,7 +54,7 @@ STRATEGIES = ("recursive", "structure")
 
 def load_cases():
 
-    payload = json.loads(GOLDEN_SET.read_text(encoding="utf-8"))
+    payload = read_json(GOLDEN_SET)
 
     cases = payload["cases"]
 
@@ -192,10 +193,7 @@ def run_chunking_comparison(client, cases):
 
         print(f"  => {strategy}: {hits}/{len(cases)} hit-in-top-{K}")
 
-        try:
-            client.delete_collection(collection_name)
-        except Exception:
-            pass
+        drop_collection(client, collection_name)
 
     return results
 
@@ -259,10 +257,7 @@ def run_filter_demo(client):
             f"score={top['rerank_score'] if top else '-'}"
         )
 
-    try:
-        client.delete_collection("task_d_filter")
-    except Exception:
-        pass
+    drop_collection(client, "task_d_filter")
 
     return output
 
@@ -366,24 +361,12 @@ def run_generation(cases, refusals):
 
 # ============================================================
 
-def save(payload, name):
-
-    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-
-    path = OUTPUT_DIR / name
-    path.write_text(
-        json.dumps(payload, indent=2, default=str),
-        encoding="utf-8"
-    )
-
-    print(f"  wrote {path}")
-
-    return path
+save = make_saver(OUTPUT_DIR)
 
 
 def main():
 
-    stage = sys.argv[1] if len(sys.argv) > 1 else "all"
+    stage = positional_stage()
 
     cases, refusals = load_cases()
 
@@ -394,7 +377,7 @@ def main():
         f"{len(refusals)} out-of-corpus questions."
     )
 
-    client = chromadb.PersistentClient(path=CHROMA_PATH)
+    client = chroma_client()
 
     comparison = run_chunking_comparison(client, cases)
     save(comparison, "chunking_hit5.json")

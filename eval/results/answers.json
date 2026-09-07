@@ -1,0 +1,1157 @@
+{
+  "command": "answers",
+  "result": {
+    "label": "answers",
+    "k": 3,
+    "cases": 38,
+    "counts": {
+      "retrieval_failure": 1,
+      "generation_failure": 0,
+      "correct_refusal": 6,
+      "missed_refusal": 0,
+      "ok": 31
+    },
+    "rates": {
+      "retrieval_failure": 0.0263,
+      "generation_failure": 0.0,
+      "correct_refusal": 0.1579,
+      "missed_refusal": 0.0,
+      "ok": 0.8158
+    },
+    "rows": [
+      {
+        "id": "q01",
+        "question": "What is the registration number of the insured bike?",
+        "tags": [
+          "identifier"
+        ],
+        "answerable": true,
+        "answer": "The registration number of the insured bike is TN06BJ2206, as stated in the policy.pdf document on pages 4 and 8 (SOURCE 1 and SOURCE 2).",
+        "label": "ok",
+        "reason": "Expected page retrieved and the answer contains the facts.",
+        "retrieved": [
+          {
+            "source": "policy.pdf",
+            "pages": [
+              4,
+              4
+            ]
+          },
+          {
+            "source": "policy.pdf",
+            "pages": [
+              8,
+              8
+            ]
+          },
+          {
+            "source": "policy.pdf",
+            "pages": [
+              2,
+              3
+            ]
+          }
+        ]
+      },
+      {
+        "id": "q02",
+        "question": "What is the engine CC and fuel type of the bike?",
+        "tags": [
+          "spec"
+        ],
+        "answerable": true,
+        "answer": "The engine CC of the bike is 155 and the fuel type is Petrol (Source 1: policy.pdf, Page 4).",
+        "label": "ok",
+        "reason": "Expected page retrieved and the answer contains the facts.",
+        "retrieved": [
+          {
+            "source": "policy.pdf",
+            "pages": [
+              4,
+              4
+            ]
+          },
+          {
+            "source": "policy.pdf",
+            "pages": [
+              8,
+              8
+            ]
+          }
+        ]
+      },
+      {
+        "id": "q03",
+        "question": "What is the total premium paid for this policy?",
+        "tags": [
+          "amount"
+        ],
+        "answerable": true,
+        "answer": "The total premium paid for this policy is 2,025.00. (Source 1: policy.pdf, Page 4 and Source 2: policy.pdf, Page 8)",
+        "label": "ok",
+        "reason": "Expected page retrieved and the answer contains the facts.",
+        "retrieved": [
+          {
+            "source": "policy.pdf",
+            "pages": [
+              4,
+              4
+            ]
+          },
+          {
+            "source": "policy.pdf",
+            "pages": [
+              8,
+              8
+            ]
+          },
+          {
+            "source": "policy.pdf",
+            "pages": [
+              8,
+              8
+            ]
+          }
+        ]
+      },
+      {
+        "id": "q04",
+        "question": "How much IGST was charged on the premium?",
+        "tags": [
+          "amount"
+        ],
+        "answerable": true,
+        "answer": "The IGST charged on the premium was 309.00\uf156. (Source: policy.pdf, Page: 4 and also confirmed on Page: 8)",
+        "label": "ok",
+        "reason": "Expected page retrieved and the answer contains the facts.",
+        "retrieved": [
+          {
+            "source": "policy.pdf",
+            "pages": [
+              4,
+              4
+            ]
+          },
+          {
+            "source": "policy.pdf",
+            "pages": [
+              8,
+              8
+            ]
+          },
+          {
+            "source": "policy.pdf",
+            "pages": [
+              4,
+              4
+            ]
+          }
+        ]
+      },
+      {
+        "id": "q05",
+        "question": "What is the period of insurance for this policy?",
+        "tags": [
+          "date"
+        ],
+        "answerable": true,
+        "answer": "The period of insurance for this policy is from 27 Dec 25 12:00 AM to 26 Dec 26 11:59 PM, as stated in the policy details on page 8 of the document policy.pdf (SOURCE 1).",
+        "label": "ok",
+        "reason": "Expected page retrieved and the answer contains the facts.",
+        "retrieved": [
+          {
+            "source": "policy.pdf",
+            "pages": [
+              8,
+              8
+            ]
+          },
+          {
+            "source": "policy.pdf",
+            "pages": [
+              7,
+              7
+            ]
+          },
+          {
+            "source": "policy.pdf",
+            "pages": [
+              1,
+              2
+            ]
+          }
+        ]
+      },
+      {
+        "id": "q06",
+        "question": "Who is the owner of the insured bike?",
+        "tags": [
+          "identifier"
+        ],
+        "answerable": true,
+        "answer": "The owner of the insured bike is Sarathkumar E, as stated in the policy document (policy.pdf, Page 1 and Page 8).",
+        "label": "ok",
+        "reason": "Expected page retrieved and the answer contains the facts.",
+        "retrieved": [
+          {
+            "source": "policy.pdf",
+            "pages": [
+              1,
+              2
+            ]
+          },
+          {
+            "source": "policy.pdf",
+            "pages": [
+              2,
+              3
+            ]
+          },
+          {
+            "source": "policy.pdf",
+            "pages": [
+              8,
+              8
+            ]
+          }
+        ]
+      },
+      {
+        "id": "q07",
+        "question": "What is the limit of liability for damage to third party property?",
+        "tags": [
+          "coverage"
+        ],
+        "answerable": true,
+        "answer": "The limit of liability for damage to third party property is Rs. 100,000. (Source: policy.pdf, Page 7)",
+        "label": "ok",
+        "reason": "Expected page retrieved and the answer contains the facts.",
+        "retrieved": [
+          {
+            "source": "policy.pdf",
+            "pages": [
+              7,
+              7
+            ]
+          },
+          {
+            "source": "policy.pdf",
+            "pages": [
+              1,
+              2
+            ]
+          },
+          {
+            "source": "policy.pdf",
+            "pages": [
+              2,
+              2
+            ]
+          }
+        ]
+      },
+      {
+        "id": "q08",
+        "question": "How much does the compulsory personal accident cover pay out?",
+        "tags": [
+          "coverage"
+        ],
+        "answerable": true,
+        "answer": "The Compulsory Personal Accident Cover pays out up to a maximum of Rs. 15 lakh for disability or death of the owner-driver in case of an unfortunate accident. (Source: policy.pdf, Page: 2 and also mentioned in policy.pdf, Page: 1-2 and policy.pdf, Page: 4)",
+        "label": "ok",
+        "reason": "Expected page retrieved and the answer contains the facts.",
+        "retrieved": [
+          {
+            "source": "policy.pdf",
+            "pages": [
+              2,
+              2
+            ]
+          },
+          {
+            "source": "policy.pdf",
+            "pages": [
+              4,
+              4
+            ]
+          },
+          {
+            "source": "policy.pdf",
+            "pages": [
+              1,
+              2
+            ]
+          }
+        ]
+      },
+      {
+        "id": "q09",
+        "question": "Who is the nominee and what is their relationship to the insured?",
+        "tags": [
+          "identifier"
+        ],
+        "answerable": true,
+        "answer": "The nominee is Sarath Kumar E, and their relationship to the insured is Brother, as stated in the policy.pdf document on page 8.",
+        "label": "ok",
+        "reason": "Expected page retrieved and the answer contains the facts.",
+        "retrieved": [
+          {
+            "source": "policy.pdf",
+            "pages": [
+              8,
+              8
+            ]
+          }
+        ]
+      },
+      {
+        "id": "q10",
+        "question": "What is the chassis number of the bike?",
+        "tags": [
+          "identifier",
+          "exact-code"
+        ],
+        "answerable": true,
+        "answer": "The chassis number of the bike is ME1RG5913K0008278, as stated in the policy.pdf document on page 4 (SOURCE 1).",
+        "label": "ok",
+        "reason": "Expected page retrieved and the answer contains the facts.",
+        "retrieved": [
+          {
+            "source": "policy.pdf",
+            "pages": [
+              4,
+              4
+            ]
+          },
+          {
+            "source": "policy.pdf",
+            "pages": [
+              8,
+              8
+            ]
+          },
+          {
+            "source": "policy.pdf",
+            "pages": [
+              1,
+              2
+            ]
+          }
+        ]
+      },
+      {
+        "id": "q11",
+        "question": "What is the engine number of the bike?",
+        "tags": [
+          "identifier",
+          "exact-code"
+        ],
+        "answerable": true,
+        "answer": "The engine number of the bike is G3K5E0092201, as stated in the policy.pdf document on page 4 (SOURCE 1).",
+        "label": "ok",
+        "reason": "Expected page retrieved and the answer contains the facts.",
+        "retrieved": [
+          {
+            "source": "policy.pdf",
+            "pages": [
+              4,
+              4
+            ]
+          },
+          {
+            "source": "policy.pdf",
+            "pages": [
+              8,
+              8
+            ]
+          },
+          {
+            "source": "policy.pdf",
+            "pages": [
+              1,
+              2
+            ]
+          }
+        ]
+      },
+      {
+        "id": "q12",
+        "question": "What is Acko's GSTIN?",
+        "tags": [
+          "identifier",
+          "exact-code"
+        ],
+        "answerable": true,
+        "answer": "Acko's GSTIN is 29AAOCA9055C1ZF, as stated in the policy.pdf document on page 4. (Source: policy.pdf, Page 4)",
+        "label": "ok",
+        "reason": "Expected page retrieved and the answer contains the facts.",
+        "retrieved": [
+          {
+            "source": "policy.pdf",
+            "pages": [
+              4,
+              4
+            ]
+          },
+          {
+            "source": "policy.pdf",
+            "pages": [
+              7,
+              8
+            ]
+          },
+          {
+            "source": "policy.pdf",
+            "pages": [
+              7,
+              7
+            ]
+          }
+        ]
+      },
+      {
+        "id": "q13",
+        "question": "What is the policy number?",
+        "tags": [
+          "identifier",
+          "exact-code"
+        ],
+        "answerable": true,
+        "answer": "The policy number is DBTR10460060578/01, as stated in the document policy.pdf on page 1. (Source: policy.pdf, Page 1)",
+        "label": "ok",
+        "reason": "Expected page retrieved and the answer contains the facts.",
+        "retrieved": [
+          {
+            "source": "policy.pdf",
+            "pages": [
+              1,
+              2
+            ]
+          },
+          {
+            "source": "policy.pdf",
+            "pages": [
+              7,
+              7
+            ]
+          },
+          {
+            "source": "policy.pdf",
+            "pages": [
+              7,
+              8
+            ]
+          }
+        ]
+      },
+      {
+        "id": "q14",
+        "question": "What are the reasons my claim might get rejected?",
+        "tags": [
+          "exclusion"
+        ],
+        "answerable": true,
+        "answer": "According to the policy.pdf document (Page 2-3), the reasons your claim might get rejected are:\n\n1. Commercial usage of the bike: If the bike is registered as a private vehicle and is used for commercial purposes.\n2. Illegal Driving: Damage resulting from a person driving the bike without a valid driving license or under the influence of liquor/drugs.\n\n(Source: policy.pdf, Page 2-3)",
+        "label": "ok",
+        "reason": "Expected page retrieved and the answer contains the facts.",
+        "retrieved": [
+          {
+            "source": "policy.pdf",
+            "pages": [
+              2,
+              3
+            ]
+          }
+        ]
+      },
+      {
+        "id": "q15",
+        "question": "Is wiring damage caused by rat bites covered?",
+        "tags": [
+          "exclusion",
+          "paraphrase"
+        ],
+        "answerable": true,
+        "answer": "According to the policy.pdf document on page 2, wiring damage caused by rat bites is covered, but it is listed under \"What's not covered\" is not accurate, as \"Rat Bite Coverage for wiring damage caused by rat bites\" is mentioned. However, since it's listed under a section that seems to be about exclusions, but the specific item \"Rat Bite Coverage\" seems to imply coverage, the correct interpretation is that Rat Bite Coverage is actually provided, as it is described as \"Rat Bite Coverage for wiring damage caused by rat bites\". \n\nSo, to answer the question: Yes, wiring damage caused by rat bites is covered, as per policy.pdf, page 2.",
+        "label": "ok",
+        "reason": "Expected page retrieved and the answer contains the facts.",
+        "retrieved": [
+          {
+            "source": "policy.pdf",
+            "pages": [
+              2,
+              2
+            ]
+          }
+        ]
+      },
+      {
+        "id": "q16",
+        "question": "Can I use the bike for organised racing or speed testing?",
+        "tags": [
+          "exclusion"
+        ],
+        "answerable": true,
+        "answer": "According to the policy.pdf document, page 6-7, the Policy does not cover use of the vehicle for organized racing (point c) or speed testing (point e) under the \"Limitations as to use\" section. \n\nTherefore, no, you cannot use the bike for organised racing or speed testing. (Source: policy.pdf, page 6-7)",
+        "label": "ok",
+        "reason": "Expected page retrieved and the answer contains the facts.",
+        "retrieved": [
+          {
+            "source": "policy.pdf",
+            "pages": [
+              6,
+              7
+            ]
+          }
+        ]
+      },
+      {
+        "id": "q17",
+        "question": "Which persons are entitled to drive the insured vehicle?",
+        "tags": [
+          "condition"
+        ],
+        "answerable": true,
+        "answer": "According to the policy.pdf document, on pages 6-7 and 7, any person, including the insured, is entitled to drive the vehicle, provided that the person driving holds an effective driving license at the time of the accident and is not disqualified from holding or obtaining such a license. Additionally, a person holding an effective learner's license may also drive the vehicle, provided they satisfy the requirements of Rule 3 of the Central Motor Vehicles Rules, 1989. (Source: policy.pdf, Pages 6-7 and 7)",
+        "label": "ok",
+        "reason": "Expected page retrieved and the answer contains the facts.",
+        "retrieved": [
+          {
+            "source": "policy.pdf",
+            "pages": [
+              7,
+              7
+            ]
+          },
+          {
+            "source": "policy.pdf",
+            "pages": [
+              6,
+              7
+            ]
+          },
+          {
+            "source": "policy.pdf",
+            "pages": [
+              7,
+              7
+            ]
+          }
+        ]
+      },
+      {
+        "id": "q18",
+        "question": "What happens if I did not disclose correct information when buying the policy?",
+        "tags": [
+          "condition",
+          "paraphrase"
+        ],
+        "answerable": true,
+        "answer": "According to the policy.pdf document, Page 8, if you did not disclose correct or material information when buying the policy, \"this Policy shall be construed to be void ab initio/invalid\" and \"in case of any claim arising under the policy in such a scenario, we shall be under no obligation whatsoever to settle such claim to you and the premium paid by you under this policy shall stand fully forfeited.\" (policy.pdf, Page 8)",
+        "label": "ok",
+        "reason": "Expected page retrieved and the answer contains the facts.",
+        "retrieved": [
+          {
+            "source": "policy.pdf",
+            "pages": [
+              8,
+              8
+            ]
+          },
+          {
+            "source": "policy.pdf",
+            "pages": [
+              7,
+              7
+            ]
+          },
+          {
+            "source": "policy.pdf",
+            "pages": [
+              7,
+              7
+            ]
+          }
+        ]
+      },
+      {
+        "id": "q19",
+        "question": "How do I make a claim with ACKO?",
+        "tags": [
+          "procedure"
+        ],
+        "answerable": true,
+        "answer": "To make a claim with ACKO, you can follow the 3 easy steps outlined in the policy.pdf document on page 2-3. The steps are as follows: \n\n1. Inform ACKO first via acko.com or the Acko app.\n2. ACKO will handle your claim process.\n3. ACKO will settle the approved claim amount.\n\nYou can also track the real-time status of your repair/claim on the Acko App. (Source: policy.pdf, Page 2-3)",
+        "label": "ok",
+        "reason": "Expected page retrieved and the answer contains the facts.",
+        "retrieved": [
+          {
+            "source": "policy.pdf",
+            "pages": [
+              2,
+              3
+            ]
+          },
+          {
+            "source": "policy.pdf",
+            "pages": [
+              4,
+              5
+            ]
+          },
+          {
+            "source": "policy.pdf",
+            "pages": [
+              4,
+              4
+            ]
+          }
+        ]
+      },
+      {
+        "id": "q20",
+        "question": "What phone number do I call to report a claim?",
+        "tags": [
+          "procedure",
+          "exact-code"
+        ],
+        "answerable": true,
+        "answer": "You can call 1800 266 2256 to report a claim, as stated in the document policy.pdf on page 2-3.",
+        "label": "ok",
+        "reason": "Expected page retrieved and the answer contains the facts.",
+        "retrieved": [
+          {
+            "source": "policy.pdf",
+            "pages": [
+              2,
+              3
+            ]
+          },
+          {
+            "source": "policy.pdf",
+            "pages": [
+              8,
+              8
+            ]
+          }
+        ]
+      },
+      {
+        "id": "q21",
+        "question": "Are tyres and tubes covered by the policy?",
+        "tags": [
+          "exclusion"
+        ],
+        "answerable": true,
+        "answer": "According to the policy.pdf, Page 2, regular wear and tear of tyres and tubes is not covered by the policy. However, if the items are damaged in an accident along with the vehicle damage, they will be covered with a 50% depreciation cut. (Source: policy.pdf, Page 2)",
+        "label": "ok",
+        "reason": "Expected page retrieved and the answer contains the facts.",
+        "retrieved": [
+          {
+            "source": "policy.pdf",
+            "pages": [
+              2,
+              2
+            ]
+          },
+          {
+            "source": "policy.pdf",
+            "pages": [
+              2,
+              2
+            ]
+          },
+          {
+            "source": "policy.pdf",
+            "pages": [
+              6,
+              7
+            ]
+          }
+        ]
+      },
+      {
+        "id": "q22",
+        "question": "What is the UIN of the compulsory personal accident cover?",
+        "tags": [
+          "identifier",
+          "exact-code"
+        ],
+        "answerable": true,
+        "answer": "The UIN of the compulsory personal accident cover is IRDAN157RP0024V01201819, as stated in the policy.pdf document on page 6-7.",
+        "label": "ok",
+        "reason": "Expected page retrieved and the answer contains the facts.",
+        "retrieved": [
+          {
+            "source": "policy.pdf",
+            "pages": [
+              6,
+              7
+            ]
+          },
+          {
+            "source": "policy.pdf",
+            "pages": [
+              2,
+              2
+            ]
+          },
+          {
+            "source": "policy.pdf",
+            "pages": [
+              1,
+              2
+            ]
+          }
+        ]
+      },
+      {
+        "id": "q23",
+        "question": "In which year was the bike registered?",
+        "tags": [
+          "spec"
+        ],
+        "answerable": true,
+        "answer": "The bike was registered in the year 2019, as stated in SOURCE 1, Document: policy.pdf, Page: 8, and also in SOURCE 2, Document: policy.pdf, Page: 4.",
+        "label": "ok",
+        "reason": "Expected page retrieved and the answer contains the facts.",
+        "retrieved": [
+          {
+            "source": "policy.pdf",
+            "pages": [
+              8,
+              8
+            ]
+          },
+          {
+            "source": "policy.pdf",
+            "pages": [
+              4,
+              4
+            ]
+          },
+          {
+            "source": "policy.pdf",
+            "pages": [
+              2,
+              3
+            ]
+          }
+        ]
+      },
+      {
+        "id": "q24",
+        "question": "Which office issued this policy?",
+        "tags": [
+          "identifier"
+        ],
+        "answerable": true,
+        "answer": "The policy was issued by the Bengaluru office, as stated in the policy.pdf document on page 7 (SOURCE 1).",
+        "label": "ok",
+        "reason": "Expected page retrieved and the answer contains the facts.",
+        "retrieved": [
+          {
+            "source": "policy.pdf",
+            "pages": [
+              7,
+              7
+            ]
+          },
+          {
+            "source": "policy.pdf",
+            "pages": [
+              7,
+              8
+            ]
+          },
+          {
+            "source": "policy.pdf",
+            "pages": [
+              7,
+              7
+            ]
+          }
+        ]
+      },
+      {
+        "id": "q25",
+        "question": "What is the basic third party premium amount?",
+        "tags": [
+          "amount"
+        ],
+        "answerable": true,
+        "answer": "The basic third party premium amount is 1,366.00. (Source: policy.pdf, Page: 4)",
+        "label": "ok",
+        "reason": "Expected page retrieved and the answer contains the facts.",
+        "retrieved": [
+          {
+            "source": "policy.pdf",
+            "pages": [
+              4,
+              4
+            ]
+          },
+          {
+            "source": "policy.pdf",
+            "pages": [
+              1,
+              2
+            ]
+          },
+          {
+            "source": "policy.pdf",
+            "pages": [
+              4,
+              4
+            ]
+          }
+        ]
+      },
+      {
+        "id": "q26",
+        "question": "What is the pincode on the insured's address?",
+        "tags": [
+          "identifier"
+        ],
+        "answerable": true,
+        "answer": "The pincode on the insured's address is 600002, as mentioned in SOURCE 1, Document: policy.pdf, Page: 8, and also in SOURCE 2, Document: policy.pdf, Page: 4.",
+        "label": "ok",
+        "reason": "Expected page retrieved and the answer contains the facts.",
+        "retrieved": [
+          {
+            "source": "policy.pdf",
+            "pages": [
+              8,
+              8
+            ]
+          },
+          {
+            "source": "policy.pdf",
+            "pages": [
+              4,
+              4
+            ]
+          },
+          {
+            "source": "policy.pdf",
+            "pages": [
+              7,
+              7
+            ]
+          }
+        ]
+      },
+      {
+        "id": "q27",
+        "question": "What is the make and model of the insured vehicle?",
+        "tags": [
+          "spec"
+        ],
+        "answerable": true,
+        "answer": "I don't know based on the provided documents. The documents (policy.pdf, page 7) do not contain information about the make and model of the insured vehicle.",
+        "label": "retrieval_failure",
+        "reason": "Expected page(s) [2, 4, 8] were not in the final context (got [{'source': 'policy.pdf', 'pages': [7, 7]}, {'source': 'policy.pdf', 'pages': [7, 7]}]).",
+        "retrieved": [
+          {
+            "source": "policy.pdf",
+            "pages": [
+              7,
+              7
+            ]
+          },
+          {
+            "source": "policy.pdf",
+            "pages": [
+              7,
+              7
+            ]
+          }
+        ]
+      },
+      {
+        "id": "q28",
+        "question": "What is the intermediary code for this policy?",
+        "tags": [
+          "identifier",
+          "exact-code"
+        ],
+        "answerable": true,
+        "answer": "The intermediary code for this policy is 218, as stated in the policy.pdf document on page 7 (SOURCE 1).",
+        "label": "ok",
+        "reason": "Expected page retrieved and the answer contains the facts.",
+        "retrieved": [
+          {
+            "source": "policy.pdf",
+            "pages": [
+              7,
+              7
+            ]
+          },
+          {
+            "source": "policy.pdf",
+            "pages": [
+              7,
+              7
+            ]
+          },
+          {
+            "source": "policy.pdf",
+            "pages": [
+              8,
+              8
+            ]
+          }
+        ]
+      },
+      {
+        "id": "q29",
+        "question": "What document is required if I claim within 30 days of the policy start date?",
+        "tags": [
+          "procedure",
+          "paraphrase"
+        ],
+        "answerable": true,
+        "answer": "According to the document policy.pdf, page 4, \"Previous Policy document is required in case of claim within 30 days of Acko Policy Start Date.\" \n\n(Source: policy.pdf, Page 4)",
+        "label": "ok",
+        "reason": "Expected page retrieved and the answer contains the facts.",
+        "retrieved": [
+          {
+            "source": "policy.pdf",
+            "pages": [
+              4,
+              4
+            ]
+          },
+          {
+            "source": "policy.pdf",
+            "pages": [
+              8,
+              8
+            ]
+          },
+          {
+            "source": "policy.pdf",
+            "pages": [
+              7,
+              7
+            ]
+          }
+        ]
+      },
+      {
+        "id": "q30",
+        "question": "How much stamp duty is paid on this policy?",
+        "tags": [
+          "amount"
+        ],
+        "answerable": true,
+        "answer": "The stamp duty paid on this policy is Rs 0.50, as mentioned in the document policy.pdf on page 7.",
+        "label": "ok",
+        "reason": "Expected page retrieved and the answer contains the facts.",
+        "retrieved": [
+          {
+            "source": "policy.pdf",
+            "pages": [
+              7,
+              7
+            ]
+          },
+          {
+            "source": "policy.pdf",
+            "pages": [
+              4,
+              4
+            ]
+          }
+        ]
+      },
+      {
+        "id": "q31",
+        "question": "Can somebody with only a learner's licence ride the insured bike?",
+        "tags": [
+          "condition",
+          "paraphrase"
+        ],
+        "answerable": true,
+        "answer": "According to the policy.pdf document, page 7, a person holding an effective learner's license may also drive the vehicle, provided that such a person satisfies the requirements of Rule 3 of the Central Motor Vehicles Rules, 1989. \n\nTherefore, the answer is: Yes, somebody with only a learner's licence can ride the insured bike, if they satisfy the requirements of Rule 3 of the Central Motor Vehicles Rules, 1989. (Source: policy.pdf, Page 7)",
+        "label": "ok",
+        "reason": "Expected page retrieved and the answer contains the facts.",
+        "retrieved": [
+          {
+            "source": "policy.pdf",
+            "pages": [
+              7,
+              7
+            ]
+          },
+          {
+            "source": "policy.pdf",
+            "pages": [
+              2,
+              3
+            ]
+          },
+          {
+            "source": "policy.pdf",
+            "pages": [
+              6,
+              7
+            ]
+          }
+        ]
+      },
+      {
+        "id": "q32",
+        "question": "What does Section II-1(ii) of the policy cover?",
+        "tags": [
+          "exact-code",
+          "clause"
+        ],
+        "answerable": true,
+        "answer": "According to the document policy.pdf, Page 7, Section II-1(ii) of the policy covers \"Damage to Third Party Property\" with a limit of liability of Rs. 100,000.00. (Source: policy.pdf, Page 7)",
+        "label": "ok",
+        "reason": "Expected page retrieved and the answer contains the facts.",
+        "retrieved": [
+          {
+            "source": "policy.pdf",
+            "pages": [
+              7,
+              7
+            ]
+          },
+          {
+            "source": "policy.pdf",
+            "pages": [
+              2,
+              2
+            ]
+          },
+          {
+            "source": "policy.pdf",
+            "pages": [
+              6,
+              7
+            ]
+          }
+        ]
+      },
+      {
+        "id": "x01",
+        "question": "What is the maternity benefit under this policy?",
+        "tags": [
+          "out-of-scope"
+        ],
+        "answerable": false,
+        "answer": "I don't know based on the provided documents.",
+        "label": "correct_refusal",
+        "reason": "Out of scope and refused.",
+        "retrieved": []
+      },
+      {
+        "id": "x02",
+        "question": "What No Claim Bonus percentage applies to this policy?",
+        "tags": [
+          "out-of-scope"
+        ],
+        "answerable": false,
+        "answer": "I don't know based on the provided documents. \n\nThe provided documents (policy.pdf, pages 4 and 8) do not contain information about the No Claim Bonus percentage.",
+        "label": "correct_refusal",
+        "reason": "Out of scope and refused.",
+        "retrieved": [
+          {
+            "source": "policy.pdf",
+            "pages": [
+              4,
+              4
+            ]
+          },
+          {
+            "source": "policy.pdf",
+            "pages": [
+              8,
+              8
+            ]
+          }
+        ]
+      },
+      {
+        "id": "x03",
+        "question": "Which cashless garages are available in Coimbatore?",
+        "tags": [
+          "out-of-scope"
+        ],
+        "answerable": false,
+        "answer": "I don't know based on the provided documents.",
+        "label": "correct_refusal",
+        "reason": "Out of scope and refused.",
+        "retrieved": []
+      },
+      {
+        "id": "x04",
+        "question": "What is the deductible amount for hospitalisation?",
+        "tags": [
+          "out-of-scope"
+        ],
+        "answerable": false,
+        "answer": "I don't know based on the provided documents.",
+        "label": "correct_refusal",
+        "reason": "Out of scope and refused.",
+        "retrieved": []
+      },
+      {
+        "id": "x05",
+        "question": "What will the premium be when I renew in 2027?",
+        "tags": [
+          "out-of-scope"
+        ],
+        "answerable": false,
+        "answer": "I don't know based on the provided documents. \n\nThe documents do not contain information about the premium for renewal in 2027. According to Source 3, Document: policy.pdf, Page 7, \"On renewal, the benefits provided under the policy and/or terms and conditions on the policy including premium rate may be subject to change.\" However, the documents do not provide the specific premium amount for renewal in 2027.",
+        "label": "correct_refusal",
+        "reason": "Out of scope and refused.",
+        "retrieved": [
+          {
+            "source": "policy.pdf",
+            "pages": [
+              2,
+              2
+            ]
+          },
+          {
+            "source": "policy.pdf",
+            "pages": [
+              4,
+              5
+            ]
+          },
+          {
+            "source": "policy.pdf",
+            "pages": [
+              7,
+              7
+            ]
+          }
+        ]
+      },
+      {
+        "id": "x06",
+        "question": "What is the sum insured for a pillion rider under this policy?",
+        "tags": [
+          "out-of-scope"
+        ],
+        "answerable": false,
+        "answer": "I don't know based on the provided documents. \n\nThe provided document (policy.pdf, pages 2-3) does not mention the sum insured for a pillion rider under this policy.",
+        "label": "correct_refusal",
+        "reason": "Out of scope and refused.",
+        "retrieved": [
+          {
+            "source": "policy.pdf",
+            "pages": [
+              2,
+              3
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

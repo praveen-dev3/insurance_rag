@@ -1,678 +1,528 @@
-import hashlib
-import os
+"""Command-line interface for the insurance RAG pipeline.
+
+The retrieval and generation logic lives in the `rag` package, which the
+web server (`server.py`) and the evaluator (`evaluate.py`) drive through
+the same RagEngine.
+
+Why a CLI *as well as* the server, when both answer the same questions:
+this is the short loop for anyone changing retrieval. It needs no
+browser, no `npm run build`, and no second process — start it, and the
+next edit to `rag/` is one restart away from being visible. The server is
+for using the app; this is for working on it.
+
+The flags are the knobs the coursework actually turns:
+
+    --reindex     rebuild the index after changing a chunking setting
+    --mode        hybrid | dense | sparse — the Week 3 comparison
+    --reranker    swap or disable the cross-encoder stage
+    --trace       print the stage-by-stage funnel (see print_trace)
+    --diagnose    label the result retrieval-failure vs generation-failure
+
+Nothing in this file decides anything about retrieval. Every knob is
+forwarded to RagEngine, because the moment a front end grows its own
+retrieval path, the evaluator stops measuring what the server serves.
+"""
+
+import argparse
 import sys
-from collections import defaultdict
-from pathlib import Path
 
-import chromadb
-from dotenv import load_dotenv
-from openai import OpenAI, OpenAIError
-from pypdf import PdfReader
-from sentence_transformers import CrossEncoder
-import tiktoken
-
-# Load environment variables from .env file
-load_dotenv()
-
-
-# ============================================================
-# CONFIGURATION
-# ============================================================
-
-GROQ_API_KEY = os.getenv("GROQ_API_KEY", "")
-
-if not GROQ_API_KEY:
-    raise ValueError(
-        "GROQ_API_KEY environment variable is not set."
-    )
-
-GROQ_BASE_URL = "https://api.groq.com/openai/v1"
-
-# LLM used for final answer
-LLM_MODEL = "llama-3.3-70b-versatile"
-
-# Chunk configuration (in tokens)
-# Kept well under the 256 word-piece truncation limit of Chroma's
-# default embedder (all-MiniLM-L6-v2), so no chunk is embedded partially.
-CHUNK_SIZE = 150
-CHUNK_OVERLAP = 30
-
-# Number of chunks retrieved by Bi-Encoder (Chroma)
-BI_ENCODER_TOP_K = 10
-
-# Final number of chunks selected by Cross-Encoder for the LLM
-TOP_K = 3
-
-DOCUMENTS_FOLDER = "insurance_docs"
-CHROMA_PATH = "./chroma_db"
-COLLECTION_NAME = "insurance_documents"
-
-# Bumped whenever the chunking or embedding strategy changes, so an
-# index built by an older version of this script is not silently reused.
-INDEX_SCHEMA_VERSION = "2"
+# argparse rather than click/typer: it is in the standard library, so the
+# CLI adds no dependency to a project whose install is already heavy
+# (torch, chromadb, sentence-transformers).
+#
+# Everything below comes from `rag` — the lists of valid modes, rerankers
+# and strategies included. Importing RETRIEVAL_MODES instead of writing
+# ("hybrid", "dense", "sparse") here means `--mode` cannot offer a choice
+# the retriever does not implement, and the defaults (TOP_K, MMR_LAMBDA,
+# MMR_POOL) come from rag/config.py so the CLI and the server start from
+# the same settings rather than two copies that drift.
+from rag.chunking import CHUNK_STRATEGIES
+from rag.config import CHUNK_SIZE, CHUNK_STRATEGY, MMR_LAMBDA, MMR_POOL, TOP_K
+from rag.diagnostics import classify_with_judge
+from rag.engine import RagEngine
+from rag.generation import stream_answer
+from rag.rerankers import RERANKERS
+from rag.retrieval import RETRIEVAL_MODES, format_pages
 
 
-# ============================================================
-# GROQ CLIENT
-# ============================================================
-
-client = OpenAI(
-    base_url=GROQ_BASE_URL,
-    api_key=GROQ_API_KEY,
-    timeout=60.0,
-    max_retries=3
-)
-
-
-# ============================================================
-# CROSS-ENCODER MODEL (RERANKER)
-# ============================================================
-
-print("Loading local Cross-Encoder model...")
-cross_encoder = CrossEncoder("cross-encoder/ms-marco-MiniLM-L-6-v2")
-
-
-
-# ============================================================
-# 1. LOAD PDF DOCUMENTS
-# ============================================================
-
-def find_pdf_files():
+def tolerate_console_encoding():
     """
-    Return the sorted list of PDFs in the documents folder.
+    Stop an unprintable glyph from killing the run.
+
+    PDFs routinely carry characters the Windows console codepage cannot
+    encode (private-use glyphs from embedded fonts, typographic dashes).
+    Printing one raises UnicodeEncodeError, which would abort mid-answer;
+    replacing it costs one substituted character instead.
     """
 
-    folder = Path(DOCUMENTS_FOLDER)
-
-    if not folder.exists():
-        raise FileNotFoundError(
-            f"Folder '{DOCUMENTS_FOLDER}' does not exist."
-        )
-
-    pdf_files = sorted(folder.glob("*.pdf"))
-
-    if not pdf_files:
-        raise FileNotFoundError(
-            f"No PDF files found inside '{DOCUMENTS_FOLDER}'."
-        )
-
-    return pdf_files
-
-
-def compute_corpus_fingerprint(pdf_files):
-    """
-    Hash the corpus contents plus the settings that shape the index.
-
-    Any change to a PDF, an added/removed file, or a change to the
-    chunking configuration produces a different fingerprint, which is
-    what tells us the stored index is stale.
-    """
-
-    digest = hashlib.sha256()
-
-    # Settings that would invalidate existing chunks.
-    digest.update(
-        f"v{INDEX_SCHEMA_VERSION}|{CHUNK_SIZE}|{CHUNK_OVERLAP}".encode()
-    )
-
-    for pdf_path in pdf_files:
-
-        digest.update(pdf_path.name.encode())
-
-        with pdf_path.open("rb") as handle:
-
-            for block in iter(lambda: handle.read(1024 * 1024), b""):
-                digest.update(block)
-
-    return digest.hexdigest()
-
-
-def load_documents(pdf_files):
-    """
-    Read the text of every page of every PDF.
-    """
-
-    documents = []
-
-    for pdf_path in pdf_files:
-
-        print(f"Loading: {pdf_path.name}")
+    for stream in (sys.stdout, sys.stderr):
 
         try:
-            reader = PdfReader(str(pdf_path))
-        except Exception as error:
-            print(f"  Skipped (unreadable PDF): {error}")
-            continue
+            stream.reconfigure(errors="replace")
+        except (AttributeError, ValueError):
+            pass
 
-        page_count = 0
 
-        for page_number, page in enumerate(reader.pages):
+def describe_scores(chunk):
+    """One line summarising how each retrieval stage rated the chunk.
 
-            try:
-                text = page.extract_text()
-            except Exception as error:
-                print(f"  Page {page_number + 1} failed to parse: {error}")
-                continue
+    Every stage is printed, not just the final score, because the useful
+    question about a chunk is *which stage put it here*. A chunk with a
+    bm25 rank and no vector rank was found by keyword alone — usually an
+    exact form number like HO-0304 — and one with a high RRF score but a
+    low rerank score is the reranker doing its job.
+    """
 
-            if not text or not text.strip():
-                continue
+    parts = []
 
-            page_count += 1
-
-            documents.append({
-                "text": text,
-                "source": pdf_path.name,
-                "page": page_number + 1
-            })
-
-        if page_count == 0:
-            print(
-                f"  Warning: no extractable text in {pdf_path.name}. "
-                "It may be a scanned PDF that needs OCR."
-            )
-
-    if not documents:
-        raise ValueError(
-            "No text could be extracted from any PDF. "
-            "Scanned documents require OCR before indexing."
+    if chunk.dense_rank is not None:
+        parts.append(
+            f"vector #{chunk.dense_rank} (distance {chunk.distance:.4f})"
         )
 
-    print(f"\nLoaded {len(documents)} pages.")
-
-    return documents
-
-
-# ============================================================
-# 2. CHUNKING
-# ============================================================
-
-def create_chunks(documents):
-    """
-    Split each document into overlapping token-based chunks.
-
-    Tokens are streamed across the whole document rather than restarting
-    at every page, so a clause interrupted by a page break stays intact.
-    Each chunk records the page range it spans, which keeps citations exact.
-    """
-
-    encoding = tiktoken.get_encoding("cl100k_base")
-
-    pages_by_source = defaultdict(list)
-
-    for document in documents:
-        pages_by_source[document["source"]].append(document)
-
-    chunks = []
-
-    for source in sorted(pages_by_source):
-
-        pages = sorted(
-            pages_by_source[source],
-            key=lambda page: page["page"]
+    if chunk.sparse_rank is not None:
+        parts.append(
+            f"bm25 #{chunk.sparse_rank} (score {chunk.bm25_score:.4f})"
         )
 
-        # One continuous token stream per document, plus a parallel
-        # array remembering which page each token came from.
-        tokens = []
-        token_pages = []
+    if not parts:
+        parts.append("no retriever rank")
 
-        for page in pages:
+    parts.append(f"RRF {chunk.rrf_score:.5f}")
 
-            page_tokens = encoding.encode(page["text"] + "\n")
+    if chunk.mmr_rank is not None:
+        parts.append(f"MMR #{chunk.mmr_rank}")
 
-            tokens.extend(page_tokens)
-            token_pages.extend([page["page"]] * len(page_tokens))
+    if chunk.rerank_score is not None:
+        parts.append(f"rerank {chunk.rerank_score:.4f}")
 
-        start = 0
-
-        while start < len(tokens):
-
-            end = min(start + CHUNK_SIZE, len(tokens))
-
-            chunk_text = encoding.decode(tokens[start:end])
-
-            if chunk_text.strip():
-
-                chunk_pages = token_pages[start:end]
-
-                chunks.append({
-                    "text": chunk_text,
-                    "source": source,
-                    "page_start": chunk_pages[0],
-                    "page_end": chunk_pages[-1]
-                })
-
-            if end == len(tokens):
-                # Final window; stepping forward again would emit a
-                # duplicate tail chunk.
-                break
-
-            # Move forward while keeping overlap
-            start += CHUNK_SIZE - CHUNK_OVERLAP
-
-    print(f"Created {len(chunks)} chunks.")
-
-    return chunks
+    return " | ".join(parts)
 
 
-def build_chunk_ids(chunks):
+def print_trace(trace):
     """
-    Derive a stable ID from the chunk's document and its content.
+    The inspection view, in a terminal.
 
-    Content-derived IDs mean a chunk keeps its identity when unrelated
-    parts of the corpus change, instead of being reassigned to different
-    text the way positional 'chunk-0, chunk-1, ...' IDs are.
+    Shows how many candidates entered and left each stage, then the
+    candidates themselves — which is what turns "it answered wrong" into
+    "the reranker dropped the right chunk".
     """
 
-    ids = []
-    seen = defaultdict(int)
+    # 70 is a display width, not a tuned value: it fits inside the
+    # default 80-column console without wrapping, and the same 70 is
+    # reused for every banner below so the sections line up when you
+    # scroll back through a long session.
+    print("\n" + "=" * 70)
+    print("RETRIEVAL TRACE")
+    print("=" * 70)
 
-    for chunk in chunks:
+    queries = trace.config.get("queries") or {}
 
-        content_hash = hashlib.sha1(
-            chunk["text"].encode("utf-8")
-        ).hexdigest()[:16]
+    print(f"asked      : {trace.question}")
 
-        base_id = f"{chunk['source']}#{content_hash}"
+    if queries.get("condensed") and queries["condensed"] != trace.question:
+        print(f"condensed  : {queries['condensed']}")
 
-        # Identical text can legitimately appear twice (headers, footers,
-        # boilerplate clauses); disambiguate rather than drop one.
-        occurrence = seen[base_id]
-        seen[base_id] += 1
+    if queries.get("rewritten"):
+        print(f"rewritten  : {queries['rewritten']}")
 
-        ids.append(
-            base_id if occurrence == 0 else f"{base_id}-{occurrence}"
-        )
+    # The other query lines print in full; this one is truncated because
+    # a HyDE probe is a whole hypothetical paragraph, and the point of
+    # showing it is to check it is *about the right thing* before it gets
+    # embedded. 160 characters is roughly the first two lines — enough to
+    # spot a probe that wandered off topic, short enough not to bury the
+    # funnel underneath it.
+    if queries.get("hyde"):
+        print(f"HyDE probe : {queries['hyde'][:160]}...")
 
-    return ids
+    print(f"mode       : {trace.mode}")
 
+    if trace.filters:
+        print(f"filters    : {trace.filters}")
 
-# ============================================================
-# 3. CREATE / CONNECT TO CHROMA
-# ============================================================
-
-def format_pages(chunk):
-    """
-    Human-readable page reference for a chunk.
-    """
-
-    if chunk["page_start"] == chunk["page_end"]:
-        return str(chunk["page_start"])
-
-    return f"{chunk['page_start']}-{chunk['page_end']}"
-
-
-def create_vector_database(chroma_client, chunks, fingerprint):
-
-    # Drop any previous index; the caller only gets here when the stored
-    # one is missing, empty, or stale.
-    try:
-        chroma_client.delete_collection(COLLECTION_NAME)
-    except Exception:
-        pass
-
-    # Use Chroma's default local embedding function (all-MiniLM-L6-v2)
-    collection = chroma_client.create_collection(
-        name=COLLECTION_NAME,
-        metadata={
-            "description": "Insurance claim documents",
-            "fingerprint": fingerprint
-        }
-    )
-
-    print("\nCreating local embeddings and storing chunks in Chroma...")
-
-    ids = build_chunk_ids(chunks)
-
-    texts = [
-        chunk["text"]
-        for chunk in chunks
+    # Counts in, counts out, one stage per entry. Reading the funnel
+    # left to right localises a bad answer to a stage before you read a
+    # single chunk: "fused 20 -> reranked 20 -> final 0" is the floor
+    # rejecting everything, which is a different bug from "vector 20,
+    # bm25 0", which is BM25 never matching the query's vocabulary.
+    funnel = [
+        ("vector", len(trace.dense)),
+        ("bm25", len(trace.sparse)),
+        ("fused (RRF)", len(trace.fused)),
+        ("MMR", len(trace.mmr)),
+        ("reranked", len(trace.reranked)),
+        ("final", len(trace.final)),
     ]
 
-    metadatas = [
-        {
-            "source": chunk["source"],
-            "page_start": chunk["page_start"],
-            "page_end": chunk["page_end"]
-        }
-        for chunk in chunks
-    ]
+    # Stages that did not run are omitted so the line stays readable
+    # (MMR is off by default, sparse is absent in dense mode). "final" is
+    # the exception and always prints, because `final 0` — nothing
+    # cleared the relevance floor — is the single most important thing
+    # this line can tell you, and hiding it because it is zero would hide
+    # exactly the run you are debugging.
+    print("\nfunnel     : " + "  ->  ".join(
+        f"{name} {count}" for name, count in funnel if count or name == "final"
+    ))
 
-    # Chroma rejects a single add() larger than its max batch size.
-    try:
-        batch_size = chroma_client.get_max_batch_size()
-    except Exception:
-        batch_size = 1000
+    print("timings ms : " + ", ".join(
+        f"{stage} {value}" for stage, value in trace.timings_ms.items()
+    ))
 
-    for offset in range(0, len(chunks), batch_size):
-
-        upper = offset + batch_size
-
-        # Chroma embeds the documents locally using its default engine
-        collection.add(
-            ids=ids[offset:upper],
-            documents=texts[offset:upper],
-            metadatas=metadatas[offset:upper]
+    if trace.dropped_below_floor:
+        print(
+            f"\nDropped below the relevance floor: "
+            f"{len(trace.dropped_below_floor)} chunk(s). "
+            "Nothing in the corpus scored as relevant."
         )
 
-        if len(chunks) > batch_size:
-            print(f"  Indexed {min(upper, len(chunks))}/{len(chunks)} chunks")
 
-    print(
-        f"Stored {len(chunks)} chunks in Chroma."
-    )
-
-    return collection
-
-
-def load_or_build_collection(chroma_client, force_reindex=False):
+def ask_question(engine, question, history, args):
     """
-    Reuse the persisted index only when it matches the documents on disk.
+    One turn: retrieve, optionally explain, answer, optionally diagnose.
+
+    Retrieval and generation are called separately rather than through
+    `engine.ask`, so the retrieved chunks can be printed before the
+    answer starts streaming — the same ordering the web UI uses, and for
+    the same reason: the citations are readable while the answer is still
+    being written.
     """
-
-    pdf_files = find_pdf_files()
-    fingerprint = compute_corpus_fingerprint(pdf_files)
-
-    if not force_reindex:
-
-        try:
-            collection = chroma_client.get_collection(COLLECTION_NAME)
-        except Exception:
-            collection = None
-
-        if collection is not None:
-
-            metadata = collection.metadata or {}
-            stored_fingerprint = metadata.get("fingerprint")
-
-            if collection.count() == 0:
-                print("\nStored index is empty. Rebuilding...")
-
-            elif stored_fingerprint != fingerprint:
-                print(
-                    "\nDocuments or chunking settings changed since the "
-                    "index was built. Rebuilding..."
-                )
-
-            else:
-                print(
-                    f"\nUsing existing Chroma database from '{CHROMA_PATH}' "
-                    f"with {collection.count()} chunks."
-                )
-                return collection
-
-    documents = load_documents(pdf_files)
-
-    chunks = create_chunks(documents)
-
-    return create_vector_database(
-        chroma_client,
-        chunks,
-        fingerprint
-    )
-
-
-# ============================================================
-# 4. TOP-K SIMILARITY SEARCH
-# ============================================================
-
-def retrieve_chunks(collection, question):
-
-    # 1. Retrieve top candidates using the Bi-Encoder (Chroma DB)
-    #    Asking for more rows than exist is fine, but keep it honest.
-    n_results = min(BI_ENCODER_TOP_K, max(collection.count(), 1))
-
-    results = collection.query(
-        query_texts=[question],
-        n_results=n_results
-    )
-
-    retrieved_documents = (results.get("documents") or [[]])[0]
-    retrieved_metadatas = (results.get("metadatas") or [[]])[0]
-    distances = (results.get("distances") or [[]])[0]
-
-    candidates = []
-
-    for document, metadata, distance in zip(
-        retrieved_documents,
-        retrieved_metadatas,
-        distances
-    ):
-
-        candidates.append({
-            "text": document,
-            "source": metadata.get("source", "unknown"),
-            "page_start": metadata.get("page_start", 0),
-            "page_end": metadata.get("page_end", 0),
-            "distance": distance
-        })
-
-    if not candidates:
-        return []
-
-    # 2. Rerank the candidates using the Cross-Encoder
-    pairs = [[question, chunk["text"]] for chunk in candidates]
-    scores = cross_encoder.predict(pairs)
-
-    for chunk, score in zip(candidates, scores):
-        chunk["cross_score"] = float(score)
-
-    # Sort descending by cross-encoder score (higher is more relevant)
-    candidates.sort(key=lambda x: x["cross_score"], reverse=True)
-
-    # 3. Select the top-K chunks to pass to the LLM
-    retrieved_chunks = candidates[:TOP_K]
-
-    return retrieved_chunks
-
-
-# ============================================================
-# 7. BUILD GROUNDED PROMPT
-# ============================================================
-
-def build_prompt(question, retrieved_chunks):
-
-    context_parts = []
-
-    for index, chunk in enumerate(
-        retrieved_chunks,
-        start=1
-    ):
-
-        context_parts.append(
-            f"""
-SOURCE {index}
-Document: {chunk['source']}
-Page: {format_pages(chunk)}
-
-{chunk['text']}
-"""
-        )
-
-    context = "\n".join(context_parts)
-
-    prompt = f"""
-You are an insurance document assistant.
-
-You must answer the user's question ONLY using
-the information contained in the provided documents.
-
-IMPORTANT RULES:
-
-1. Do not use outside knowledge.
-2. Do not invent missing information.
-3. If the documents do not contain enough information,
-   say:
-
-   "I don't know based on the provided documents."
-
-4. If the document gives a conditional rule,
-   preserve that condition in your answer.
-5. Do not assume that a condition is satisfied unless
-   the documents explicitly say so.
-6. Always mention the source document and page.
-
-DOCUMENTS:
-
-{context}
-
-USER QUESTION:
-
-{question}
-
-ANSWER:
-"""
-
-    return prompt
-
-
-# ============================================================
-# 8. GENERATE FINAL ANSWER
-# ============================================================
-
-def generate_answer(question, retrieved_chunks):
-
-    if not retrieved_chunks:
-        return "I don't know based on the provided documents."
-
-    prompt = build_prompt(
-        question,
-        retrieved_chunks
-    )
-
-    try:
-        response = client.chat.completions.create(
-            model=LLM_MODEL,
-
-            temperature=0,
-
-            messages=[
-                {
-                    "role": "system",
-                    "content": (
-                        "You are a strict document-grounded "
-                        "insurance assistant."
-                    )
-                },
-                {
-                    "role": "user",
-                    "content": prompt
-                }
-            ]
-        )
-    except OpenAIError as error:
-        return f"The language model request failed: {error}"
-
-    return response.choices[0].message.content
-
-
-# ============================================================
-# 9. ASK QUESTION
-# ============================================================
-
-def ask_question(collection, question):
 
     print("\n" + "=" * 70)
     print("QUESTION")
     print("=" * 70)
-
     print(question)
 
-    # -----------------------------------------
-    # Retrieval
-    # -----------------------------------------
-
-    retrieved_chunks = retrieve_chunks(
-        collection,
-        question
+    # prepare() only retrieves; stream_answer() only generates. Calling
+    # them separately rather than engine.ask() is what lets the chunks
+    # print before the first token arrives. engine.ask() would block
+    # until the whole answer existed, and the sources — the part a reader
+    # needs in order to judge the answer — would arrive last.
+    #
+    # Both paths run the identical retrieval code inside RagEngine;
+    # ask() is literally prepare() plus generate_answer(). This is a
+    # choice about display order, not about the pipeline.
+    queries, chunks, trace = engine.prepare(
+        question,
+        history=history,
+        mode=args.mode,
+        top_k=args.top_k,
+        filters=build_filters(args),
+        use_rewrite=args.rewrite,
+        use_hyde=args.hyde,
+        use_mmr=args.mmr,
+        mmr_lambda=args.mmr_lambda,
+        mmr_pool=args.mmr_pool,
+        reranker=args.reranker,
     )
+
+    if args.trace:
+        print_trace(trace)
 
     print("\n" + "=" * 70)
-    print("RETRIEVED CHUNKS")
+    print(f"RETRIEVED CHUNKS  [mode: {args.mode}]")
     print("=" * 70)
 
-    if not retrieved_chunks:
-        print("\nNo matching chunks found.")
+    # Not an error. An empty pool means every candidate scored below the
+    # reranker's relevance floor, and the answer that follows will be a
+    # refusal. A refusal on an out-of-scope question is a pass
+    # (`correct_refusal`), so this message is information, not a warning.
+    if not chunks:
+        print("\nNo chunk cleared the relevance floor.")
 
-    for index, chunk in enumerate(
-        retrieved_chunks,
-        start=1
-    ):
+    for index, chunk in enumerate(chunks, start=1):
 
         print(f"\n--- Chunk {index} ---")
+        print(f"Source: {chunk.source}")
+        print(f"Page: {format_pages(chunk)}")
+        print(f"Scores: {describe_scores(chunk)}")
 
-        print(
-            f"Source: {chunk['source']}"
-        )
-
-        print(
-            f"Page: {format_pages(chunk)}"
-        )
-
-        print(
-            f"Bi-Encoder Distance: {chunk['distance']:.4f}"
-        )
-
-        print(
-            f"Cross-Encoder Score: {chunk['cross_score']:.4f}"
-        )
-
-        print(
-            f"Text:\n{chunk['text'][:500]}"
-        )
-
-    # -----------------------------------------
-    # Generation
-    # -----------------------------------------
-
-    answer = generate_answer(
-        question,
-        retrieved_chunks
-    )
+        # A preview, not the chunk. Chunks are built to CHUNK_SIZE=220
+        # tokens, which is comfortably more than 500 characters, so this
+        # always truncates — deliberately. With top_k chunks on screen at
+        # once, printing each one in full pushes the answer off the top of
+        # the scrollback; 500 characters is enough to recognise which
+        # passage this is and to see whether it is on topic. The API
+        # truncates nothing — /api/chat sends each chunk's full text — so
+        # the web inspection view is where you read a chunk end to end.
+        print(f"Text:\n{chunk.text[:500]}")
 
     print("\n" + "=" * 70)
     print("FINAL ANSWER")
     print("=" * 70)
 
-    print(answer)
+    answer_parts = []
+
+    # search_query, not the raw question: prepare() may have condensed a
+    # follow-up ("what about hail?") into a standalone question, or
+    # rewritten it. Passing the original here would answer a different
+    # question from the one the chunks were retrieved for.
+    for delta in stream_answer(
+        queries["search_query"],
+        chunks,
+        history=history
+    ):
+        # flush=True because stdout is block-buffered when piped, and
+        # without it a streamed answer would appear all at once at the
+        # end — which defeats the only reason to stream in a terminal.
+        print(delta, end="", flush=True)
+        answer_parts.append(delta)
+
+    print()
+
+    answer = "".join(answer_parts)
+
+    # Behind a flag because it costs an extra LLM call per question. The
+    # judge sees the trace and the answer together, which is the only way
+    # to separate "the passage never reached the prompt" (retrieval
+    # failure — no prompt change will fix it) from "the passage was there
+    # and the model still got it wrong" (generation failure). Guessing at
+    # that split by eye is how a Week 4 run ends up tuning the prompt to
+    # fix a retrieval bug.
+    if args.diagnose:
+
+        diagnosis = classify_with_judge(
+            queries["search_query"],
+            trace,
+            answer
+        )
+
+        print("\n" + "=" * 70)
+        print("DIAGNOSIS")
+        print("=" * 70)
+        print(f"verdict    : {diagnosis.label}")
+        print(f"meaning    : {diagnosis.explanation}")
+        print(f"reason     : {diagnosis.reason}")
+        print(f"context ok : {diagnosis.context_sufficient}")
+        print(f"grounded   : {diagnosis.answer_grounded}")
 
     return answer
 
 
-# ============================================================
-# 10. MAIN
-# ============================================================
+def build_filters(args):
+    """Metadata filter from the CLI flags, or None if unfiltered."""
+
+    filters = {}
+
+    if args.source:
+        filters["sources"] = args.source
+
+    if args.policy_line:
+        filters["policy_lines"] = args.policy_line
+
+    if args.form:
+        filters["form_numbers"] = args.form
+
+    if args.page_min is not None:
+        filters["page_min"] = args.page_min
+
+    # page_min/page_max are tested with `is not None`, not truthiness,
+    # because page 0 is a legitimate bound and `if args.page_min` would
+    # silently drop it.
+    if args.page_max is not None:
+        filters["page_max"] = args.page_max
+
+    # `or None` rather than returning the empty dict: downstream, an
+    # empty filter dict and "no filter" must not be confused. The same
+    # distinction is made in server.py's Filters.as_dict, for the same
+    # reason — `{"sources": []}` reads as "search no documents".
+    return filters or None
+
+
+def parse_args():
+    """
+    Flags mirror the settings the web UI exposes, so a configuration
+    found by clicking around can be reproduced — and scripted — here.
+
+    The stage toggles default to None rather than False so that "not
+    passed" stays distinguishable from "explicitly off", letting the
+    config file supply the default.
+    """
+
+    parser = argparse.ArgumentParser(
+        description="Ask questions about your insurance PDFs."
+    )
+
+    parser.add_argument(
+        "--reindex",
+        action="store_true",
+        help="Rebuild the index from the PDFs before starting."
+    )
+
+    # `choices=RETRIEVAL_MODES` rather than a literal tuple, so adding a
+    # mode to the retriever exposes it here automatically and argparse
+    # rejects a typo before the engine boots.
+    #
+    # Note the default is the literal "hybrid", not config.DEFAULT_MODE:
+    # setting DEFAULT_MODE in .env does not move this default. (--top-k
+    # and the MMR flags below *do* read their defaults from config.)
+    parser.add_argument(
+        "--mode",
+        choices=RETRIEVAL_MODES,
+        default="hybrid",
+        help=(
+            "Retrieval strategy: hybrid (BM25 + vectors, fused with RRF), "
+            "dense (vectors only), or sparse (BM25 only). Default: hybrid."
+        )
+    )
+
+    # Default comes from config (TOP_K=3), not a literal, so the CLI, the
+    # server and the evaluator all start from the same k. An evaluator
+    # scoring k=3 while the CLI quietly served k=5 would be reporting on
+    # a configuration nobody uses.
+    parser.add_argument(
+        "--top-k",
+        type=int,
+        default=TOP_K,
+        help=f"Chunks passed to the LLM after reranking (default {TOP_K})."
+    )
+
+    parser.add_argument(
+        "--reranker",
+        choices=RERANKERS,
+        default=None,
+        help="Reranker to use. Default: whatever RERANKER is set to."
+    )
+
+    parser.add_argument(
+        "--mmr",
+        action="store_true",
+        default=None,
+        help="Diversify the candidate pool with MMR before reranking."
+    )
+
+    # Both defaults live in rag/config.py (MMR_LAMBDA=0.7 relevance vs
+    # diversity, MMR_POOL=10 candidates selected before reranking); the
+    # rationale for those values is documented there, next to the values.
+    parser.add_argument("--mmr-lambda", type=float, default=MMR_LAMBDA)
+    parser.add_argument("--mmr-pool", type=int, default=MMR_POOL)
+
+    parser.add_argument(
+        "--rewrite",
+        action="store_true",
+        default=None,
+        help="Rewrite the question into a retrieval-friendly query first."
+    )
+
+    parser.add_argument(
+        "--hyde",
+        action="store_true",
+        default=None,
+        help="Embed a hypothetical answer instead of the question (HyDE)."
+    )
+
+    parser.add_argument(
+        "--source",
+        action="append",
+        help="Only search this document. Repeatable."
+    )
+
+    parser.add_argument(
+        "--policy-line",
+        action="append",
+        help=(
+            "Only search endorsements on this policy line "
+            "(homeowners, dwelling_fire, motor). Repeatable."
+        )
+    )
+
+    parser.add_argument(
+        "--form",
+        action="append",
+        help="Only search this form number, e.g. HO-0304. Repeatable."
+    )
+
+    parser.add_argument("--page-min", type=int, default=None)
+    parser.add_argument("--page-max", type=int, default=None)
+
+    parser.add_argument(
+        "--trace",
+        action="store_true",
+        help="Print the stage-by-stage retrieval trace."
+    )
+
+    parser.add_argument(
+        "--diagnose",
+        action="store_true",
+        help=(
+            "After answering, classify the result as a retrieval failure, "
+            "a generation failure, or fine."
+        )
+    )
+
+    # One-shot mode. Exists so a question can be scripted or pasted into
+    # a write-up as a reproducible command, rather than described as
+    # "start the CLI and type this".
+    parser.add_argument(
+        "--question",
+        help="Ask a single question and exit instead of starting the loop."
+    )
+
+    return parser.parse_args()
+
 
 def main():
+    """
+    Boot the engine once, then loop — or answer one question and exit.
+
+    Building the engine is the expensive part (index load plus two model
+    loads), which is why the interactive loop exists at all: it amortises
+    that cost over as many questions as you care to ask.
+    """
+
+    args = parse_args()
+
+    # Before anything prints. The first thing this function does is emit
+    # a banner containing chunk-strategy names, and a PDF-derived glyph
+    # can appear in a source name — reconfiguring after the first print
+    # would be too late.
+    tolerate_console_encoding()
 
     print("=" * 70)
     print("INSURANCE CLAIM RAG")
+    print(
+        f"chunking={CHUNK_STRATEGY}/{CHUNK_SIZE}  mode={args.mode}  "
+        f"strategies={','.join(CHUNK_STRATEGIES)}"
+    )
     print("=" * 70)
 
-    force_reindex = "--reindex" in sys.argv
+    # The expensive line in the file: loading the Chroma collection, the
+    # bge-small embedder and the cross-encoder. Built once, before the
+    # loop, so the cost is paid per session rather than per question.
+    engine = RagEngine(force_reindex=args.reindex)
 
-    chroma_client = chromadb.PersistentClient(
-        path=CHROMA_PATH
+    # Printed at startup because the most common confusion when a number
+    # moves is not knowing which index and which models produced it — a
+    # stale index answers perfectly happily, it just answers from the
+    # wrong chunks.
+    stats = engine.stats()
+
+    print(
+        f"\nReady: {stats['chunks']} chunks, "
+        f"embeddings={stats['embedding']['model_id']}, "
+        f"reranker={stats['reranker']['key']}"
     )
 
-    collection = load_or_build_collection(
-        chroma_client,
-        force_reindex=force_reindex
-    )
+    # Grows without a cap on purpose, and that is safe: nothing sends the
+    # whole list to a model. Both consumers slice it — rag/query.py
+    # condenses using the last HISTORY_TURNS (6) turns, and
+    # rag/generation.py replays the same last 6 — so the prompt stays a
+    # fixed size however long the session runs. Truncating here as well
+    # would just mean two places to keep in step.
+    history = []
 
-    print("\nRAG system is ready!")
-
-    # -----------------------------------------
-    # Interactive question loop
-    # -----------------------------------------
+    if args.question:
+        ask_question(engine, args.question, history, args)
+        return
 
     while True:
 
         try:
             question = input(
-                "\nAsk an insurance question "
-                "(type 'exit' to quit): "
+                "\nAsk an insurance question (type 'exit' to quit): "
             )
+        # Ctrl-C and Ctrl-D (and a closed pipe) exit cleanly rather than
+        # dumping a traceback. This loop is the normal way to use the
+        # tool, so its normal way to end should not look like a crash.
         except (EOFError, KeyboardInterrupt):
             print("\nGoodbye!")
             break
@@ -684,15 +534,15 @@ def main():
         if not question.strip():
             continue
 
-        ask_question(
-            collection,
-            question
-        )
+        answer = ask_question(engine, question, history, args)
 
+        # Appended *after* the turn is answered, not before. The history
+        # passed into ask_question must describe the conversation up to
+        # this question — including it would have the condenser rewrite
+        # the question using itself as context.
+        history.append({"role": "user", "content": question})
+        history.append({"role": "assistant", "content": answer})
 
-# ============================================================
-# RUN APPLICATION
-# ============================================================
 
 if __name__ == "__main__":
     main()

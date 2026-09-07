@@ -18,6 +18,15 @@ prompt version a number came from.
 compared to a human is a number generator; the comparison is what turns it
 into a measurement, and it has to be done against labels written before
 the judge ran or it is not a comparison at all.
+
+Why an LLM judge here at all, when everything else is deterministic: the
+cheap checks were already taken away from it. Claim number echoed, date
+format, exclusion code present, citations resolving - all of those are
+string work, and they live in rag/assertions.py where they cost nothing
+and cannot disagree with themselves. What is left is the one question no
+regex can answer: does this prose overstate what the wording supports.
+Paying a model to check a date format is how LLM-judge setups become
+expensive and unfalsifiable at the same time.
 """
 
 import json
@@ -31,6 +40,13 @@ from rag.llm import complete
 
 JUDGE_DIR = Path("eval")
 
+# v1, not the later v2, is what a bare call gets. Both scored the same
+# 80.0% agreement (20/25) on the Week 6 set, and v2 is passed explicitly by
+# the runner - so the effect of leaving v1 here is that the published
+# `agreement_before` figure is what anyone reproduces with no arguments.
+# The two prompts differ in *which* five cases they miss, not how many:
+# v2 catches all five unfaithful summaries where v1 missed two, and pays
+# for it elsewhere. That is visible only because both files are kept.
 DEFAULT_JUDGE = "judge_v1"
 
 # The single criterion. Named as a constant because the label file, the
@@ -96,8 +112,22 @@ def judge_summary(summary, notes, context, case_id="", judge=DEFAULT_JUDGE,
     try:
         response = complete(
             model=model or JUDGE_MODEL,
+            # A judge that gives a different verdict on a re-run cannot be
+            # compared to a fixed set of human labels: the agreement figure
+            # would move on its own, and every prompt edit would be
+            # unfalsifiable. Determinism is not a nicety here, it is what
+            # makes agreement_before vs agreement_after mean anything.
             temperature=0,
+            # Room for the verdict plus a paragraph of reasoning. Generous
+            # rather than tuned - a truncated response is not a strict
+            # judge, it is unparseable JSON, which lands in the `unscored`
+            # bucket and quietly shrinks the sample the agreement figure is
+            # computed over.
             max_tokens=1600,
+            # Ask the API to constrain the output to JSON rather than
+            # parsing prose for a yes/no. A judge whose verdict has to be
+            # extracted by regex from a sentence adds a second thing that
+            # can be wrong, on top of the thing being measured.
             response_format={"type": "json_object"},
             messages=[{"role": "user", "content": rendered}],
             on_wait=on_wait,
@@ -117,6 +147,10 @@ def judge_summary(summary, notes, context, case_id="", judge=DEFAULT_JUDGE,
     return Verdict(
         case_id=case_id,
         faithful=bool(payload[CRITERION]),
+        # Truncated because the reason is read by a human triaging
+        # disagreements, and it is stored per case in the results file. A
+        # model given room to write an essay will, and 400 characters is
+        # about as much as anyone reads in a comparison table.
         reason=str(payload.get("reason", ""))[:400],
         judge=judge,
     )
@@ -155,6 +189,12 @@ def agreement(labels, verdicts):
 
         scored.append((case_id, bool(human), bool(verdict.faithful)))
 
+    # Raw agreement, deliberately not Cohen's kappa. Kappa corrects for
+    # chance agreement and is the better statistic in general - on 25 cases
+    # with a lopsided class balance its confidence interval is wider than
+    # the effect being measured, so it would add authority without adding
+    # information. The four confusion cells below are reported instead,
+    # because they are countable and a reader can check them by hand.
     matches = [case for case, human, model in scored if human == model]
 
     # human / judge

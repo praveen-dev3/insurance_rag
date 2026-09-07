@@ -1,0 +1,2296 @@
+{
+  "command": "retrieval",
+  "result": {
+    "label": "current",
+    "k": 1,
+    "cases": 32,
+    "metrics": {
+      "fused": {
+        "hit_rate@1": 0.5938,
+        "recall@1": 0.5938,
+        "precision@1": 0.5938,
+        "mrr": 0.5938
+      },
+      "reranked": {
+        "hit_rate@1": 0.8438,
+        "recall@1": 0.8438,
+        "precision@1": 0.8438,
+        "mrr": 0.8438
+      },
+      "final": {
+        "hit_rate@1": 0.8438,
+        "recall@1": 0.8438,
+        "precision@1": 0.8438,
+        "mrr": 0.8438
+      }
+    },
+    "headline": 0.8438,
+    "latency_ms": {
+      "p50": 497.6,
+      "mean": 1159.0,
+      "p95": 1535.9,
+      "n": 32
+    },
+    "misses": [
+      "q05",
+      "q09",
+      "q13",
+      "q26",
+      "q27"
+    ],
+    "lost_in_rerank": [],
+    "out_of_scope": {
+      "cases": 6,
+      "context_survived": 5,
+      "rows": [
+        {
+          "id": "x01",
+          "question": "What is the maternity benefit under this policy?",
+          "survivors": 1,
+          "dropped_below_floor": 0,
+          "best_score": -7.437413215637207
+        },
+        {
+          "id": "x02",
+          "question": "What No Claim Bonus percentage applies to this policy?",
+          "survivors": 1,
+          "dropped_below_floor": 0,
+          "best_score": -6.096467018127441
+        },
+        {
+          "id": "x03",
+          "question": "Which cashless garages are available in Coimbatore?",
+          "survivors": 0,
+          "dropped_below_floor": 1,
+          "best_score": -9.893842697143555
+        },
+        {
+          "id": "x04",
+          "question": "What is the deductible amount for hospitalisation?",
+          "survivors": 1,
+          "dropped_below_floor": 0,
+          "best_score": -5.039143085479736
+        },
+        {
+          "id": "x05",
+          "question": "What will the premium be when I renew in 2027?",
+          "survivors": 1,
+          "dropped_below_floor": 0,
+          "best_score": -2.0295157432556152
+        },
+        {
+          "id": "x06",
+          "question": "What is the sum insured for a pillion rider under this policy?",
+          "survivors": 1,
+          "dropped_below_floor": 0,
+          "best_score": -5.685830593109131
+        }
+      ]
+    },
+    "rows": [
+      {
+        "id": "q01",
+        "question": "What is the registration number of the insured bike?",
+        "tags": [
+          "identifier"
+        ],
+        "expected_pages": [
+          2,
+          4,
+          8
+        ],
+        "search_query": "What is the registration number of the insured bike?",
+        "stages": {
+          "fused": {
+            "hit_rate": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "mrr": 1.0,
+            "first_relevant_rank": 1,
+            "retrieved": [
+              {
+                "id": "policy.pdf#9d7bd5ef4c5b6544",
+                "source": "policy.pdf",
+                "pages": [
+                  1,
+                  8
+                ],
+                "relevant": true
+              }
+            ]
+          },
+          "reranked": {
+            "hit_rate": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "mrr": 1.0,
+            "first_relevant_rank": 1,
+            "retrieved": [
+              {
+                "id": "policy.pdf#9d7bd5ef4c5b6544",
+                "source": "policy.pdf",
+                "pages": [
+                  1,
+                  8
+                ],
+                "relevant": true
+              }
+            ]
+          },
+          "final": {
+            "hit_rate": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "mrr": 1.0,
+            "first_relevant_rank": 1,
+            "retrieved": [
+              {
+                "id": "policy.pdf#9d7bd5ef4c5b6544",
+                "source": "policy.pdf",
+                "pages": [
+                  1,
+                  8
+                ],
+                "relevant": true
+              }
+            ]
+          }
+        },
+        "lost_in_rerank": false
+      },
+      {
+        "id": "q02",
+        "question": "What is the engine CC and fuel type of the bike?",
+        "tags": [
+          "spec"
+        ],
+        "expected_pages": [
+          4
+        ],
+        "search_query": "What is the engine CC and fuel type of the bike?",
+        "stages": {
+          "fused": {
+            "hit_rate": 0.0,
+            "recall": 0.0,
+            "precision": 0.0,
+            "mrr": 0.0,
+            "first_relevant_rank": null,
+            "retrieved": [
+              {
+                "id": "fema_nfip_flood-insurance-manual_102025.pdf#6ffbc6dfad66199c",
+                "source": "fema_nfip_flood-insurance-manual_102025.pdf",
+                "pages": [
+                  326,
+                  331
+                ],
+                "relevant": false
+              }
+            ]
+          },
+          "reranked": {
+            "hit_rate": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "mrr": 1.0,
+            "first_relevant_rank": 1,
+            "retrieved": [
+              {
+                "id": "policy.pdf#19ff1986ddbdc6ca",
+                "source": "policy.pdf",
+                "pages": [
+                  1,
+                  8
+                ],
+                "relevant": true
+              }
+            ]
+          },
+          "final": {
+            "hit_rate": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "mrr": 1.0,
+            "first_relevant_rank": 1,
+            "retrieved": [
+              {
+                "id": "policy.pdf#19ff1986ddbdc6ca",
+                "source": "policy.pdf",
+                "pages": [
+                  1,
+                  8
+                ],
+                "relevant": true
+              }
+            ]
+          }
+        },
+        "lost_in_rerank": false
+      },
+      {
+        "id": "q03",
+        "question": "What is the total premium paid for this policy?",
+        "tags": [
+          "amount"
+        ],
+        "expected_pages": [
+          4,
+          8
+        ],
+        "search_query": "What is the total premium paid for this policy?",
+        "stages": {
+          "fused": {
+            "hit_rate": 0.0,
+            "recall": 0.0,
+            "precision": 0.0,
+            "mrr": 0.0,
+            "first_relevant_rank": null,
+            "retrieved": [
+              {
+                "id": "fema_nfip_flood-insurance-manual_102025.pdf#f230696de9eb24fc",
+                "source": "fema_nfip_flood-insurance-manual_102025.pdf",
+                "pages": [
+                  211,
+                  273
+                ],
+                "relevant": false
+              }
+            ]
+          },
+          "reranked": {
+            "hit_rate": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "mrr": 1.0,
+            "first_relevant_rank": 1,
+            "retrieved": [
+              {
+                "id": "policy.pdf#914acbc1922b4e87",
+                "source": "policy.pdf",
+                "pages": [
+                  1,
+                  8
+                ],
+                "relevant": true
+              }
+            ]
+          },
+          "final": {
+            "hit_rate": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "mrr": 1.0,
+            "first_relevant_rank": 1,
+            "retrieved": [
+              {
+                "id": "policy.pdf#914acbc1922b4e87",
+                "source": "policy.pdf",
+                "pages": [
+                  1,
+                  8
+                ],
+                "relevant": true
+              }
+            ]
+          }
+        },
+        "lost_in_rerank": false
+      },
+      {
+        "id": "q04",
+        "question": "How much IGST was charged on the premium?",
+        "tags": [
+          "amount"
+        ],
+        "expected_pages": [
+          4,
+          8
+        ],
+        "search_query": "How much IGST was charged on the premium?",
+        "stages": {
+          "fused": {
+            "hit_rate": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "mrr": 1.0,
+            "first_relevant_rank": 1,
+            "retrieved": [
+              {
+                "id": "policy.pdf#914acbc1922b4e87",
+                "source": "policy.pdf",
+                "pages": [
+                  1,
+                  8
+                ],
+                "relevant": true
+              }
+            ]
+          },
+          "reranked": {
+            "hit_rate": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "mrr": 1.0,
+            "first_relevant_rank": 1,
+            "retrieved": [
+              {
+                "id": "policy.pdf#914acbc1922b4e87",
+                "source": "policy.pdf",
+                "pages": [
+                  1,
+                  8
+                ],
+                "relevant": true
+              }
+            ]
+          },
+          "final": {
+            "hit_rate": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "mrr": 1.0,
+            "first_relevant_rank": 1,
+            "retrieved": [
+              {
+                "id": "policy.pdf#914acbc1922b4e87",
+                "source": "policy.pdf",
+                "pages": [
+                  1,
+                  8
+                ],
+                "relevant": true
+              }
+            ]
+          }
+        },
+        "lost_in_rerank": false
+      },
+      {
+        "id": "q05",
+        "question": "What is the period of insurance for this policy?",
+        "tags": [
+          "date"
+        ],
+        "expected_pages": [
+          2,
+          8
+        ],
+        "search_query": "What is the period of insurance for this policy?",
+        "stages": {
+          "fused": {
+            "hit_rate": 0.0,
+            "recall": 0.0,
+            "precision": 0.0,
+            "mrr": 0.0,
+            "first_relevant_rank": null,
+            "retrieved": [
+              {
+                "id": "fema_nfip_flood-insurance-manual_102025.pdf#1554361bda4a6236",
+                "source": "fema_nfip_flood-insurance-manual_102025.pdf",
+                "pages": [
+                  146,
+                  150
+                ],
+                "relevant": false
+              }
+            ]
+          },
+          "reranked": {
+            "hit_rate": 0.0,
+            "recall": 0.0,
+            "precision": 0.0,
+            "mrr": 0.0,
+            "first_relevant_rank": null,
+            "retrieved": [
+              {
+                "id": "fema_nfip_flood-insurance-manual_102025.pdf#212dd8d3c10e171d",
+                "source": "fema_nfip_flood-insurance-manual_102025.pdf",
+                "pages": [
+                  146,
+                  150
+                ],
+                "relevant": false
+              }
+            ]
+          },
+          "final": {
+            "hit_rate": 0.0,
+            "recall": 0.0,
+            "precision": 0.0,
+            "mrr": 0.0,
+            "first_relevant_rank": null,
+            "retrieved": [
+              {
+                "id": "fema_nfip_flood-insurance-manual_102025.pdf#212dd8d3c10e171d",
+                "source": "fema_nfip_flood-insurance-manual_102025.pdf",
+                "pages": [
+                  146,
+                  150
+                ],
+                "relevant": false
+              }
+            ]
+          }
+        },
+        "lost_in_rerank": false
+      },
+      {
+        "id": "q06",
+        "question": "Who is the owner of the insured bike?",
+        "tags": [
+          "identifier"
+        ],
+        "expected_pages": [
+          2,
+          4,
+          8
+        ],
+        "search_query": "Who is the owner of the insured bike?",
+        "stages": {
+          "fused": {
+            "hit_rate": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "mrr": 1.0,
+            "first_relevant_rank": 1,
+            "retrieved": [
+              {
+                "id": "policy.pdf#6402f49aca84c81a",
+                "source": "policy.pdf",
+                "pages": [
+                  1,
+                  8
+                ],
+                "relevant": true
+              }
+            ]
+          },
+          "reranked": {
+            "hit_rate": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "mrr": 1.0,
+            "first_relevant_rank": 1,
+            "retrieved": [
+              {
+                "id": "policy.pdf#f0f3847247d5205a",
+                "source": "policy.pdf",
+                "pages": [
+                  1,
+                  8
+                ],
+                "relevant": true
+              }
+            ]
+          },
+          "final": {
+            "hit_rate": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "mrr": 1.0,
+            "first_relevant_rank": 1,
+            "retrieved": [
+              {
+                "id": "policy.pdf#f0f3847247d5205a",
+                "source": "policy.pdf",
+                "pages": [
+                  1,
+                  8
+                ],
+                "relevant": true
+              }
+            ]
+          }
+        },
+        "lost_in_rerank": false
+      },
+      {
+        "id": "q07",
+        "question": "What is the limit of liability for damage to third party property?",
+        "tags": [
+          "coverage"
+        ],
+        "expected_pages": [
+          2,
+          7
+        ],
+        "search_query": "What is the limit of liability for damage to third party property?",
+        "stages": {
+          "fused": {
+            "hit_rate": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "mrr": 1.0,
+            "first_relevant_rank": 1,
+            "retrieved": [
+              {
+                "id": "policy.pdf#e2677a2dedbf4f8f",
+                "source": "policy.pdf",
+                "pages": [
+                  1,
+                  8
+                ],
+                "relevant": true
+              }
+            ]
+          },
+          "reranked": {
+            "hit_rate": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "mrr": 1.0,
+            "first_relevant_rank": 1,
+            "retrieved": [
+              {
+                "id": "policy.pdf#e2677a2dedbf4f8f",
+                "source": "policy.pdf",
+                "pages": [
+                  1,
+                  8
+                ],
+                "relevant": true
+              }
+            ]
+          },
+          "final": {
+            "hit_rate": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "mrr": 1.0,
+            "first_relevant_rank": 1,
+            "retrieved": [
+              {
+                "id": "policy.pdf#e2677a2dedbf4f8f",
+                "source": "policy.pdf",
+                "pages": [
+                  1,
+                  8
+                ],
+                "relevant": true
+              }
+            ]
+          }
+        },
+        "lost_in_rerank": false
+      },
+      {
+        "id": "q08",
+        "question": "How much does the compulsory personal accident cover pay out?",
+        "tags": [
+          "coverage"
+        ],
+        "expected_pages": [
+          2,
+          6,
+          7
+        ],
+        "search_query": "How much does the compulsory personal accident cover pay out?",
+        "stages": {
+          "fused": {
+            "hit_rate": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "mrr": 1.0,
+            "first_relevant_rank": 1,
+            "retrieved": [
+              {
+                "id": "policy.pdf#f1f1c12d4e58cfb8",
+                "source": "policy.pdf",
+                "pages": [
+                  1,
+                  8
+                ],
+                "relevant": true
+              }
+            ]
+          },
+          "reranked": {
+            "hit_rate": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "mrr": 1.0,
+            "first_relevant_rank": 1,
+            "retrieved": [
+              {
+                "id": "policy.pdf#914acbc1922b4e87",
+                "source": "policy.pdf",
+                "pages": [
+                  1,
+                  8
+                ],
+                "relevant": true
+              }
+            ]
+          },
+          "final": {
+            "hit_rate": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "mrr": 1.0,
+            "first_relevant_rank": 1,
+            "retrieved": [
+              {
+                "id": "policy.pdf#914acbc1922b4e87",
+                "source": "policy.pdf",
+                "pages": [
+                  1,
+                  8
+                ],
+                "relevant": true
+              }
+            ]
+          }
+        },
+        "lost_in_rerank": false
+      },
+      {
+        "id": "q09",
+        "question": "Who is the nominee and what is their relationship to the insured?",
+        "tags": [
+          "identifier"
+        ],
+        "expected_pages": [
+          8
+        ],
+        "search_query": "Who is the nominee and what is their relationship to the insured?",
+        "stages": {
+          "fused": {
+            "hit_rate": 0.0,
+            "recall": 0.0,
+            "precision": 0.0,
+            "mrr": 0.0,
+            "first_relevant_rank": null,
+            "retrieved": [
+              {
+                "id": "fema_nfip_flood-insurance-manual_102025.pdf#bc2797f20f16656a",
+                "source": "fema_nfip_flood-insurance-manual_102025.pdf",
+                "pages": [
+                  36,
+                  37
+                ],
+                "relevant": false
+              }
+            ]
+          },
+          "reranked": {
+            "hit_rate": 0.0,
+            "recall": 0.0,
+            "precision": 0.0,
+            "mrr": 0.0,
+            "first_relevant_rank": null,
+            "retrieved": [
+              {
+                "id": "fema_nfip_flood-insurance-manual_102025.pdf#0b3f3096105870d3",
+                "source": "fema_nfip_flood-insurance-manual_102025.pdf",
+                "pages": [
+                  36,
+                  37
+                ],
+                "relevant": false
+              }
+            ]
+          },
+          "final": {
+            "hit_rate": 0.0,
+            "recall": 0.0,
+            "precision": 0.0,
+            "mrr": 0.0,
+            "first_relevant_rank": null,
+            "retrieved": [
+              {
+                "id": "fema_nfip_flood-insurance-manual_102025.pdf#0b3f3096105870d3",
+                "source": "fema_nfip_flood-insurance-manual_102025.pdf",
+                "pages": [
+                  36,
+                  37
+                ],
+                "relevant": false
+              }
+            ]
+          }
+        },
+        "lost_in_rerank": false
+      },
+      {
+        "id": "q10",
+        "question": "What is the chassis number of the bike?",
+        "tags": [
+          "identifier",
+          "exact-code"
+        ],
+        "expected_pages": [
+          4
+        ],
+        "search_query": "What is the chassis number of the bike?",
+        "stages": {
+          "fused": {
+            "hit_rate": 0.0,
+            "recall": 0.0,
+            "precision": 0.0,
+            "mrr": 0.0,
+            "first_relevant_rank": null,
+            "retrieved": [
+              {
+                "id": "fema_nfip_flood-insurance-manual_102025.pdf#db0daa7bedb2e04a",
+                "source": "fema_nfip_flood-insurance-manual_102025.pdf",
+                "pages": [
+                  433,
+                  452
+                ],
+                "relevant": false
+              }
+            ]
+          },
+          "reranked": {
+            "hit_rate": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "mrr": 1.0,
+            "first_relevant_rank": 1,
+            "retrieved": [
+              {
+                "id": "policy.pdf#19ff1986ddbdc6ca",
+                "source": "policy.pdf",
+                "pages": [
+                  1,
+                  8
+                ],
+                "relevant": true
+              }
+            ]
+          },
+          "final": {
+            "hit_rate": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "mrr": 1.0,
+            "first_relevant_rank": 1,
+            "retrieved": [
+              {
+                "id": "policy.pdf#19ff1986ddbdc6ca",
+                "source": "policy.pdf",
+                "pages": [
+                  1,
+                  8
+                ],
+                "relevant": true
+              }
+            ]
+          }
+        },
+        "lost_in_rerank": false
+      },
+      {
+        "id": "q11",
+        "question": "What is the engine number of the bike?",
+        "tags": [
+          "identifier",
+          "exact-code"
+        ],
+        "expected_pages": [
+          4
+        ],
+        "search_query": "What is the engine number of the bike?",
+        "stages": {
+          "fused": {
+            "hit_rate": 0.0,
+            "recall": 0.0,
+            "precision": 0.0,
+            "mrr": 0.0,
+            "first_relevant_rank": null,
+            "retrieved": [
+              {
+                "id": "fema_nfip_flood-insurance-manual_102025.pdf#cb2ed3cd0481b8ef",
+                "source": "fema_nfip_flood-insurance-manual_102025.pdf",
+                "pages": [
+                  55,
+                  58
+                ],
+                "relevant": false
+              }
+            ]
+          },
+          "reranked": {
+            "hit_rate": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "mrr": 1.0,
+            "first_relevant_rank": 1,
+            "retrieved": [
+              {
+                "id": "policy.pdf#19ff1986ddbdc6ca",
+                "source": "policy.pdf",
+                "pages": [
+                  1,
+                  8
+                ],
+                "relevant": true
+              }
+            ]
+          },
+          "final": {
+            "hit_rate": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "mrr": 1.0,
+            "first_relevant_rank": 1,
+            "retrieved": [
+              {
+                "id": "policy.pdf#19ff1986ddbdc6ca",
+                "source": "policy.pdf",
+                "pages": [
+                  1,
+                  8
+                ],
+                "relevant": true
+              }
+            ]
+          }
+        },
+        "lost_in_rerank": false
+      },
+      {
+        "id": "q12",
+        "question": "What is Acko's GSTIN?",
+        "tags": [
+          "identifier",
+          "exact-code"
+        ],
+        "expected_pages": [
+          4
+        ],
+        "search_query": "What is Acko's GSTIN?",
+        "stages": {
+          "fused": {
+            "hit_rate": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "mrr": 1.0,
+            "first_relevant_rank": 1,
+            "retrieved": [
+              {
+                "id": "policy.pdf#4d2ea5ce52874e3a",
+                "source": "policy.pdf",
+                "pages": [
+                  1,
+                  8
+                ],
+                "relevant": true
+              }
+            ]
+          },
+          "reranked": {
+            "hit_rate": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "mrr": 1.0,
+            "first_relevant_rank": 1,
+            "retrieved": [
+              {
+                "id": "policy.pdf#9d7bd5ef4c5b6544",
+                "source": "policy.pdf",
+                "pages": [
+                  1,
+                  8
+                ],
+                "relevant": true
+              }
+            ]
+          },
+          "final": {
+            "hit_rate": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "mrr": 1.0,
+            "first_relevant_rank": 1,
+            "retrieved": [
+              {
+                "id": "policy.pdf#9d7bd5ef4c5b6544",
+                "source": "policy.pdf",
+                "pages": [
+                  1,
+                  8
+                ],
+                "relevant": true
+              }
+            ]
+          }
+        },
+        "lost_in_rerank": false
+      },
+      {
+        "id": "q13",
+        "question": "What is the policy number?",
+        "tags": [
+          "identifier",
+          "exact-code"
+        ],
+        "expected_pages": [
+          2,
+          8
+        ],
+        "search_query": "What is the policy number?",
+        "stages": {
+          "fused": {
+            "hit_rate": 0.0,
+            "recall": 0.0,
+            "precision": 0.0,
+            "mrr": 0.0,
+            "first_relevant_rank": null,
+            "retrieved": [
+              {
+                "id": "fema_nfip_flood-insurance-manual_102025.pdf#cf6314bfb7495afc",
+                "source": "fema_nfip_flood-insurance-manual_102025.pdf",
+                "pages": [
+                  41,
+                  42
+                ],
+                "relevant": false
+              }
+            ]
+          },
+          "reranked": {
+            "hit_rate": 0.0,
+            "recall": 0.0,
+            "precision": 0.0,
+            "mrr": 0.0,
+            "first_relevant_rank": null,
+            "retrieved": [
+              {
+                "id": "fema_nfip_flood-insurance-manual_102025.pdf#277c05169edb6036",
+                "source": "fema_nfip_flood-insurance-manual_102025.pdf",
+                "pages": [
+                  354,
+                  387
+                ],
+                "relevant": false
+              }
+            ]
+          },
+          "final": {
+            "hit_rate": 0.0,
+            "recall": 0.0,
+            "precision": 0.0,
+            "mrr": 0.0,
+            "first_relevant_rank": null,
+            "retrieved": [
+              {
+                "id": "fema_nfip_flood-insurance-manual_102025.pdf#277c05169edb6036",
+                "source": "fema_nfip_flood-insurance-manual_102025.pdf",
+                "pages": [
+                  354,
+                  387
+                ],
+                "relevant": false
+              }
+            ]
+          }
+        },
+        "lost_in_rerank": false
+      },
+      {
+        "id": "q14",
+        "question": "What are the reasons my claim might get rejected?",
+        "tags": [
+          "exclusion"
+        ],
+        "expected_pages": [
+          3
+        ],
+        "search_query": "What are the reasons my claim might get rejected?",
+        "stages": {
+          "fused": {
+            "hit_rate": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "mrr": 1.0,
+            "first_relevant_rank": 1,
+            "retrieved": [
+              {
+                "id": "policy.pdf#d42de0daba647602",
+                "source": "policy.pdf",
+                "pages": [
+                  1,
+                  8
+                ],
+                "relevant": true
+              }
+            ]
+          },
+          "reranked": {
+            "hit_rate": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "mrr": 1.0,
+            "first_relevant_rank": 1,
+            "retrieved": [
+              {
+                "id": "policy.pdf#d42de0daba647602",
+                "source": "policy.pdf",
+                "pages": [
+                  1,
+                  8
+                ],
+                "relevant": true
+              }
+            ]
+          },
+          "final": {
+            "hit_rate": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "mrr": 1.0,
+            "first_relevant_rank": 1,
+            "retrieved": [
+              {
+                "id": "policy.pdf#d42de0daba647602",
+                "source": "policy.pdf",
+                "pages": [
+                  1,
+                  8
+                ],
+                "relevant": true
+              }
+            ]
+          }
+        },
+        "lost_in_rerank": false
+      },
+      {
+        "id": "q15",
+        "question": "Is wiring damage caused by rat bites covered?",
+        "tags": [
+          "exclusion",
+          "paraphrase"
+        ],
+        "expected_pages": [
+          2
+        ],
+        "search_query": "Is wiring damage caused by rat bites covered?",
+        "stages": {
+          "fused": {
+            "hit_rate": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "mrr": 1.0,
+            "first_relevant_rank": 1,
+            "retrieved": [
+              {
+                "id": "policy.pdf#d77d27319bef2d11",
+                "source": "policy.pdf",
+                "pages": [
+                  1,
+                  8
+                ],
+                "relevant": true
+              }
+            ]
+          },
+          "reranked": {
+            "hit_rate": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "mrr": 1.0,
+            "first_relevant_rank": 1,
+            "retrieved": [
+              {
+                "id": "policy.pdf#d77d27319bef2d11",
+                "source": "policy.pdf",
+                "pages": [
+                  1,
+                  8
+                ],
+                "relevant": true
+              }
+            ]
+          },
+          "final": {
+            "hit_rate": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "mrr": 1.0,
+            "first_relevant_rank": 1,
+            "retrieved": [
+              {
+                "id": "policy.pdf#d77d27319bef2d11",
+                "source": "policy.pdf",
+                "pages": [
+                  1,
+                  8
+                ],
+                "relevant": true
+              }
+            ]
+          }
+        },
+        "lost_in_rerank": false
+      },
+      {
+        "id": "q16",
+        "question": "Can I use the bike for organised racing or speed testing?",
+        "tags": [
+          "exclusion"
+        ],
+        "expected_pages": [
+          7
+        ],
+        "search_query": "Can I use the bike for organised racing or speed testing?",
+        "stages": {
+          "fused": {
+            "hit_rate": 0.0,
+            "recall": 0.0,
+            "precision": 0.0,
+            "mrr": 0.0,
+            "first_relevant_rank": null,
+            "retrieved": [
+              {
+                "id": "fema_nfip_flood-insurance-manual_102025.pdf#b7e72abcf47009c5",
+                "source": "fema_nfip_flood-insurance-manual_102025.pdf",
+                "pages": [
+                  354,
+                  387
+                ],
+                "relevant": false
+              }
+            ]
+          },
+          "reranked": {
+            "hit_rate": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "mrr": 1.0,
+            "first_relevant_rank": 1,
+            "retrieved": [
+              {
+                "id": "policy.pdf#dda2d866e0f1490b",
+                "source": "policy.pdf",
+                "pages": [
+                  1,
+                  8
+                ],
+                "relevant": true
+              }
+            ]
+          },
+          "final": {
+            "hit_rate": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "mrr": 1.0,
+            "first_relevant_rank": 1,
+            "retrieved": [
+              {
+                "id": "policy.pdf#dda2d866e0f1490b",
+                "source": "policy.pdf",
+                "pages": [
+                  1,
+                  8
+                ],
+                "relevant": true
+              }
+            ]
+          }
+        },
+        "lost_in_rerank": false
+      },
+      {
+        "id": "q17",
+        "question": "Which persons are entitled to drive the insured vehicle?",
+        "tags": [
+          "condition"
+        ],
+        "expected_pages": [
+          7
+        ],
+        "search_query": "Which persons are entitled to drive the insured vehicle?",
+        "stages": {
+          "fused": {
+            "hit_rate": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "mrr": 1.0,
+            "first_relevant_rank": 1,
+            "retrieved": [
+              {
+                "id": "policy.pdf#4bcc06294b5d5a0b",
+                "source": "policy.pdf",
+                "pages": [
+                  1,
+                  8
+                ],
+                "relevant": true
+              }
+            ]
+          },
+          "reranked": {
+            "hit_rate": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "mrr": 1.0,
+            "first_relevant_rank": 1,
+            "retrieved": [
+              {
+                "id": "policy.pdf#4bcc06294b5d5a0b",
+                "source": "policy.pdf",
+                "pages": [
+                  1,
+                  8
+                ],
+                "relevant": true
+              }
+            ]
+          },
+          "final": {
+            "hit_rate": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "mrr": 1.0,
+            "first_relevant_rank": 1,
+            "retrieved": [
+              {
+                "id": "policy.pdf#4bcc06294b5d5a0b",
+                "source": "policy.pdf",
+                "pages": [
+                  1,
+                  8
+                ],
+                "relevant": true
+              }
+            ]
+          }
+        },
+        "lost_in_rerank": false
+      },
+      {
+        "id": "q18",
+        "question": "What happens if I did not disclose correct information when buying the policy?",
+        "tags": [
+          "condition",
+          "paraphrase"
+        ],
+        "expected_pages": [
+          8
+        ],
+        "search_query": "What happens if I did not disclose correct information when buying the policy?",
+        "stages": {
+          "fused": {
+            "hit_rate": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "mrr": 1.0,
+            "first_relevant_rank": 1,
+            "retrieved": [
+              {
+                "id": "policy.pdf#188ab22de32b9352",
+                "source": "policy.pdf",
+                "pages": [
+                  1,
+                  8
+                ],
+                "relevant": true
+              }
+            ]
+          },
+          "reranked": {
+            "hit_rate": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "mrr": 1.0,
+            "first_relevant_rank": 1,
+            "retrieved": [
+              {
+                "id": "policy.pdf#188ab22de32b9352",
+                "source": "policy.pdf",
+                "pages": [
+                  1,
+                  8
+                ],
+                "relevant": true
+              }
+            ]
+          },
+          "final": {
+            "hit_rate": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "mrr": 1.0,
+            "first_relevant_rank": 1,
+            "retrieved": [
+              {
+                "id": "policy.pdf#188ab22de32b9352",
+                "source": "policy.pdf",
+                "pages": [
+                  1,
+                  8
+                ],
+                "relevant": true
+              }
+            ]
+          }
+        },
+        "lost_in_rerank": false
+      },
+      {
+        "id": "q19",
+        "question": "How do I make a claim with ACKO?",
+        "tags": [
+          "procedure"
+        ],
+        "expected_pages": [
+          3
+        ],
+        "search_query": "How do I make a claim with ACKO?",
+        "stages": {
+          "fused": {
+            "hit_rate": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "mrr": 1.0,
+            "first_relevant_rank": 1,
+            "retrieved": [
+              {
+                "id": "policy.pdf#dfb3547d4060d5cf",
+                "source": "policy.pdf",
+                "pages": [
+                  1,
+                  8
+                ],
+                "relevant": true
+              }
+            ]
+          },
+          "reranked": {
+            "hit_rate": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "mrr": 1.0,
+            "first_relevant_rank": 1,
+            "retrieved": [
+              {
+                "id": "policy.pdf#dfb3547d4060d5cf",
+                "source": "policy.pdf",
+                "pages": [
+                  1,
+                  8
+                ],
+                "relevant": true
+              }
+            ]
+          },
+          "final": {
+            "hit_rate": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "mrr": 1.0,
+            "first_relevant_rank": 1,
+            "retrieved": [
+              {
+                "id": "policy.pdf#dfb3547d4060d5cf",
+                "source": "policy.pdf",
+                "pages": [
+                  1,
+                  8
+                ],
+                "relevant": true
+              }
+            ]
+          }
+        },
+        "lost_in_rerank": false
+      },
+      {
+        "id": "q20",
+        "question": "What phone number do I call to report a claim?",
+        "tags": [
+          "procedure",
+          "exact-code"
+        ],
+        "expected_pages": [
+          3
+        ],
+        "search_query": "What phone number do I call to report a claim?",
+        "stages": {
+          "fused": {
+            "hit_rate": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "mrr": 1.0,
+            "first_relevant_rank": 1,
+            "retrieved": [
+              {
+                "id": "policy.pdf#dfb3547d4060d5cf",
+                "source": "policy.pdf",
+                "pages": [
+                  1,
+                  8
+                ],
+                "relevant": true
+              }
+            ]
+          },
+          "reranked": {
+            "hit_rate": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "mrr": 1.0,
+            "first_relevant_rank": 1,
+            "retrieved": [
+              {
+                "id": "policy.pdf#dfb3547d4060d5cf",
+                "source": "policy.pdf",
+                "pages": [
+                  1,
+                  8
+                ],
+                "relevant": true
+              }
+            ]
+          },
+          "final": {
+            "hit_rate": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "mrr": 1.0,
+            "first_relevant_rank": 1,
+            "retrieved": [
+              {
+                "id": "policy.pdf#dfb3547d4060d5cf",
+                "source": "policy.pdf",
+                "pages": [
+                  1,
+                  8
+                ],
+                "relevant": true
+              }
+            ]
+          }
+        },
+        "lost_in_rerank": false
+      },
+      {
+        "id": "q21",
+        "question": "Are tyres and tubes covered by the policy?",
+        "tags": [
+          "exclusion"
+        ],
+        "expected_pages": [
+          2
+        ],
+        "search_query": "Are tyres and tubes covered by the policy?",
+        "stages": {
+          "fused": {
+            "hit_rate": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "mrr": 1.0,
+            "first_relevant_rank": 1,
+            "retrieved": [
+              {
+                "id": "policy.pdf#3b7ed35e14b6730b",
+                "source": "policy.pdf",
+                "pages": [
+                  1,
+                  8
+                ],
+                "relevant": true
+              }
+            ]
+          },
+          "reranked": {
+            "hit_rate": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "mrr": 1.0,
+            "first_relevant_rank": 1,
+            "retrieved": [
+              {
+                "id": "policy.pdf#cf6103bd7101770d",
+                "source": "policy.pdf",
+                "pages": [
+                  1,
+                  8
+                ],
+                "relevant": true
+              }
+            ]
+          },
+          "final": {
+            "hit_rate": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "mrr": 1.0,
+            "first_relevant_rank": 1,
+            "retrieved": [
+              {
+                "id": "policy.pdf#cf6103bd7101770d",
+                "source": "policy.pdf",
+                "pages": [
+                  1,
+                  8
+                ],
+                "relevant": true
+              }
+            ]
+          }
+        },
+        "lost_in_rerank": false
+      },
+      {
+        "id": "q22",
+        "question": "What is the UIN of the compulsory personal accident cover?",
+        "tags": [
+          "identifier",
+          "exact-code"
+        ],
+        "expected_pages": [
+          6
+        ],
+        "search_query": "What is the UIN of the compulsory personal accident cover?",
+        "stages": {
+          "fused": {
+            "hit_rate": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "mrr": 1.0,
+            "first_relevant_rank": 1,
+            "retrieved": [
+              {
+                "id": "policy.pdf#63d26d1f99a9ec3f",
+                "source": "policy.pdf",
+                "pages": [
+                  1,
+                  8
+                ],
+                "relevant": true
+              }
+            ]
+          },
+          "reranked": {
+            "hit_rate": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "mrr": 1.0,
+            "first_relevant_rank": 1,
+            "retrieved": [
+              {
+                "id": "policy.pdf#63d26d1f99a9ec3f",
+                "source": "policy.pdf",
+                "pages": [
+                  1,
+                  8
+                ],
+                "relevant": true
+              }
+            ]
+          },
+          "final": {
+            "hit_rate": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "mrr": 1.0,
+            "first_relevant_rank": 1,
+            "retrieved": [
+              {
+                "id": "policy.pdf#63d26d1f99a9ec3f",
+                "source": "policy.pdf",
+                "pages": [
+                  1,
+                  8
+                ],
+                "relevant": true
+              }
+            ]
+          }
+        },
+        "lost_in_rerank": false
+      },
+      {
+        "id": "q23",
+        "question": "In which year was the bike registered?",
+        "tags": [
+          "spec"
+        ],
+        "expected_pages": [
+          4,
+          8
+        ],
+        "search_query": "In which year was the bike registered?",
+        "stages": {
+          "fused": {
+            "hit_rate": 0.0,
+            "recall": 0.0,
+            "precision": 0.0,
+            "mrr": 0.0,
+            "first_relevant_rank": null,
+            "retrieved": [
+              {
+                "id": "fema_nfip_flood-insurance-manual_102025.pdf#71bb889916ab1abd",
+                "source": "fema_nfip_flood-insurance-manual_102025.pdf",
+                "pages": [
+                  354,
+                  387
+                ],
+                "relevant": false
+              }
+            ]
+          },
+          "reranked": {
+            "hit_rate": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "mrr": 1.0,
+            "first_relevant_rank": 1,
+            "retrieved": [
+              {
+                "id": "policy.pdf#f0f3847247d5205a",
+                "source": "policy.pdf",
+                "pages": [
+                  1,
+                  8
+                ],
+                "relevant": true
+              }
+            ]
+          },
+          "final": {
+            "hit_rate": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "mrr": 1.0,
+            "first_relevant_rank": 1,
+            "retrieved": [
+              {
+                "id": "policy.pdf#f0f3847247d5205a",
+                "source": "policy.pdf",
+                "pages": [
+                  1,
+                  8
+                ],
+                "relevant": true
+              }
+            ]
+          }
+        },
+        "lost_in_rerank": false
+      },
+      {
+        "id": "q24",
+        "question": "Which office issued this policy?",
+        "tags": [
+          "identifier"
+        ],
+        "expected_pages": [
+          7
+        ],
+        "search_query": "Which office issued this policy?",
+        "stages": {
+          "fused": {
+            "hit_rate": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "mrr": 1.0,
+            "first_relevant_rank": 1,
+            "retrieved": [
+              {
+                "id": "policy.pdf#fb9fdde4be16f508",
+                "source": "policy.pdf",
+                "pages": [
+                  1,
+                  8
+                ],
+                "relevant": true
+              }
+            ]
+          },
+          "reranked": {
+            "hit_rate": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "mrr": 1.0,
+            "first_relevant_rank": 1,
+            "retrieved": [
+              {
+                "id": "policy.pdf#35a89ed6308185a0",
+                "source": "policy.pdf",
+                "pages": [
+                  1,
+                  8
+                ],
+                "relevant": true
+              }
+            ]
+          },
+          "final": {
+            "hit_rate": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "mrr": 1.0,
+            "first_relevant_rank": 1,
+            "retrieved": [
+              {
+                "id": "policy.pdf#35a89ed6308185a0",
+                "source": "policy.pdf",
+                "pages": [
+                  1,
+                  8
+                ],
+                "relevant": true
+              }
+            ]
+          }
+        },
+        "lost_in_rerank": false
+      },
+      {
+        "id": "q25",
+        "question": "What is the basic third party premium amount?",
+        "tags": [
+          "amount"
+        ],
+        "expected_pages": [
+          4
+        ],
+        "search_query": "What is the basic third party premium amount?",
+        "stages": {
+          "fused": {
+            "hit_rate": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "mrr": 1.0,
+            "first_relevant_rank": 1,
+            "retrieved": [
+              {
+                "id": "policy.pdf#914acbc1922b4e87",
+                "source": "policy.pdf",
+                "pages": [
+                  1,
+                  8
+                ],
+                "relevant": true
+              }
+            ]
+          },
+          "reranked": {
+            "hit_rate": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "mrr": 1.0,
+            "first_relevant_rank": 1,
+            "retrieved": [
+              {
+                "id": "policy.pdf#914acbc1922b4e87",
+                "source": "policy.pdf",
+                "pages": [
+                  1,
+                  8
+                ],
+                "relevant": true
+              }
+            ]
+          },
+          "final": {
+            "hit_rate": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "mrr": 1.0,
+            "first_relevant_rank": 1,
+            "retrieved": [
+              {
+                "id": "policy.pdf#914acbc1922b4e87",
+                "source": "policy.pdf",
+                "pages": [
+                  1,
+                  8
+                ],
+                "relevant": true
+              }
+            ]
+          }
+        },
+        "lost_in_rerank": false
+      },
+      {
+        "id": "q26",
+        "question": "What is the pincode on the insured's address?",
+        "tags": [
+          "identifier"
+        ],
+        "expected_pages": [
+          4,
+          8
+        ],
+        "search_query": "What is the pincode on the insured's address?",
+        "stages": {
+          "fused": {
+            "hit_rate": 0.0,
+            "recall": 0.0,
+            "precision": 0.0,
+            "mrr": 0.0,
+            "first_relevant_rank": null,
+            "retrieved": [
+              {
+                "id": "fema_nfip_flood-insurance-manual_102025.pdf#45d5874cfa8d1616",
+                "source": "fema_nfip_flood-insurance-manual_102025.pdf",
+                "pages": [
+                  273,
+                  290
+                ],
+                "relevant": false
+              }
+            ]
+          },
+          "reranked": {
+            "hit_rate": 0.0,
+            "recall": 0.0,
+            "precision": 0.0,
+            "mrr": 0.0,
+            "first_relevant_rank": null,
+            "retrieved": [
+              {
+                "id": "fema_nfip_flood-insurance-manual_102025.pdf#a5076d941eddce73",
+                "source": "fema_nfip_flood-insurance-manual_102025.pdf",
+                "pages": [
+                  105,
+                  106
+                ],
+                "relevant": false
+              }
+            ]
+          },
+          "final": {
+            "hit_rate": 0.0,
+            "recall": 0.0,
+            "precision": 0.0,
+            "mrr": 0.0,
+            "first_relevant_rank": null,
+            "retrieved": [
+              {
+                "id": "fema_nfip_flood-insurance-manual_102025.pdf#a5076d941eddce73",
+                "source": "fema_nfip_flood-insurance-manual_102025.pdf",
+                "pages": [
+                  105,
+                  106
+                ],
+                "relevant": false
+              }
+            ]
+          }
+        },
+        "lost_in_rerank": false
+      },
+      {
+        "id": "q27",
+        "question": "What is the make and model of the insured vehicle?",
+        "tags": [
+          "spec"
+        ],
+        "expected_pages": [
+          2,
+          4,
+          8
+        ],
+        "search_query": "What is the make and model of the insured vehicle?",
+        "stages": {
+          "fused": {
+            "hit_rate": 0.0,
+            "recall": 0.0,
+            "precision": 0.0,
+            "mrr": 0.0,
+            "first_relevant_rank": null,
+            "retrieved": [
+              {
+                "id": "fema_nfip_flood-insurance-manual_102025.pdf#e69dad4b91d6e412",
+                "source": "fema_nfip_flood-insurance-manual_102025.pdf",
+                "pages": [
+                  105,
+                  106
+                ],
+                "relevant": false
+              }
+            ]
+          },
+          "reranked": {
+            "hit_rate": 0.0,
+            "recall": 0.0,
+            "precision": 0.0,
+            "mrr": 0.0,
+            "first_relevant_rank": null,
+            "retrieved": [
+              {
+                "id": "fema_nfip_flood-insurance-manual_102025.pdf#3017ebb0fc08531a",
+                "source": "fema_nfip_flood-insurance-manual_102025.pdf",
+                "pages": [
+                  89,
+                  96
+                ],
+                "relevant": false
+              }
+            ]
+          },
+          "final": {
+            "hit_rate": 0.0,
+            "recall": 0.0,
+            "precision": 0.0,
+            "mrr": 0.0,
+            "first_relevant_rank": null,
+            "retrieved": [
+              {
+                "id": "fema_nfip_flood-insurance-manual_102025.pdf#3017ebb0fc08531a",
+                "source": "fema_nfip_flood-insurance-manual_102025.pdf",
+                "pages": [
+                  89,
+                  96
+                ],
+                "relevant": false
+              }
+            ]
+          }
+        },
+        "lost_in_rerank": false
+      },
+      {
+        "id": "q28",
+        "question": "What is the intermediary code for this policy?",
+        "tags": [
+          "identifier",
+          "exact-code"
+        ],
+        "expected_pages": [
+          7
+        ],
+        "search_query": "What is the intermediary code for this policy?",
+        "stages": {
+          "fused": {
+            "hit_rate": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "mrr": 1.0,
+            "first_relevant_rank": 1,
+            "retrieved": [
+              {
+                "id": "policy.pdf#08fcaf1b1ea7dc8f",
+                "source": "policy.pdf",
+                "pages": [
+                  1,
+                  8
+                ],
+                "relevant": true
+              }
+            ]
+          },
+          "reranked": {
+            "hit_rate": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "mrr": 1.0,
+            "first_relevant_rank": 1,
+            "retrieved": [
+              {
+                "id": "policy.pdf#35a89ed6308185a0",
+                "source": "policy.pdf",
+                "pages": [
+                  1,
+                  8
+                ],
+                "relevant": true
+              }
+            ]
+          },
+          "final": {
+            "hit_rate": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "mrr": 1.0,
+            "first_relevant_rank": 1,
+            "retrieved": [
+              {
+                "id": "policy.pdf#35a89ed6308185a0",
+                "source": "policy.pdf",
+                "pages": [
+                  1,
+                  8
+                ],
+                "relevant": true
+              }
+            ]
+          }
+        },
+        "lost_in_rerank": false
+      },
+      {
+        "id": "q29",
+        "question": "What document is required if I claim within 30 days of the policy start date?",
+        "tags": [
+          "procedure",
+          "paraphrase"
+        ],
+        "expected_pages": [
+          4
+        ],
+        "search_query": "What document is required if I claim within 30 days of the policy start date?",
+        "stages": {
+          "fused": {
+            "hit_rate": 0.0,
+            "recall": 0.0,
+            "precision": 0.0,
+            "mrr": 0.0,
+            "first_relevant_rank": null,
+            "retrieved": [
+              {
+                "id": "fema_nfip_flood-insurance-manual_102025.pdf#398c10ca386305ff",
+                "source": "fema_nfip_flood-insurance-manual_102025.pdf",
+                "pages": [
+                  6,
+                  27
+                ],
+                "relevant": false
+              }
+            ]
+          },
+          "reranked": {
+            "hit_rate": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "mrr": 1.0,
+            "first_relevant_rank": 1,
+            "retrieved": [
+              {
+                "id": "policy.pdf#914acbc1922b4e87",
+                "source": "policy.pdf",
+                "pages": [
+                  1,
+                  8
+                ],
+                "relevant": true
+              }
+            ]
+          },
+          "final": {
+            "hit_rate": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "mrr": 1.0,
+            "first_relevant_rank": 1,
+            "retrieved": [
+              {
+                "id": "policy.pdf#914acbc1922b4e87",
+                "source": "policy.pdf",
+                "pages": [
+                  1,
+                  8
+                ],
+                "relevant": true
+              }
+            ]
+          }
+        },
+        "lost_in_rerank": false
+      },
+      {
+        "id": "q30",
+        "question": "How much stamp duty is paid on this policy?",
+        "tags": [
+          "amount"
+        ],
+        "expected_pages": [
+          7
+        ],
+        "search_query": "How much stamp duty is paid on this policy?",
+        "stages": {
+          "fused": {
+            "hit_rate": 0.0,
+            "recall": 0.0,
+            "precision": 0.0,
+            "mrr": 0.0,
+            "first_relevant_rank": null,
+            "retrieved": [
+              {
+                "id": "fema_nfip_flood-insurance-manual_102025.pdf#68a8e2339da139ee",
+                "source": "fema_nfip_flood-insurance-manual_102025.pdf",
+                "pages": [
+                  211,
+                  273
+                ],
+                "relevant": false
+              }
+            ]
+          },
+          "reranked": {
+            "hit_rate": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "mrr": 1.0,
+            "first_relevant_rank": 1,
+            "retrieved": [
+              {
+                "id": "policy.pdf#bd614d3d5e00d58b",
+                "source": "policy.pdf",
+                "pages": [
+                  1,
+                  8
+                ],
+                "relevant": true
+              }
+            ]
+          },
+          "final": {
+            "hit_rate": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "mrr": 1.0,
+            "first_relevant_rank": 1,
+            "retrieved": [
+              {
+                "id": "policy.pdf#bd614d3d5e00d58b",
+                "source": "policy.pdf",
+                "pages": [
+                  1,
+                  8
+                ],
+                "relevant": true
+              }
+            ]
+          }
+        },
+        "lost_in_rerank": false
+      },
+      {
+        "id": "q31",
+        "question": "Can somebody with only a learner's licence ride the insured bike?",
+        "tags": [
+          "condition",
+          "paraphrase"
+        ],
+        "expected_pages": [
+          7
+        ],
+        "search_query": "Can somebody with only a learner's licence ride the insured bike?",
+        "stages": {
+          "fused": {
+            "hit_rate": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "mrr": 1.0,
+            "first_relevant_rank": 1,
+            "retrieved": [
+              {
+                "id": "policy.pdf#6402f49aca84c81a",
+                "source": "policy.pdf",
+                "pages": [
+                  1,
+                  8
+                ],
+                "relevant": true
+              }
+            ]
+          },
+          "reranked": {
+            "hit_rate": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "mrr": 1.0,
+            "first_relevant_rank": 1,
+            "retrieved": [
+              {
+                "id": "policy.pdf#220426add89734cb",
+                "source": "policy.pdf",
+                "pages": [
+                  1,
+                  8
+                ],
+                "relevant": true
+              }
+            ]
+          },
+          "final": {
+            "hit_rate": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "mrr": 1.0,
+            "first_relevant_rank": 1,
+            "retrieved": [
+              {
+                "id": "policy.pdf#220426add89734cb",
+                "source": "policy.pdf",
+                "pages": [
+                  1,
+                  8
+                ],
+                "relevant": true
+              }
+            ]
+          }
+        },
+        "lost_in_rerank": false
+      },
+      {
+        "id": "q32",
+        "question": "What does Section II-1(ii) of the policy cover?",
+        "tags": [
+          "exact-code",
+          "clause"
+        ],
+        "expected_pages": [
+          7
+        ],
+        "search_query": "What does Section II-1(ii) of the policy cover?",
+        "stages": {
+          "fused": {
+            "hit_rate": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "mrr": 1.0,
+            "first_relevant_rank": 1,
+            "retrieved": [
+              {
+                "id": "policy.pdf#ebb161900ce35e99",
+                "source": "policy.pdf",
+                "pages": [
+                  1,
+                  8
+                ],
+                "relevant": true
+              }
+            ]
+          },
+          "reranked": {
+            "hit_rate": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "mrr": 1.0,
+            "first_relevant_rank": 1,
+            "retrieved": [
+              {
+                "id": "policy.pdf#ebb161900ce35e99",
+                "source": "policy.pdf",
+                "pages": [
+                  1,
+                  8
+                ],
+                "relevant": true
+              }
+            ]
+          },
+          "final": {
+            "hit_rate": 1.0,
+            "recall": 1.0,
+            "precision": 1.0,
+            "mrr": 1.0,
+            "first_relevant_rank": 1,
+            "retrieved": [
+              {
+                "id": "policy.pdf#ebb161900ce35e99",
+                "source": "policy.pdf",
+                "pages": [
+                  1,
+                  8
+                ],
+                "relevant": true
+              }
+            ]
+          }
+        },
+        "lost_in_rerank": false
+      }
+    ]
+  }
+}

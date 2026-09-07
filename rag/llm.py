@@ -16,6 +16,12 @@ would have described Groq's free tier rather than the claims assistant.
 So 429s are retried here, honouring the wait the API asks for, and a
 request that still cannot be served raises instead of being smuggled
 downstream as content.
+
+Why the `openai` client against Groq's base URL, rather than the `groq`
+SDK: Groq exposes an OpenAI-compatible endpoint, so pointing the OpenAI
+client at it makes a move to OpenAI, Together or a local vLLM server a
+change of GROQ_BASE_URL and a model name. The vendor SDK would have bought
+nothing and cost that portability.
 """
 
 import random
@@ -61,6 +67,11 @@ def get_client():
         _client = OpenAI(
             base_url=GROQ_BASE_URL,
             api_key=require_api_key(),
+            # Generous, because it has to cover the slowest thing sent
+            # through this client: a claim summary over several long policy
+            # blocks, with reasoning tokens on top. A tight timeout here
+            # would turn a slow-but-fine request into a failure, and a
+            # failure is recorded as a bad answer.
             timeout=120.0,
             max_retries=0,
         )
@@ -97,6 +108,8 @@ def complete(on_wait=None, **request):
 
     last_error = None
 
+    # `+ 1` because RATE_LIMIT_RETRIES counts *retries*, not attempts: the
+    # first pass through the loop is the original request.
     for attempt in range(RATE_LIMIT_RETRIES + 1):
 
         try:
@@ -112,10 +125,17 @@ def complete(on_wait=None, **request):
             wait = parse_retry_after(error)
 
             if wait is None:
+                # Only reached when the error body did not name a wait -
+                # the fallback, not the plan. Exponential so a genuinely
+                # busy minute is not hammered, capped at 30s because past
+                # that the parsed wait would almost certainly have been
+                # present and this is guesswork either way.
                 wait = min(2 ** attempt, 30)
 
             # Jitter, so that a batch which hit the limit together does not
-            # come back through the door together.
+            # come back through the door together. 1.5s is wide enough to
+            # de-synchronise a batch of ~25 and small enough to be noise
+            # against waits the API states in minutes.
             wait += random.uniform(0, 1.5)
 
             if wait > MAX_RATE_LIMIT_WAIT:

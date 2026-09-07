@@ -1,0 +1,23 @@
+[
+  {
+    "question": "What is the reserve-setting threshold for claim CLM-2024-88431?",
+    "task_label": "Not-In-Corpus",
+    "label": "correct_refusal",
+    "evidence": "Out of corpus; app refused. Top-3 were [DP-0208/unspecified 0.000, HO-0521/unspecified -1.000, HO-0304/unspecified -2.000].",
+    "answer": "I don't know based on the provided documents."
+  },
+  {
+    "question": "Which adjuster is assigned to claim CLM-2024-88431, and what is their settlement authority?",
+    "task_label": "Not-In-Corpus",
+    "label": "correct_refusal",
+    "evidence": "Out of corpus; app refused. Top-3 were [HO-0304/unspecified 0.000, unspecified/unspecified -1.000, HO-0412/unspecified -2.000].",
+    "answer": "I don't know based on the provided documents."
+  },
+  {
+    "question": "What is the current replacement-cost valuation on file for the dwelling at 42 Ridgeline Drive?",
+    "task_label": "Not-In-Corpus",
+    "label": "correct_refusal",
+    "evidence": "Out of corpus; app refused. Top-3 were [HO-0304/Clause 2.2 0.000, DP-0208/Exclusion Table 3.1 -1.000, DP-0208/unspecified -2.000].",
+    "answer": "I don't know based on the provided documents."
+  }
+]

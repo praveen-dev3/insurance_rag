@@ -1,0 +1,31 @@
+﻿Racing the agent...
+  [agent   ] c01  PASS  17.05s   7706 tok  $0.00064  status=covered  payout=15500.0  (ok)
+  [agent   ] c02  PASS  95.89s  13329 tok  $0.00110  status=excluded  payout=0.0  (ok)
+  [agent   ] c03  PASS  46.10s   7220 tok  $0.00061  status=excluded  payout=0.0  (ok)
+  [agent   ] c04  PASS  86.18s  11908 tok  $0.00097  status=covered  payout=13000.0  (ok)
+  [agent   ] c05  PASS  37.13s   5807 tok  $0.00051  status=excluded  payout=0.0  (ok)
+  [agent   ] c06  PASS  87.30s  12340 tok  $0.00101  status=covered  payout=16000.0  (ok)
+  [agent   ] c07  FAIL  54.23s   8038 tok  $0.00068  status=covered  payout=3000.0  (status 'covered' != 'excluded')
+  [agent   ] c08  PASS  41.34s   5510 tok  $0.00047  status=excluded  payout=0.0  (ok)
+  [agent   ] c09  PASS  25.79s   4583 tok  $0.00039  status=excluded  payout=0.0  (ok)
+  [agent   ] c10  PASS  31.75s   6328 tok  $0.00054  status=covered  payout=4400.0  (ok)
+Racing the workflow...
+  [workflow] c01  PASS   8.76s   1177 tok  $0.00013  status=covered  payout=15500.0  (ok)
+  [workflow] c02  PASS  15.05s   1243 tok  $0.00015  status=excluded  payout=0.0  (ok)
+  [workflow] c03  FAIL   9.11s   1152 tok  $0.00013  status=covered  payout=3700.0  (status 'covered' != 'excluded')
+  [workflow] c04  FAIL   6.59s   1612 tok  $0.00014  status=excluded  payout=0.0  (status 'excluded' != 'covered')
+  [workflow] c05  PASS  13.90s   1050 tok  $0.00011  status=excluded  payout=0.0  (ok)
+  [workflow] c06  PASS   5.90s   1154 tok  $0.00012  status=covered  payout=16000.0  (ok)
+  [workflow] c07  PASS   8.41s   1264 tok  $0.00016  status=excluded  payout=0.0  (ok)
+  [workflow] c08  PASS   3.83s   1112 tok  $0.00012  status=excluded  payout=0.0  (ok)
+  [workflow] c09  PASS   8.14s   1050 tok  $0.00011  status=excluded  payout=0.0  (ok)
+  [workflow] c10  PASS   8.35s   1075 tok  $0.00011  status=covered  payout=4400.0  (ok)
+
+metric                    agent     workflow
+pass rate               9/10         8/10   
+p50 latency (s)           43.72         8.38
+total tokens              82769        11889
+cost / claim ($)        0.00069      0.00013
+
+wrote eval\w7d\race.csv
+wrote eval\w7d\race_summary.json

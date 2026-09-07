@@ -1,0 +1,21 @@
+system,claim_id,dependency,pass,outcome,coverage_status,payout,expected_payout,wall_clock_s,total_tokens,cost_usd,note
+agent,c01,False,True,completed,covered,15500.0,15500,17.054,7706,0.000645,ok
+agent,c02,False,True,completed,excluded,0.0,0,95.894,13329,0.001105,ok
+agent,c03,False,True,completed,excluded,0.0,0,46.099,7220,0.000607,ok
+agent,c04,True,True,completed,covered,13000.0,13000,86.180,11908,0.000972,ok
+agent,c05,False,True,completed,excluded,0.0,0,37.133,5807,0.000513,ok
+agent,c06,True,True,completed,covered,16000.0,16000,87.299,12340,0.001012,ok
+agent,c07,False,False,completed,covered,3000.0,0,54.232,8038,0.000682,status 'covered' != 'excluded'
+agent,c08,True,True,completed,excluded,0.0,0,41.336,5510,0.000466,ok
+agent,c09,False,True,completed,excluded,0.0,0,25.788,4583,0.000392,ok
+agent,c10,False,True,completed,covered,4400.0,4400,31.754,6328,0.000544,ok
+workflow,c01,False,True,completed,covered,15500.0,15500,8.755,1177,0.000126,ok
+workflow,c02,False,True,completed,excluded,0.0,0,15.046,1243,0.000150,ok
+workflow,c03,False,False,completed,covered,3700.0,0,9.113,1152,0.000127,status 'covered' != 'excluded'
+workflow,c04,True,False,completed,excluded,0.0,13000,6.593,1612,0.000144,status 'excluded' != 'covered'
+workflow,c05,False,True,completed,excluded,0.0,0,13.900,1050,0.000112,ok
+workflow,c06,True,True,completed,covered,16000.0,16000,5.896,1154,0.000124,ok
+workflow,c07,False,True,completed,excluded,0.0,0,8.410,1264,0.000161,ok
+workflow,c08,True,True,completed,excluded,0.0,0,3.828,1112,0.000123,ok
+workflow,c09,False,True,completed,excluded,0.0,0,8.140,1050,0.000108,ok
+workflow,c10,False,True,completed,covered,4400.0,4400,8.353,1075,0.000111,ok

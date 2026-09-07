@@ -1,0 +1,10 @@
+budget-termination demo: claim c04, max_iterations=1
+
+[lap 1] calling openai/gpt-oss-20b, 2 messages so far
+[lap 1] tool get_claim({'claim_id': 'c04'}) -> {'claim_id': 'c04', 'claim_number': 'CLM-7004', 'claimant': '[CLAIMANT-A4]', 'date_of_loss': '2026-03-01', 'policy_line': 'homeowners', 'form_number': 'HO-0304', 'reported_loss_amount': 14000, 'coverage_a_limit': None, 'notes': 'Heavy rain overnight; water backed up through the basement floor drain and flooded the finished basement. Not a supply line or appliance failure - the water came up through the drain itself. The home has a sump pump fitted with a battery backup, serviced by a technician six weeks ago with a service record on file. Damage to flooring, drywall and stored furniture, estimated 14,000.'}
+[budget] max_iterations (1) reached before lap 2
+
+outcome: budget_exceeded
+budget_reason: max_iterations
+iterations used: 2
+wall_clock_s: 2.117

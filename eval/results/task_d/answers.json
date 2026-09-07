@@ -1,0 +1,143 @@
+[
+  {
+    "id": "e01",
+    "question": "Does exclusion E-17 apply to water damage from a burst supply line under HO-0304 ed. 03-24?",
+    "expected_form": "HO-0304",
+    "expected_clause": "3.1",
+    "known_answer": "No. E-17 excludes constant or repeated seepage over fourteen days or more. A burst supply line is a sudden and accidental discharge under Clause 2.1 and remains covered, subject to the Clause 5.3 deductible.",
+    "answer": "No.\u202fExclusion\u202fE\u201117 is limited to \u201cconstant or repeated seepage \u2026 over a period of fourteen (14) days or more\u201d and does **not** apply to a sudden, accidental discharge such as a burst supply line, which is covered under Clause\u202f2.1.\u202f[chunk_id=HO-0304_water_damage_ed_03-24.pdf#ad1f3ac26ec308ef | HO-0304 (edition 03-24) | Exclusion Table 3.1]\u202f[chunk_id=HO-0304_water_damage_ed_03-24.pdf#41a175ccd467f366 | HO-0304 (edition 03-24) | Exclusion Table 3.1]",
+    "verification": {
+      "cited": [
+        "HO-0304_water_damage_ed_03-24.pdf#ad1f3ac26ec308ef",
+        "HO-0304_water_damage_ed_03-24.pdf#41a175ccd467f366"
+      ],
+      "resolved": [
+        "HO-0304_water_damage_ed_03-24.pdf#41a175ccd467f366",
+        "HO-0304_water_damage_ed_03-24.pdf#ad1f3ac26ec308ef"
+      ],
+      "unresolved": [],
+      "all_resolve": true,
+      "citations": [
+        "HO-0304 ed. 03-24, Exclusion Table 3.1, p. 2, chunk_id=HO-0304_water_damage_ed_03-24.pdf#ad1f3ac26ec308ef",
+        "HO-0304 ed. 03-24, Exclusion Table 3.1, p. 2, chunk_id=HO-0304_water_damage_ed_03-24.pdf#41a175ccd467f366"
+      ]
+    },
+    "retrieved": [
+      {
+        "chunk_id": "HO-0304_water_damage_ed_03-24.pdf#ad1f3ac26ec308ef",
+        "citation": "HO-0304 ed. 03-24, Exclusion Table 3.1, p. 2, chunk_id=HO-0304_water_damage_ed_03-24.pdf#ad1f3ac26ec308ef",
+        "form_number": "HO-0304",
+        "clause": "Exclusion Table 3.1",
+        "text": "FORM HO-0304 ED. 03-24 | POLICY LINE: HOMEOWNERS | Water Damage, Discharge and Overflow Endorsement\nSECTION: Exclusion Table 3.1\nEXCLUSION TABLE 3.1 - WATER DAMAGE EXCLUSIONS\nCODE  EXCLUSION AND DISPOSITION\n\nNote: Exclusion E-17 is directed at a slow, ongoing failure. It is not triggered by an abrupt rupture. A burst supply line that\ndischarges water over a period shorter than fourteen days is adjudicated under Clause 2.1 and remains covered."
+      },
+      {
+        "chunk_id": "HO-0304_water_damage_ed_03-24.pdf#41a175ccd467f366",
+        "citation": "HO-0304 ed. 03-24, Exclusion Table 3.1, p. 2, chunk_id=HO-0304_water_damage_ed_03-24.pdf#41a175ccd467f366",
+        "form_number": "HO-0304",
+        "clause": "Exclusion Table 3.1",
+        "text": "FORM HO-0304 ED. 03-24 | POLICY LINE: HOMEOWNERS | Water Damage, Discharge and Overflow Endorsement\nSECTION: Exclusion Table 3.1\nEXCLUSION TABLE 3.1 - WATER DAMAGE EXCLUSIONS\nCODE  EXCLUSION AND DISPOSITION\n\nE-15  Cost of repairing the appliance or system from which the water escaped.\n            Disposition: Excluded, tear-out still covered under Clause 2.2.\nE-16  Rust, corrosion, wet rot or dry rot forming before the discharge.\n            Disposition: Excluded absolutely.\nE-17  Constant or repeated seepage or leakage of water occurring over a period of fourteen (14)\n      days or more, whether or not the insured was aware of it.\n            Disposition: Excluded absolutely; does NOT apply to a sudden and accidental\n            discharge under Clause 2.1."
+      },
+      {
+        "chunk_id": "HO-0304_water_damage_ed_03-24.pdf#efccbcedeb5ca741",
+        "citation": "HO-0304 ed. 03-24, 3. Exclusions Applicable To Water Damage, p. 1, chunk_id=HO-0304_water_damage_ed_03-24.pdf#efccbcedeb5ca741",
+        "form_number": "HO-0304",
+        "clause": "3. Exclusions Applicable To Water Damage",
+        "text": "FORM HO-0304 ED. 03-24 | POLICY LINE: HOMEOWNERS | Water Damage, Discharge and Overflow Endorsement\nSECTION: 3. Exclusions Applicable To Water Damage\n\n3. EXCLUSIONS APPLICABLE TO WATER DAMAGE\n3.1 We do not cover loss described in the exclusion table below. Each exclusion is identified by a code which is used consistently across all endorsements attached to this policy line. Where an exclusion is shown as conditional, it applies only in the circumstances stated in the disposition column."
+      }
+    ]
+  },
+  {
+    "id": "e02",
+    "question": "Under HO-0412, is cosmetic hail damage to roof surfacing covered if the roof still sheds water?",
+    "expected_form": "HO-0412",
+    "expected_clause": "3.1",
+    "known_answer": "No. E-34 excludes cosmetic damage to roof surfacing absolutely where the water-shedding function is not compromised.",
+    "answer": "No.\u202fUnder HO\u20110412 cosmetic damage to roof surfacing that does not compromise the roof\u2019s ability to shed water is excluded absolutely (E\u201134)\u202f\u2014\u202fso such hail damage is not covered.\u202f[chunk_id=HO-0412_windstorm_hail_ed_06-24.pdf#ad3bf2520b492b14 | HO-0412 (edition 06-24) | Exclusion Table 3.1]\u202fAdditionally, the form notes that \u201cwhere hail both dents and penetrates the surfacing, E\u201134 does not apply and the loss is settled under Clause\u202f2,\u201d confirming that purely cosmetic damage (i.e., water\u2011shedding still intact) falls under the exclusion.\u202f[chunk_id=HO-0412_windstorm_hail_ed_06-24.pdf#28c02e316c19107f | HO-0412 (edition 06-24) | Exclusion Table 3.1]",
+    "verification": {
+      "cited": [
+        "HO-0412_windstorm_hail_ed_06-24.pdf#ad3bf2520b492b14",
+        "HO-0412_windstorm_hail_ed_06-24.pdf#28c02e316c19107f"
+      ],
+      "resolved": [
+        "HO-0412_windstorm_hail_ed_06-24.pdf#28c02e316c19107f",
+        "HO-0412_windstorm_hail_ed_06-24.pdf#ad3bf2520b492b14"
+      ],
+      "unresolved": [],
+      "all_resolve": true,
+      "citations": [
+        "HO-0412 ed. 06-24, Exclusion Table 3.1, p. 1, chunk_id=HO-0412_windstorm_hail_ed_06-24.pdf#ad3bf2520b492b14",
+        "HO-0412 ed. 06-24, Exclusion Table 3.1, p. 2, chunk_id=HO-0412_windstorm_hail_ed_06-24.pdf#28c02e316c19107f"
+      ]
+    },
+    "retrieved": [
+      {
+        "chunk_id": "HO-0412_windstorm_hail_ed_06-24.pdf#28c02e316c19107f",
+        "citation": "HO-0412 ed. 06-24, Exclusion Table 3.1, p. 2, chunk_id=HO-0412_windstorm_hail_ed_06-24.pdf#28c02e316c19107f",
+        "form_number": "HO-0412",
+        "clause": "Exclusion Table 3.1",
+        "text": "FORM HO-0412 ED. 06-24 | POLICY LINE: HOMEOWNERS | Windstorm and Hail - Exterior Surfaces Limitation\nSECTION: Exclusion Table 3.1\nEXCLUSION TABLE 3.1 - WINDSTORM AND HAIL EXCLUSIONS\nCODE  EXCLUSION AND DISPOSITION\n\nNote: Cosmetic damage under E-34 means damage that alters the appearance of roof surfacing without reducing its ability to\nshed water. Where hail both dents and penetrates the surfacing, E-34 does not apply and the loss is settled under Clause 2."
+      },
+      {
+        "chunk_id": "HO-0412_windstorm_hail_ed_06-24.pdf#ad3bf2520b492b14",
+        "citation": "HO-0412 ed. 06-24, Exclusion Table 3.1, p. 1, chunk_id=HO-0412_windstorm_hail_ed_06-24.pdf#ad3bf2520b492b14",
+        "form_number": "HO-0412",
+        "clause": "Exclusion Table 3.1",
+        "text": "FORM HO-0412 ED. 06-24 | POLICY LINE: HOMEOWNERS | Windstorm and Hail - Exterior Surfaces Limitation\nSECTION: Exclusion Table 3.1\nEXCLUSION TABLE 3.1 - WINDSTORM AND HAIL EXCLUSIONS\nCODE  EXCLUSION AND DISPOSITION\n\nE-30  Loss to awnings, canopies or shade structures not permanently attached.\n            Disposition: Excluded absolutely.\nE-31  Loss to outdoor antennas, satellite dishes and their masts.\n            Disposition: Excluded absolutely.\nE-32  Wind-driven rain entering through an opening not caused by wind or hail.\n            Disposition: Excluded absolutely.\nE-33  Loss to screening, screen enclosures and pool cages.\n            Disposition: Excluded above $2,500.\nE-34  Cosmetic damage to roof surfacing that does not compromise the water-shedding function of\n      the roof.\n            Disposition: Excluded absolutely."
+      },
+      {
+        "chunk_id": "HO-0710_definitions_general_conditions_ed_11-23.pdf#d9277886e6b25334",
+        "citation": "HO-0710 ed. 11-23, Clause 2.3, p. 1, chunk_id=HO-0710_definitions_general_conditions_ed_11-23.pdf#d9277886e6b25334",
+        "form_number": "HO-0710",
+        "clause": "Clause 2.3",
+        "text": "FORM HO-0710 ED. 11-23 | POLICY LINE: HOMEOWNERS | Definitions and General Conditions Amendment\nSECTION: Clause 2.3\n\n2.3 Seepage means the escape of water in small quantities over a continuous or repeated period, whether or not the escape is visible and whether or not the insured was aware of it. Seepage is distinguished from a sudden and accidental discharge by its duration and not by the volume of water escaping.\n2.4 Cosmetic damage means physical damage to a surface which alters its appearance without reducing the ability of that surface to perform its intended function. In the case of roof surfacing, the intended function is the shedding of water.\n2.5 Described dwelling means the building shown as the insured location in the declarations, including attached structures and permanently installed fixtures, but excluding other structures set apart from the dwelling by clear space.\n2.6 Policy year means the twelve month period commencing on the inception date shown in the declarations, or on any anniversary of that date."
+      }
+    ]
+  },
+  {
+    "id": "e03",
+    "question": "If the insured never serviced the sump pump, is the resulting back-up covered under HO-0521?",
+    "expected_form": "HO-0521",
+    "expected_clause": "3.1",
+    "known_answer": "No. E-44 excludes absolutely a back-up or overflow caused by failure to maintain, service or test the sump pump to the manufacturer schedule.",
+    "answer": "No.\u202fIf the insured has not maintained, serviced, or tested the sump pump in accordance with the manufacturer\u2019s schedule, the loss is excluded under code\u202fE\u201144, which is an absolute exclusion.\u202f[chunk_id=HO-0521_water_backup_sump_ed_01-24.pdf#46e937071b908b3a | HO-0521 (edition 01-24) | Exclusion Table 3.1]\u202fThe policy notes that E\u201144 \u201cturns on\u201d when maintenance records are missing, and without such records the exclusion applies.\u202f[chunk_id=HO-0521_water_backup_sump_ed_01-24.pdf#c1b4ec2e0ee7f0af | HO-0521 (edition 01-24) | Exclusion Table 3.1]",
+    "verification": {
+      "cited": [
+        "HO-0521_water_backup_sump_ed_01-24.pdf#46e937071b908b3a",
+        "HO-0521_water_backup_sump_ed_01-24.pdf#c1b4ec2e0ee7f0af"
+      ],
+      "resolved": [
+        "HO-0521_water_backup_sump_ed_01-24.pdf#46e937071b908b3a",
+        "HO-0521_water_backup_sump_ed_01-24.pdf#c1b4ec2e0ee7f0af"
+      ],
+      "unresolved": [],
+      "all_resolve": true,
+      "citations": [
+        "HO-0521 ed. 01-24, Exclusion Table 3.1, p. 1, chunk_id=HO-0521_water_backup_sump_ed_01-24.pdf#46e937071b908b3a",
+        "HO-0521 ed. 01-24, Exclusion Table 3.1, p. 2, chunk_id=HO-0521_water_backup_sump_ed_01-24.pdf#c1b4ec2e0ee7f0af"
+      ]
+    },
+    "retrieved": [
+      {
+        "chunk_id": "HO-0521_water_backup_sump_ed_01-24.pdf#c1b4ec2e0ee7f0af",
+        "citation": "HO-0521 ed. 01-24, Exclusion Table 3.1, p. 2, chunk_id=HO-0521_water_backup_sump_ed_01-24.pdf#c1b4ec2e0ee7f0af",
+        "form_number": "HO-0521",
+        "clause": "Exclusion Table 3.1",
+        "text": "FORM HO-0521 ED. 01-24 | POLICY LINE: HOMEOWNERS | Water Back-Up and Sump Discharge or Overflow\nSECTION: Exclusion Table 3.1\nEXCLUSION TABLE 3.1 - BACK-UP AND SUMP OVERFLOW EXCLUSIONS\nCODE  EXCLUSION AND DISPOSITION\n\nNote: E-44 turns on maintenance records. Where the insured produces a service record consistent with the manufacturer\nschedule, E-44 does not apply and the loss is adjudicated under Clause 2.1 even where the pump ultimately failed."
+      },
+      {
+        "chunk_id": "HO-0521_water_backup_sump_ed_01-24.pdf#115b7ca030f51fab",
+        "citation": "HO-0521 ed. 01-24, 4. Conditions, p. 2, chunk_id=HO-0521_water_backup_sump_ed_01-24.pdf#115b7ca030f51fab",
+        "form_number": "HO-0521",
+        "clause": "4. Conditions",
+        "text": "FORM HO-0521 ED. 01-24 | POLICY LINE: HOMEOWNERS | Water Back-Up and Sump Discharge or Overflow\nSECTION: 4. Conditions\n\n4. CONDITIONS\n4.1 The insured must retain the sump pump and its power source following a loss and make them available for inspection and testing.\n4.2 The insured must provide service records for the sump pump covering the twenty-four (24) months preceding the loss where such records are requested by us."
+      },
+      {
+        "chunk_id": "HO-0521_water_backup_sump_ed_01-24.pdf#46e937071b908b3a",
+        "citation": "HO-0521 ed. 01-24, Exclusion Table 3.1, p. 1, chunk_id=HO-0521_water_backup_sump_ed_01-24.pdf#46e937071b908b3a",
+        "form_number": "HO-0521",
+        "clause": "Exclusion Table 3.1",
+        "text": "FORM HO-0521 ED. 01-24 | POLICY LINE: HOMEOWNERS | Water Back-Up and Sump Discharge or Overflow\nSECTION: Exclusion Table 3.1\nEXCLUSION TABLE 3.1 - BACK-UP AND SUMP OVERFLOW EXCLUSIONS\nCODE  EXCLUSION AND DISPOSITION\n\nE-40  Back-up caused by flood or surface water entering the sewer system.\n            Disposition: Excluded absolutely.\nE-41  Back-up occurring while the dwelling is under construction or renovation.\n            Disposition: Excluded absolutely.\nE-42  Loss to the sump, sump pump or related equipment itself.\n            Disposition: Excluded absolutely.\nE-43  Back-up caused by roots, debris or blockage the insured was on notice of.\n            Disposition: Excluded absolutely.\nE-44  Back-up or overflow caused by the failure of the insured to maintain, service or test the\n      sump pump in accordance with the manufacturer schedule.\n            Disposition: Excluded absolutely."
+      }
+    ]
+  }
+]

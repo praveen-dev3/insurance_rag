@@ -9,7 +9,7 @@ it is two unrelated measurements with a delta printed between them.
 So the Week 4 experiment reads from eval/corpus/, which this script
 builds and verifies:
 
-  * the six endorsements are re-rendered from tools/endorsement_content.py,
+  * the six endorsements are re-rendered from tools/data/endorsement_content.py,
     which is source-controlled text, so they are reproducible byte-for-byte
     in content even if the PDFs are deleted;
   * policy.pdf is copied from insurance_docs/ if present, and restored
@@ -29,7 +29,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from endorsement_content import ENDORSEMENTS  # noqa: E402
+from data.endorsement_content import ENDORSEMENTS  # noqa: E402
 from make_endorsements import write_pdf  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent

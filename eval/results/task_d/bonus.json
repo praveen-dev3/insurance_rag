@@ -1,0 +1,161 @@
+{
+  "probes": {
+    "probe_1_late_discovery": "A supply line ruptured abruptly, but the leak was not discovered for twenty days. Does exclusion E-17 apply under HO-0304?",
+    "probe_2_gradual_crack": "Water seeped from a cracked fitting for twenty days. The insured says the crack appeared suddenly and was unintended. Does exclusion E-17 apply under HO-0304?"
+  },
+  "top_k": 3,
+  "runs": {
+    "probe_1_late_discovery": {
+      "recursive": {
+        "strategy": "recursive",
+        "question": "A supply line ruptured abruptly, but the leak was not discovered for twenty days. Does exclusion E-17 apply under HO-0304?",
+        "e17_row_rank": 4,
+        "prompt_chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "HO-0304_water_damage_ed_03-24.pdf#61063947ac023d64",
+            "form_number": "HO-0304",
+            "clause": "4. Conditions Precedent To Payment",
+            "rerank_score": 2.7761,
+            "text": "discharge under Clause 2.1.\nE-18  Mould, fungus or wet rot except as provided by the sublimit in Clause 5.2.\n            Disposition: Excluded above sublimit.\nE-19  Water damage caused by or resulting from a sewer or drain back-up.\n            Disposition: Excluded here; see Form HO-0521.\nE-20  Loss to landscaping, paving or fencing caused by escaping water.\n            Disposition: Excluded absolutely.\nE-21  Water damage arising out of a home-sharing occupancy.\n            Disposition: Excluded; see Form HO-0633.\nNote: Exclusion E-17 is directed at a slow, ongoing failure. It is not triggered by an abrupt rupture. A burst supply line that\ndischarges water over a period shorter than fourteen days is adjudicated under Clause 2.1 and remains covered.\n4. CONDITIONS PRECEDENT TO PAYMENT"
+          },
+          {
+            "rank": 2,
+            "chunk_id": "DP-0208_dwelling_fire_water_ed_05-24.pdf#34b98b9af3996fc2",
+            "form_number": "DP-0208",
+            "clause": "2. Coverage Grant - Sudden And Accidental Discharge",
+            "rerank_score": 2.4979,
+            "text": "2. COVERAGE GRANT - SUDDEN AND ACCIDENTAL DISCHARGE\n2.1 We cover direct physical loss to covered property caused by the sudden and accidental discharge, leakage or overflow\nof water or steam from a plumbing, heating or air conditioning system located within the described dwelling, subject to the\nexclusions in Clause 3. A supply line which ruptures abruptly is a sudden and accidental discharge for the purposes of this\nclause.\n2.2 Coverage under this endorsement is conditional on the dwelling being occupied by a tenant under a written tenancy\nagreement at the date of loss. A dwelling between tenancies is treated as vacant from the sixty-first day after the previous\ntenancy ended.\n3. EXCLUSIONS APPLICABLE TO WATER DAMAGE\n3.1 We do not cover loss described in the exclusion table below. Codes in the E-70 series apply only to the dwelling fire\npolicy line.\nEXCLUSION TABLE 3.1 - WATER DAMAGE EXCLUSIONS, DWELLING FIRE LINE\nCODE  EXCLUSION AND DISPOSITION"
+          },
+          {
+            "rank": 3,
+            "chunk_id": "HO-0304_water_damage_ed_03-24.pdf#7c74282154e9c775",
+            "form_number": "HO-0304",
+            "clause": "2. Coverage Grant - Sudden And Accidental Discharge",
+            "rerank_score": 0.6792,
+            "text": "arising from the escape of water within the described premises, and does not extend to flood, surface water or tidal action,\nwhich remain excluded under the base wording.\nCapitalised terms used but not defined in this endorsement have the meaning given to them in Form HO-0710, Definitions\nand General Conditions Amendment. The insured is directed to that form for the meaning of sudden and accidental, supply\nline, and seepage, each of which materially affects the operation of Clause 3 below.\n2. COVERAGE GRANT - SUDDEN AND ACCIDENTAL DISCHARGE\n2.1 We cover direct physical loss to covered property caused by the sudden and accidental discharge, leakage or overflow\nof water or steam from a plumbing, heating, air conditioning, fire protective sprinkler system, or household appliance\nlocated within the described dwelling. A supply line that ruptures, splits or otherwise fails abruptly is a sudden and\naccidental discharge for the purposes of this clause, and loss resulting from it is covered subject to the exclusions in Clause"
+          }
+        ],
+        "coverage": {
+          "E-17 row (HO-0304 Exclusion Table 3.1)": false,
+          "definition of sudden and accidental (HO-0710 Clause 2.1)": false
+        },
+        "complete_context": false,
+        "answer": "No.\u202fExclusion\u202fE\u201117 is limited to a slow, ongoing failure and is **not** triggered by an abrupt rupture of a supply line.\u202fThe endorsement notes that a burst supply line that discharges water over a period shorter than fourteen days is covered under Clause\u202f2.1, and it explicitly states that E\u201117 does not apply to an abrupt rupture\u3010chunk_id=HO-0304_water_damage_ed_03-24.pdf#61063947ac023d64 | HO-0304 (edition\u202f03\u201124) | 4. Conditions Precedent To Payment\u3011."
+      },
+      "structure": {
+        "strategy": "structure",
+        "question": "A supply line ruptured abruptly, but the leak was not discovered for twenty days. Does exclusion E-17 apply under HO-0304?",
+        "e17_row_rank": 2,
+        "prompt_chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "HO-0304_water_damage_ed_03-24.pdf#ad1f3ac26ec308ef",
+            "form_number": "HO-0304",
+            "clause": "Exclusion Table 3.1",
+            "rerank_score": 4.5095,
+            "text": "FORM HO-0304 ED. 03-24 | POLICY LINE: HOMEOWNERS | Water Damage, Discharge and Overflow Endorsement\nSECTION: Exclusion Table 3.1\nEXCLUSION TABLE 3.1 - WATER DAMAGE EXCLUSIONS\nCODE  EXCLUSION AND DISPOSITION\n\nNote: Exclusion E-17 is directed at a slow, ongoing failure. It is not triggered by an abrupt rupture. A burst supply line that\ndischarges water over a period shorter than fourteen days is adjudicated under Clause 2.1 and remains covered."
+          },
+          {
+            "rank": 2,
+            "chunk_id": "HO-0304_water_damage_ed_03-24.pdf#41a175ccd467f366",
+            "form_number": "HO-0304",
+            "clause": "Exclusion Table 3.1",
+            "rerank_score": 1.5257,
+            "text": "FORM HO-0304 ED. 03-24 | POLICY LINE: HOMEOWNERS | Water Damage, Discharge and Overflow Endorsement\nSECTION: Exclusion Table 3.1\nEXCLUSION TABLE 3.1 - WATER DAMAGE EXCLUSIONS\nCODE  EXCLUSION AND DISPOSITION\n\nE-15  Cost of repairing the appliance or system from which the water escaped.\n            Disposition: Excluded, tear-out still covered under Clause 2.2.\nE-16  Rust, corrosion, wet rot or dry rot forming before the discharge.\n            Disposition: Excluded absolutely.\nE-17  Constant or repeated seepage or leakage of water occurring over a period of fourteen (14)\n      days or more, whether or not the insured was aware of it.\n            Disposition: Excluded absolutely; does NOT apply to a sudden and accidental\n            discharge under Clause 2.1."
+          },
+          {
+            "rank": 3,
+            "chunk_id": "HO-0304_water_damage_ed_03-24.pdf#58951661516ea86b",
+            "form_number": "HO-0304",
+            "clause": "2. Coverage Grant - Sudden And Accidental Discharge",
+            "rerank_score": 1.2636,
+            "text": "FORM HO-0304 ED. 03-24 | POLICY LINE: HOMEOWNERS | Water Damage, Discharge and Overflow Endorsement\nSECTION: 2. Coverage Grant - Sudden And Accidental Discharge\n\n2. COVERAGE GRANT - SUDDEN AND ACCIDENTAL DISCHARGE\n2.1 We cover direct physical loss to covered property caused by the sudden and accidental discharge, leakage or overflow of water or steam from a plumbing, heating, air conditioning, fire protective sprinkler system, or household appliance located within the described dwelling. A supply line that ruptures, splits or otherwise fails abruptly is a sudden and accidental discharge for the purposes of this clause, and loss resulting from it is covered subject to the exclusions in Clause 3 and the limits in Clause 5."
+          }
+        ],
+        "coverage": {
+          "E-17 row (HO-0304 Exclusion Table 3.1)": true,
+          "definition of sudden and accidental (HO-0710 Clause 2.1)": false
+        },
+        "complete_context": false,
+        "answer": "No.\u202fExclusion\u202fE\u201117 only covers \u201cconstant or repeated seepage or leakage \u2026 over a period of fourteen (14) days or more\u201d and \u201cdoes NOT apply to a sudden and accidental discharge\u201d\u202f[chunk_id=HO-0304_water_damage_ed_03-24.pdf#41a175ccd467f366 | HO-0304 (edition\u202f03\u201124) | Exclusion Table\u202f3.1].\u202fBecause a ruptured supply line is an abrupt failure that is a \u201csudden and accidental discharge\u201d under Clause\u202f2.1, E\u201117 is not triggered even though the leak was not discovered for twenty days\u202f[chunk_id=HO-0304_water_damage_ed_03-24.pdf#ad1f3ac26ec308ef | HO-0304 (edition\u202f03\u201124) | Exclusion Table\u202f3.1]."
+      }
+    },
+    "probe_2_gradual_crack": {
+      "recursive": {
+        "strategy": "recursive",
+        "question": "Water seeped from a cracked fitting for twenty days. The insured says the crack appeared suddenly and was unintended. Does exclusion E-17 apply under HO-0304?",
+        "e17_row_rank": 1,
+        "prompt_chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "HO-0304_water_damage_ed_03-24.pdf#932862290fd27d45",
+            "form_number": "HO-0304",
+            "clause": "unspecified",
+            "rerank_score": 0.0509,
+            "text": "E-13  Discharge from a system the insured failed to drain before a period of vacancy.\n            Disposition: Excluded absolutely.\nE-14  Loss caused by freezing of a plumbing system during the heating season.\n            Disposition: Excluded unless heat maintained at 55F or above.\nE-15  Cost of repairing the appliance or system from which the water escaped.\n            Disposition: Excluded, tear-out still covered under Clause 2.2.\nE-16  Rust, corrosion, wet rot or dry rot forming before the discharge.\n            Disposition: Excluded absolutely.\nE-17  Constant or repeated seepage or leakage of water occurring over a period of fourteen (14)\n      days or more, whether or not the insured was aware of it.\n            Disposition: Excluded absolutely; does NOT apply to a sudden and accidental\n            discharge under Clause 2.1.\nE-18  Mould, fungus or wet rot except as provided by the sublimit in Clause 5.2."
+          },
+          {
+            "rank": 2,
+            "chunk_id": "HO-0710_definitions_general_conditions_ed_11-23.pdf#ee8c04643e625807",
+            "form_number": "HO-0710",
+            "clause": "Clause 2.2",
+            "rerank_score": -2.021,
+            "text": "an identifiable point in time. An event is not sudden and accidental merely because its consequences were unexpected. A\nprocess which develops gradually over a period of fourteen (14) days or more is not sudden and accidental however\nunintended its result, and is adjudicated as seepage.\n2.2 Supply line means any pipe, hose, tube, fitting or connector which conveys water under mains pressure to a fixture,\nappliance or system within the described dwelling, up to and including the shut-off valve serving that fixture, appliance or\nsystem. A supply line does not include a waste, soil or drainage pipe, which is a drain line.\n2.3 Seepage means the escape of water in small quantities over a continuous or repeated period, whether or not the escape is\nvisible and whether or not the insured was aware of it. Seepage is distinguished from a sudden and accidental discharge by\nits duration and not by the volume of water escaping.\n2.4 Cosmetic damage means physical damage to a surface which alters its appearance without reducing the ability of that"
+          },
+          {
+            "rank": 3,
+            "chunk_id": "HO-0304_water_damage_ed_03-24.pdf#61063947ac023d64",
+            "form_number": "HO-0304",
+            "clause": "4. Conditions Precedent To Payment",
+            "rerank_score": -3.3263,
+            "text": "discharge under Clause 2.1.\nE-18  Mould, fungus or wet rot except as provided by the sublimit in Clause 5.2.\n            Disposition: Excluded above sublimit.\nE-19  Water damage caused by or resulting from a sewer or drain back-up.\n            Disposition: Excluded here; see Form HO-0521.\nE-20  Loss to landscaping, paving or fencing caused by escaping water.\n            Disposition: Excluded absolutely.\nE-21  Water damage arising out of a home-sharing occupancy.\n            Disposition: Excluded; see Form HO-0633.\nNote: Exclusion E-17 is directed at a slow, ongoing failure. It is not triggered by an abrupt rupture. A burst supply line that\ndischarges water over a period shorter than fourteen days is adjudicated under Clause 2.1 and remains covered.\n4. CONDITIONS PRECEDENT TO PAYMENT"
+          }
+        ],
+        "coverage": {
+          "E-17 row (HO-0304 Exclusion Table 3.1)": true,
+          "definition of sudden and accidental (HO-0710 Clause 2.1)": false
+        },
+        "complete_context": false,
+        "answer": "Yes.\u202fBecause the water escaped for twenty days\u2014more than the fourteen\u2011day period that distinguishes seepage from a sudden, accidental discharge\u2014the loss is classified as seepage and is excluded absolutely under exclusion\u202fE\u201117 of HO\u20110304.\u202fThe exclusion states that \u201cConstant or repeated seepage or leakage of water occurring over a period of fourteen (14) days or more\u2026\u202fDisposition: Excluded absolutely; does NOT apply to a sudden and accidental discharge under Clause\u202f2.1\u201d\u202f[chunk_id=HO-0304_water_damage_ed_03-24.pdf#932862290fd27d45 | HO-0304 (edition\u202f03\u201124) | E\u201117] and the definition of seepage notes that a process lasting fourteen days or more is adjudicated as seepage, not a sudden accidental event\u202f[chunk_id=HO-0710_definitions_general_conditions_ed_11-23.pdf#ee8c04643e625807 | HO-0710 (edition\u202f11\u201123) | Clause\u202f2.2]. The note in the same form further confirms that E\u201117 is directed at a slow, ongoing failure and is not triggered by an abrupt rupture lasting less than fourteen days\u202f[chunk_id=HO-0304_water_damage_ed_03-24.pdf#61063947ac023d64 | HO-0304 (edition\u202f03\u201124) | 4. Conditions Precedent To Payment]."
+      },
+      "structure": {
+        "strategy": "structure",
+        "question": "Water seeped from a cracked fitting for twenty days. The insured says the crack appeared suddenly and was unintended. Does exclusion E-17 apply under HO-0304?",
+        "e17_row_rank": 1,
+        "prompt_chunks": [
+          {
+            "rank": 1,
+            "chunk_id": "HO-0304_water_damage_ed_03-24.pdf#41a175ccd467f366",
+            "form_number": "HO-0304",
+            "clause": "Exclusion Table 3.1",
+            "rerank_score": 0.5644,
+            "text": "FORM HO-0304 ED. 03-24 | POLICY LINE: HOMEOWNERS | Water Damage, Discharge and Overflow Endorsement\nSECTION: Exclusion Table 3.1\nEXCLUSION TABLE 3.1 - WATER DAMAGE EXCLUSIONS\nCODE  EXCLUSION AND DISPOSITION\n\nE-15  Cost of repairing the appliance or system from which the water escaped.\n            Disposition: Excluded, tear-out still covered under Clause 2.2.\nE-16  Rust, corrosion, wet rot or dry rot forming before the discharge.\n            Disposition: Excluded absolutely.\nE-17  Constant or repeated seepage or leakage of water occurring over a period of fourteen (14)\n      days or more, whether or not the insured was aware of it.\n            Disposition: Excluded absolutely; does NOT apply to a sudden and accidental\n            discharge under Clause 2.1."
+          },
+          {
+            "rank": 2,
+            "chunk_id": "HO-0710_definitions_general_conditions_ed_11-23.pdf#4a3af5524b7032d0",
+            "form_number": "HO-0710",
+            "clause": "2. Definitions",
+            "rerank_score": -2.1314,
+            "text": "FORM HO-0710 ED. 11-23 | POLICY LINE: HOMEOWNERS | Definitions and General Conditions Amendment\nSECTION: 2. Definitions\n\n2. DEFINITIONS\n2.1 Sudden and accidental means an event which is both abrupt in onset and unintended by the insured, and which occurs at an identifiable point in time. An event is not sudden and accidental merely because its consequences were unexpected. A process which develops gradually over a period of fourteen (14) days or more is not sudden and accidental however unintended its result, and is adjudicated as seepage.\n2.2 Supply line means any pipe, hose, tube, fitting or connector which conveys water under mains pressure to a fixture, appliance or system within the described dwelling, up to and including the shut-off valve serving that fixture, appliance or system. A supply line does not include a waste, soil or drainage pipe, which is a drain line."
+          },
+          {
+            "rank": 3,
+            "chunk_id": "HO-0304_water_damage_ed_03-24.pdf#ad1f3ac26ec308ef",
+            "form_number": "HO-0304",
+            "clause": "Exclusion Table 3.1",
+            "rerank_score": -3.4181,
+            "text": "FORM HO-0304 ED. 03-24 | POLICY LINE: HOMEOWNERS | Water Damage, Discharge and Overflow Endorsement\nSECTION: Exclusion Table 3.1\nEXCLUSION TABLE 3.1 - WATER DAMAGE EXCLUSIONS\nCODE  EXCLUSION AND DISPOSITION\n\nNote: Exclusion E-17 is directed at a slow, ongoing failure. It is not triggered by an abrupt rupture. A burst supply line that\ndischarges water over a period shorter than fourteen days is adjudicated under Clause 2.1 and remains covered."
+          }
+        ],
+        "coverage": {
+          "E-17 row (HO-0304 Exclusion Table 3.1)": true,
+          "definition of sudden and accidental (HO-0710 Clause 2.1)": true
+        },
+        "complete_context": true,
+        "answer": "Yes.\u202fExclusion\u202fE\u201117 covers \u201cconstant or repeated seepage or leakage of water occurring over a period of fourteen (14) days or more\u2026[and] does NOT apply to a sudden and accidental discharge\u201d\u202f[chunk_id=HO-0304_water_damage_ed_03-24.pdf#41a175ccd467f366 | HO-0304 | Exclusion Table 3.1].\u202fBecause the water seeped for twenty days, the loss meets the \u201cover a period of fourteen days or more\u201d trigger.\u202fThe definition of \u201csudden and accidental\u201d states that a process that develops gradually over fourteen days or more is not sudden and accidental but is adjudicated as seepage\u202f[chunk_id=HO-0710_definitions_general_conditions_ed_11-23.pdf#4a3af5524b7032d0 | HO-0710 | 2.1].\u202fThus the situation is excluded under E\u201117.\u202f(See also the note that E\u201117 is directed at a slow, ongoing failure and is not triggered by an abrupt rupture)\u202f[chunk_id=HO-0304_water_damage_ed_03-24.pdf#ad1f3ac26ec308ef | HO-0304 | Exclusion Table 3.1]."
+      }
+    }
+  }
+}

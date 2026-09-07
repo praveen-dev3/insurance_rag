@@ -29,25 +29,20 @@ Usage:
 
 import json
 import statistics
-import sys
 import time
 from collections import Counter
 from pathlib import Path
 
-import chromadb
+from _runner import chroma_client, make_saver, positional_stage
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+from build_w4_golden import COLLECTION, build_index
 
-from build_w4_golden import COLLECTION, build_index  # noqa: E402
-
-from rag.config import CHROMA_PATH  # noqa: E402
-from rag.diagnostics import TASK_LABELS, classify_by_chunk_id  # noqa: E402
-from rag.evaluation import latency_summary  # noqa: E402
-from rag.generation import generate_answer, is_generation_error  # noqa: E402
-from rag.indexing import open_collection  # noqa: E402
-from rag.rerankers import get_reranker  # noqa: E402
-from rag.retrieval import HybridRetriever  # noqa: E402
+from rag.diagnostics import TASK_LABELS, classify_by_chunk_id
+from rag.evaluation import latency_summary
+from rag.generation import generate_answer, is_generation_error
+from rag.indexing import open_collection
+from rag.rerankers import get_reranker
+from rag.retrieval import HybridRetriever
 
 GOLDEN_SET = Path("eval/golden_set.jsonl")
 OUTPUT_DIR = Path("eval/results/week4")
@@ -395,17 +390,12 @@ def compare_arms(before, after):
     return verdicts
 
 
-def save(payload, name):
-
-    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-    path = OUTPUT_DIR / name
-    path.write_text(json.dumps(payload, indent=2, default=str), encoding="utf-8")
-    print(f"  wrote {path}")
+save = make_saver(OUTPUT_DIR)
 
 
 def main():
 
-    stage = sys.argv[1] if len(sys.argv) > 1 else "all"
+    stage = positional_stage()
     generate = stage != "retrieval"
 
     cases = load_cases()
@@ -415,7 +405,7 @@ def main():
         f"{sum(1 for c in cases if c['has_exact_token'])} with an exact token."
     )
 
-    client = chromadb.PersistentClient(path=CHROMA_PATH)
+    client = chroma_client()
 
     try:
         collection = open_collection(client, COLLECTION)

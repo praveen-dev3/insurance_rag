@@ -1,0 +1,18 @@
+{
+  "agent": {
+    "pass_rate": 0.9,
+    "pass_count": 9,
+    "n": 10,
+    "p50_latency_s": 43.71767269997508,
+    "total_tokens": 82769,
+    "cost_per_claim_usd": 0.00069378
+  },
+  "workflow": {
+    "pass_rate": 0.8,
+    "pass_count": 8,
+    "n": 10,
+    "p50_latency_s": 8.381715099996654,
+    "total_tokens": 11889,
+    "cost_per_claim_usd": 0.00012852
+  }
+}

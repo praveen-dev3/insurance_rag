@@ -56,3 +56,6 @@ node_modules/
 
 # Bonus dependency footprint (ragas/langchain) is installed on demand, not pinned
 .ragas_cache/
+
+# Claude Code session-local runtime state, not project content
+.claude/scheduled_tasks.lock

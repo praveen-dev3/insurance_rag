@@ -1,0 +1,38 @@
+[
+  {
+    "id": "x11",
+    "question": "What is the reserve-setting threshold for claim CLM-2024-88431?",
+    "chunks_forced": 3,
+    "context": [
+      "policy.pdf, p. 1-8, chunk_id=policy.pdf#dfb3547d4060d5cf",
+      "DP-0208 ed. 05-24, p. 1, chunk_id=DP-0208_dwelling_fire_water_ed_05-24.pdf#f22d15d39bf337d7",
+      "policy.pdf, p. 1-8, chunk_id=policy.pdf#914acbc1922b4e87"
+    ],
+    "answer": "I don't know based on the provided documents.",
+    "is_refusal": true
+  },
+  {
+    "id": "x12",
+    "question": "Which adjuster is assigned to claim CLM-2024-88431, and what is their settlement authority?",
+    "chunks_forced": 3,
+    "context": [
+      "policy.pdf, p. 1-8, chunk_id=policy.pdf#2cb17404b40af1b5",
+      "policy.pdf, p. 1-8, chunk_id=policy.pdf#dfb3547d4060d5cf",
+      "policy.pdf, p. 1-8, chunk_id=policy.pdf#d42de0daba647602"
+    ],
+    "answer": "I don't know based on the provided documents.",
+    "is_refusal": true
+  },
+  {
+    "id": "x13",
+    "question": "What is the current replacement-cost valuation on file for the dwelling at 42 Ridgeline Drive?",
+    "chunks_forced": 3,
+    "context": [
+      "HO-0412 ed. 06-24, 2. Coverage Basis For Roof Surfacing, p. 1, chunk_id=HO-0412_windstorm_hail_ed_06-24.pdf#4dcd4c55d0c3a315",
+      "HO-0304 ed. 03-24, Clause 2.2, p. 1, chunk_id=HO-0304_water_damage_ed_03-24.pdf#b6984390e80358cb",
+      "DP-0208 ed. 05-24, 5. Limit And Deductible, p. 2, chunk_id=DP-0208_dwelling_fire_water_ed_05-24.pdf#47190ba4d15671fd"
+    ],
+    "answer": "I don't know based on the provided documents.",
+    "is_refusal": true
+  }
+]

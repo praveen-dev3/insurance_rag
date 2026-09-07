@@ -1,4 +1,4 @@
-"""Render the six endorsements in tools/endorsement_content.py to PDF.
+"""Render the six endorsements in tools/data/endorsement_content.py to PDF.
 
 Run once:  python tools/make_endorsements.py
 
@@ -37,7 +37,7 @@ from reportlab.platypus import (
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from endorsement_content import ENDORSEMENTS  # noqa: E402
+from data.endorsement_content import ENDORSEMENTS  # noqa: E402
 
 OUTPUT_DIR = Path(__file__).resolve().parent.parent / "insurance_docs"
 

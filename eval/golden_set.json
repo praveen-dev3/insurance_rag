@@ -1,0 +1,359 @@
+{
+  "corpus": "insurance_docs/policy.pdf",
+  "notes": [
+    "Ground truth is recorded at PAGE level, not chunk level, on purpose.",
+    "Chunk ids change whenever the chunk size or strategy changes, so",
+    "chunk-level labels would make a chunking sweep un-comparable. Pages",
+    "are stable, so the same labels stay valid across every configuration.",
+    "A retrieved chunk counts as relevant when its page range overlaps any",
+    "listed page of the listed source.",
+    "answer_contains holds only strings robust to paraphrase - identifiers",
+    "and figures as they are written in the PDF. It is left empty where no",
+    "such anchor exists, in which case only a refusal counts as a",
+    "generation failure."
+  ],
+  "cases": [
+    {
+      "id": "q01",
+      "question": "What is the registration number of the insured bike?",
+      "source": "policy.pdf",
+      "relevant_pages": [2, 4, 8],
+      "answer_contains": ["TN06BJ2206"],
+      "answerable": true,
+      "tags": ["identifier"]
+    },
+    {
+      "id": "q02",
+      "question": "What is the engine CC and fuel type of the bike?",
+      "source": "policy.pdf",
+      "relevant_pages": [4],
+      "answer_contains": ["155"],
+      "answerable": true,
+      "tags": ["spec"]
+    },
+    {
+      "id": "q03",
+      "question": "What is the total premium paid for this policy?",
+      "source": "policy.pdf",
+      "relevant_pages": [4, 8],
+      "answer_contains": ["2,025"],
+      "answerable": true,
+      "tags": ["amount"]
+    },
+    {
+      "id": "q04",
+      "question": "How much IGST was charged on the premium?",
+      "source": "policy.pdf",
+      "relevant_pages": [4, 8],
+      "answer_contains": ["309"],
+      "answerable": true,
+      "tags": ["amount"]
+    },
+    {
+      "id": "q05",
+      "question": "What is the period of insurance for this policy?",
+      "source": "policy.pdf",
+      "relevant_pages": [2, 8],
+      "answer_contains": ["27 Dec"],
+      "answerable": true,
+      "tags": ["date"]
+    },
+    {
+      "id": "q06",
+      "question": "Who is the owner of the insured bike?",
+      "source": "policy.pdf",
+      "relevant_pages": [2, 4, 8],
+      "answer_contains": ["Sarathkumar"],
+      "answerable": true,
+      "tags": ["identifier"]
+    },
+    {
+      "id": "q07",
+      "question": "What is the limit of liability for damage to third party property?",
+      "source": "policy.pdf",
+      "relevant_pages": [2, 7],
+      "answer_contains": [],
+      "answerable": true,
+      "tags": ["coverage"]
+    },
+    {
+      "id": "q08",
+      "question": "How much does the compulsory personal accident cover pay out?",
+      "source": "policy.pdf",
+      "relevant_pages": [2, 6, 7],
+      "answer_contains": [],
+      "answerable": true,
+      "tags": ["coverage"]
+    },
+    {
+      "id": "q09",
+      "question": "Who is the nominee and what is their relationship to the insured?",
+      "source": "policy.pdf",
+      "relevant_pages": [8],
+      "answer_contains": ["Brother"],
+      "answerable": true,
+      "tags": ["identifier"]
+    },
+    {
+      "id": "q10",
+      "question": "What is the chassis number of the bike?",
+      "source": "policy.pdf",
+      "relevant_pages": [4],
+      "answer_contains": ["ME1RG5913K0008278"],
+      "answerable": true,
+      "tags": ["identifier", "exact-code"]
+    },
+    {
+      "id": "q11",
+      "question": "What is the engine number of the bike?",
+      "source": "policy.pdf",
+      "relevant_pages": [4],
+      "answer_contains": ["G3K5E0092201"],
+      "answerable": true,
+      "tags": ["identifier", "exact-code"]
+    },
+    {
+      "id": "q12",
+      "question": "What is Acko's GSTIN?",
+      "source": "policy.pdf",
+      "relevant_pages": [4],
+      "answer_contains": ["29AAOCA9055C1ZF"],
+      "answerable": true,
+      "tags": ["identifier", "exact-code"]
+    },
+    {
+      "id": "q13",
+      "question": "What is the policy number?",
+      "source": "policy.pdf",
+      "relevant_pages": [2, 8],
+      "answer_contains": ["DBTR10460060578"],
+      "answerable": true,
+      "tags": ["identifier", "exact-code"]
+    },
+    {
+      "id": "q14",
+      "question": "What are the reasons my claim might get rejected?",
+      "source": "policy.pdf",
+      "relevant_pages": [3],
+      "answer_contains": [],
+      "answerable": true,
+      "tags": ["exclusion"]
+    },
+    {
+      "id": "q15",
+      "question": "Is wiring damage caused by rat bites covered?",
+      "source": "policy.pdf",
+      "relevant_pages": [2],
+      "answer_contains": [],
+      "answerable": true,
+      "tags": ["exclusion", "paraphrase"]
+    },
+    {
+      "id": "q16",
+      "question": "Can I use the bike for organised racing or speed testing?",
+      "source": "policy.pdf",
+      "relevant_pages": [7],
+      "answer_contains": [],
+      "answerable": true,
+      "tags": ["exclusion"]
+    },
+    {
+      "id": "q17",
+      "question": "Which persons are entitled to drive the insured vehicle?",
+      "source": "policy.pdf",
+      "relevant_pages": [7],
+      "answer_contains": [],
+      "answerable": true,
+      "tags": ["condition"]
+    },
+    {
+      "id": "q18",
+      "question": "What happens if I did not disclose correct information when buying the policy?",
+      "source": "policy.pdf",
+      "relevant_pages": [8],
+      "answer_contains": [],
+      "answerable": true,
+      "tags": ["condition", "paraphrase"]
+    },
+    {
+      "id": "q19",
+      "question": "How do I make a claim with ACKO?",
+      "source": "policy.pdf",
+      "relevant_pages": [3],
+      "answer_contains": [],
+      "answerable": true,
+      "tags": ["procedure"]
+    },
+    {
+      "id": "q20",
+      "question": "What phone number do I call to report a claim?",
+      "source": "policy.pdf",
+      "relevant_pages": [3],
+      "answer_contains": ["1800 266 2256"],
+      "answerable": true,
+      "tags": ["procedure", "exact-code"]
+    },
+    {
+      "id": "q21",
+      "question": "Are tyres and tubes covered by the policy?",
+      "source": "policy.pdf",
+      "relevant_pages": [2],
+      "answer_contains": [],
+      "answerable": true,
+      "tags": ["exclusion"]
+    },
+    {
+      "id": "q22",
+      "question": "What is the UIN of the compulsory personal accident cover?",
+      "source": "policy.pdf",
+      "relevant_pages": [6],
+      "answer_contains": ["IRDAN157RP0024V01201819"],
+      "answerable": true,
+      "tags": ["identifier", "exact-code"]
+    },
+    {
+      "id": "q23",
+      "question": "In which year was the bike registered?",
+      "source": "policy.pdf",
+      "relevant_pages": [4, 8],
+      "answer_contains": ["2019"],
+      "answerable": true,
+      "tags": ["spec"]
+    },
+    {
+      "id": "q24",
+      "question": "Which office issued this policy?",
+      "source": "policy.pdf",
+      "relevant_pages": [7],
+      "answer_contains": ["Bengaluru"],
+      "answerable": true,
+      "tags": ["identifier"]
+    },
+    {
+      "id": "q25",
+      "question": "What is the basic third party premium amount?",
+      "source": "policy.pdf",
+      "relevant_pages": [4],
+      "answer_contains": ["1,366"],
+      "answerable": true,
+      "tags": ["amount"]
+    },
+    {
+      "id": "q26",
+      "question": "What is the pincode on the insured's address?",
+      "source": "policy.pdf",
+      "relevant_pages": [4, 8],
+      "answer_contains": ["600002"],
+      "answerable": true,
+      "tags": ["identifier"]
+    },
+    {
+      "id": "q27",
+      "question": "What is the make and model of the insured vehicle?",
+      "source": "policy.pdf",
+      "relevant_pages": [2, 4, 8],
+      "answer_contains": ["MT-15"],
+      "answerable": true,
+      "tags": ["spec"]
+    },
+    {
+      "id": "q28",
+      "question": "What is the intermediary code for this policy?",
+      "source": "policy.pdf",
+      "relevant_pages": [7],
+      "answer_contains": ["218"],
+      "answerable": true,
+      "tags": ["identifier", "exact-code"]
+    },
+    {
+      "id": "q29",
+      "question": "What document is required if I claim within 30 days of the policy start date?",
+      "source": "policy.pdf",
+      "relevant_pages": [4],
+      "answer_contains": [],
+      "answerable": true,
+      "tags": ["procedure", "paraphrase"]
+    },
+    {
+      "id": "q30",
+      "question": "How much stamp duty is paid on this policy?",
+      "source": "policy.pdf",
+      "relevant_pages": [7],
+      "answer_contains": ["0.50"],
+      "answerable": true,
+      "tags": ["amount"]
+    },
+    {
+      "id": "q31",
+      "question": "Can somebody with only a learner's licence ride the insured bike?",
+      "source": "policy.pdf",
+      "relevant_pages": [7],
+      "answer_contains": [],
+      "answerable": true,
+      "tags": ["condition", "paraphrase"]
+    },
+    {
+      "id": "q32",
+      "question": "What does Section II-1(ii) of the policy cover?",
+      "source": "policy.pdf",
+      "relevant_pages": [7],
+      "answer_contains": [],
+      "answerable": true,
+      "tags": ["exact-code", "clause"]
+    },
+    {
+      "id": "x01",
+      "question": "What is the maternity benefit under this policy?",
+      "source": "policy.pdf",
+      "relevant_pages": [],
+      "answer_contains": [],
+      "answerable": false,
+      "tags": ["out-of-scope"]
+    },
+    {
+      "id": "x02",
+      "question": "What No Claim Bonus percentage applies to this policy?",
+      "source": "policy.pdf",
+      "relevant_pages": [],
+      "answer_contains": [],
+      "answerable": false,
+      "tags": ["out-of-scope"]
+    },
+    {
+      "id": "x03",
+      "question": "Which cashless garages are available in Coimbatore?",
+      "source": "policy.pdf",
+      "relevant_pages": [],
+      "answer_contains": [],
+      "answerable": false,
+      "tags": ["out-of-scope"]
+    },
+    {
+      "id": "x04",
+      "question": "What is the deductible amount for hospitalisation?",
+      "source": "policy.pdf",
+      "relevant_pages": [],
+      "answer_contains": [],
+      "answerable": false,
+      "tags": ["out-of-scope"]
+    },
+    {
+      "id": "x05",
+      "question": "What will the premium be when I renew in 2027?",
+      "source": "policy.pdf",
+      "relevant_pages": [],
+      "answer_contains": [],
+      "answerable": false,
+      "tags": ["out-of-scope"]
+    },
+    {
+      "id": "x06",
+      "question": "What is the sum insured for a pillion rider under this policy?",
+      "source": "policy.pdf",
+      "relevant_pages": [],
+      "answer_contains": [],
+      "answerable": false,
+      "tags": ["out-of-scope"]
+    }
+  ]
+}

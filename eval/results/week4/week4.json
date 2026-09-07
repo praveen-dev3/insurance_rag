@@ -1,0 +1,1532 @@
+{
+  "k": 3,
+  "before": {
+    "arm": "before",
+    "label": "dense only",
+    "mode": "dense",
+    "k": 3,
+    "hit_at_3": 9,
+    "of": 12,
+    "hit_rate_at_3": 0.75,
+    "latency_ms": {
+      "p50": 32.0,
+      "mean": 39.9,
+      "p95": 115.5,
+      "n": 12
+    },
+    "tally": {
+      "R": 3,
+      "OK": 9
+    },
+    "rows": [
+      {
+        "id": "w01",
+        "question": "Does exclusion E-17 apply under form HO-0304 ed. 03-24 when a supply line bursts?",
+        "has_exact_token": true,
+        "expected_chunk_id": "HO-0304_water_damage_ed_03-24.pdf#41a175ccd467f366",
+        "expected_form": "HO-0304",
+        "expected_clause": "Exclusion Table 3.1",
+        "hit_at_3": false,
+        "rank": null,
+        "latency_ms": 34.2,
+        "label": "retrieval_failure",
+        "task_label": "R",
+        "evidence": "Correct chunk absent from top-3; fusion had it at rank 4, rerank left it at rank 4. Top-3 were [HO-0304/Exclusion Table 3.1 0.000, HO-0521/3. Exclusions Applicable To Back-Up And Overflow -1.000, HO-0521/Exclusion Table 3.1 -2.000].",
+        "diagnosis_evidence": {
+          "correct_chunk_id": "HO-0304_water_damage_ed_03-24.pdf#41a175ccd467f366",
+          "top_ids": [
+            "HO-0304_water_damage_ed_03-24.pdf#ad1f3ac26ec308ef",
+            "HO-0521_water_backup_sump_ed_01-24.pdf#a95eba25c94277e8",
+            "HO-0521_water_backup_sump_ed_01-24.pdf#46e937071b908b3a"
+          ],
+          "fused_rank": 4,
+          "reranked_rank": 4,
+          "present_before_rerank": true
+        },
+        "answer": "No.\u202fUnder form\u202fHO\u20110304\u202fedition\u202f03\u201124, exclusion\u202fE\u201117 is directed at a slow, ongoing failure and is **not** triggered by an abrupt rupture. A burst supply line that discharges water for less than fourteen days is handled under Clause\u202f2.1 and remains covered.\u202f[chunk_id=HO-0304_water_damage_ed_03-24.pdf#ad1f3ac26ec308ef | HO-0304 (edition\u202f03\u201124) | Exclusion Table\u202f3.1]",
+        "top_3": [
+          {
+            "rank": 1,
+            "chunk_id": "HO-0304_water_damage_ed_03-24.pdf#ad1f3ac26ec308ef",
+            "form_number": "HO-0304",
+            "clause": "Exclusion Table 3.1",
+            "rrf_score": 0.016393,
+            "dense_rank": 1,
+            "sparse_rank": null,
+            "is_expected": false
+          },
+          {
+            "rank": 2,
+            "chunk_id": "HO-0521_water_backup_sump_ed_01-24.pdf#a95eba25c94277e8",
+            "form_number": "HO-0521",
+            "clause": "3. Exclusions Applicable To Back-Up And Overflow",
+            "rrf_score": 0.016129,
+            "dense_rank": 2,
+            "sparse_rank": null,
+            "is_expected": false
+          },
+          {
+            "rank": 3,
+            "chunk_id": "HO-0521_water_backup_sump_ed_01-24.pdf#46e937071b908b3a",
+            "form_number": "HO-0521",
+            "clause": "Exclusion Table 3.1",
+            "rrf_score": 0.015873,
+            "dense_rank": 3,
+            "sparse_rank": null,
+            "is_expected": false
+          }
+        ]
+      },
+      {
+        "id": "w02",
+        "question": "Insured is claiming hail dents that did not puncture the shingles. Does E-34 on HO-0412 knock it out?",
+        "has_exact_token": true,
+        "expected_chunk_id": "HO-0412_windstorm_hail_ed_06-24.pdf#ad3bf2520b492b14",
+        "expected_form": "HO-0412",
+        "expected_clause": "Exclusion Table 3.1",
+        "hit_at_3": true,
+        "rank": 2,
+        "latency_ms": 26.9,
+        "label": "ok",
+        "task_label": "OK",
+        "evidence": "Correct chunk at rank 2 of 3 and the answer uses it.",
+        "diagnosis_evidence": {
+          "correct_chunk_id": "HO-0412_windstorm_hail_ed_06-24.pdf#ad3bf2520b492b14",
+          "rank": 2
+        },
+        "answer": "Yes.\u202fE\u201134 excludes \u201ccosmetic damage to roof surfacing that does not compromise the water\u2011shedding function of the roof,\u201d which includes hail dents that do not puncture the shingles\u202f[chunk_id=HO-0412_windstorm_hail_ed_06-24.pdf#ad3bf2520b492b14 | HO-0412 (edition 06-24) | Exclusion Table 3.1]\u202fand the accompanying note clarifies that such damage is excluded absolutely\u202f[chunk_id=HO-0412_windstorm_hail_ed_06-24.pdf#28c02e316c19107f | HO-0412 (edition 06-24) | Exclusion Table 3.1].",
+        "top_3": [
+          {
+            "rank": 1,
+            "chunk_id": "HO-0412_windstorm_hail_ed_06-24.pdf#28c02e316c19107f",
+            "form_number": "HO-0412",
+            "clause": "Exclusion Table 3.1",
+            "rrf_score": 0.016393,
+            "dense_rank": 1,
+            "sparse_rank": null,
+            "is_expected": false
+          },
+          {
+            "rank": 2,
+            "chunk_id": "HO-0412_windstorm_hail_ed_06-24.pdf#ad3bf2520b492b14",
+            "form_number": "HO-0412",
+            "clause": "Exclusion Table 3.1",
+            "rrf_score": 0.016129,
+            "dense_rank": 2,
+            "sparse_rank": null,
+            "is_expected": true
+          },
+          {
+            "rank": 3,
+            "chunk_id": "HO-0412_windstorm_hail_ed_06-24.pdf#6b80768088f8156b",
+            "form_number": "HO-0412",
+            "clause": "Exclusion Table 3.1",
+            "rrf_score": 0.015873,
+            "dense_rank": 3,
+            "sparse_rank": null,
+            "is_expected": false
+          }
+        ]
+      },
+      {
+        "id": "w03",
+        "question": "Sump pump had no service records at all. Which exclusion code on HO-0521 do I cite?",
+        "has_exact_token": true,
+        "expected_chunk_id": "HO-0521_water_backup_sump_ed_01-24.pdf#46e937071b908b3a",
+        "expected_form": "HO-0521",
+        "expected_clause": "Exclusion Table 3.1",
+        "hit_at_3": true,
+        "rank": 2,
+        "latency_ms": 35.1,
+        "label": "ok",
+        "task_label": "OK",
+        "evidence": "Correct chunk at rank 2 of 3 and the answer uses it.",
+        "diagnosis_evidence": {
+          "correct_chunk_id": "HO-0521_water_backup_sump_ed_01-24.pdf#46e937071b908b3a",
+          "rank": 2
+        },
+        "answer": "The exclusion that applies when the insured has no maintenance or service records for the sump pump is **E\u201144** \u2013 \u201cBack\u2011up or overflow caused by the failure of the insured to maintain, service or test the sump pump in accordance with the manufacturer schedule.\u201d\u202f[chunk_id=HO-0521_water_backup_sump_ed_01-24.pdf#46e937071b908b3a\u202f|\u202fHO-0521 (edition 01-24)\u202f|\u202fExclusion Table 3.1]\u202fand the note that \u201cE\u201144 turns on maintenance records\u2026 where the insured produces a service record\u2026 E\u201144 does not apply\u201d\u202f[chunk_id=HO-0521_water_backup_sump_ed_01-24.pdf#c1b4ec2e0ee7f0af\u202f|\u202fHO-0521 (edition 01-24)\u202f|\u202fExclusion Table 3.1].",
+        "top_3": [
+          {
+            "rank": 1,
+            "chunk_id": "HO-0521_water_backup_sump_ed_01-24.pdf#c1b4ec2e0ee7f0af",
+            "form_number": "HO-0521",
+            "clause": "Exclusion Table 3.1",
+            "rrf_score": 0.016393,
+            "dense_rank": 1,
+            "sparse_rank": null,
+            "is_expected": false
+          },
+          {
+            "rank": 2,
+            "chunk_id": "HO-0521_water_backup_sump_ed_01-24.pdf#46e937071b908b3a",
+            "form_number": "HO-0521",
+            "clause": "Exclusion Table 3.1",
+            "rrf_score": 0.016129,
+            "dense_rank": 2,
+            "sparse_rank": null,
+            "is_expected": true
+          },
+          {
+            "rank": 3,
+            "chunk_id": "HO-0521_water_backup_sump_ed_01-24.pdf#fbaa91660378f93e",
+            "form_number": "HO-0521",
+            "clause": "Exclusion Table 3.1",
+            "rrf_score": 0.015873,
+            "dense_rank": 3,
+            "sparse_rank": null,
+            "is_expected": false
+          }
+        ]
+      },
+      {
+        "id": "w04",
+        "question": "Guest hurt during a short-let stay. Does E-53 bite if they only rented the place 10 days that year?",
+        "has_exact_token": true,
+        "expected_chunk_id": "HO-0633_home_sharing_business_ed_09-23.pdf#fcd483afbf55f3b3",
+        "expected_form": "HO-0633",
+        "expected_clause": "Exclusion Table 3.1",
+        "hit_at_3": false,
+        "rank": null,
+        "latency_ms": 32.0,
+        "label": "retrieval_failure",
+        "task_label": "R",
+        "evidence": "Correct chunk absent from top-3; fusion had it at rank 8, rerank left it at rank 8. Top-3 were [HO-0633/4. Exceptions To The Exclusions 0.000, DP-0208/4. Conditions -1.000, HO-0633/Exclusion Table 3.1 -2.000].",
+        "diagnosis_evidence": {
+          "correct_chunk_id": "HO-0633_home_sharing_business_ed_09-23.pdf#fcd483afbf55f3b3",
+          "top_ids": [
+            "HO-0633_home_sharing_business_ed_09-23.pdf#1acf2836c995db59",
+            "DP-0208_dwelling_fire_water_ed_05-24.pdf#78c7600fbdb8d7dd",
+            "HO-0633_home_sharing_business_ed_09-23.pdf#6377611bb8f65bab"
+          ],
+          "fused_rank": 8,
+          "reranked_rank": 8,
+          "present_before_rerank": true
+        },
+        "answer": "No.\u202fBecause the total rental period is within the 14\u2011day allowance, Exclusion\u202fE\u201153 does not apply; any bodily\u2011injury claim by the guest would be handled under the policy\u2019s standard liability coverage.\u202f[chunk_id=HO-0633_home_sharing_business_ed_09-23.pdf#1acf2836c995db59 | HO-0633 (edition\u202f09\u201123) | 4. Exceptions To The Exclusions]",
+        "top_3": [
+          {
+            "rank": 1,
+            "chunk_id": "HO-0633_home_sharing_business_ed_09-23.pdf#1acf2836c995db59",
+            "form_number": "HO-0633",
+            "clause": "4. Exceptions To The Exclusions",
+            "rrf_score": 0.016393,
+            "dense_rank": 1,
+            "sparse_rank": null,
+            "is_expected": false
+          },
+          {
+            "rank": 2,
+            "chunk_id": "DP-0208_dwelling_fire_water_ed_05-24.pdf#78c7600fbdb8d7dd",
+            "form_number": "DP-0208",
+            "clause": "4. Conditions",
+            "rrf_score": 0.016129,
+            "dense_rank": 2,
+            "sparse_rank": null,
+            "is_expected": false
+          },
+          {
+            "rank": 3,
+            "chunk_id": "HO-0633_home_sharing_business_ed_09-23.pdf#6377611bb8f65bab",
+            "form_number": "HO-0633",
+            "clause": "Exclusion Table 3.1",
+            "rrf_score": 0.015873,
+            "dense_rank": 3,
+            "sparse_rank": null,
+            "is_expected": false
+          }
+        ]
+      },
+      {
+        "id": "w05",
+        "question": "What does E-72 exclude on DP-0208 ed. 05-24?",
+        "has_exact_token": true,
+        "expected_chunk_id": "DP-0208_dwelling_fire_water_ed_05-24.pdf#453be6c836c15c62",
+        "expected_form": "DP-0208",
+        "expected_clause": "Exclusion Table 3.1",
+        "hit_at_3": false,
+        "rank": null,
+        "latency_ms": 29.7,
+        "label": "retrieval_failure",
+        "task_label": "R",
+        "evidence": "Correct chunk absent from top-3; fusion had it at rank 5, rerank left it at rank 5. Top-3 were [HO-0521/Exclusion Table 3.1 0.000, DP-0208/3. Exclusions Applicable To Water Damage -1.000, DP-0208/unspecified -2.000].",
+        "diagnosis_evidence": {
+          "correct_chunk_id": "DP-0208_dwelling_fire_water_ed_05-24.pdf#453be6c836c15c62",
+          "top_ids": [
+            "HO-0521_water_backup_sump_ed_01-24.pdf#46e937071b908b3a",
+            "DP-0208_dwelling_fire_water_ed_05-24.pdf#cac0251dba7bdb46",
+            "DP-0208_dwelling_fire_water_ed_05-24.pdf#f22d15d39bf337d7"
+          ],
+          "fused_rank": 5,
+          "reranked_rank": 5,
+          "present_before_rerank": true
+        },
+        "answer": "I don't know based on the provided documents.",
+        "top_3": [
+          {
+            "rank": 1,
+            "chunk_id": "HO-0521_water_backup_sump_ed_01-24.pdf#46e937071b908b3a",
+            "form_number": "HO-0521",
+            "clause": "Exclusion Table 3.1",
+            "rrf_score": 0.016393,
+            "dense_rank": 1,
+            "sparse_rank": null,
+            "is_expected": false
+          },
+          {
+            "rank": 2,
+            "chunk_id": "DP-0208_dwelling_fire_water_ed_05-24.pdf#cac0251dba7bdb46",
+            "form_number": "DP-0208",
+            "clause": "3. Exclusions Applicable To Water Damage",
+            "rrf_score": 0.016129,
+            "dense_rank": 2,
+            "sparse_rank": null,
+            "is_expected": false
+          },
+          {
+            "rank": 3,
+            "chunk_id": "DP-0208_dwelling_fire_water_ed_05-24.pdf#f22d15d39bf337d7",
+            "form_number": "DP-0208",
+            "clause": "unspecified",
+            "rrf_score": 0.015873,
+            "dense_rank": 3,
+            "sparse_rank": null,
+            "is_expected": false
+          }
+        ]
+      },
+      {
+        "id": "w06",
+        "question": "Under HO-0710 ed. 11-23, what counts as a supply line?",
+        "has_exact_token": true,
+        "expected_chunk_id": "HO-0710_definitions_general_conditions_ed_11-23.pdf#4a3af5524b7032d0",
+        "expected_form": "HO-0710",
+        "expected_clause": "2. Definitions",
+        "hit_at_3": true,
+        "rank": 2,
+        "latency_ms": 34.3,
+        "label": "ok",
+        "task_label": "OK",
+        "evidence": "Correct chunk at rank 2 of 3 and the answer uses it.",
+        "diagnosis_evidence": {
+          "correct_chunk_id": "HO-0710_definitions_general_conditions_ed_11-23.pdf#4a3af5524b7032d0",
+          "rank": 2
+        },
+        "answer": "A supply line is defined as any pipe, hose, tube, fitting or connector that conveys water under mains pressure to a fixture, appliance or system within the described dwelling, up to and including the shut\u2011off valve serving that fixture, appliance or system.\u202fIt does **not** include a waste, soil or drainage pipe (a drain line).\u202f[chunk_id=HO-0710_definitions_general_conditions_ed_11-23.pdf#4a3af5524b7032d0 | HO-0710 (edition 11-23) | 2. Definitions]",
+        "top_3": [
+          {
+            "rank": 1,
+            "chunk_id": "HO-0710_definitions_general_conditions_ed_11-23.pdf#58f6a7ca2868a63c",
+            "form_number": "HO-0710",
+            "clause": "unspecified",
+            "rrf_score": 0.016393,
+            "dense_rank": 1,
+            "sparse_rank": null,
+            "is_expected": false
+          },
+          {
+            "rank": 2,
+            "chunk_id": "HO-0710_definitions_general_conditions_ed_11-23.pdf#4a3af5524b7032d0",
+            "form_number": "HO-0710",
+            "clause": "2. Definitions",
+            "rrf_score": 0.016129,
+            "dense_rank": 2,
+            "sparse_rank": null,
+            "is_expected": true
+          },
+          {
+            "rank": 3,
+            "chunk_id": "HO-0304_water_damage_ed_03-24.pdf#58951661516ea86b",
+            "form_number": "HO-0304",
+            "clause": "2. Coverage Grant - Sudden And Accidental Discharge",
+            "rrf_score": 0.015873,
+            "dense_rank": 3,
+            "sparse_rank": null,
+            "is_expected": false
+          }
+        ]
+      },
+      {
+        "id": "w07",
+        "question": "Is water damage from a burst pipe covered on a homeowners policy?",
+        "has_exact_token": false,
+        "expected_chunk_id": "HO-0304_water_damage_ed_03-24.pdf#58951661516ea86b",
+        "expected_form": "HO-0304",
+        "expected_clause": "2. Coverage Grant - Sudden And Accidental Discharge",
+        "hit_at_3": true,
+        "rank": 1,
+        "latency_ms": 31.0,
+        "label": "ok",
+        "task_label": "OK",
+        "evidence": "Correct chunk at rank 1 of 3 and the answer uses it.",
+        "diagnosis_evidence": {
+          "correct_chunk_id": "HO-0304_water_damage_ed_03-24.pdf#58951661516ea86b",
+          "rank": 1
+        },
+        "answer": "Yes. Under the Homeowners Water\u2011Damage, Discharge and Overflow Endorsement, a \u201csudden and accidental discharge\u201d includes a supply line that ruptures, splits or otherwise fails abruptly\u2014i.e., a burst pipe\u2014and the resulting direct physical loss to covered property is covered, subject to the endorsement\u2019s exclusions and limits\u3010chunk_id=HO-0304_water_damage_ed_03-24.pdf#58951661516ea86b | HO-0304 (edition 03-24) | 2. Coverage Grant - Sudden And Accidental Discharge\u3011.  \n\nCoverage is available only when the discharge is first detected and reported as required by Clause\u202f4; a discharge that the insured knew of (or should have known of) and did not report is not considered a sudden and accidental discharge\u3010chunk_id=HO-0304_water_damage_ed_03-24.pdf#b6984390e80358cb | HO-0304 (edition 03-24) | Clause 2.2\u3011.",
+        "top_3": [
+          {
+            "rank": 1,
+            "chunk_id": "HO-0304_water_damage_ed_03-24.pdf#58951661516ea86b",
+            "form_number": "HO-0304",
+            "clause": "2. Coverage Grant - Sudden And Accidental Discharge",
+            "rrf_score": 0.016393,
+            "dense_rank": 1,
+            "sparse_rank": null,
+            "is_expected": true
+          },
+          {
+            "rank": 2,
+            "chunk_id": "DP-0208_dwelling_fire_water_ed_05-24.pdf#f942e78921ff50b6",
+            "form_number": "DP-0208",
+            "clause": "2. Coverage Grant - Sudden And Accidental Discharge",
+            "rrf_score": 0.016129,
+            "dense_rank": 2,
+            "sparse_rank": null,
+            "is_expected": false
+          },
+          {
+            "rank": 3,
+            "chunk_id": "HO-0304_water_damage_ed_03-24.pdf#b6984390e80358cb",
+            "form_number": "HO-0304",
+            "clause": "Clause 2.2",
+            "rrf_score": 0.015873,
+            "dense_rank": 3,
+            "sparse_rank": null,
+            "is_expected": false
+          }
+        ]
+      },
+      {
+        "id": "w08",
+        "question": "How much will we pay out for mould after a covered water loss?",
+        "has_exact_token": false,
+        "expected_chunk_id": "HO-0304_water_damage_ed_03-24.pdf#78a58d7c6b096028",
+        "expected_form": "HO-0304",
+        "expected_clause": "5. Limits, Sublimits And Deductible",
+        "hit_at_3": true,
+        "rank": 1,
+        "latency_ms": 37.4,
+        "label": "ok",
+        "task_label": "OK",
+        "evidence": "Correct chunk at rank 1 of 3 and the answer uses it.",
+        "diagnosis_evidence": {
+          "correct_chunk_id": "HO-0304_water_damage_ed_03-24.pdf#78a58d7c6b096028",
+          "rank": 1
+        },
+        "answer": "The amount that can be paid for mould (mould, fungus or wet rot) after a covered water\u2011damage loss depends on the policy line:\n\n* **Homeowners policy (HO\u20110304 endorsement)** \u2013 The endorsement limits liability for mould, fungus or wet rot to **$10,000** in any one policy year, regardless of the number of losses or claimants.\u202f[chunk_id=HO-0304_water_damage_ed_03-24.pdf#78a58d7c6b096028 | HO-0304 (edition 03-24) | 5. Limits, Sublimits And Deductible]\n\n* **Dwelling\u2011Fire policy (DP\u20110208 endorsement)** \u2013 Mould, fungus or wet rot is **excluded absolutely**, so no payment would be made for such loss.\u202f[chunk_id=DP-0208_dwelling_fire_water_ed_05-24.pdf#0a500f280def1639 | DP-0208 (edition 05-24) | Exclusion Table 3.1]",
+        "top_3": [
+          {
+            "rank": 1,
+            "chunk_id": "HO-0304_water_damage_ed_03-24.pdf#78a58d7c6b096028",
+            "form_number": "HO-0304",
+            "clause": "5. Limits, Sublimits And Deductible",
+            "rrf_score": 0.016393,
+            "dense_rank": 1,
+            "sparse_rank": null,
+            "is_expected": true
+          },
+          {
+            "rank": 2,
+            "chunk_id": "DP-0208_dwelling_fire_water_ed_05-24.pdf#0a500f280def1639",
+            "form_number": "DP-0208",
+            "clause": "Exclusion Table 3.1",
+            "rrf_score": 0.016129,
+            "dense_rank": 2,
+            "sparse_rank": null,
+            "is_expected": false
+          },
+          {
+            "rank": 3,
+            "chunk_id": "HO-0304_water_damage_ed_03-24.pdf#c2a5b1dc603a2fe3",
+            "form_number": "HO-0304",
+            "clause": "Clause 5.3",
+            "rrf_score": 0.015873,
+            "dense_rank": 3,
+            "sparse_rank": null,
+            "is_expected": false
+          }
+        ]
+      },
+      {
+        "id": "w09",
+        "question": "What deductible applies on a wind claim?",
+        "has_exact_token": false,
+        "expected_chunk_id": "HO-0412_windstorm_hail_ed_06-24.pdf#74bc08047bdcfa9a",
+        "expected_form": "HO-0412",
+        "expected_clause": "5. Deductible",
+        "hit_at_3": true,
+        "rank": 1,
+        "latency_ms": 115.5,
+        "label": "ok",
+        "task_label": "OK",
+        "evidence": "Correct chunk at rank 1 of 3 and the answer uses it.",
+        "diagnosis_evidence": {
+          "correct_chunk_id": "HO-0412_windstorm_hail_ed_06-24.pdf#74bc08047bdcfa9a",
+          "rank": 1
+        },
+        "answer": "The windstorm and hail endorsement provides a deductible equal to\u202f2\u202fpercent of the Coverage\u202fA limit shown in the declarations for each windstorm or hail loss, with a minimum deductible of\u202f$1,000.\u202f[chunk_id=HO-0412_windstorm_hail_ed_06-24.pdf#74bc08047bdcfa9a | HO-0412 (edition\u202f06\u201124) | 5. Deductible]",
+        "top_3": [
+          {
+            "rank": 1,
+            "chunk_id": "HO-0412_windstorm_hail_ed_06-24.pdf#74bc08047bdcfa9a",
+            "form_number": "HO-0412",
+            "clause": "5. Deductible",
+            "rrf_score": 0.016393,
+            "dense_rank": 1,
+            "sparse_rank": null,
+            "is_expected": true
+          },
+          {
+            "rank": 2,
+            "chunk_id": "HO-0304_water_damage_ed_03-24.pdf#c2a5b1dc603a2fe3",
+            "form_number": "HO-0304",
+            "clause": "Clause 5.3",
+            "rrf_score": 0.016129,
+            "dense_rank": 2,
+            "sparse_rank": null,
+            "is_expected": false
+          },
+          {
+            "rank": 3,
+            "chunk_id": "HO-0304_water_damage_ed_03-24.pdf#78a58d7c6b096028",
+            "form_number": "HO-0304",
+            "clause": "5. Limits, Sublimits And Deductible",
+            "rrf_score": 0.015873,
+            "dense_rank": 3,
+            "sparse_rank": null,
+            "is_expected": false
+          }
+        ]
+      },
+      {
+        "id": "w10",
+        "question": "Roof is 18 years old. Do we settle replacement cost or actual cash value?",
+        "has_exact_token": false,
+        "expected_chunk_id": "HO-0412_windstorm_hail_ed_06-24.pdf#4dcd4c55d0c3a315",
+        "expected_form": "HO-0412",
+        "expected_clause": "2. Coverage Basis For Roof Surfacing",
+        "hit_at_3": true,
+        "rank": 1,
+        "latency_ms": 41.9,
+        "label": "ok",
+        "task_label": "OK",
+        "evidence": "Correct chunk at rank 1 of 3 and the answer uses it.",
+        "diagnosis_evidence": {
+          "correct_chunk_id": "HO-0412_windstorm_hail_ed_06-24.pdf#4dcd4c55d0c3a315",
+          "rank": 1
+        },
+        "answer": "The loss would be settled on an actual cash value basis because the roof surfacing is more than fifteen (15)\u202fyears old at the date of loss.\u202f[chunk_id=HO-0412_windstorm_hail_ed_06-24.pdf#4dcd4c55d0c3a315 | HO-0412 (edition 06-24) | 2. Coverage Basis For Roof Surfacing]",
+        "top_3": [
+          {
+            "rank": 1,
+            "chunk_id": "HO-0412_windstorm_hail_ed_06-24.pdf#4dcd4c55d0c3a315",
+            "form_number": "HO-0412",
+            "clause": "2. Coverage Basis For Roof Surfacing",
+            "rrf_score": 0.016393,
+            "dense_rank": 1,
+            "sparse_rank": null,
+            "is_expected": true
+          },
+          {
+            "rank": 2,
+            "chunk_id": "HO-0412_windstorm_hail_ed_06-24.pdf#ad3bf2520b492b14",
+            "form_number": "HO-0412",
+            "clause": "Exclusion Table 3.1",
+            "rrf_score": 0.016129,
+            "dense_rank": 2,
+            "sparse_rank": null,
+            "is_expected": false
+          },
+          {
+            "rank": 3,
+            "chunk_id": "DP-0208_dwelling_fire_water_ed_05-24.pdf#0a500f280def1639",
+            "form_number": "DP-0208",
+            "clause": "Exclusion Table 3.1",
+            "rrf_score": 0.015873,
+            "dense_rank": 3,
+            "sparse_rank": null,
+            "is_expected": false
+          }
+        ]
+      },
+      {
+        "id": "w11",
+        "question": "Is there a cap on sewer backup claims per year?",
+        "has_exact_token": false,
+        "expected_chunk_id": "HO-0521_water_backup_sump_ed_01-24.pdf#bdf919e11b2faf1a",
+        "expected_form": "HO-0521",
+        "expected_clause": "5. Limit And Deductible",
+        "hit_at_3": true,
+        "rank": 2,
+        "latency_ms": 29.9,
+        "label": "ok",
+        "task_label": "OK",
+        "evidence": "Correct chunk at rank 2 of 3 and the answer uses it.",
+        "diagnosis_evidence": {
+          "correct_chunk_id": "HO-0521_water_backup_sump_ed_01-24.pdf#bdf919e11b2faf1a",
+          "rank": 2
+        },
+        "answer": "Yes. Under the Water Back\u2011Up and Sump Discharge endorsement, the most the insurer will pay for all backup losses in any one policy year is $25,000 in the aggregate, regardless of how many backup events (including sewer backup) occur.\u202f[chunk_id=HO-0521_water_backup_sump_ed_01-24.pdf#bdf919e11b2faf1a | HO-0521 (edition 01\u201124) | 5. Limit And Deductible]",
+        "top_3": [
+          {
+            "rank": 1,
+            "chunk_id": "HO-0521_water_backup_sump_ed_01-24.pdf#fbaa91660378f93e",
+            "form_number": "HO-0521",
+            "clause": "Exclusion Table 3.1",
+            "rrf_score": 0.016393,
+            "dense_rank": 1,
+            "sparse_rank": null,
+            "is_expected": false
+          },
+          {
+            "rank": 2,
+            "chunk_id": "HO-0521_water_backup_sump_ed_01-24.pdf#bdf919e11b2faf1a",
+            "form_number": "HO-0521",
+            "clause": "5. Limit And Deductible",
+            "rrf_score": 0.016129,
+            "dense_rank": 2,
+            "sparse_rank": null,
+            "is_expected": true
+          },
+          {
+            "rank": 3,
+            "chunk_id": "HO-0521_water_backup_sump_ed_01-24.pdf#46e937071b908b3a",
+            "form_number": "HO-0521",
+            "clause": "Exclusion Table 3.1",
+            "rrf_score": 0.015873,
+            "dense_rank": 3,
+            "sparse_rank": null,
+            "is_expected": false
+          }
+        ]
+      },
+      {
+        "id": "w12",
+        "question": "If two endorsements both cover the same loss and they disagree, which one wins?",
+        "has_exact_token": false,
+        "expected_chunk_id": "HO-0710_definitions_general_conditions_ed_11-23.pdf#b8f81cecfb4488dd",
+        "expected_form": "HO-0710",
+        "expected_clause": "3. General Conditions",
+        "hit_at_3": true,
+        "rank": 1,
+        "latency_ms": 30.5,
+        "label": "ok",
+        "task_label": "OK",
+        "evidence": "Correct chunk at rank 1 of 3 and the answer uses it.",
+        "diagnosis_evidence": {
+          "correct_chunk_id": "HO-0710_definitions_general_conditions_ed_11-23.pdf#b8f81cecfb4488dd",
+          "rank": 1
+        },
+        "answer": "When two endorsements address the same loss and their provisions conflict, the endorsement with the later edition date controls the coverage to the extent of the inconsistency.\u202f[chunk_id=HO-0710_definitions_general_conditions_ed_11-23.pdf#b8f81cecfb4488dd | HO-0710 (edition 11-23) | 3.1]",
+        "top_3": [
+          {
+            "rank": 1,
+            "chunk_id": "HO-0710_definitions_general_conditions_ed_11-23.pdf#b8f81cecfb4488dd",
+            "form_number": "HO-0710",
+            "clause": "3. General Conditions",
+            "rrf_score": 0.016393,
+            "dense_rank": 1,
+            "sparse_rank": null,
+            "is_expected": true
+          },
+          {
+            "rank": 2,
+            "chunk_id": "HO-0304_water_damage_ed_03-24.pdf#e656d6f87ac58f92",
+            "form_number": "HO-0304",
+            "clause": "1. Purpose And Scope",
+            "rrf_score": 0.016129,
+            "dense_rank": 2,
+            "sparse_rank": null,
+            "is_expected": false
+          },
+          {
+            "rank": 3,
+            "chunk_id": "HO-0710_definitions_general_conditions_ed_11-23.pdf#45c4131122f37d22",
+            "form_number": "HO-0710",
+            "clause": "1. Purpose And Scope",
+            "rrf_score": 0.015873,
+            "dense_rank": 3,
+            "sparse_rank": null,
+            "is_expected": false
+          }
+        ]
+      }
+    ],
+    "latency_measured": {
+      "p50": 32.7,
+      "mean": 35.2,
+      "p95": 45.2,
+      "n": 84,
+      "repeats": 7,
+      "questions": 12
+    }
+  },
+  "after": {
+    "arm": "after",
+    "label": "dense + BM25, RRF k=60",
+    "mode": "hybrid",
+    "k": 3,
+    "hit_at_3": 11,
+    "of": 12,
+    "hit_rate_at_3": 0.9167,
+    "latency_ms": {
+      "p50": 28.2,
+      "mean": 29.9,
+      "p95": 41.2,
+      "n": 12
+    },
+    "tally": {
+      "OK": 11,
+      "R": 1
+    },
+    "rows": [
+      {
+        "id": "w01",
+        "question": "Does exclusion E-17 apply under form HO-0304 ed. 03-24 when a supply line bursts?",
+        "has_exact_token": true,
+        "expected_chunk_id": "HO-0304_water_damage_ed_03-24.pdf#41a175ccd467f366",
+        "expected_form": "HO-0304",
+        "expected_clause": "Exclusion Table 3.1",
+        "hit_at_3": true,
+        "rank": 2,
+        "latency_ms": 28.2,
+        "label": "ok",
+        "task_label": "OK",
+        "evidence": "Correct chunk at rank 2 of 3 and the answer uses it.",
+        "diagnosis_evidence": {
+          "correct_chunk_id": "HO-0304_water_damage_ed_03-24.pdf#41a175ccd467f366",
+          "rank": 2
+        },
+        "answer": "Exclusion\u202fE\u201117 does **not** apply when a supply line bursts.\u202fE\u201117 is limited to \u201cconstant or repeated seepage or leakage of water occurring over a period of fourteen (14) days or more\u201d and is expressly excluded for a \u201csudden and accidental discharge\u201d\u202f[chunk_id=HO-0304_water_damage_ed_03-24.pdf#41a175ccd467f366 | HO-0304 (edition\u202f03\u201124) | Exclusion Table\u202f3.1].\u202fA burst supply line is an abrupt rupture that discharges water in less than fourteen days, which is adjudicated under Clause\u202f2.1 and remains covered\u202f[chunk_id=HO-0304_water_damage_ed_03-24.pdf#ad1f3ac26ec308ef | HO-0304 (edition\u202f03\u201124) | Exclusion Table\u202f3.1].",
+        "top_3": [
+          {
+            "rank": 1,
+            "chunk_id": "HO-0304_water_damage_ed_03-24.pdf#ad1f3ac26ec308ef",
+            "form_number": "HO-0304",
+            "clause": "Exclusion Table 3.1",
+            "rrf_score": 0.032787,
+            "dense_rank": 1,
+            "sparse_rank": 1,
+            "is_expected": false
+          },
+          {
+            "rank": 2,
+            "chunk_id": "HO-0304_water_damage_ed_03-24.pdf#41a175ccd467f366",
+            "form_number": "HO-0304",
+            "clause": "Exclusion Table 3.1",
+            "rrf_score": 0.031754,
+            "dense_rank": 4,
+            "sparse_rank": 2,
+            "is_expected": true
+          },
+          {
+            "rank": 3,
+            "chunk_id": "HO-0304_water_damage_ed_03-24.pdf#efccbcedeb5ca741",
+            "form_number": "HO-0304",
+            "clause": "3. Exclusions Applicable To Water Damage",
+            "rrf_score": 0.029644,
+            "dense_rank": 6,
+            "sparse_rank": 9,
+            "is_expected": false
+          }
+        ]
+      },
+      {
+        "id": "w02",
+        "question": "Insured is claiming hail dents that did not puncture the shingles. Does E-34 on HO-0412 knock it out?",
+        "has_exact_token": true,
+        "expected_chunk_id": "HO-0412_windstorm_hail_ed_06-24.pdf#ad3bf2520b492b14",
+        "expected_form": "HO-0412",
+        "expected_clause": "Exclusion Table 3.1",
+        "hit_at_3": true,
+        "rank": 2,
+        "latency_ms": 33.6,
+        "label": "ok",
+        "task_label": "OK",
+        "evidence": "Correct chunk at rank 2 of 3 and the answer uses it.",
+        "diagnosis_evidence": {
+          "correct_chunk_id": "HO-0412_windstorm_hail_ed_06-24.pdf#ad3bf2520b492b14",
+          "rank": 2
+        },
+        "answer": "Yes.\u202fE\u201134 excludes \u201ccosmetic damage to roof surfacing that does not compromise the water\u2011shedding function of the roof,\u201d which includes hail dents that do not puncture the shingles\u202f[chunk_id=HO-0412_windstorm_hail_ed_06-24.pdf#ad3bf2520b492b14 | HO-0412 (edition 06-24) | Exclusion Table 3.1]\u202fand the form\u2019s note clarifies that such damage is excluded absolutely when it only alters appearance without reducing water\u2011shedding ability\u202f[chunk_id=HO-0412_windstorm_hail_ed_06-24.pdf#28c02e316c19107f | HO-0412 (edition 06-24) | Exclusion Table 3.1].",
+        "top_3": [
+          {
+            "rank": 1,
+            "chunk_id": "HO-0412_windstorm_hail_ed_06-24.pdf#28c02e316c19107f",
+            "form_number": "HO-0412",
+            "clause": "Exclusion Table 3.1",
+            "rrf_score": 0.032787,
+            "dense_rank": 1,
+            "sparse_rank": 1,
+            "is_expected": false
+          },
+          {
+            "rank": 2,
+            "chunk_id": "HO-0412_windstorm_hail_ed_06-24.pdf#ad3bf2520b492b14",
+            "form_number": "HO-0412",
+            "clause": "Exclusion Table 3.1",
+            "rrf_score": 0.032258,
+            "dense_rank": 2,
+            "sparse_rank": 2,
+            "is_expected": true
+          },
+          {
+            "rank": 3,
+            "chunk_id": "HO-0412_windstorm_hail_ed_06-24.pdf#6b80768088f8156b",
+            "form_number": "HO-0412",
+            "clause": "Exclusion Table 3.1",
+            "rrf_score": 0.031025,
+            "dense_rank": 3,
+            "sparse_rank": 6,
+            "is_expected": false
+          }
+        ]
+      },
+      {
+        "id": "w03",
+        "question": "Sump pump had no service records at all. Which exclusion code on HO-0521 do I cite?",
+        "has_exact_token": true,
+        "expected_chunk_id": "HO-0521_water_backup_sump_ed_01-24.pdf#46e937071b908b3a",
+        "expected_form": "HO-0521",
+        "expected_clause": "Exclusion Table 3.1",
+        "hit_at_3": true,
+        "rank": 2,
+        "latency_ms": 31.3,
+        "label": "ok",
+        "task_label": "OK",
+        "evidence": "Correct chunk at rank 2 of 3 and the answer uses it.",
+        "diagnosis_evidence": {
+          "correct_chunk_id": "HO-0521_water_backup_sump_ed_01-24.pdf#46e937071b908b3a",
+          "rank": 2
+        },
+        "answer": "The applicable exclusion is **E\u201144** \u2013 \u201cBack\u2011up or overflow caused by the failure of the insured to maintain, service or test the sump pump in accordance with the manufacturer schedule.\u201d\u202f[chunk_id=HO-0521_water_backup_sump_ed_01-24.pdf#46e937071b908b3a\u202f|\u202fHO-0521 (edition 01-24)\u202f|\u202fExclusion Table 3.1]\u202f[chunk_id=HO-0521_water_backup_sump_ed_01-24.pdf#c1b4ec2e0ee7f0af\u202f|\u202fHO-0521 (edition 01-24)\u202f|\u202fExclusion Table 3.1]",
+        "top_3": [
+          {
+            "rank": 1,
+            "chunk_id": "HO-0521_water_backup_sump_ed_01-24.pdf#c1b4ec2e0ee7f0af",
+            "form_number": "HO-0521",
+            "clause": "Exclusion Table 3.1",
+            "rrf_score": 0.032522,
+            "dense_rank": 1,
+            "sparse_rank": 2,
+            "is_expected": false
+          },
+          {
+            "rank": 2,
+            "chunk_id": "HO-0521_water_backup_sump_ed_01-24.pdf#46e937071b908b3a",
+            "form_number": "HO-0521",
+            "clause": "Exclusion Table 3.1",
+            "rrf_score": 0.032002,
+            "dense_rank": 2,
+            "sparse_rank": 3,
+            "is_expected": true
+          },
+          {
+            "rank": 3,
+            "chunk_id": "HO-0521_water_backup_sump_ed_01-24.pdf#115b7ca030f51fab",
+            "form_number": "HO-0521",
+            "clause": "4. Conditions",
+            "rrf_score": 0.031545,
+            "dense_rank": 6,
+            "sparse_rank": 1,
+            "is_expected": false
+          }
+        ]
+      },
+      {
+        "id": "w04",
+        "question": "Guest hurt during a short-let stay. Does E-53 bite if they only rented the place 10 days that year?",
+        "has_exact_token": true,
+        "expected_chunk_id": "HO-0633_home_sharing_business_ed_09-23.pdf#fcd483afbf55f3b3",
+        "expected_form": "HO-0633",
+        "expected_clause": "Exclusion Table 3.1",
+        "hit_at_3": false,
+        "rank": null,
+        "latency_ms": 31.3,
+        "label": "retrieval_failure",
+        "task_label": "R",
+        "evidence": "Correct chunk absent from top-3; fusion had it at rank 5, rerank left it at rank 5. Top-3 were [HO-0633/4. Exceptions To The Exclusions 0.000, HO-0633/5. Conditions -1.000, DP-0208/Exclusion Table 3.1 -2.000].",
+        "diagnosis_evidence": {
+          "correct_chunk_id": "HO-0633_home_sharing_business_ed_09-23.pdf#fcd483afbf55f3b3",
+          "top_ids": [
+            "HO-0633_home_sharing_business_ed_09-23.pdf#1acf2836c995db59",
+            "HO-0633_home_sharing_business_ed_09-23.pdf#3efbd15988750ba9",
+            "DP-0208_dwelling_fire_water_ed_05-24.pdf#453be6c836c15c62"
+          ],
+          "fused_rank": 5,
+          "reranked_rank": 5,
+          "present_before_rerank": true
+        },
+        "answer": "No.\u202fBecause the total rental period is only ten days\u2014within the fourteen\u2011day allowance\u2014Exclusion\u202fE\u201153 does not apply; any bodily\u2011injury claim would be handled under the policy\u2019s liability coverages.\u202f[chunk_id=HO-0633_home_sharing_business_ed_09-23.pdf#1acf2836c995db59 | HO-0633 (edition 09-23) | 4.2]",
+        "top_3": [
+          {
+            "rank": 1,
+            "chunk_id": "HO-0633_home_sharing_business_ed_09-23.pdf#1acf2836c995db59",
+            "form_number": "HO-0633",
+            "clause": "4. Exceptions To The Exclusions",
+            "rrf_score": 0.032787,
+            "dense_rank": 1,
+            "sparse_rank": 1,
+            "is_expected": false
+          },
+          {
+            "rank": 2,
+            "chunk_id": "HO-0633_home_sharing_business_ed_09-23.pdf#3efbd15988750ba9",
+            "form_number": "HO-0633",
+            "clause": "5. Conditions",
+            "rrf_score": 0.030777,
+            "dense_rank": 4,
+            "sparse_rank": 6,
+            "is_expected": false
+          },
+          {
+            "rank": 3,
+            "chunk_id": "DP-0208_dwelling_fire_water_ed_05-24.pdf#453be6c836c15c62",
+            "form_number": "DP-0208",
+            "clause": "Exclusion Table 3.1",
+            "rrf_score": 0.030622,
+            "dense_rank": 9,
+            "sparse_rank": 2,
+            "is_expected": false
+          }
+        ]
+      },
+      {
+        "id": "w05",
+        "question": "What does E-72 exclude on DP-0208 ed. 05-24?",
+        "has_exact_token": true,
+        "expected_chunk_id": "DP-0208_dwelling_fire_water_ed_05-24.pdf#453be6c836c15c62",
+        "expected_form": "DP-0208",
+        "expected_clause": "Exclusion Table 3.1",
+        "hit_at_3": true,
+        "rank": 3,
+        "latency_ms": 29.1,
+        "label": "ok",
+        "task_label": "OK",
+        "evidence": "Correct chunk at rank 3 of 3 and the answer uses it.",
+        "diagnosis_evidence": {
+          "correct_chunk_id": "DP-0208_dwelling_fire_water_ed_05-24.pdf#453be6c836c15c62",
+          "rank": 3
+        },
+        "answer": "E\u201172 excludes water damage that results from a plumbing system when the dwelling has been vacant for more than\u202f60\u202fconsecutive days.\u202f[chunk_id=DP-0208_dwelling_fire_water_ed_05-24.pdf#453be6c836c15c62 | DP-0208 (edition 05-24) | Exclusion Table 3.1]",
+        "top_3": [
+          {
+            "rank": 1,
+            "chunk_id": "DP-0208_dwelling_fire_water_ed_05-24.pdf#f22d15d39bf337d7",
+            "form_number": "DP-0208",
+            "clause": "unspecified",
+            "rrf_score": 0.032266,
+            "dense_rank": 3,
+            "sparse_rank": 1,
+            "is_expected": false
+          },
+          {
+            "rank": 2,
+            "chunk_id": "DP-0208_dwelling_fire_water_ed_05-24.pdf#cac0251dba7bdb46",
+            "form_number": "DP-0208",
+            "clause": "3. Exclusions Applicable To Water Damage",
+            "rrf_score": 0.031754,
+            "dense_rank": 2,
+            "sparse_rank": 4,
+            "is_expected": false
+          },
+          {
+            "rank": 3,
+            "chunk_id": "DP-0208_dwelling_fire_water_ed_05-24.pdf#453be6c836c15c62",
+            "form_number": "DP-0208",
+            "clause": "Exclusion Table 3.1",
+            "rrf_score": 0.031258,
+            "dense_rank": 5,
+            "sparse_rank": 3,
+            "is_expected": true
+          }
+        ]
+      },
+      {
+        "id": "w06",
+        "question": "Under HO-0710 ed. 11-23, what counts as a supply line?",
+        "has_exact_token": true,
+        "expected_chunk_id": "HO-0710_definitions_general_conditions_ed_11-23.pdf#4a3af5524b7032d0",
+        "expected_form": "HO-0710",
+        "expected_clause": "2. Definitions",
+        "hit_at_3": true,
+        "rank": 2,
+        "latency_ms": 27.1,
+        "label": "ok",
+        "task_label": "OK",
+        "evidence": "Correct chunk at rank 2 of 3 and the answer uses it.",
+        "diagnosis_evidence": {
+          "correct_chunk_id": "HO-0710_definitions_general_conditions_ed_11-23.pdf#4a3af5524b7032d0",
+          "rank": 2
+        },
+        "answer": "A supply line is any pipe, hose, tube, fitting or connector that conveys water under mains pressure to a fixture, appliance or system within the described dwelling, up to and including the shut\u2011off valve serving that fixture, appliance or system. A supply line does **not** include a waste, soil or drainage pipe, which is considered a drain line.\u202f[chunk_id=HO-0710_definitions_general_conditions_ed_11-23.pdf#4a3af5524b7032d0 | HO-0710 (edition 11-23) | 2. Definitions]",
+        "top_3": [
+          {
+            "rank": 1,
+            "chunk_id": "HO-0710_definitions_general_conditions_ed_11-23.pdf#58f6a7ca2868a63c",
+            "form_number": "HO-0710",
+            "clause": "unspecified",
+            "rrf_score": 0.032787,
+            "dense_rank": 1,
+            "sparse_rank": 1,
+            "is_expected": false
+          },
+          {
+            "rank": 2,
+            "chunk_id": "HO-0710_definitions_general_conditions_ed_11-23.pdf#4a3af5524b7032d0",
+            "form_number": "HO-0710",
+            "clause": "2. Definitions",
+            "rrf_score": 0.032002,
+            "dense_rank": 2,
+            "sparse_rank": 3,
+            "is_expected": true
+          },
+          {
+            "rank": 3,
+            "chunk_id": "HO-0304_water_damage_ed_03-24.pdf#e656d6f87ac58f92",
+            "form_number": "HO-0304",
+            "clause": "1. Purpose And Scope",
+            "rrf_score": 0.030536,
+            "dense_rank": 5,
+            "sparse_rank": 6,
+            "is_expected": false
+          }
+        ]
+      },
+      {
+        "id": "w07",
+        "question": "Is water damage from a burst pipe covered on a homeowners policy?",
+        "has_exact_token": false,
+        "expected_chunk_id": "HO-0304_water_damage_ed_03-24.pdf#58951661516ea86b",
+        "expected_form": "HO-0304",
+        "expected_clause": "2. Coverage Grant - Sudden And Accidental Discharge",
+        "hit_at_3": true,
+        "rank": 1,
+        "latency_ms": 27.2,
+        "label": "ok",
+        "task_label": "OK",
+        "evidence": "Correct chunk at rank 1 of 3 and the answer uses it.",
+        "diagnosis_evidence": {
+          "correct_chunk_id": "HO-0304_water_damage_ed_03-24.pdf#58951661516ea86b",
+          "rank": 1
+        },
+        "answer": "Yes. Under the Water Damage, Discharge and Overflow Endorsement, a \u201csudden and accidental discharge\u201d includes a supply line that ruptures or splits abruptly, so damage from a burst pipe is covered subject to the endorsement\u2019s exclusions and limits\u202f[chunk_id=HO-0304_water_damage_ed_03-24.pdf#58951661516ea86b | HO-0304 (edition 03-24) | 2. Coverage Grant - Sudden And Accidental Discharge]. The endorsement\u2019s exclusion table notes that the slow\u2011failure exclusion (E\u201117) does not apply to an abrupt rupture, and a burst supply line that discharges water for less than fourteen days is adjudicated under Clause\u202f2.1 and remains covered\u202f[chunk_id=HO-0304_water_damage_ed_03-24.pdf#ad1f3ac26ec308ef | HO-0304 (edition 03-24) | Exclusion Table 3.1].",
+        "top_3": [
+          {
+            "rank": 1,
+            "chunk_id": "HO-0304_water_damage_ed_03-24.pdf#58951661516ea86b",
+            "form_number": "HO-0304",
+            "clause": "2. Coverage Grant - Sudden And Accidental Discharge",
+            "rrf_score": 0.031319,
+            "dense_rank": 1,
+            "sparse_rank": 7,
+            "is_expected": true
+          },
+          {
+            "rank": 2,
+            "chunk_id": "HO-0304_water_damage_ed_03-24.pdf#ad1f3ac26ec308ef",
+            "form_number": "HO-0304",
+            "clause": "Exclusion Table 3.1",
+            "rrf_score": 0.030478,
+            "dense_rank": 11,
+            "sparse_rank": 1,
+            "is_expected": false
+          },
+          {
+            "rank": 3,
+            "chunk_id": "HO-0304_water_damage_ed_03-24.pdf#e656d6f87ac58f92",
+            "form_number": "HO-0304",
+            "clause": "1. Purpose And Scope",
+            "rrf_score": 0.030303,
+            "dense_rank": 6,
+            "sparse_rank": 6,
+            "is_expected": false
+          }
+        ]
+      },
+      {
+        "id": "w08",
+        "question": "How much will we pay out for mould after a covered water loss?",
+        "has_exact_token": false,
+        "expected_chunk_id": "HO-0304_water_damage_ed_03-24.pdf#78a58d7c6b096028",
+        "expected_form": "HO-0304",
+        "expected_clause": "5. Limits, Sublimits And Deductible",
+        "hit_at_3": true,
+        "rank": 1,
+        "latency_ms": 26.0,
+        "label": "ok",
+        "task_label": "OK",
+        "evidence": "Correct chunk at rank 1 of 3 and the answer uses it.",
+        "diagnosis_evidence": {
+          "correct_chunk_id": "HO-0304_water_damage_ed_03-24.pdf#78a58d7c6b096028",
+          "rank": 1
+        },
+        "answer": "The endorsement limits the amount payable for mould, fungus or wet rot that results from a covered water\u2011damage loss to **$10,000 per policy year**, regardless of how many losses or claimants are involved. This $10,000 sublimit is part of, not in addition to, the Coverage\u202fA limit.\u202f[chunk_id=HO-0304_water_damage_ed_03-24.pdf#78a58d7c6b096028 | HO-0304 (edition 03-24) | 5.2]\u202f[chunk_id=HO-0304_water_damage_ed_03-24.pdf#400f9878fd2dd04d | HO-0304 (edition 03-24) | Exclusion Table 3.1]",
+        "top_3": [
+          {
+            "rank": 1,
+            "chunk_id": "HO-0304_water_damage_ed_03-24.pdf#78a58d7c6b096028",
+            "form_number": "HO-0304",
+            "clause": "5. Limits, Sublimits And Deductible",
+            "rrf_score": 0.032787,
+            "dense_rank": 1,
+            "sparse_rank": 1,
+            "is_expected": true
+          },
+          {
+            "rank": 2,
+            "chunk_id": "HO-0521_water_backup_sump_ed_01-24.pdf#bdf919e11b2faf1a",
+            "form_number": "HO-0521",
+            "clause": "5. Limit And Deductible",
+            "rrf_score": 0.030777,
+            "dense_rank": 6,
+            "sparse_rank": 4,
+            "is_expected": false
+          },
+          {
+            "rank": 3,
+            "chunk_id": "HO-0304_water_damage_ed_03-24.pdf#400f9878fd2dd04d",
+            "form_number": "HO-0304",
+            "clause": "Exclusion Table 3.1",
+            "rrf_score": 0.030536,
+            "dense_rank": 5,
+            "sparse_rank": 6,
+            "is_expected": false
+          }
+        ]
+      },
+      {
+        "id": "w09",
+        "question": "What deductible applies on a wind claim?",
+        "has_exact_token": false,
+        "expected_chunk_id": "HO-0412_windstorm_hail_ed_06-24.pdf#74bc08047bdcfa9a",
+        "expected_form": "HO-0412",
+        "expected_clause": "5. Deductible",
+        "hit_at_3": true,
+        "rank": 1,
+        "latency_ms": 27.8,
+        "label": "ok",
+        "task_label": "OK",
+        "evidence": "Correct chunk at rank 1 of 3 and the answer uses it.",
+        "diagnosis_evidence": {
+          "correct_chunk_id": "HO-0412_windstorm_hail_ed_06-24.pdf#74bc08047bdcfa9a",
+          "rank": 1
+        },
+        "answer": "The windstorm (wind) deductible is two percent (2\u202f%) of the Coverage\u202fA limit shown in the declarations for each wind loss, with a minimum deductible of $1,000.\u202f[chunk_id=HO-0412_windstorm_hail_ed_06-24.pdf#74bc08047bdcfa9a | HO-0412 (edition 06-24) | 5. Deductible]",
+        "top_3": [
+          {
+            "rank": 1,
+            "chunk_id": "HO-0412_windstorm_hail_ed_06-24.pdf#74bc08047bdcfa9a",
+            "form_number": "HO-0412",
+            "clause": "5. Deductible",
+            "rrf_score": 0.032787,
+            "dense_rank": 1,
+            "sparse_rank": 1,
+            "is_expected": true
+          },
+          {
+            "rank": 2,
+            "chunk_id": "HO-0304_water_damage_ed_03-24.pdf#c2a5b1dc603a2fe3",
+            "form_number": "HO-0304",
+            "clause": "Clause 5.3",
+            "rrf_score": 0.032002,
+            "dense_rank": 2,
+            "sparse_rank": 3,
+            "is_expected": false
+          },
+          {
+            "rank": 3,
+            "chunk_id": "DP-0208_dwelling_fire_water_ed_05-24.pdf#47190ba4d15671fd",
+            "form_number": "DP-0208",
+            "clause": "5. Limit And Deductible",
+            "rrf_score": 0.031281,
+            "dense_rank": 6,
+            "sparse_rank": 2,
+            "is_expected": false
+          }
+        ]
+      },
+      {
+        "id": "w10",
+        "question": "Roof is 18 years old. Do we settle replacement cost or actual cash value?",
+        "has_exact_token": false,
+        "expected_chunk_id": "HO-0412_windstorm_hail_ed_06-24.pdf#4dcd4c55d0c3a315",
+        "expected_form": "HO-0412",
+        "expected_clause": "2. Coverage Basis For Roof Surfacing",
+        "hit_at_3": true,
+        "rank": 1,
+        "latency_ms": 41.2,
+        "label": "ok",
+        "task_label": "OK",
+        "evidence": "Correct chunk at rank 1 of 3 and the answer uses it.",
+        "diagnosis_evidence": {
+          "correct_chunk_id": "HO-0412_windstorm_hail_ed_06-24.pdf#4dcd4c55d0c3a315",
+          "rank": 1
+        },
+        "answer": "The loss would be settled on an actual cash value basis because the roof surfacing is more than fifteen (15)\u202fyears old at the date of loss.\u202f[chunk_id=HO-0412_windstorm_hail_ed_06-24.pdf#4dcd4c55d0c3a315 | HO-0412 (edition 06-24) | 2. Coverage Basis For Roof Surfacing]",
+        "top_3": [
+          {
+            "rank": 1,
+            "chunk_id": "HO-0412_windstorm_hail_ed_06-24.pdf#4dcd4c55d0c3a315",
+            "form_number": "HO-0412",
+            "clause": "2. Coverage Basis For Roof Surfacing",
+            "rrf_score": 0.032787,
+            "dense_rank": 1,
+            "sparse_rank": 1,
+            "is_expected": true
+          },
+          {
+            "rank": 2,
+            "chunk_id": "HO-0412_windstorm_hail_ed_06-24.pdf#ad3bf2520b492b14",
+            "form_number": "HO-0412",
+            "clause": "Exclusion Table 3.1",
+            "rrf_score": 0.030622,
+            "dense_rank": 2,
+            "sparse_rank": 9,
+            "is_expected": false
+          },
+          {
+            "rank": 3,
+            "chunk_id": "policy.pdf#188ab22de32b9352",
+            "form_number": "unspecified",
+            "clause": "unspecified",
+            "rrf_score": 0.030077,
+            "dense_rank": 7,
+            "sparse_rank": 6,
+            "is_expected": false
+          }
+        ]
+      },
+      {
+        "id": "w11",
+        "question": "Is there a cap on sewer backup claims per year?",
+        "has_exact_token": false,
+        "expected_chunk_id": "HO-0521_water_backup_sump_ed_01-24.pdf#bdf919e11b2faf1a",
+        "expected_form": "HO-0521",
+        "expected_clause": "5. Limit And Deductible",
+        "hit_at_3": true,
+        "rank": 3,
+        "latency_ms": 28.5,
+        "label": "ok",
+        "task_label": "OK",
+        "evidence": "Correct chunk at rank 3 of 3 and the answer uses it.",
+        "diagnosis_evidence": {
+          "correct_chunk_id": "HO-0521_water_backup_sump_ed_01-24.pdf#bdf919e11b2faf1a",
+          "rank": 3
+        },
+        "answer": "Yes. Under the Water Back\u2011Up and Sump Discharge endorsement, the most the insurer will pay for all backup losses in any one policy year is twenty\u2011five thousand dollars ($25,000) in the aggregate, regardless of how many backup events occur.\u202f[chunk_id=HO-0521_water_backup_sump_ed_01-24.pdf#bdf919e11b2faf1a | 5. Limit And Deductible | 5.1]",
+        "top_3": [
+          {
+            "rank": 1,
+            "chunk_id": "HO-0521_water_backup_sump_ed_01-24.pdf#fbaa91660378f93e",
+            "form_number": "HO-0521",
+            "clause": "Exclusion Table 3.1",
+            "rrf_score": 0.032266,
+            "dense_rank": 1,
+            "sparse_rank": 3,
+            "is_expected": false
+          },
+          {
+            "rank": 2,
+            "chunk_id": "HO-0521_water_backup_sump_ed_01-24.pdf#46e937071b908b3a",
+            "form_number": "HO-0521",
+            "clause": "Exclusion Table 3.1",
+            "rrf_score": 0.029958,
+            "dense_rank": 3,
+            "sparse_rank": 11,
+            "is_expected": false
+          },
+          {
+            "rank": 3,
+            "chunk_id": "HO-0521_water_backup_sump_ed_01-24.pdf#bdf919e11b2faf1a",
+            "form_number": "HO-0521",
+            "clause": "5. Limit And Deductible",
+            "rrf_score": 0.029828,
+            "dense_rank": 2,
+            "sparse_rank": 13,
+            "is_expected": true
+          }
+        ]
+      },
+      {
+        "id": "w12",
+        "question": "If two endorsements both cover the same loss and they disagree, which one wins?",
+        "has_exact_token": false,
+        "expected_chunk_id": "HO-0710_definitions_general_conditions_ed_11-23.pdf#b8f81cecfb4488dd",
+        "expected_form": "HO-0710",
+        "expected_clause": "3. General Conditions",
+        "hit_at_3": true,
+        "rank": 1,
+        "latency_ms": 27.4,
+        "label": "ok",
+        "task_label": "OK",
+        "evidence": "Correct chunk at rank 1 of 3 and the answer uses it.",
+        "diagnosis_evidence": {
+          "correct_chunk_id": "HO-0710_definitions_general_conditions_ed_11-23.pdf#b8f81cecfb4488dd",
+          "rank": 1
+        },
+        "answer": "When two endorsements address the same loss and their provisions conflict, the endorsement with the later edition date controls the coverage to the extent of the inconsistency.\u202f[chunk_id=HO-0710_definitions_general_conditions_ed_11-23.pdf#b8f81cecfb4488dd | HO-0710 (edition 11-23) | 3. GENERAL CONDITIONS]",
+        "top_3": [
+          {
+            "rank": 1,
+            "chunk_id": "HO-0710_definitions_general_conditions_ed_11-23.pdf#b8f81cecfb4488dd",
+            "form_number": "HO-0710",
+            "clause": "3. General Conditions",
+            "rrf_score": 0.032787,
+            "dense_rank": 1,
+            "sparse_rank": 1,
+            "is_expected": true
+          },
+          {
+            "rank": 2,
+            "chunk_id": "HO-0304_water_damage_ed_03-24.pdf#efccbcedeb5ca741",
+            "form_number": "HO-0304",
+            "clause": "3. Exclusions Applicable To Water Damage",
+            "rrf_score": 0.03101,
+            "dense_rank": 5,
+            "sparse_rank": 4,
+            "is_expected": false
+          },
+          {
+            "rank": 3,
+            "chunk_id": "HO-0304_water_damage_ed_03-24.pdf#c2a5b1dc603a2fe3",
+            "form_number": "HO-0304",
+            "clause": "Clause 5.3",
+            "rrf_score": 0.028665,
+            "dense_rank": 6,
+            "sparse_rank": 14,
+            "is_expected": false
+          }
+        ]
+      }
+    ],
+    "latency_measured": {
+      "p50": 34.4,
+      "mean": 35.0,
+      "p95": 42.3,
+      "n": 84,
+      "repeats": 7,
+      "questions": 12
+    }
+  },
+  "verdicts": [
+    {
+      "id": "w01",
+      "has_exact_token": true,
+      "before_rank": null,
+      "after_rank": 2,
+      "before_label": "R",
+      "after_label": "OK",
+      "verdict": "FIXED"
+    },
+    {
+      "id": "w02",
+      "has_exact_token": true,
+      "before_rank": 2,
+      "after_rank": 2,
+      "before_label": "OK",
+      "after_label": "OK",
+      "verdict": "already passing"
+    },
+    {
+      "id": "w03",
+      "has_exact_token": true,
+      "before_rank": 2,
+      "after_rank": 2,
+      "before_label": "OK",
+      "after_label": "OK",
+      "verdict": "already passing"
+    },
+    {
+      "id": "w04",
+      "has_exact_token": true,
+      "before_rank": null,
+      "after_rank": null,
+      "before_label": "R",
+      "after_label": "R",
+      "verdict": "STILL BROKEN"
+    },
+    {
+      "id": "w05",
+      "has_exact_token": true,
+      "before_rank": null,
+      "after_rank": 3,
+      "before_label": "R",
+      "after_label": "OK",
+      "verdict": "FIXED"
+    },
+    {
+      "id": "w06",
+      "has_exact_token": true,
+      "before_rank": 2,
+      "after_rank": 2,
+      "before_label": "OK",
+      "after_label": "OK",
+      "verdict": "already passing"
+    },
+    {
+      "id": "w07",
+      "has_exact_token": false,
+      "before_rank": 1,
+      "after_rank": 1,
+      "before_label": "OK",
+      "after_label": "OK",
+      "verdict": "already passing"
+    },
+    {
+      "id": "w08",
+      "has_exact_token": false,
+      "before_rank": 1,
+      "after_rank": 1,
+      "before_label": "OK",
+      "after_label": "OK",
+      "verdict": "already passing"
+    },
+    {
+      "id": "w09",
+      "has_exact_token": false,
+      "before_rank": 1,
+      "after_rank": 1,
+      "before_label": "OK",
+      "after_label": "OK",
+      "verdict": "already passing"
+    },
+    {
+      "id": "w10",
+      "has_exact_token": false,
+      "before_rank": 1,
+      "after_rank": 1,
+      "before_label": "OK",
+      "after_label": "OK",
+      "verdict": "already passing"
+    },
+    {
+      "id": "w11",
+      "has_exact_token": false,
+      "before_rank": 2,
+      "after_rank": 3,
+      "before_label": "OK",
+      "after_label": "OK",
+      "verdict": "already passing"
+    },
+    {
+      "id": "w12",
+      "has_exact_token": false,
+      "before_rank": 1,
+      "after_rank": 1,
+      "before_label": "OK",
+      "after_label": "OK",
+      "verdict": "already passing"
+    }
+  ],
+  "mmr_sweep": [
+    {
+      "mmr_lambda": 0.3,
+      "hit_at_3": 6,
+      "of": 12,
+      "latency_ms": {
+        "p50": 57.2,
+        "mean": 57.0,
+        "p95": 63.8,
+        "n": 12
+      },
+      "diversity": {
+        "distinct_forms_in_top3": 2.583,
+        "distinct_clauses_in_top3": 2.667
+      },
+      "misses": [
+        "w01",
+        "w02",
+        "w03",
+        "w04",
+        "w05",
+        "w11"
+      ]
+    },
+    {
+      "mmr_lambda": 0.5,
+      "hit_at_3": 6,
+      "of": 12,
+      "latency_ms": {
+        "p50": 54.7,
+        "mean": 56.9,
+        "p95": 74.1,
+        "n": 12
+      },
+      "diversity": {
+        "distinct_forms_in_top3": 2.583,
+        "distinct_clauses_in_top3": 2.75
+      },
+      "misses": [
+        "w01",
+        "w02",
+        "w03",
+        "w04",
+        "w05",
+        "w11"
+      ]
+    },
+    {
+      "mmr_lambda": 0.7,
+      "hit_at_3": 7,
+      "of": 12,
+      "latency_ms": {
+        "p50": 55.9,
+        "mean": 56.4,
+        "p95": 62.0,
+        "n": 12
+      },
+      "diversity": {
+        "distinct_forms_in_top3": 2.417,
+        "distinct_clauses_in_top3": 2.917
+      },
+      "misses": [
+        "w01",
+        "w02",
+        "w03",
+        "w04",
+        "w05"
+      ]
+    },
+    {
+      "mmr_lambda": 0.9,
+      "hit_at_3": 9,
+      "of": 12,
+      "latency_ms": {
+        "p50": 59.5,
+        "mean": 61.3,
+        "p95": 101.6,
+        "n": 12
+      },
+      "diversity": {
+        "distinct_forms_in_top3": 2.0,
+        "distinct_clauses_in_top3": 2.667
+      },
+      "misses": [
+        "w01",
+        "w04",
+        "w05"
+      ]
+    }
+  ],
+  "cross_encoder_reference": {
+    "label": "dense + BM25 + cross-encoder",
+    "hit_at_3": 10,
+    "of": 12,
+    "latency_ms": {
+      "p50": 744.6,
+      "mean": 754.3,
+      "p95": 838.7,
+      "n": 12
+    },
+    "misses": [
+      "w04",
+      "w11"
+    ]
+  },
+  "baseline_diversity": {
+    "distinct_forms_in_top3": 1.583,
+    "distinct_clauses_in_top3": 2.583
+  }
+}

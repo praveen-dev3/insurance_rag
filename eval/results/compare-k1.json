@@ -1,0 +1,107 @@
+{
+  "command": "compare",
+  "result": {
+    "before": "week3 baseline (dense only, no rerank)",
+    "after": "week4 (hybrid RRF + cross-encoder)",
+    "rows": [
+      {
+        "stage": "fused",
+        "metric": "hit_rate@1",
+        "before": 0.75,
+        "after": 0.875,
+        "delta": 0.125
+      },
+      {
+        "stage": "fused",
+        "metric": "recall@1",
+        "before": 0.5729,
+        "after": 0.6927,
+        "delta": 0.1198
+      },
+      {
+        "stage": "fused",
+        "metric": "precision@1",
+        "before": 0.75,
+        "after": 0.875,
+        "delta": 0.125
+      },
+      {
+        "stage": "fused",
+        "metric": "mrr",
+        "before": 0.75,
+        "after": 0.875,
+        "delta": 0.125
+      },
+      {
+        "stage": "reranked",
+        "metric": "hit_rate@1",
+        "before": 0.75,
+        "after": 0.9688,
+        "delta": 0.2188
+      },
+      {
+        "stage": "reranked",
+        "metric": "recall@1",
+        "before": 0.5729,
+        "after": 0.7969,
+        "delta": 0.224
+      },
+      {
+        "stage": "reranked",
+        "metric": "precision@1",
+        "before": 0.75,
+        "after": 0.9688,
+        "delta": 0.2188
+      },
+      {
+        "stage": "reranked",
+        "metric": "mrr",
+        "before": 0.75,
+        "after": 0.9688,
+        "delta": 0.2188
+      },
+      {
+        "stage": "final",
+        "metric": "hit_rate@1",
+        "before": 0.75,
+        "after": 0.9688,
+        "delta": 0.2188
+      },
+      {
+        "stage": "final",
+        "metric": "recall@1",
+        "before": 0.5729,
+        "after": 0.7969,
+        "delta": 0.224
+      },
+      {
+        "stage": "final",
+        "metric": "precision@1",
+        "before": 0.75,
+        "after": 0.9688,
+        "delta": 0.2188
+      },
+      {
+        "stage": "final",
+        "metric": "mrr",
+        "before": 0.75,
+        "after": 0.9688,
+        "delta": 0.2188
+      }
+    ],
+    "fixed": [
+      "q05",
+      "q09",
+      "q16",
+      "q18",
+      "q24",
+      "q29",
+      "q31",
+      "q32"
+    ],
+    "regressed": [
+      "q27"
+    ],
+    "still_failing": []
+  }
+}

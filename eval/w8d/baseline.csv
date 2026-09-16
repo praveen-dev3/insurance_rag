@@ -1,0 +1,11 @@
+claim_id,dependency,sequence,outcome_pass,trajectory_pass,failure_modes,tool_choice_correct,tool_choice_total,argument_valid,argument_total,steps_taken,steps_needed,cost_usd,total_tokens,wall_clock_s
+c01,False,get_claim search_policy search_policy search_policy compute_payout,True,True,step_overrun,5,5,5,5,5,4,0.000942,11648,62.074
+c02,False,get_claim search_policy search_policy search_policy compute_payout,True,False,step_overrun,5,5,6,6,5,3,0.000793,9241,70.750
+c03,False,get_claim search_policy search_policy compute_payout,False,True,step_overrun,4,4,4,4,4,3,0.000685,8261,49.683
+c04,True,get_claim search_policy search_policy search_policy compute_payout,False,True,step_overrun,5,5,6,6,5,4,0.000859,10481,75.786
+c05,False,get_claim search_policy search_policy compute_payout,True,True,step_overrun,4,4,5,5,4,3,0.000626,7412,45.956
+c06,True,get_claim search_policy search_policy search_policy compute_payout,True,True,step_overrun,5,5,5,5,5,4,0.000801,9697,57.810
+c07,False,get_claim search_policy search_policy compute_payout,False,True,step_overrun,4,4,4,4,4,3,0.000679,8052,69.931
+c08,True,get_claim search_policy compute_payout,True,False,hallucinated_argument,3,3,3,4,3,3,0.000422,5032,25.812
+c09,False,get_claim search_policy compute_payout,True,True,,3,3,4,4,3,3,0.000389,4585,23.309
+c10,False,get_claim search_policy search_policy search_policy search_policy compute_payout,True,False,step_overrun,6,6,6,6,6,4,0.001086,13340,87.705

@@ -53,6 +53,9 @@ COMMANDS = {
     # ---- week 7, task set D: race the claims agent against a workflow ----
     "w7d-race": ("w7d_race", "main", True),
 
+    # ---- week 8, task set D: score the claims agent's path, not just its answer ----
+    "w8d-eval": ("w8d_run", "main", True),
+
     # ---- anytime ----
     "resolve-chunk": ("resolve_chunk", "main", True),
 }
@@ -70,6 +73,8 @@ GROUPS = (
      ("w7-retrieval-delta",)),
     ("w7d", "race the claims agent against a fixed workflow",
      ("w7d-race",)),
+    ("w8d", "score the claims agent's path, not just its answer",
+     ("w8d-eval",)),
     ("util", "anytime",
      ("resolve-chunk",)),
 )

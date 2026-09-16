@@ -1,0 +1,11 @@
+claim_id,dependency,sequence,outcome_pass,trajectory_pass,failure_modes,steps_taken,steps_needed,cost_usd,total_tokens,wall_clock_s
+c01,False,get_claim search_policy search_policy compute_payout,True,True,,4,4,0.000643,7736,6.261
+c02,False,get_claim search_policy compute_payout,True,True,,3,3,0.000405,4735,16.643
+c03,False,get_claim search_policy search_policy compute_payout,True,True,step_overrun,4,3,0.000515,5973,38.813
+c04,True,get_claim search_policy compute_payout,False,False,missing_required_form,3,4,0.000454,5338,40.991
+c05,False,get_claim search_policy compute_payout,True,True,,3,3,0.000472,5583,30.882
+c06,True,get_claim search_policy search_policy search_policy compute_payout,False,False,budget_exceeded,5,4,0.000653,7963,36.937
+c07,False,get_claim search_policy search_policy compute_payout,False,True,step_overrun,4,3,0.000629,7408,37.666
+c08,True,get_claim search_policy search_policy compute_payout,True,True,step_overrun,4,3,0.000621,7268,23.809
+c09,False,get_claim search_policy compute_payout,True,True,,3,3,0.000386,4555,17.257
+c10,False,get_claim search_policy search_policy search_policy compute_payout,False,False,budget_exceeded,5,4,0.000610,7377,1137.471

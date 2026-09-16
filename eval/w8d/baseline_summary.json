@@ -1,0 +1,285 @@
+{
+  "numbers": {
+    "n": 10,
+    "tool_choice_accuracy": 1.0,
+    "tool_choice_correct": 44,
+    "tool_choice_total": 44,
+    "argument_validity_rate": 0.9795918367346939,
+    "argument_valid": 48,
+    "argument_total": 49,
+    "step_efficiency": 1.2941176470588236,
+    "cost_p50_usd": 0.0007392375,
+    "cost_max_usd": 0.001086225,
+    "outcome_pass_rate": 0.7,
+    "trajectory_pass_rate": 0.7,
+    "gap": 0.0
+  },
+  "mode_counts": {
+    "step_overrun": 8,
+    "hallucinated_argument": 1
+  },
+  "reports": [
+    {
+      "claim_id": "c01",
+      "dependency": false,
+      "sequence": [
+        "get_claim",
+        "search_policy",
+        "search_policy",
+        "search_policy",
+        "compute_payout"
+      ],
+      "outcome_pass": true,
+      "outcome_note": "ok",
+      "trajectory_pass": true,
+      "trajectory_note": "ok",
+      "failure_modes": [
+        "step_overrun"
+      ],
+      "tool_choice_correct": 5,
+      "tool_choice_total": 5,
+      "argument_valid": 5,
+      "argument_total": 5,
+      "steps_taken": 5,
+      "steps_needed": 4,
+      "cost_usd": 0.00094155,
+      "total_tokens": 11648,
+      "wall_clock_s": 62.07361280001351
+    },
+    {
+      "claim_id": "c02",
+      "dependency": false,
+      "sequence": [
+        "get_claim",
+        "search_policy",
+        "search_policy",
+        "search_policy",
+        "compute_payout"
+      ],
+      "outcome_pass": true,
+      "outcome_note": "ok",
+      "trajectory_pass": false,
+      "trajectory_note": "tool sequence ('get_claim', 'search_policy', 'search_policy', 'search_policy', 'compute_payout') not an accepted shape",
+      "failure_modes": [
+        "step_overrun"
+      ],
+      "tool_choice_correct": 5,
+      "tool_choice_total": 5,
+      "argument_valid": 6,
+      "argument_total": 6,
+      "steps_taken": 5,
+      "steps_needed": 3,
+      "cost_usd": 0.0007934250000000001,
+      "total_tokens": 9241,
+      "wall_clock_s": 70.74978030000057
+    },
+    {
+      "claim_id": "c03",
+      "dependency": false,
+      "sequence": [
+        "get_claim",
+        "search_policy",
+        "search_policy",
+        "compute_payout"
+      ],
+      "outcome_pass": false,
+      "outcome_note": "status 'covered' != 'excluded'",
+      "trajectory_pass": true,
+      "trajectory_note": "ok",
+      "failure_modes": [
+        "step_overrun"
+      ],
+      "tool_choice_correct": 4,
+      "tool_choice_total": 4,
+      "argument_valid": 4,
+      "argument_total": 4,
+      "steps_taken": 4,
+      "steps_needed": 3,
+      "cost_usd": 0.00068505,
+      "total_tokens": 8261,
+      "wall_clock_s": 49.68298050000158
+    },
+    {
+      "claim_id": "c04",
+      "dependency": true,
+      "sequence": [
+        "get_claim",
+        "search_policy",
+        "search_policy",
+        "search_policy",
+        "compute_payout"
+      ],
+      "outcome_pass": false,
+      "outcome_note": "status 'excluded' != 'covered'",
+      "trajectory_pass": true,
+      "trajectory_note": "ok",
+      "failure_modes": [
+        "step_overrun"
+      ],
+      "tool_choice_correct": 5,
+      "tool_choice_total": 5,
+      "argument_valid": 6,
+      "argument_total": 6,
+      "steps_taken": 5,
+      "steps_needed": 4,
+      "cost_usd": 0.0008589749999999999,
+      "total_tokens": 10481,
+      "wall_clock_s": 75.78604160000395
+    },
+    {
+      "claim_id": "c05",
+      "dependency": false,
+      "sequence": [
+        "get_claim",
+        "search_policy",
+        "search_policy",
+        "compute_payout"
+      ],
+      "outcome_pass": true,
+      "outcome_note": "ok",
+      "trajectory_pass": true,
+      "trajectory_note": "ok",
+      "failure_modes": [
+        "step_overrun"
+      ],
+      "tool_choice_correct": 4,
+      "tool_choice_total": 4,
+      "argument_valid": 5,
+      "argument_total": 5,
+      "steps_taken": 4,
+      "steps_needed": 3,
+      "cost_usd": 0.0006263250000000001,
+      "total_tokens": 7412,
+      "wall_clock_s": 45.95555030000105
+    },
+    {
+      "claim_id": "c06",
+      "dependency": true,
+      "sequence": [
+        "get_claim",
+        "search_policy",
+        "search_policy",
+        "search_policy",
+        "compute_payout"
+      ],
+      "outcome_pass": true,
+      "outcome_note": "ok",
+      "trajectory_pass": true,
+      "trajectory_note": "ok",
+      "failure_modes": [
+        "step_overrun"
+      ],
+      "tool_choice_correct": 5,
+      "tool_choice_total": 5,
+      "argument_valid": 5,
+      "argument_total": 5,
+      "steps_taken": 5,
+      "steps_needed": 4,
+      "cost_usd": 0.000801075,
+      "total_tokens": 9697,
+      "wall_clock_s": 57.81030579999788
+    },
+    {
+      "claim_id": "c07",
+      "dependency": false,
+      "sequence": [
+        "get_claim",
+        "search_policy",
+        "search_policy",
+        "compute_payout"
+      ],
+      "outcome_pass": false,
+      "outcome_note": "status 'covered' != 'excluded'",
+      "trajectory_pass": true,
+      "trajectory_note": "ok",
+      "failure_modes": [
+        "step_overrun"
+      ],
+      "tool_choice_correct": 4,
+      "tool_choice_total": 4,
+      "argument_valid": 4,
+      "argument_total": 4,
+      "steps_taken": 4,
+      "steps_needed": 3,
+      "cost_usd": 0.00067905,
+      "total_tokens": 8052,
+      "wall_clock_s": 69.93113260000246
+    },
+    {
+      "claim_id": "c08",
+      "dependency": true,
+      "sequence": [
+        "get_claim",
+        "search_policy",
+        "compute_payout"
+      ],
+      "outcome_pass": true,
+      "outcome_note": "ok",
+      "trajectory_pass": false,
+      "trajectory_note": "ungrounded: final_answer.exclusion_code (HO-0633)",
+      "failure_modes": [
+        "hallucinated_argument"
+      ],
+      "tool_choice_correct": 3,
+      "tool_choice_total": 3,
+      "argument_valid": 3,
+      "argument_total": 4,
+      "steps_taken": 3,
+      "steps_needed": 3,
+      "cost_usd": 0.00042217499999999995,
+      "total_tokens": 5032,
+      "wall_clock_s": 25.8117321000027
+    },
+    {
+      "claim_id": "c09",
+      "dependency": false,
+      "sequence": [
+        "get_claim",
+        "search_policy",
+        "compute_payout"
+      ],
+      "outcome_pass": true,
+      "outcome_note": "ok",
+      "trajectory_pass": true,
+      "trajectory_note": "ok",
+      "failure_modes": [],
+      "tool_choice_correct": 3,
+      "tool_choice_total": 3,
+      "argument_valid": 4,
+      "argument_total": 4,
+      "steps_taken": 3,
+      "steps_needed": 3,
+      "cost_usd": 0.00038909999999999997,
+      "total_tokens": 4585,
+      "wall_clock_s": 23.309063499997137
+    },
+    {
+      "claim_id": "c10",
+      "dependency": false,
+      "sequence": [
+        "get_claim",
+        "search_policy",
+        "search_policy",
+        "search_policy",
+        "search_policy",
+        "compute_payout"
+      ],
+      "outcome_pass": true,
+      "outcome_note": "ok",
+      "trajectory_pass": false,
+      "trajectory_note": "tool sequence ('get_claim', 'search_policy', 'search_policy', 'search_policy', 'search_policy', 'compute_payout') not an accepted shape",
+      "failure_modes": [
+        "step_overrun"
+      ],
+      "tool_choice_correct": 6,
+      "tool_choice_total": 6,
+      "argument_valid": 6,
+      "argument_total": 6,
+      "steps_taken": 6,
+      "steps_needed": 4,
+      "cost_usd": 0.001086225,
+      "total_tokens": 13340,
+      "wall_clock_s": 87.7050198999932
+    }
+  ]
+}

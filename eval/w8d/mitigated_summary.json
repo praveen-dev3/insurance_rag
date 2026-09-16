@@ -1,0 +1,274 @@
+{
+  "numbers": {
+    "n": 10,
+    "tool_choice_accuracy": 0.9736842105263158,
+    "tool_choice_correct": 37,
+    "tool_choice_total": 38,
+    "argument_validity_rate": 1.0,
+    "argument_valid": 43,
+    "argument_total": 43,
+    "step_efficiency": 1.1176470588235294,
+    "cost_p50_usd": 0.0005628375,
+    "cost_max_usd": 0.0006525750000000001,
+    "outcome_pass_rate": 0.6,
+    "trajectory_pass_rate": 0.7,
+    "gap": -0.09999999999999998
+  },
+  "mode_counts": {
+    "step_overrun": 3,
+    "missing_required_form": 1,
+    "budget_exceeded": 2
+  },
+  "reports": [
+    {
+      "claim_id": "c01",
+      "dependency": false,
+      "sequence": [
+        "get_claim",
+        "search_policy",
+        "search_policy",
+        "compute_payout"
+      ],
+      "outcome_pass": true,
+      "outcome_note": "ok",
+      "trajectory_pass": true,
+      "trajectory_note": "ok",
+      "failure_modes": [],
+      "tool_choice_correct": 4,
+      "tool_choice_total": 4,
+      "argument_valid": 4,
+      "argument_total": 4,
+      "steps_taken": 4,
+      "steps_needed": 4,
+      "cost_usd": 0.0006429750000000001,
+      "total_tokens": 7736,
+      "wall_clock_s": 6.261068499996327
+    },
+    {
+      "claim_id": "c02",
+      "dependency": false,
+      "sequence": [
+        "get_claim",
+        "search_policy",
+        "compute_payout"
+      ],
+      "outcome_pass": true,
+      "outcome_note": "ok",
+      "trajectory_pass": true,
+      "trajectory_note": "ok",
+      "failure_modes": [],
+      "tool_choice_correct": 3,
+      "tool_choice_total": 3,
+      "argument_valid": 4,
+      "argument_total": 4,
+      "steps_taken": 3,
+      "steps_needed": 3,
+      "cost_usd": 0.00040484999999999995,
+      "total_tokens": 4735,
+      "wall_clock_s": 16.643023399999947
+    },
+    {
+      "claim_id": "c03",
+      "dependency": false,
+      "sequence": [
+        "get_claim",
+        "search_policy",
+        "search_policy",
+        "compute_payout"
+      ],
+      "outcome_pass": true,
+      "outcome_note": "ok",
+      "trajectory_pass": true,
+      "trajectory_note": "ok",
+      "failure_modes": [
+        "step_overrun"
+      ],
+      "tool_choice_correct": 4,
+      "tool_choice_total": 4,
+      "argument_valid": 5,
+      "argument_total": 5,
+      "steps_taken": 4,
+      "steps_needed": 3,
+      "cost_usd": 0.0005154749999999999,
+      "total_tokens": 5973,
+      "wall_clock_s": 38.81334339999012
+    },
+    {
+      "claim_id": "c04",
+      "dependency": true,
+      "sequence": [
+        "get_claim",
+        "search_policy",
+        "compute_payout"
+      ],
+      "outcome_pass": false,
+      "outcome_note": "status 'excluded' != 'covered'",
+      "trajectory_pass": false,
+      "trajectory_note": "tool sequence ('get_claim', 'search_policy', 'compute_payout') not an accepted shape",
+      "failure_modes": [
+        "missing_required_form"
+      ],
+      "tool_choice_correct": 2,
+      "tool_choice_total": 3,
+      "argument_valid": 4,
+      "argument_total": 4,
+      "steps_taken": 3,
+      "steps_needed": 4,
+      "cost_usd": 0.000454125,
+      "total_tokens": 5338,
+      "wall_clock_s": 40.9908970999968
+    },
+    {
+      "claim_id": "c05",
+      "dependency": false,
+      "sequence": [
+        "get_claim",
+        "search_policy",
+        "compute_payout"
+      ],
+      "outcome_pass": true,
+      "outcome_note": "ok",
+      "trajectory_pass": true,
+      "trajectory_note": "ok",
+      "failure_modes": [],
+      "tool_choice_correct": 3,
+      "tool_choice_total": 3,
+      "argument_valid": 4,
+      "argument_total": 4,
+      "steps_taken": 3,
+      "steps_needed": 3,
+      "cost_usd": 0.00047159999999999997,
+      "total_tokens": 5583,
+      "wall_clock_s": 30.88152130000526
+    },
+    {
+      "claim_id": "c06",
+      "dependency": true,
+      "sequence": [
+        "get_claim",
+        "search_policy",
+        "search_policy",
+        "search_policy",
+        "compute_payout"
+      ],
+      "outcome_pass": false,
+      "outcome_note": "did not complete (max_iterations)",
+      "trajectory_pass": false,
+      "trajectory_note": "did not complete",
+      "failure_modes": [
+        "budget_exceeded"
+      ],
+      "tool_choice_correct": 5,
+      "tool_choice_total": 5,
+      "argument_valid": 5,
+      "argument_total": 5,
+      "steps_taken": 5,
+      "steps_needed": 4,
+      "cost_usd": 0.0006525750000000001,
+      "total_tokens": 7963,
+      "wall_clock_s": 36.93749539999408
+    },
+    {
+      "claim_id": "c07",
+      "dependency": false,
+      "sequence": [
+        "get_claim",
+        "search_policy",
+        "search_policy",
+        "compute_payout"
+      ],
+      "outcome_pass": false,
+      "outcome_note": "status 'covered' != 'excluded'",
+      "trajectory_pass": true,
+      "trajectory_note": "ok",
+      "failure_modes": [
+        "step_overrun"
+      ],
+      "tool_choice_correct": 4,
+      "tool_choice_total": 4,
+      "argument_valid": 4,
+      "argument_total": 4,
+      "steps_taken": 4,
+      "steps_needed": 3,
+      "cost_usd": 0.0006294,
+      "total_tokens": 7408,
+      "wall_clock_s": 37.66649060000782
+    },
+    {
+      "claim_id": "c08",
+      "dependency": true,
+      "sequence": [
+        "get_claim",
+        "search_policy",
+        "search_policy",
+        "compute_payout"
+      ],
+      "outcome_pass": true,
+      "outcome_note": "ok",
+      "trajectory_pass": true,
+      "trajectory_note": "ok",
+      "failure_modes": [
+        "step_overrun"
+      ],
+      "tool_choice_correct": 4,
+      "tool_choice_total": 4,
+      "argument_valid": 4,
+      "argument_total": 4,
+      "steps_taken": 4,
+      "steps_needed": 3,
+      "cost_usd": 0.0006213750000000001,
+      "total_tokens": 7268,
+      "wall_clock_s": 23.80941200000234
+    },
+    {
+      "claim_id": "c09",
+      "dependency": false,
+      "sequence": [
+        "get_claim",
+        "search_policy",
+        "compute_payout"
+      ],
+      "outcome_pass": true,
+      "outcome_note": "ok",
+      "trajectory_pass": true,
+      "trajectory_note": "ok",
+      "failure_modes": [],
+      "tool_choice_correct": 3,
+      "tool_choice_total": 3,
+      "argument_valid": 4,
+      "argument_total": 4,
+      "steps_taken": 3,
+      "steps_needed": 3,
+      "cost_usd": 0.00038639999999999996,
+      "total_tokens": 4555,
+      "wall_clock_s": 17.25706469999568
+    },
+    {
+      "claim_id": "c10",
+      "dependency": false,
+      "sequence": [
+        "get_claim",
+        "search_policy",
+        "search_policy",
+        "search_policy",
+        "compute_payout"
+      ],
+      "outcome_pass": false,
+      "outcome_note": "did not complete (max_iterations)",
+      "trajectory_pass": false,
+      "trajectory_note": "did not complete",
+      "failure_modes": [
+        "budget_exceeded"
+      ],
+      "tool_choice_correct": 5,
+      "tool_choice_total": 5,
+      "argument_valid": 5,
+      "argument_total": 5,
+      "steps_taken": 5,
+      "steps_needed": 4,
+      "cost_usd": 0.0006102,
+      "total_tokens": 7377,
+      "wall_clock_s": 1137.4705754000024
+    }
+  ]
+}

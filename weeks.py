@@ -56,6 +56,9 @@ COMMANDS = {
     # ---- week 8, task set D: score the claims agent's path, not just its answer ----
     "w8d-eval": ("w8d_run", "main", True),
 
+    # ---- week 9, task set D: bolt the claims-system MCP server on by config alone ----
+    "w9d-eval": ("w9d_run", "main", True),
+
     # ---- anytime ----
     "resolve-chunk": ("resolve_chunk", "main", True),
 }
@@ -75,6 +78,8 @@ GROUPS = (
      ("w7d-race",)),
     ("w8d", "score the claims agent's path, not just its answer",
      ("w8d-eval",)),
+    ("w9d", "bolt the claims-system MCP server on by config alone",
+     ("w9d-eval",)),
     ("util", "anytime",
      ("resolve-chunk",)),
 )

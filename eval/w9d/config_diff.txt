@@ -1,0 +1,17 @@
+$ git diff --no-index tools/data/w9d_mcp_config.step1.json tools/data/w9d_mcp_config.json
+
+diff --git a/tools/data/w9d_mcp_config.step1.json b/tools/data/w9d_mcp_config.json
+index 330f669..de6bfaf 100644
+--- a/tools/data/w9d_mcp_config.step1.json
++++ b/tools/data/w9d_mcp_config.json
+@@ -3,6 +3,10 @@
+     "policy-docs": {
+       "command": "python",
+       "args": ["tools/w9d_policy_server.py"]
++    },
++    "claims-system": {
++      "command": "python",
++      "args": ["tools/w9d_claims_server.py"]
+     }
+   }
+ }

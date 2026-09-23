@@ -1,0 +1,167 @@
+{
+  "exchanges": [
+    {
+      "label": "initialize request",
+      "direction": "client->server",
+      "raw": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "initialize",
+        "params": {
+          "protocolVersion": "2024-11-05",
+          "capabilities": {},
+          "clientInfo": {
+            "name": "w9d-agent",
+            "version": "1.0.0"
+          }
+        }
+      },
+      "annotations": {
+        "jsonrpc": "JSON-RPC 2.0 envelope version - every MCP message carries this, request or response.",
+        "id": "Client-assigned request id; the matching response echoes it back so the client can correlate the two over one stdio stream carrying many in-flight calls.",
+        "method": "\"initialize\" - the MCP handshake. Nothing else (tools/list, tools/call) is legal before this completes.",
+        "params.protocolVersion": "The MCP spec version this client speaks; the server can refuse to serve an incompatible one.",
+        "params.capabilities": "What the client can do (e.g. handle sampling requests from the server). Empty here - this client offers none back.",
+        "params.clientInfo": "Free-form name/version identifying the calling agent, for the server's own logs - not used for authorization in this stdio transport."
+      }
+    },
+    {
+      "label": "initialize response",
+      "direction": "server->client",
+      "raw": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "result": {
+          "protocolVersion": "2024-11-05",
+          "capabilities": {
+            "tools": {}
+          },
+          "serverInfo": {
+            "name": "claims-system",
+            "version": "0.1.0"
+          }
+        }
+      },
+      "annotations": {
+        "jsonrpc / id": "Same envelope; id matches the request that provoked this reply.",
+        "result.protocolVersion": "The version the server actually settled on - a client should check this equals what it asked for.",
+        "result.capabilities": "What the server offers: {\"tools\": {}} here means tool calls are supported; a resources key would mean resources/list and resources/read are too (see the policy-docs server, which has one).",
+        "result.serverInfo": "The server's own name and version - this is where \"claims-system\" first identifies itself on the wire, before any tool is called."
+      }
+    },
+    {
+      "label": "initialized notification",
+      "direction": "client->server",
+      "raw": {
+        "jsonrpc": "2.0",
+        "method": "notifications/initialized",
+        "params": {}
+      },
+      "annotations": {
+        "jsonrpc / method": "\"notifications/initialized\" - a JSON-RPC *notification*: no \"id\", and the server sends no reply to it. It only tells the server the client accepted the handshake result and normal requests may now follow."
+      }
+    },
+    {
+      "label": "tools/list request",
+      "direction": "client->server",
+      "raw": {
+        "jsonrpc": "2.0",
+        "id": 2,
+        "method": "tools/list",
+        "params": {}
+      },
+      "annotations": {
+        "method": "\"tools/list\" - discovery. No arguments: the client is asking \"what can you do,\" not invoking anything."
+      }
+    },
+    {
+      "label": "tools/list response",
+      "direction": "server->client",
+      "raw": {
+        "jsonrpc": "2.0",
+        "id": 2,
+        "result": {
+          "tools": [
+            {
+              "name": "get_claim_status",
+              "description": "Look up one claim's current status in the claims system by its public claim number (e.g. 'CLM-7004'). Returns the status, claimant, date of loss and form number. Does not return adjuster notes and does not search policy wording - call get_adjuster_notes or search_policy for those.",
+              "inputSchema": {
+                "type": "object",
+                "properties": {
+                  "claim_number": {
+                    "type": "string",
+                    "description": "The public claim number, e.g. 'CLM-7004'."
+                  }
+                },
+                "required": [
+                  "claim_number"
+                ]
+              }
+            },
+            {
+              "name": "get_adjuster_notes",
+              "description": "Fetch the adjuster note history for one claim by its public claim number. Returns the notes verbatim, exactly as the adjuster wrote them - nothing in this system sanitizes them. Does not return claim status and does not search policy wording.",
+              "inputSchema": {
+                "type": "object",
+                "properties": {
+                  "claim_number": {
+                    "type": "string",
+                    "description": "The public claim number, e.g. 'CLM-7004'."
+                  }
+                },
+                "required": [
+                  "claim_number"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "annotations": {
+        "result.tools": "One entry per tool: name (what the model's tool_call.function.name must equal), description (the only documentation the model ever sees - this is requirement 5's \"docstring\"), inputSchema (JSON Schema the client translates almost verbatim into the OpenAI function-calling \"parameters\" field)."
+      }
+    },
+    {
+      "label": "tools/call request",
+      "direction": "client->server",
+      "raw": {
+        "jsonrpc": "2.0",
+        "id": 3,
+        "method": "tools/call",
+        "params": {
+          "name": "get_claim_status",
+          "arguments": {
+            "claim_number": "CLM-7004"
+          }
+        }
+      },
+      "annotations": {
+        "method": "\"tools/call\" - the one method that actually runs server code and can have a side effect or a cost.",
+        "params.name": "Which discovered tool to invoke - must be one of the names tools/list just returned.",
+        "params.arguments": "The arguments the model chose, already validated by the model against inputSchema (not re-validated here) - claim_number is the only required field."
+      }
+    },
+    {
+      "label": "tools/call response",
+      "direction": "server->client",
+      "raw": {
+        "jsonrpc": "2.0",
+        "id": 3,
+        "result": {
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"claim_number\": \"CLM-7004\", \"status\": \"open - under review\", \"claimant\": \"[CLAIMANT-A4]\", \"date_of_loss\": \"2026-03-01\", \"form_number\": \"HO-0304\"}"
+            }
+          ],
+          "isError": false
+        }
+      },
+      "annotations": {
+        "result.content": "A list of content blocks, here one {\"type\": \"text\", ...} block holding a JSON string - the tool's actual return value, serialized. MCP does not require a tool to return JSON; this server's tools happen to always return a JSON object as text.",
+        "result.isError": "true means the tool ran and reported a *tool-level* failure (e.g. an unknown claim number) - not a transport or protocol failure, which would instead come back as a top-level JSON-RPC \"error\" object with no \"result\" at all (see tools/w9d_mcp.py's handling of an unknown tool name for that path)."
+      }
+    }
+  ],
+  "model_call_location": "The model is called exactly once per lap, inside tools/w9d_agent.py's run_agent (the call_llm(...) invocation), in the agent process - after a tools/list response has been folded into the function-calling menu and before the next tools/call is sent. The model is never called inside tools/w9d_claims_server.py or tools/w9d_policy_server.py (this capture's whole wire log has zero LLM calls in it) - those processes only run deterministic Python and return data; deciding what to call and how to read the result is entirely the agent process's job."
+}

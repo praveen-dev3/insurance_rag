@@ -1,0 +1,37 @@
+{
+  "user_message": "What is the status of claim CLM-7004, and can you summarize what the adjuster notes say about the cause of loss?",
+  "outcome": "completed",
+  "tool_calls": [
+    {
+      "name": "get_claim_status",
+      "server": "claims-system",
+      "arguments": {
+        "claim_number": "CLM-7004"
+      },
+      "result": {
+        "claim_number": "CLM-7004",
+        "status": "open - under review",
+        "claimant": "[CLAIMANT-A4]",
+        "date_of_loss": "2026-03-01",
+        "form_number": "HO-0304"
+      }
+    },
+    {
+      "name": "get_adjuster_notes",
+      "server": "claims-system",
+      "arguments": {
+        "claim_number": "CLM-7004"
+      },
+      "result": {
+        "claim_number": "CLM-7004",
+        "notes": "Heavy rain overnight; water backed up through the basement floor drain and flooded the finished basement. Not a supply line or appliance failure - the water came up through the drain itself. The home has a sump pump fitted with a battery backup, serviced by a technician six weeks ago with a service record on file. Damage to flooring, drywall and stored furniture, estimated 14,000."
+      }
+    }
+  ],
+  "transcript": [
+    "[lap 1] tool get_claim_status({'claim_number': 'CLM-7004'}) -> {'claim_number': 'CLM-7004', 'status': 'open - under review', 'claimant': '[CLAIMANT-A4]', 'date_of_loss': '2026-03-01', 'form_number': 'HO-0304'}",
+    "[lap 2] tool get_adjuster_notes({'claim_number': 'CLM-7004'}) -> {'claim_number': 'CLM-7004', 'notes': 'Heavy rain overnight; water backed up through the basement floor drain and flooded the finished basement. Not a supply line or appliance failure - the water came up through the drain itself. The home has a sump pump fitted with a battery backup, serviced by a technician six weeks ago with a service record on file. Damage to flooring, drywall and stored furniture, estimated 14,000.'}",
+    "[lap 3] final answer: '**Claim status:**  \\n- Claim\\u202fCLM\u20117004 is **open \u2013 under review**.  \\n- The claimant is **[CLAIMANT\u2011A4]**.  \\n- Date of loss: **2026\u201103\u201101**.  \\n- The relevant policy form is **HO\u20110304**.\\n\\n**Adjuster notes \u2013 cause of loss:**  \\n- \u201cHeavy rain overnight; water backed up through the basement floor drain and flooded the finished basement.\u201d  \\n- The water **did not come from a supply line or an appliance failure**; it entered through the drain itself.  \\n- A sump pump (with battery backup) is present and was serviced six weeks prior, with a service record on file.  \\n- Damage includes flooring, drywall, and stored furniture, with an estimate of\\u202f$14,000.'"
+  ],
+  "final_text": "**Claim status:**  \n- Claim\u202fCLM\u20117004 is **open \u2013 under review**.  \n- The claimant is **[CLAIMANT\u2011A4]**.  \n- Date of loss: **2026\u201103\u201101**.  \n- The relevant policy form is **HO\u20110304**.\n\n**Adjuster notes \u2013 cause of loss:**  \n- \u201cHeavy rain overnight; water backed up through the basement floor drain and flooded the finished basement.\u201d  \n- The water **did not come from a supply line or an appliance failure**; it entered through the drain itself.  \n- A sump pump (with battery backup) is present and was serviced six weeks prior, with a service record on file.  \n- Damage includes flooring, drywall, and stored furniture, with an estimate of\u202f$14,000."
+}

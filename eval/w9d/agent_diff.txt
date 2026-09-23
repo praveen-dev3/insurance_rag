@@ -1,0 +1,7 @@
+$ git diff --no-index eval/w9d/w9d_agent.step1_snapshot.py tools/w9d_agent.py
+(eval/w9d/w9d_agent.step1_snapshot.py is a copy of tools/w9d_agent.py taken while
+ tools/data/w9d_mcp_config.step1.json - server one only - was the active config)
+
+--- end of diff: 0 lines changed ---
+
+$ diff -q eval/w9d/w9d_agent.step1_snapshot.py tools/w9d_agent.py

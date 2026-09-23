@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "policy-docs": {
+      "command": "python",
+      "args": ["tools/w9d_policy_server.py"]
+    }
+  }
+}

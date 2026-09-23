@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "policy-docs": {
+      "command": "python",
+      "args": ["tools/w9d_policy_server.py"]
+    },
+    "claims-system": {
+      "command": "python",
+      "args": ["tools/w9d_claims_server.py"]
+    }
+  }
+}

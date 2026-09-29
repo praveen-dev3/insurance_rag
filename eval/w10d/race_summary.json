@@ -1,0 +1,31 @@
+{
+  "single_agent": {
+    "pass_rate": 0.7,
+    "pass_count": 7,
+    "n": 10,
+    "p50_latency_s": 44.65012345003197,
+    "p99_latency_s": 4577.321845219945,
+    "total_tokens": 72469,
+    "cost_per_claim_usd": 0.0006103199999999999
+  },
+  "orchestrator": {
+    "pass_rate": 0.7,
+    "pass_count": 7,
+    "n": 10,
+    "p50_latency_s": 38.41115364996949,
+    "p99_latency_s": 63.97555931400624,
+    "total_tokens": 63081,
+    "cost_per_claim_usd": 0.0005865299999999999
+  },
+  "multiplier": 0.8704549531523824,
+  "dominant_handoff": {
+    "name": "orchestrator -> exclusions-worker",
+    "share": 0.8432650084811592,
+    "tokens": 53194
+  },
+  "handoff_totals": {
+    "orchestrator -> notes-summary-worker": 4279,
+    "orchestrator -> exclusions-worker": 53194,
+    "exclusions-worker+notes-summary -> synthesis": 5608
+  }
+}

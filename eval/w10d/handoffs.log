@@ -1,0 +1,69 @@
+Week 10 Task Set D: per-claim hand-off token counts (orchestrator)
+
+single agent: 0 hand-offs - one tool-calling loop over get_claim/
+search_policy/compute_payout, never delegates, so there is nothing to log here.
+
+claim c01 (PASS, ok)
+  [orchestrator -> notes-summary-worker]  tokens=437 (prompt=277, completion=160)
+  [orchestrator -> exclusions-worker]  tokens=6845 (prompt=6582, completion=263)  laps=4
+  [exclusions-worker+notes-summary -> synthesis]  tokens=623 (prompt=500, completion=123)
+  claim total: 7905 tokens
+
+claim c02 (PASS, ok)
+  [orchestrator -> notes-summary-worker]  tokens=464 (prompt=285, completion=179)
+  [orchestrator -> exclusions-worker]  tokens=4656 (prompt=4433, completion=223)  laps=4
+  [exclusions-worker+notes-summary -> synthesis]  tokens=577 (prompt=492, completion=85)
+  claim total: 5697 tokens
+
+claim c03 (PASS, ok)
+  [orchestrator -> notes-summary-worker]  tokens=388 (prompt=262, completion=126)
+  [orchestrator -> exclusions-worker]  tokens=3823 (prompt=3608, completion=215)  laps=3
+  [exclusions-worker+notes-summary -> synthesis]  tokens=501 (prompt=424, completion=77)
+  claim total: 4712 tokens
+
+claim c04 (FAIL, status 'excluded' != 'covered')
+  [orchestrator -> notes-summary-worker]  tokens=439 (prompt=290, completion=149)
+  [orchestrator -> exclusions-worker]  tokens=3985 (prompt=3724, completion=261)  laps=3
+  [exclusions-worker+notes-summary -> synthesis]  tokens=566 (prompt=475, completion=91)
+  claim total: 4990 tokens
+
+claim c05 (PASS, ok)
+  [orchestrator -> notes-summary-worker]  tokens=410 (prompt=268, completion=142)
+  [orchestrator -> exclusions-worker]  tokens=4213 (prompt=3993, completion=220)  laps=3
+  [exclusions-worker+notes-summary -> synthesis]  tokens=540 (prompt=458, completion=82)
+  claim total: 5163 tokens
+
+claim c06 (FAIL, payout 22000.0 != 16000)
+  [orchestrator -> notes-summary-worker]  tokens=468 (prompt=270, completion=198)
+  [orchestrator -> exclusions-worker]  tokens=8041 (prompt=7758, completion=283)  laps=5
+  [exclusions-worker+notes-summary -> synthesis]  tokens=535 (prompt=450, completion=85)
+  claim total: 9044 tokens
+
+claim c07 (FAIL, status 'covered' != 'excluded')
+  [orchestrator -> notes-summary-worker]  tokens=354 (prompt=259, completion=95)
+  [orchestrator -> exclusions-worker]  tokens=8681 (prompt=8341, completion=340)  laps=5
+  [exclusions-worker+notes-summary -> synthesis]  tokens=592 (prompt=463, completion=129)
+  claim total: 9627 tokens
+
+claim c08 (PASS, ok)
+  [orchestrator -> notes-summary-worker]  tokens=424 (prompt=279, completion=145)
+  [orchestrator -> exclusions-worker]  tokens=4203 (prompt=3929, completion=274)  laps=3
+  [exclusions-worker+notes-summary -> synthesis]  tokens=604 (prompt=478, completion=126)
+  claim total: 5231 tokens
+
+claim c09 (PASS, ok)
+  [orchestrator -> notes-summary-worker]  tokens=424 (prompt=254, completion=170)
+  [orchestrator -> exclusions-worker]  tokens=3121 (prompt=2958, completion=163)  laps=3
+  [exclusions-worker+notes-summary -> synthesis]  tokens=480 (prompt=412, completion=68)
+  claim total: 4025 tokens
+
+claim c10 (PASS, ok)
+  [orchestrator -> notes-summary-worker]  tokens=471 (prompt=263, completion=208)
+  [orchestrator -> exclusions-worker]  tokens=5626 (prompt=5382, completion=244)  laps=4
+  [exclusions-worker+notes-summary -> synthesis]  tokens=590 (prompt=473, completion=117)
+  claim total: 6687 tokens
+
+Totals across all 10 claims, by hand-off:
+  orchestrator -> exclusions-worker: 53194 tokens (84% of all orchestrator tokens)
+  exclusions-worker+notes-summary -> synthesis: 5608 tokens (9% of all orchestrator tokens)
+  orchestrator -> notes-summary-worker: 4279 tokens (7% of all orchestrator tokens)

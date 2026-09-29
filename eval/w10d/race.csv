@@ -1,0 +1,21 @@
+system,claim_id,pass,outcome,coverage_status,payout,expected_payout,wall_clock_s,total_tokens,cost_usd,note
+single_agent,c01,True,completed,covered,15500.0,15500,5022.922,7937,0.000678,ok
+single_agent,c02,True,completed,excluded,0.0,0,2.219,5049,0.000434,ok
+single_agent,c03,False,completed,covered,3700.0,0,47.049,10132,0.000838,status 'covered' != 'excluded'
+single_agent,c04,False,completed,excluded,0.0,13000,71.812,8392,0.000693,status 'excluded' != 'covered'
+single_agent,c05,True,completed,excluded,0.0,0,37.513,5741,0.000500,ok
+single_agent,c06,True,completed,covered,16000.0,16000,48.593,7967,0.000661,ok
+single_agent,c07,False,completed,covered,3000.0,0,42.251,7998,0.000674,status 'covered' != 'excluded'
+single_agent,c08,True,completed,excluded,0.0,0,30.449,5552,0.000471,ok
+single_agent,c09,True,completed,excluded,0.0,0,28.839,4598,0.000396,ok
+single_agent,c10,True,completed,covered,4400.0,4400,68.037,9103,0.000761,ok
+orchestrator,c01,True,completed,covered,15500.0,15500,59.246,7905,0.000716,ok
+orchestrator,c02,True,completed,excluded,0.0,0,43.057,5697,0.000537,ok
+orchestrator,c03,True,completed,excluded,0.0,0,35.702,4712,0.000447,ok
+orchestrator,c04,False,completed,excluded,0.0,13000,36.949,4990,0.000487,status 'excluded' != 'covered'
+orchestrator,c05,True,completed,excluded,0.0,0,36.028,5163,0.000487,ok
+orchestrator,c06,False,completed,covered,22000.0,16000,63.588,9044,0.000806,payout 22000.0 != 16000
+orchestrator,c07,False,completed,covered,6000.0,0,64.014,9627,0.000849,status 'covered' != 'excluded'
+orchestrator,c08,True,completed,excluded,0.0,0,38.846,5231,0.000515,ok
+orchestrator,c09,True,completed,excluded,0.0,0,31.356,4025,0.000392,ok
+orchestrator,c10,True,completed,covered,4400.0,4400,37.976,6687,0.000630,ok

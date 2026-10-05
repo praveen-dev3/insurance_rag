@@ -1,0 +1,19 @@
+SUITE RED  prompt=triage-v1  retrieval=kw-r1  trials/case=2
+
+case  result  trials
+c01   PASS    P P
+c02   PASS    P P
+c03   PASS    P P
+c04   PASS    P P
+c05   PASS    P P
+c06   PASS    P P
+c07   FAIL    F F
+c08   PASS    P P
+c09   PASS    P P
+c10   PASS    P P
+c11   FAIL    F F
+c12   PASS    P P
+
+CASES  10/12 pass (a case passes only if all 2 trials pass)
+TRIALS 20/24 pass
+FAILING: c07, c11

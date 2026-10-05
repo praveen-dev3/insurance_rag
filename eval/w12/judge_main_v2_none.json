@@ -1,0 +1,108 @@
+{
+  "judge_model": "qwen/qwen3.8-27b",
+  "judge_version": "v2",
+  "complete": true,
+  "judge_prompt_sha256": "bca5cd20892e55fa",
+  "verdicts": {
+    "w27": {
+      "wording_faithful": false,
+      "reason": "The instruction explicitly requires that every wording passage named must be retrieved for the loss date, a condition that cannot be satisfied or verified when no cited wording is provided."
+    },
+    "w28": {
+      "wording_faithful": false,
+      "reason": "The phrase 'so coverage cannot be determined' implies a coverage position or outcome regarding the policy status, which violates the constraint against stating or implying a coverage decision."
+    },
+    "w29": {
+      "wording_faithful": true,
+      "reason": "The summary accurately reflects the provided claim facts (including the inactive status and loss details) without making any coverage decisions or citing non-existent wording."
+    },
+    "w30": {
+      "wording_faithful": true,
+      "reason": "The summary's statement that the policy was not in force and coverage cannot be evaluated is directly supported by the Claim Facts (in force: False), and it correctly avoids making a substantive coverage determination without cited policy wording due to the lack of force."
+    },
+    "w31": {
+      "wording_faithful": false,
+      "reason": "The SUMMARY cites specific wording editions (HO-0100 and HO-0850) that are not included in the provided CITED WORDING blocks, violating the requirement that every factual statement and citation must be supported by the cited wording or claim facts shown."
+    },
+    "w01": {
+      "wording_faithful": false,
+      "reason": "The RELEVANCE section asserts that the sub-limit and deductible 'apply to this type of loss,' which constitutes a coverage decision (implication that the clause is applicable/triggered) rather than just describing the clause contents."
+    },
+    "w02": {
+      "wording_faithful": false,
+      "reason": "The CITED WORDING block for clause 2.1 is empty or lists 'None' for the loss date, failing the requirement that every named passage be retrieved for the loss date with its edition stated, and the RELEVANCE for clause 2.1 claims it 'defines flood coverage' despite no supporting text being provided in the citation."
+    },
+    "w03": {
+      "wording_faithful": false,
+      "reason": "The RELEVANCE section interprets the clause's implication for this specific claim by stating it indicates the loss 'falls under that exclusion', which crosses the boundary from describing wording content to making a coverage determination."
+    },
+    "w04": {
+      "wording_faithful": false,
+      "reason": "The RELEVANCE statement claims the wording 'matching the reported loss', which implies the peril is covered, whereas the cited clause explicitly states it 'does not provide cover' and is 'Excluded absolutely'."
+    },
+    "w11": {
+      "reason": "The relevance note for clause E-65 is empty, so it does not support the factual statements implied by the claim description regarding that specific exclusion clause, violating the requirement that every factual statement in each citation's relevance is supported.",
+      "wording_faithful": false
+    },
+    "w12": {
+      "wording_faithful": true,
+      "reason": "The summary accurately reflects the policy status and loss date without making coverage decisions, the cited wordings support the facts and figures mentioned (identifying the engine exclusion and the flood sub-limit/deductible for interior/electrics), and the figures align with the provided data without mixing limits."
+    },
+    "w13": {
+      "wording_faithful": true,
+      "reason": "The summary and relevance accurately reflect the cited wording and figures without asserting a coverage decision, and the policy details match the claim facts."
+    },
+    "w14": {
+      "wording_faithful": true,
+      "reason": "The summary accurately reflects the claim facts and cited wording, the citations correctly reference the loss date and edition, and no unauthorized coverage decisions or limits are asserted."
+    },
+    "w05": {
+      "wording_faithful": false,
+      "reason": "The cited wording for HO-0850 ed. 07-23 clause 2.1 explicitly states 'loss date None', which fails the requirement that every wording passage named was retrieved for the loss date shown (2024-11-02)."
+    },
+    "w06": {
+      "wording_faithful": false,
+      "reason": "The claim facts explicitly state \"The river did not rise,\" yet the cited wording (Clause 3.1) discusses and addresses \"flood\" (a distinct peril/definition where the river rises), which is not supported by or relevant to the specific claim facts provided, violating the requirement that factual statements/citations be supported by the claim facts."
+    },
+    "w07": {
+      "wording_faithful": false,
+      "reason": "The CITED WORDING block for clause 1.1 contains 'None' for its content, yet the SUMMARY explicitly lists it as a retrieved wording passage, violating the requirement that every factual statement about cited wordings must be supported by the provided blocks."
+    },
+    "w09": {
+      "wording_faithful": false,
+      "reason": "The excerpt for clause E-55 contains no reference to a deductible or sub-limit, yet the RELEVANCE statement incorrectly attributes those details to the cited wording, violating the requirement that factual statements be supported by the specific cited text."
+    },
+    "w10": {
+      "wording_faithful": true,
+      "reason": "All factual claims are supported by the cited text, no deduction/coverage is made, and the loss-date edition is correct."
+    },
+    "w15": {
+      "wording_faithful": false,
+      "reason": "The summary incorrectly describes the scope of exclusion E-66 as applying to flocs/submerged water rather than specifically to vehicles left in locations the insured had been warned were subject to flooding."
+    },
+    "w16": {
+      "wording_faithful": true,
+      "reason": "All factual statements are supported by the cited wording or claim facts, the summary implies no coverage decision, all citations are correct for the loss date with editions stated, and no unsupported figures are asserted."
+    },
+    "w18": {
+      "wording_faithful": true,
+      "reason": "Every factual statement is supported by the cited clauses and figures, the edition is correctly stated for the loss date, no coverage decision is made, and the deductible/limit figures match exactly."
+    },
+    "w19": {
+      "wording_faithful": true,
+      "reason": "The summary accurately reflects the policy status and wording editions without making coverage decisions, and the relevance statement is supported by the cited clause text regarding the definition of escape of water."
+    },
+    "w17": {
+      "wording_faithful": true,
+      "reason": "The summary accurately states the policy status and retrieval details, contains no coverage decision, and correctly cites the specific clauses and figures provided in the supporting documents."
+    },
+    "w20": {
+      "wording_faithful": true,
+      "reason": "The summary correctly states that policy wording was retrieved and the edition is stated, but mentions no deductible or policy limit that is not in FIGURES, does not make a coverage decision, and every factual statement it makes (policy in force wording retrieved) is supported by the CLAIM FACTS and retrieved edition."
+    },
+    "w08": {
+      "wording_faithful": true,
+      "reason": "All factual statements in the summary and relevance section are supported by the cited wording blocks and claim facts, the summary does not imply a coverage decision, the wording editions and loss dates match the claim facts, and the deductible ($750) cited is consistent with the provided FIGURES."
+    }
+  }
+}

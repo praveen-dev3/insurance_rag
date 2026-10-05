@@ -1,0 +1,52 @@
+{
+  "label": "green",
+  "prompt_version": "triage-v2",
+  "retrieval_version": "kw-r2",
+  "trials_per_case": 1,
+  "order": [
+    "c11",
+    "c07",
+    "c06",
+    "c12",
+    "c04",
+    "c01",
+    "c02",
+    "c03",
+    "c05",
+    "c08",
+    "c09",
+    "c10"
+  ],
+  "done": {
+    "c11": [
+      {
+        "trial": 1,
+        "pass": false,
+        "why": "status 'covered' != 'excluded'",
+        "trace_id": "req-e0fa0927aaf5",
+        "status": "covered",
+        "payout": 4000.0,
+        "context_ids": [
+          "HO-0412#25",
+          "HO-0412#26",
+          "HO-0412#29",
+          "HO-0412#32",
+          "HO-0412#35",
+          "HO-0412#38",
+          "HO-0412#40",
+          "HO-0412#41",
+          "HO-0412#43",
+          "HO-0412#30",
+          "HO-0412#31",
+          "HO-0412#33",
+          "HO-0412#34",
+          "HO-0412#36",
+          "HO-0412#37",
+          "HO-0412#39"
+        ],
+        "tokens": 9280,
+        "cost_usd": 0.000765
+      }
+    ]
+  }
+}

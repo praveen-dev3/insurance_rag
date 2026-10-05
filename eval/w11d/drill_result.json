@@ -1,0 +1,11 @@
+[
+  {
+    "guess": "req-0634f7dd22d9",
+    "correct": true,
+    "time_to_find": "00:10",
+    "seconds": 10.3,
+    "slice": "time (yesterday) x flag covered_with_unseen_exclusion_rows -> 12 hits / 5 distinct claims (flag did NOT narrow: every covered answer was flagged); read the 5 claims' notes: c07 (granule loss / scuffing, no leaks, appearance only) is the cosmetic-exclusion loss",
+    "timed_by": "self-drill, same agent planted+found; plant claim chosen by me (NOT a squadmate)",
+    "under_5_minutes": true
+  }
+]

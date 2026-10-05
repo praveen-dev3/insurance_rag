@@ -1,0 +1,38 @@
+{
+  "labeller": "Claude (the assistant that built the system), reading each emitted referral - NOT a human adjuster. Written before the judge's verdicts were read.",
+  "criterion": "wording_faithful: every statement in the emitted summary/relevance lines is supported by the cited wording excerpts or the claim facts; no stated or hedged coverage outcome; cited wording was actually retrieved; figures not asserted beyond the limits lookup.",
+  "labels": {
+    "w27": true,
+    "w28": true,
+    "w29": true,
+    "w30": true,
+    "w31": true,
+    "w01": true,
+    "w02": false,
+    "w03": false,
+    "w04": true,
+    "w11": true,
+    "w12": true,
+    "w13": true,
+    "w14": true,
+    "w05": false,
+    "w06": true,
+    "w07": false,
+    "w08": true,
+    "w09": true,
+    "w10": true,
+    "w15": false,
+    "w16": true,
+    "w18": true,
+    "w19": true,
+    "w17": true,
+    "w20": true
+  },
+  "reasons_for_false": {
+    "w02": "cites clause 2.1 with no excerpt: the clause was never retrieved, and its relevance line asserts what it says",
+    "w03": "clause 2.1 relevance says it 'indicates the loss falls under that exclusion' - states an outcome",
+    "w05": "cites clause 2.1 that was never retrieved (no excerpt); E-51 (open window) is unrelated to the facts",
+    "w07": "cites clause 1.1 that was never retrieved",
+    "w15": "says E-66 'may apply because the vehicle was left in a location warned about flooding' - no warning is in the FNOL, and 'may apply' hedges an outcome"
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "label": "green3",
+  "prompt_version": "triage-v3",
+  "retrieval_version": "kw-r2",
+  "trials_per_case": 1,
+  "order": [
+    "c11",
+    "c07",
+    "c12",
+    "c06",
+    "c04",
+    "c01",
+    "c02",
+    "c03",
+    "c05",
+    "c08",
+    "c09",
+    "c10"
+  ],
+  "done": {
+    "c11": [
+      {
+        "trial": 1,
+        "pass": true,
+        "why": "ok",
+        "trace_id": "req-842749140cb9",
+        "status": "excluded",
+        "payout": 0.0,
+        "context_ids": [
+          "HO-0412#30",
+          "HO-0412#31",
+          "HO-0412#32",
+          "HO-0412#33",
+          "HO-0412#34",
+          "HO-0412#35",
+          "HO-0412#36",
+          "HO-0412#37",
+          "HO-0412#38",
+          "HO-0412#39",
+          "HO-0412#40"
+        ],
+        "tokens": 7792,
+        "cost_usd": 0.00065
+      }
+    ],
+    "c07": [
+      {
+        "trial": 1,
+        "pass": true,
+        "why": "ok",
+        "trace_id": "req-892ec1f2cce0",
+        "status": "excluded",
+        "payout": 0.0,
+        "context_ids": [
+          "HO-0412#36",
+          "HO-0412#26",
+          "HO-0412#27",
+          "HO-0412#29",
+          "HO-0412#30",
+          "HO-0412#31",
+          "HO-0412#32",
+          "HO-0412#33",
+          "HO-0412#34",
+          "HO-0412#35",
+          "HO-0412#37",
+          "HO-0412#38",
+          "HO-0412#39",
+          "HO-0412#40"
+        ],
+        "tokens": 8742,
+        "cost_usd": 0.000714
+      }
+    ]
+  }
+}

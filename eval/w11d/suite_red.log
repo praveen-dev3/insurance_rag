@@ -1,0 +1,45 @@
+running 12 cases x 2 trials [triage-v1 / kw-r1]
+  c01 trial 1: PASS (ok) req-393ed5a7fee0
+  c01 trial 2: PASS (ok) req-112b591d014a
+  c02 trial 1: PASS (ok) req-0b82b5d3afbd
+  c02 trial 2: PASS (ok) req-118e8ab778a0
+  c03 trial 1: PASS (ok) req-fd506409c95d
+  c03 trial 2: PASS (ok) req-b48996a90b92
+  c04 trial 1: PASS (ok) req-5f9e85c1cbd3
+  c04 trial 2: PASS (ok) req-d421bed252fa
+  c05 trial 1: PASS (ok) req-50afa37b01cc
+  c05 trial 2: PASS (ok) req-ce588785f4e3
+  c06 trial 1: PASS (ok) req-e0191b8e57ab
+  c06 trial 2: PASS (ok) req-92a90800c775
+  c07 trial 1: FAIL (status 'covered' != 'excluded') req-b3554ad7d323
+  c07 trial 2: FAIL (status 'covered' != 'excluded') req-fa58a8dbc394
+  c08 trial 1: PASS (ok) req-17fbae6dc426
+  c08 trial 2: PASS (ok) req-2639bfd7e913
+  c09 trial 1: PASS (ok) req-f65443a915cc
+  c09 trial 2: PASS (ok) req-fd9803036afb
+  c10 trial 1: PASS (ok) req-fb26694fb4c7
+  c10 trial 2: PASS (ok) req-22e3025e72cc
+  c11 trial 1: FAIL (status 'covered' != 'excluded') req-7060c0c1d556
+  c11 trial 2: FAIL (status 'covered' != 'excluded') req-e34437f57b40
+  c12 trial 1: PASS (ok) req-e61dbd9536f6
+  c12 trial 2: PASS (ok) req-a6a49aa18b76
+
+SUITE RED  prompt=triage-v1  retrieval=kw-r1  trials/case=2
+
+case  result  trials
+c01   PASS    P P
+c02   PASS    P P
+c03   PASS    P P
+c04   PASS    P P
+c05   PASS    P P
+c06   PASS    P P
+c07   FAIL    F F
+c08   PASS    P P
+c09   PASS    P P
+c10   PASS    P P
+c11   FAIL    F F
+c12   PASS    P P
+
+CASES  10/12 pass (a case passes only if all 2 trials pass)
+TRIALS 20/24 pass
+FAILING: c07, c11

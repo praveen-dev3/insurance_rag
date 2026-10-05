@@ -1,0 +1,36 @@
+== initialize
+{"name": "policy-wording", "version": "1.0.0"}
+
+== tools/list
+- search_policy_wording: Search the policy wording (clauses and exclusion tables) for one product as it stood on the date of loss. Retu...
+    required args: ['query', 'product', 'loss_date']
+- get_limits: Look up the deductible, the sub-limit and the policy limit for a policy, peril and loss date. These are three ...
+    required args: ['policy_number', 'loss_date', 'peril_class']
+
+== wording as at 11 Aug 2024 (old edition)
+   search_policy_wording({"query": "flood exclusion dwelling", "product": "household", "loss_date": "2024-08-11"})  isError=False
+   -> {"matches": [{"chunk_id": "HO-0850_flood_escape_of_water_ed_07-23.pdf#1e71ff92c5c0b142", "form_number": "HO-0850", "edition_date": "07-23", "effective_from": "2023-07-01", "effective_to": "2025-04-01", "section": "Exclusion Table 3.1", "cite_as": ["3.1"], "exclusion_codes": [], "text": "FORM HO-0850 ED. 07-23 | POLICY LINE: HOMEOWNERS | Flood, Surface Water and Escape of Water\nSECTION: Exclusion Table 3.1\nEXCLUSION
+
+== wording as at 1 Apr 2025 (new edition, first day)
+   search_policy_wording({"query": "flood exclusion dwelling", "product": "household", "loss_date": "2025-04-01"})  isError=False
+   -> {"matches": [{"chunk_id": "HO-0850_flood_escape_of_water_ed_04-25.pdf#7cf75dbfa8b25769", "form_number": "HO-0850", "edition_date": "04-25", "effective_from": "2025-04-01", "effective_to": null, "section": "Exclusion Table 3.1", "cite_as": ["3.1", "E-55"], "exclusion_codes": ["E-55"], "text": "FORM HO-0850 ED. 04-25 | POLICY LINE: HOMEOWNERS | Flood, Surface Water and Escape of Water\nSECTION: Exclusion Table 3.1\nEXC
+
+== wording as at 31 Mar 2025 (day before)
+   search_policy_wording({"query": "flood exclusion dwelling", "product": "household", "loss_date": "2025-03-31"})  isError=False
+   -> {"matches": [{"chunk_id": "HO-0850_flood_escape_of_water_ed_07-23.pdf#1e71ff92c5c0b142", "form_number": "HO-0850", "edition_date": "07-23", "effective_from": "2023-07-01", "effective_to": "2025-04-01", "section": "Exclusion Table 3.1", "cite_as": ["3.1"], "exclusion_codes": [], "text": "FORM HO-0850 ED. 07-23 | POLICY LINE: HOMEOWNERS | Flood, Surface Water and Escape of Water\nSECTION: Exclusion Table 3.1\nEXCLUSION
+
+== three distinct numbers
+   get_limits({"policy_number": "POL-H-1001", "loss_date": "2025-04-01", "peril_class": "flood"})  isError=False
+   -> {"form_number": "HO-0850", "edition_date": "04-25", "peril_class": "flood", "deductible": 2500, "sub_limit": null, "policy_limit": 350000}
+
+== stumble 1: no loss date
+   search_policy_wording({"query": "flood", "product": "household"})  isError=True
+   -> {"error": "loss_date None is not a valid date; pass it as YYYY-MM-DD, e.g. '2024-08-11'. Read it from the claim intake rather than guessing.", "matches": []}
+
+== stumble 2: unknown product
+   search_policy_wording({"query": "flood", "product": "marine", "loss_date": "2025-01-01"})  isError=True
+   -> {"error": "product 'marine' not recognised; use one of household, motor.", "matches": []}
+
+== stumble 3: loss before any flood wording existed
+   search_policy_wording({"query": "flood", "product": "household", "loss_date": "2023-03-15"})  isError=False
+   -> {"matches": [{"chunk_id": "HO-0100_household_base_wording_ed_01-22.pdf#12f8234c14d97ad0", "form_number": "HO-0100", "edition_date": "01-22", "effective_from": "2022-01-01", "effective_to": null, "section": "1. Purpose And Scope", "cite_as": [], "exclusion_codes": [], "text": "FORM HO-0100 ED. 01-22 | POLICY LINE: HOMEOWNERS | Household Policy - Base Wording\nSECTION: 1. Purpose And Scope\n\n1. PURPOSE AND SCOPE\nThis

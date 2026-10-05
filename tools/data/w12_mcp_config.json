@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "claims-records": {
+      "command": "python",
+      "args": ["tools/w12_claims_server.py"]
+    },
+    "policy-wording": {
+      "command": "python",
+      "args": ["tools/w12_policy_server.py"]
+    }
+  }
+}

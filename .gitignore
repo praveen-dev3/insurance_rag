@@ -59,3 +59,11 @@ node_modules/
 
 # Claude Code session-local runtime state, not project content
 .claude/scheduled_tasks.lock
+# Auto-generated init artifacts
+AGENTS.md.tmp
+AGENTS.md.MERGE_FAILED
+/.waymore/init-*
+
+# Week 12 capstone: derived index and server stderr (rebuilt on first run)
+chroma_db_w12/
+traces/*.stderr.log

@@ -1,0 +1,81 @@
+starting MCP servers (the policy server warms its engine first)...
+discovered at runtime: {'claims-records': ['get_fnol', 'lookup_policy', 'check_coverage_in_force'], 'policy-wording': ['search_policy_wording', 'get_limits']}  (boot 27.7s)
+  w27: completed  PASS req-a0c11c419245 3.1s $0.00089
+  w28: completed  PASS req-13aa1bc7df03 7.2s $0.00086
+  w29: completed  PASS req-bf5efc58c9ab 39.4s $0.00085
+  w30: completed  PASS req-e245a32c1c5f 29.6s $0.00086
+  w31: completed  PASS req-995c347a3443 46.7s $0.00134
+  w01: completed  PASS req-6ccf1125d389 46.6s $0.00197
+  w02: completed  FAIL loss_date_on_citations,citations_grounded req-e1aceef67b4b 99.2s $0.00289
+  w03: completed  PASS req-bb2b5a59d5e7 75.5s $0.00283
+Traceback (most recent call last):
+  File "D:\python\Rag\insurance_rag\weeks.py", line 204, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "D:\python\Rag\insurance_rag\weeks.py", line 200, in main
+    return getattr(module, function_name)()
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\python\Rag\insurance_rag\tools\w12_run.py", line 102, in main
+    return w12_eval.main()
+           ~~~~~~~~~~~~~^^
+  File "D:\python\Rag\insurance_rag\tools\w12_eval.py", line 520, in main
+    {"run": stage_run, "score": stage_score,
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     "taxonomy": stage_taxonomy, "trajectory": stage_trajectory}[args.stage](args)
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\python\Rag\insurance_rag\tools\w12_eval.py", line 86, in stage_run
+    trace, referral = session.run(
+                      ~~~~~~~~~~~^
+        claim["claim_number"], question=claim["question"],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        user_id="eval", case_id=case_id, retrieval_version=retrieval_version,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        registry_claim=claim,
+        ^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\python\Rag\insurance_rag\tools\w12_agent.py", line 241, in run
+    response = call_llm(
+        model=MODEL, messages=messages, tools=self.tools,
+        tool_choice="auto", reasoning_effort=REASONING_EFFORT,
+    )
+  File "D:\python\Rag\insurance_rag\tools\w7d_common.py", line 86, in call_llm
+    return get_client().chat.completions.create(**request)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "D:\python\Rag\insurance_rag\.venv\Lib\site-packages\openai\_utils\_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+  File "D:\python\Rag\insurance_rag\.venv\Lib\site-packages\openai\resources\chat\completions\completions.py", line 1296, in create
+    return self._post(
+           ~~~~~~~~~~^
+        "/chat/completions",
+        ^^^^^^^^^^^^^^^^^^^^
+    ...<53 lines>...
+        stream_cls=Stream[ChatCompletionChunk],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\python\Rag\insurance_rag\.venv\Lib\site-packages\openai\_base_client.py", line 1382, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\python\Rag\insurance_rag\.venv\Lib\site-packages\openai\_base_client.py", line 1155, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.BadRequestError: Error code: 400 - {'error': {'message': "Tool call validation failed: tool call validation failed: attempted to call tool 'commentary' which was not in request.tools", 'type': 'invalid_request_error', 'code': 'tool_use_failed', 'failed_generation': '{"name": "commentary", "arguments": {\n  "claim_number": "CLM-2026-80004",\n  "reason_code": "wording_relevant",\n  "summary": "The loss occurred on 2025-08-19 while the household policy POL-H-1004 was in force. River water overflowed its banks and entered the ground?floor living areas, damaging flooring and joinery. The wording passages that discuss flood (rising water from a river overflowing its banks) and the absolute exclusion of such flood loss are relevant.",\n  "citations": [\n    {\n      "clause": "2.1",\n      "edition_date": "04-25",\n      "form_number": "HO-0850",\n      "relevance": "Defines flood as rising water from a river overflowing its normal banks, matching the reported cause."\n    },\n    {\n      "clause": "E-52",\n      "edition_date": "04-25",\n      "form_number": "HO-0850",\n      "relevance": "Specifies that flood loss to any property, including the dwelling, is excluded absolutely."\n    }\n  ]\n}}'}}
+starting MCP servers (the policy server warms its engine first)...
+discovered at runtime: {'claims-records': ['get_fnol', 'lookup_policy', 'check_coverage_in_force'], 'policy-wording': ['search_policy_wording', 'get_limits']}  (boot 142.9s)
+  w04: completed  PASS req-091ed2f15154 15.2s $0.00195
+  w11: completed  PASS req-ca97abaf89aa 43.4s $0.00187
+  w12: completed  FAIL clause_cited req-0e394fea9b38 64.9s $0.00275
+  w13: completed  PASS req-1b9cb75c5f7d 51.1s $0.00190
+  w14: completed  PASS req-7afa8e057927 53.0s $0.00251
+  w05: completed  FAIL clause_cited,loss_date_on_citations,citations_grounded req-e2e70feb488b 23.1s $0.00192
+  w06: completed  PASS req-3c5b2a5642c0 30.2s $0.00185
+  w07: completed  FAIL clause_cited,loss_date_on_citations,citations_grounded req-c8c3fe062b0f 63.0s $0.00269
+  w08: completed  PASS req-1138f32dcd01 37.4s $0.00191
+  w09: completed  PASS req-391fd10e1165 41.9s $0.00183
+  w10: completed  PASS req-05b5e764750f 44.1s $0.00190
+  w15: completed  PASS req-81aea0cc551a 46.7s $0.00248
+  w16: completed  PASS req-59158f2f24a6 30.8s $0.00186
+  w18: completed  PASS req-a055e3435927 46.8s $0.00196
+  w19: completed  PASS req-25fc01fd5c93 56.1s $0.00260
+  w17: completed  PASS req-2c3a5525ce62 45.6s $0.00197
+  w20: completed  FAIL edition_correct,clause_cited req-2af22a07c008 514.2s $0.00263

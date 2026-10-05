@@ -1,0 +1,52 @@
+INTEGRATED SUITE  label=main  n=25  retrieval=hybrid-datefilter-v1
+
+w27  lapsed     PASS    req-a0c11c419245
+w28  lapsed     PASS    req-13aa1bc7df03
+w29  lapsed     PASS    req-bf5efc58c9ab
+w30  lapsed     PASS    req-e245a32c1c5f
+w31  no_edition PASS    req-995c347a3443
+w01  pre_2025   PASS    req-6ccf1125d389
+w02  pre_2025   FAIL  loss_date_on_citations,citations_grounded  req-e1aceef67b4b
+w03  post_2025  PASS    req-bb2b5a59d5e7
+w04  post_2025  PASS    req-091ed2f15154
+w11  pre_2025   PASS    req-ca97abaf89aa
+w12  pre_2025   FAIL  clause_cited  req-0e394fea9b38
+w13  post_2025  PASS    req-1b9cb75c5f7d
+w14  post_2025  PASS    req-7afa8e057927
+w05  pre_2025   FAIL  clause_cited,loss_date_on_citations,citations_grounded  req-e2e70feb488b
+w06  post_2025  PASS    req-3c5b2a5642c0
+w07  pre_2025   FAIL  clause_cited,loss_date_on_citations,citations_grounded  req-c8c3fe062b0f
+w08  post_2025  PASS    req-1138f32dcd01
+w09  post_2025  PASS    req-391fd10e1165
+w10  pre_2025   PASS    req-05b5e764750f
+w15  pre_2025   PASS    req-81aea0cc551a
+w16  post_2025  PASS    req-59158f2f24a6
+w18  pre_2025   PASS    req-a055e3435927
+w19  post_2025  PASS    req-25fc01fd5c93
+w17  base       PASS    req-2c3a5525ce62
+w20  base       FAIL  edition_correct,clause_cited  req-2af22a07c008
+
+PASS 20/25
+
+pass rate by boundary class (the number the brief asks for):
+  base       1/2
+  lapsed     4/4
+  no_edition 1/1
+  post_2025  9/9
+  pre_2025   5/9
+
+pass rate by assertion:
+  citations_grounded         17/20
+  clause_cited               16/20
+  edition_correct            19/20
+  figures_correct            20/20
+  in_force_checked_first     25/25
+  in_force_correct           25/25
+  loss_date_on_citations     17/20
+  no_decision_language       25/25
+  no_figures_invented        1/1
+  no_stale_edition           20/20
+  no_stale_wording_cited     1/1
+  no_wording_cited           4/4
+  reason_code_correct        25/25
+  referral_made              25/25

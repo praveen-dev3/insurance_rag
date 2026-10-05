@@ -1,0 +1,24 @@
+# Seam list - Week 12 integration
+
+**Provenance, stated plainly.** The brief asks for "Tuesday's unedited seam list". This file was written during the
+integration build on 2026-10-05, as each seam was hit, and is not a record from a Tuesday; I have no earlier list to
+hand over and did not backdate one. Entries are in the order they were found. Status: **fixed**, **accepted**,
+**ran-out-of-time**.
+
+| # | seam (where two parts meet) | what happened | status |
+|---|---|---|---|
+| 1 | MCP server stdout <-> RagEngine | The engine prints index progress to stdout; stdout *is* the JSON-RPC channel, so the client died on `JSONDecodeError: Expecting value` at `initialize`. | **fixed** - stdout diverted to stderr while loading and while serving (`TracedMCPServer.serve_forever`, warm-up in `w12_policy_server.py`). |
+| 2 | MCP server stderr <-> client | The Week 9 client opens stderr as a pipe nobody reads; a server logging more than the OS buffer (the engine's progress bars) would block on its own write and hang the client forever. | **fixed** - stderr to a file (`TracedMCPClient`). Not yet triggered; fixed on reading, not on failure. |
+| 3 | `rag.config` <-> a second corpus | `DOCUMENTS_FOLDER`, `CHROMA_PATH`, `COLLECTION_NAME` are read at import time, so the capstone corpus can only be selected by being the first importer of `rag`. | **accepted** - `w12_retrieval.py` sets them before import and its docstring says so. A second corpus in one process is not supported. |
+| 4 | agent <-> MCP trace id | A trace id has to cross a process boundary without becoming a tool argument the model can see or garble. | **fixed** - `params._meta.trace_id`, server span returned in `result._meta`; checked 25/25 (`eval/w12/trace_continuity.md`). |
+| 5 | engine metadata filter <-> edition pairs | `form_numbers` and `edition_dates` filter as two independent sets, so a (form, edition) pair that is not in force can pass if two forms share an edition string. | **fixed** - every returned chunk is re-checked against the exact in-force pair; leaks are counted and dropped (`stats.leaked_dropped`). |
+| 6 | policy server <-> cold start | First search ~75 s (model load), longer than any per-request budget. | **fixed** - warmed at boot; cold start reported separately from request latency. |
+| 7 | redactor <-> claim-number shape | `rag/tracing.py` only recognises `CLM-YYYY-NNNNN`; Week 7's `CLM-7001` form was never redacted. | **fixed in Week 11** - claim numbers are registered explicitly per request. |
+| 8 | output guard <-> its own fallback | The guard's templated fallback said "does not decide *coverage*", which the broad `cover*` pattern then flagged; the eval failed a clean run. | **fixed** - fallback reworded; "coverage" alone is allowed (procedure vocabulary), decision constructions around it are not. |
+| 9 | harness intake <-> discovered tools | Once the harness fetched the FNOL itself, the model (which still sees `get_fnol` in its tool list) called it again in **25 of 25** requests. | **fixed after the run** - identical repeat calls are answered from the request's own cache, generically (keyed on tool + arguments, names no tool). Not yet re-measured on the 25: the quota was spent. |
+| 10 | model <-> citation format | The model pasted a whole passage into `clause` instead of the id. | **fixed** - the id is extracted and the original kept in `clause_as_given`; the tool result now lists `cite_as` ids outright. |
+| 11 | retrieval top-3 <-> model's citations | Exclusion-table chunks crowd the coverage-basis chunk out of the top 3; the model cites "Clause 2.1" because the table's note mentions it. 3 of 25 requests. | **fixed** at the retrieval layer (pair completion, `hybrid-datefilter-v2`); retrieval-replay 17/21 -> 19/21. Agent-level confirmation not run (quota). |
+| 12 | provider <-> tool-call format | Groq answered `tool_use_failed` once (`attempted to call tool 'commentary'`), crashing the whole eval loop. | **fixed** - a provider rejection is now a recorded outcome of that request, not a crash of the run. |
+| 13 | Week 6 judge <-> integrated outputs | The Week 6 judge scored 80% against hand labels, below the 85% bar the brief says it must "still clear", and it grades claim *summaries*, not referrals. | **not fixed** - a new judge (`w12_audit.py`) was written and measured fresh; see `EVAL_REPORT.md`. |
+| 14 | provider daily token cap <-> eval design | `gpt-oss-20b` ran out of its 200k tokens/day mid-Week-11; the capstone had to move to `gpt-oss-120b`, and 6 of the 31 defined cases (`w21`-`w26`) never ran. | **ran-out-of-time** - resumable runner; `python weeks.py w12 run --label main --cases w21,w22,w23,w24,w25,w26` finishes them. |
+| 15 | undeclared dependency | `reportlab` is imported by `tools/make_endorsements.py` (Week 3) but is in neither `pyproject.toml` nor `requirements.txt`. | **accepted** - documented in `README_W12.md`; not added to the lock file here. |

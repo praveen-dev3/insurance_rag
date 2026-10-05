@@ -1,0 +1,22 @@
+(snapshot taken when results_week11d.md was written; the run is resumable and `suite_green3.json` is the live record)
+
+SUITE GREEN3  prompt=triage-v3  retrieval=kw-r2  trials/case=1
+
+case  result   trials
+c11   PASS     P
+c07   not run  -
+c12   not run  -
+c06   not run  -
+c04   not run  -
+c01   not run  -
+c02   not run  -
+c03   not run  -
+c05   not run  -
+c08   not run  -
+c09   not run  -
+c10   not run  -
+
+CASES  1/1 pass of the cases run (1 of 12 run; a case passes only if all 1 trials pass)
+TRIALS 1/1 pass
+FAILING: none
+NOT YET RUN: c07, c12, c06, c04, c01, c02, c03, c05, c08, c09, c10

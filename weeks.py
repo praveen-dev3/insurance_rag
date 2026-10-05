@@ -62,6 +62,13 @@ COMMANDS = {
     # ---- week 10, task set D: race the claims squad against the single agent ----
     "w10d-eval": ("w10d_run", "main", True),
 
+    # ---- week 11, task set D: find the coverage answer that ignored an exclusion ----
+    "w11d-eval": ("w11_run", "main", True),
+
+    # ---- week 12 capstone: claims triage and coverage assistant ----
+    "make-w12-corpus": ("make_w12_corpus", "main", False),
+    "w12": ("w12_run", "main", True),
+
     # ---- anytime ----
     "resolve-chunk": ("resolve_chunk", "main", True),
 }
@@ -85,6 +92,10 @@ GROUPS = (
      ("w9d-eval",)),
     ("w10d", "race the claims squad against the single agent",
      ("w10d-eval",)),
+    ("w11d", "find the coverage answer that ignored an exclusion, then close the loop",
+     ("w11d-eval",)),
+    ("w12", "capstone: claims triage and coverage assistant, one entry point",
+     ("make-w12-corpus", "w12")),
     ("util", "anytime",
      ("resolve-chunk",)),
 )

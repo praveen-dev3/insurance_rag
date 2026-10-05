@@ -1,0 +1,5601 @@
+{
+  "w27": {
+    "case_id": "w27",
+    "trace_id": "req-a0c11c419245",
+    "outcome": "completed",
+    "referral": {
+      "referral_id": "ref-a0c11c419245",
+      "trace_id": "req-a0c11c419245",
+      "route": "adjuster",
+      "claim_number": "CLM-2026-80027",
+      "reason_code": "policy_not_in_force",
+      "loss_date": "2025-06-15",
+      "in_force": false,
+      "in_force_range": null,
+      "editions_in_force": {
+        "HO-0100": "01-22",
+        "HO-0850": "04-25"
+      },
+      "summary": "Policy not shown as in force on the loss date (2025-06-15). This assistant does not decide claims. Referred to an adjuster.",
+      "citations": [],
+      "figures": null,
+      "guard": {
+        "checked": true,
+        "triggered": true,
+        "hits": [
+          {
+            "field": "summary",
+            "matches": [
+              "no coverage"
+            ],
+            "text": "The loss occurred on 2025-06-15. The insured's policy POL-H-1005 was not in force on that date, so no coverage applies under the policy. The claimant reported river water overflow causing floor damage."
+          }
+        ]
+      }
+    },
+    "tool_calls": [
+      {
+        "name": "get_fnol",
+        "server": "claims-records",
+        "args": {
+          "claim_number": "CLM-2026-80027"
+        },
+        "ok": true,
+        "actor": "harness"
+      },
+      {
+        "name": "get_fnol",
+        "server": "claims-records",
+        "args": {
+          "claim_number": "CLM-2026-80027"
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "check_coverage_in_force",
+        "server": "claims-records",
+        "args": {
+          "loss_date": "2025-06-15",
+          "policy_number": "POL-H-1005"
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "refer_to_adjuster",
+        "server": null,
+        "args": {
+          "reason_code": "policy_not_in_force"
+        },
+        "ok": true,
+        "actor": "model"
+      }
+    ],
+    "server_spans": [
+      {
+        "trace_id": "req-a0c11c419245",
+        "server": "claims-records",
+        "tool": "get_fnol",
+        "arg_names": [
+          "claim_number"
+        ],
+        "latency_ms": 0.6,
+        "result_chars": 372,
+        "is_error": false,
+        "ts": "2026-10-05T07:48:22"
+      },
+      {
+        "trace_id": "req-a0c11c419245",
+        "server": "claims-records",
+        "tool": "get_fnol",
+        "arg_names": [
+          "claim_number"
+        ],
+        "latency_ms": 0.2,
+        "result_chars": 372,
+        "is_error": false,
+        "ts": "2026-10-05T07:48:24"
+      },
+      {
+        "trace_id": "req-a0c11c419245",
+        "server": "claims-records",
+        "tool": "check_coverage_in_force",
+        "arg_names": [
+          "loss_date",
+          "policy_number"
+        ],
+        "latency_ms": 0.1,
+        "result_chars": 243,
+        "is_error": false,
+        "ts": "2026-10-05T07:48:25"
+      }
+    ],
+    "context_ids": [],
+    "totals": {
+      "latency_ms": 3114.8,
+      "tokens_in": 5014,
+      "tokens_out": 222,
+      "cost_usd": 0.000885,
+      "by_stage": {
+        "retrieval": {
+          "latency_ms": 0.0,
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost_usd": 0.0,
+          "spans": 0
+        },
+        "generation": {
+          "latency_ms": 3100.6,
+          "tokens_in": 5014,
+          "tokens_out": 222,
+          "cost_usd": 0.000885,
+          "spans": 3
+        },
+        "tools": {
+          "latency_ms": 5.5,
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost_usd": 0.0,
+          "spans": 3
+        }
+      }
+    },
+    "wall_s": 3.1,
+    "boot_s": 27.7,
+    "retrieval_version": "hybrid-datefilter-v1"
+  },
+  "w28": {
+    "case_id": "w28",
+    "trace_id": "req-13aa1bc7df03",
+    "outcome": "completed",
+    "referral": {
+      "referral_id": "ref-13aa1bc7df03",
+      "trace_id": "req-13aa1bc7df03",
+      "route": "adjuster",
+      "claim_number": "CLM-2026-80028",
+      "reason_code": "policy_not_in_force",
+      "loss_date": "2025-10-05",
+      "in_force": false,
+      "in_force_range": null,
+      "editions_in_force": {
+        "HO-0100": "01-22",
+        "HO-0850": "04-25"
+      },
+      "summary": "The claimant reported a burst supply pipe under the kitchen sink on 2025-10-05, causing water damage. The policy POL-H-1003 was not in force on the loss date, so coverage cannot be determined.",
+      "citations": [],
+      "figures": null,
+      "guard": {
+        "checked": true,
+        "triggered": false,
+        "hits": []
+      }
+    },
+    "tool_calls": [
+      {
+        "name": "get_fnol",
+        "server": "claims-records",
+        "args": {
+          "claim_number": "CLM-2026-80028"
+        },
+        "ok": true,
+        "actor": "harness"
+      },
+      {
+        "name": "get_fnol",
+        "server": "claims-records",
+        "args": {
+          "claim_number": "CLM-2026-80028"
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "check_coverage_in_force",
+        "server": "claims-records",
+        "args": {
+          "loss_date": "2025-10-05",
+          "policy_number": "POL-H-1003"
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "refer_to_adjuster",
+        "server": null,
+        "args": {
+          "reason_code": "policy_not_in_force"
+        },
+        "ok": true,
+        "actor": "model"
+      }
+    ],
+    "server_spans": [
+      {
+        "trace_id": "req-13aa1bc7df03",
+        "server": "claims-records",
+        "tool": "get_fnol",
+        "arg_names": [
+          "claim_number"
+        ],
+        "latency_ms": 0.5,
+        "result_chars": 321,
+        "is_error": false,
+        "ts": "2026-10-05T07:48:25"
+      },
+      {
+        "trace_id": "req-13aa1bc7df03",
+        "server": "claims-records",
+        "tool": "get_fnol",
+        "arg_names": [
+          "claim_number"
+        ],
+        "latency_ms": 0.3,
+        "result_chars": 321,
+        "is_error": false,
+        "ts": "2026-10-05T07:48:26"
+      },
+      {
+        "trace_id": "req-13aa1bc7df03",
+        "server": "claims-records",
+        "tool": "check_coverage_in_force",
+        "arg_names": [
+          "loss_date",
+          "policy_number"
+        ],
+        "latency_ms": 0.2,
+        "result_chars": 243,
+        "is_error": false,
+        "ts": "2026-10-05T07:48:30"
+      }
+    ],
+    "context_ids": [],
+    "totals": {
+      "latency_ms": 7210.3,
+      "tokens_in": 4913,
+      "tokens_out": 209,
+      "cost_usd": 0.000862,
+      "by_stage": {
+        "retrieval": {
+          "latency_ms": 0.0,
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost_usd": 0.0,
+          "spans": 0
+        },
+        "generation": {
+          "latency_ms": 7201.4,
+          "tokens_in": 4913,
+          "tokens_out": 209,
+          "cost_usd": 0.000862,
+          "spans": 3
+        },
+        "tools": {
+          "latency_ms": 5.7,
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost_usd": 0.0,
+          "spans": 3
+        }
+      }
+    },
+    "wall_s": 7.2,
+    "boot_s": 27.7,
+    "retrieval_version": "hybrid-datefilter-v1"
+  },
+  "w29": {
+    "case_id": "w29",
+    "trace_id": "req-bf5efc58c9ab",
+    "outcome": "completed",
+    "referral": {
+      "referral_id": "ref-bf5efc58c9ab",
+      "trace_id": "req-bf5efc58c9ab",
+      "route": "adjuster",
+      "claim_number": "CLM-2026-80029",
+      "reason_code": "policy_not_in_force",
+      "loss_date": "2025-09-15",
+      "in_force": false,
+      "in_force_range": null,
+      "editions_in_force": {
+        "MO-0100": "03-22",
+        "MO-0420": "05-25"
+      },
+      "summary": "The insured's motor policy POL-M-2003 was not active on the loss date of 2025-09-15. The loss involved a rear wing and bumper damage from a collision with a van that failed to give way.",
+      "citations": [],
+      "figures": null,
+      "guard": {
+        "checked": true,
+        "triggered": false,
+        "hits": []
+      }
+    },
+    "tool_calls": [
+      {
+        "name": "get_fnol",
+        "server": "claims-records",
+        "args": {
+          "claim_number": "CLM-2026-80029"
+        },
+        "ok": true,
+        "actor": "harness"
+      },
+      {
+        "name": "get_fnol",
+        "server": "claims-records",
+        "args": {
+          "claim_number": "CLM-2026-80029"
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "check_coverage_in_force",
+        "server": "claims-records",
+        "args": {
+          "loss_date": "2025-09-15",
+          "policy_number": "POL-M-2003"
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "refer_to_adjuster",
+        "server": null,
+        "args": {
+          "reason_code": "policy_not_in_force"
+        },
+        "ok": true,
+        "actor": "model"
+      }
+    ],
+    "server_spans": [
+      {
+        "trace_id": "req-bf5efc58c9ab",
+        "server": "claims-records",
+        "tool": "get_fnol",
+        "arg_names": [
+          "claim_number"
+        ],
+        "latency_ms": 0.4,
+        "result_chars": 269,
+        "is_error": false,
+        "ts": "2026-10-05T07:48:33"
+      },
+      {
+        "trace_id": "req-bf5efc58c9ab",
+        "server": "claims-records",
+        "tool": "get_fnol",
+        "arg_names": [
+          "claim_number"
+        ],
+        "latency_ms": 0.2,
+        "result_chars": 269,
+        "is_error": false,
+        "ts": "2026-10-05T07:48:46"
+      },
+      {
+        "trace_id": "req-bf5efc58c9ab",
+        "server": "claims-records",
+        "tool": "check_coverage_in_force",
+        "arg_names": [
+          "loss_date",
+          "policy_number"
+        ],
+        "latency_ms": 0.2,
+        "result_chars": 239,
+        "is_error": false,
+        "ts": "2026-10-05T07:49:00"
+      }
+    ],
+    "context_ids": [],
+    "totals": {
+      "latency_ms": 39408.5,
+      "tokens_in": 4866,
+      "tokens_out": 207,
+      "cost_usd": 0.000854,
+      "by_stage": {
+        "retrieval": {
+          "latency_ms": 0.0,
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost_usd": 0.0,
+          "spans": 0
+        },
+        "generation": {
+          "latency_ms": 39398.6,
+          "tokens_in": 4866,
+          "tokens_out": 207,
+          "cost_usd": 0.000854,
+          "spans": 3
+        },
+        "tools": {
+          "latency_ms": 4.7,
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost_usd": 0.0,
+          "spans": 3
+        }
+      }
+    },
+    "wall_s": 39.4,
+    "boot_s": 27.7,
+    "retrieval_version": "hybrid-datefilter-v1"
+  },
+  "w30": {
+    "case_id": "w30",
+    "trace_id": "req-e245a32c1c5f",
+    "outcome": "completed",
+    "referral": {
+      "referral_id": "ref-e245a32c1c5f",
+      "trace_id": "req-e245a32c1c5f",
+      "route": "adjuster",
+      "claim_number": "CLM-2026-80030",
+      "reason_code": "policy_not_in_force",
+      "loss_date": "2022-03-01",
+      "in_force": false,
+      "in_force_range": null,
+      "editions_in_force": {
+        "HO-0100": "01-22",
+        "HO-0850": null
+      },
+      "summary": "The loss occurred on 2022-03-01. The household policy POL-H-1001 was not in force on that date, so coverage cannot be evaluated.",
+      "citations": [],
+      "figures": null,
+      "guard": {
+        "checked": true,
+        "triggered": false,
+        "hits": []
+      }
+    },
+    "tool_calls": [
+      {
+        "name": "get_fnol",
+        "server": "claims-records",
+        "args": {
+          "claim_number": "CLM-2026-80030"
+        },
+        "ok": true,
+        "actor": "harness"
+      },
+      {
+        "name": "get_fnol",
+        "server": "claims-records",
+        "args": {
+          "claim_number": "CLM-2026-80030"
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "check_coverage_in_force",
+        "server": "claims-records",
+        "args": {
+          "loss_date": "2022-03-01",
+          "policy_number": "POL-H-1001"
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "refer_to_adjuster",
+        "server": null,
+        "args": {
+          "reason_code": "policy_not_in_force"
+        },
+        "ok": true,
+        "actor": "model"
+      }
+    ],
+    "server_spans": [
+      {
+        "trace_id": "req-e245a32c1c5f",
+        "server": "claims-records",
+        "tool": "get_fnol",
+        "arg_names": [
+          "claim_number"
+        ],
+        "latency_ms": 0.3,
+        "result_chars": 371,
+        "is_error": false,
+        "ts": "2026-10-05T07:49:12"
+      },
+      {
+        "trace_id": "req-e245a32c1c5f",
+        "server": "claims-records",
+        "tool": "get_fnol",
+        "arg_names": [
+          "claim_number"
+        ],
+        "latency_ms": 0.4,
+        "result_chars": 371,
+        "is_error": false,
+        "ts": "2026-10-05T07:49:14"
+      },
+      {
+        "trace_id": "req-e245a32c1c5f",
+        "server": "claims-records",
+        "tool": "check_coverage_in_force",
+        "arg_names": [
+          "loss_date",
+          "policy_number"
+        ],
+        "latency_ms": 0.1,
+        "result_chars": 240,
+        "is_error": false,
+        "ts": "2026-10-05T07:49:27"
+      }
+    ],
+    "context_ids": [],
+    "totals": {
+      "latency_ms": 29557.7,
+      "tokens_in": 4960,
+      "tokens_out": 201,
+      "cost_usd": 0.000865,
+      "by_stage": {
+        "retrieval": {
+          "latency_ms": 0.0,
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost_usd": 0.0,
+          "spans": 0
+        },
+        "generation": {
+          "latency_ms": 29545.8,
+          "tokens_in": 4960,
+          "tokens_out": 201,
+          "cost_usd": 0.000865,
+          "spans": 3
+        },
+        "tools": {
+          "latency_ms": 4.2,
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost_usd": 0.0,
+          "spans": 3
+        }
+      }
+    },
+    "wall_s": 29.6,
+    "boot_s": 27.7,
+    "retrieval_version": "hybrid-datefilter-v1"
+  },
+  "w31": {
+    "case_id": "w31",
+    "trace_id": "req-995c347a3443",
+    "outcome": "completed",
+    "referral": {
+      "referral_id": "ref-995c347a3443",
+      "trace_id": "req-995c347a3443",
+      "route": "adjuster",
+      "claim_number": "CLM-2026-80031",
+      "reason_code": "no_wording_in_force",
+      "loss_date": "2023-03-15",
+      "in_force": true,
+      "in_force_range": [
+        "2022-06-01",
+        "2026-06-01"
+      ],
+      "editions_in_force": {
+        "HO-0100": "01-22",
+        "HO-0850": null
+      },
+      "summary": "The loss occurred on 2023-03-15 and the policy POL-H-1001 was in force. The household base wording (HO-0100 edition 01-22) is in force, but the specific flood form HO-0850 has no edition in force on that date, so there is no applicable wording for flood coverage.",
+      "citations": [],
+      "figures": null,
+      "guard": {
+        "checked": true,
+        "triggered": false,
+        "hits": []
+      }
+    },
+    "tool_calls": [
+      {
+        "name": "get_fnol",
+        "server": "claims-records",
+        "args": {
+          "claim_number": "CLM-2026-80031"
+        },
+        "ok": true,
+        "actor": "harness"
+      },
+      {
+        "name": "get_fnol",
+        "server": "claims-records",
+        "args": {
+          "claim_number": "CLM-2026-80031"
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "check_coverage_in_force",
+        "server": "claims-records",
+        "args": {
+          "loss_date": "2023-03-15",
+          "policy_number": "POL-H-1001"
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "search_policy_wording",
+        "server": "policy-wording",
+        "args": {
+          "loss_date": "2023-03-15",
+          "product": "household",
+          "query": "flood river overflow exclusion dwelling"
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "refer_to_adjuster",
+        "server": null,
+        "args": {
+          "reason_code": "no_wording_in_force"
+        },
+        "ok": true,
+        "actor": "model"
+      }
+    ],
+    "server_spans": [
+      {
+        "trace_id": "req-995c347a3443",
+        "server": "claims-records",
+        "tool": "get_fnol",
+        "arg_names": [
+          "claim_number"
+        ],
+        "latency_ms": 0.6,
+        "result_chars": 371,
+        "is_error": false,
+        "ts": "2026-10-05T07:49:42"
+      },
+      {
+        "trace_id": "req-995c347a3443",
+        "server": "claims-records",
+        "tool": "get_fnol",
+        "arg_names": [
+          "claim_number"
+        ],
+        "latency_ms": 0.2,
+        "result_chars": 371,
+        "is_error": false,
+        "ts": "2026-10-05T07:49:42"
+      },
+      {
+        "trace_id": "req-995c347a3443",
+        "server": "claims-records",
+        "tool": "check_coverage_in_force",
+        "arg_names": [
+          "loss_date",
+          "policy_number"
+        ],
+        "latency_ms": 0.3,
+        "result_chars": 238,
+        "is_error": false,
+        "ts": "2026-10-05T07:49:54"
+      },
+      {
+        "trace_id": "req-995c347a3443",
+        "server": "policy-wording",
+        "tool": "search_policy_wording",
+        "arg_names": [
+          "loss_date",
+          "product",
+          "query"
+        ],
+        "latency_ms": 298.3,
+        "result_chars": 2308,
+        "is_error": false,
+        "ts": "2026-10-05T07:50:09"
+      }
+    ],
+    "context_ids": [
+      "HO-0100_household_base_wording_ed_01-22.pdf#12f8234c14d97ad0",
+      "HO-0100_household_base_wording_ed_01-22.pdf#1033bcbb5a6287a3"
+    ],
+    "totals": {
+      "latency_ms": 46709.2,
+      "tokens_in": 7542,
+      "tokens_out": 346,
+      "cost_usd": 0.001339,
+      "by_stage": {
+        "retrieval": {
+          "latency_ms": 299.5,
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost_usd": 0.0,
+          "spans": 1
+        },
+        "generation": {
+          "latency_ms": 46384.3,
+          "tokens_in": 7542,
+          "tokens_out": 346,
+          "cost_usd": 0.001339,
+          "spans": 4
+        },
+        "tools": {
+          "latency_ms": 4.6,
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost_usd": 0.0,
+          "spans": 3
+        }
+      }
+    },
+    "wall_s": 46.7,
+    "boot_s": 27.7,
+    "retrieval_version": "hybrid-datefilter-v1"
+  },
+  "w01": {
+    "case_id": "w01",
+    "trace_id": "req-6ccf1125d389",
+    "outcome": "completed",
+    "referral": {
+      "referral_id": "ref-6ccf1125d389",
+      "trace_id": "req-6ccf1125d389",
+      "route": "adjuster",
+      "claim_number": "CLM-2026-80001",
+      "reason_code": "wording_relevant",
+      "loss_date": "2024-08-11",
+      "in_force": true,
+      "in_force_range": [
+        "2022-06-01",
+        "2026-06-01"
+      ],
+      "editions_in_force": {
+        "HO-0100": "01-22",
+        "HO-0850": "07-23"
+      },
+      "summary": "The loss occurred on 2024-08-11 when river water overflowed its banks and entered the insured's main residence, causing damage to flooring and joinery on the ground floor. The policy was in force on the loss date. The wording passages define flood as rising water from a river overflowing its normal banks and set a flood sub\u2011limit of $15,000 with a $1,000 deductible, which directly relates to this loss.",
+      "citations": [
+        {
+          "form_number": "HO-0850",
+          "edition_date": "07-23",
+          "clause": "2.1",
+          "clause_as_given": null,
+          "effective_from": "2023-07-01",
+          "effective_to": "2025-04-01",
+          "loss_date_resolved": "2024-08-11",
+          "grounded": true,
+          "relevance": "Defines flood as rising water from a river overflowing its banks, matching the reported cause.",
+          "wording_excerpt": "2.1 Flood means rising water from a river, stream, lake or the sea overflowing its normal banks. Direct physical loss to the described dwelling caused by flood is within this endorsement, subject to the flood sub-limit of $15,000 and a flood deductible of $1,000.",
+          "wording_excerpt_is_verbatim_policy_text": true
+        },
+        {
+          "form_number": "HO-0850",
+          "edition_date": "07-23",
+          "clause": "2.2",
+          "clause_as_given": null,
+          "effective_from": "2023-07-01",
+          "effective_to": "2025-04-01",
+          "loss_date_resolved": "2024-08-11",
+          "grounded": true,
+          "relevance": "Specifies the flood sub\u2011limit and deductible that apply to this type of loss.",
+          "wording_excerpt": "2.2 Surface water means water from intense rainfall that flows or pools on the ground before entering the dwelling. Loss caused by surface water is subject to the same sub-limit of $15,000 and deductible of $1,000 as flood.",
+          "wording_excerpt_is_verbatim_policy_text": true
+        }
+      ],
+      "figures": {
+        "deductible": 1000,
+        "sub_limit": 15000,
+        "policy_limit": 350000,
+        "basis": "HO-0850 ed. 07-23, peril flood",
+        "source": "limits tool"
+      },
+      "guard": {
+        "checked": true,
+        "triggered": false,
+        "hits": []
+      }
+    },
+    "tool_calls": [
+      {
+        "name": "get_fnol",
+        "server": "claims-records",
+        "args": {
+          "claim_number": "CLM-2026-80001"
+        },
+        "ok": true,
+        "actor": "harness"
+      },
+      {
+        "name": "get_fnol",
+        "server": "claims-records",
+        "args": {
+          "claim_number": "CLM-2026-80001"
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "check_coverage_in_force",
+        "server": "claims-records",
+        "args": {
+          "loss_date": "2024-08-11",
+          "policy_number": "POL-H-1001"
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "search_policy_wording",
+        "server": "policy-wording",
+        "args": {
+          "loss_date": "2024-08-11",
+          "product": "household",
+          "query": "flood river overflow",
+          "top_k": 5
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "get_limits",
+        "server": "policy-wording",
+        "args": {
+          "loss_date": "2024-08-11",
+          "peril_class": "flood",
+          "policy_number": "POL-H-1001"
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "refer_to_adjuster",
+        "server": null,
+        "args": {
+          "reason_code": "wording_relevant"
+        },
+        "ok": true,
+        "actor": "model"
+      }
+    ],
+    "server_spans": [
+      {
+        "trace_id": "req-6ccf1125d389",
+        "server": "claims-records",
+        "tool": "get_fnol",
+        "arg_names": [
+          "claim_number"
+        ],
+        "latency_ms": 0.8,
+        "result_chars": 371,
+        "is_error": false,
+        "ts": "2026-10-05T07:50:28"
+      },
+      {
+        "trace_id": "req-6ccf1125d389",
+        "server": "claims-records",
+        "tool": "get_fnol",
+        "arg_names": [
+          "claim_number"
+        ],
+        "latency_ms": 0.2,
+        "result_chars": 371,
+        "is_error": false,
+        "ts": "2026-10-05T07:50:33"
+      },
+      {
+        "trace_id": "req-6ccf1125d389",
+        "server": "claims-records",
+        "tool": "check_coverage_in_force",
+        "arg_names": [
+          "loss_date",
+          "policy_number"
+        ],
+        "latency_ms": 0.1,
+        "result_chars": 241,
+        "is_error": false,
+        "ts": "2026-10-05T07:50:44"
+      },
+      {
+        "trace_id": "req-6ccf1125d389",
+        "server": "policy-wording",
+        "tool": "search_policy_wording",
+        "arg_names": [
+          "loss_date",
+          "product",
+          "query",
+          "top_k"
+        ],
+        "latency_ms": 492.3,
+        "result_chars": 3319,
+        "is_error": false,
+        "ts": "2026-10-05T07:50:51"
+      },
+      {
+        "trace_id": "req-6ccf1125d389",
+        "server": "policy-wording",
+        "tool": "get_limits",
+        "arg_names": [
+          "loss_date",
+          "peril_class",
+          "policy_number"
+        ],
+        "latency_ms": 0.2,
+        "result_chars": 139,
+        "is_error": false,
+        "ts": "2026-10-05T07:51:02"
+      }
+    ],
+    "context_ids": [
+      "HO-0850_flood_escape_of_water_ed_07-23.pdf#774b4ff55417458c",
+      "HO-0850_flood_escape_of_water_ed_07-23.pdf#4164bf9933aa55ed",
+      "HO-0850_flood_escape_of_water_ed_07-23.pdf#0f052387462a7b8b"
+    ],
+    "totals": {
+      "latency_ms": 46642.9,
+      "tokens_in": 10876,
+      "tokens_out": 555,
+      "cost_usd": 0.001965,
+      "by_stage": {
+        "retrieval": {
+          "latency_ms": 493.6,
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost_usd": 0.0,
+          "spans": 1
+        },
+        "generation": {
+          "latency_ms": 46129.6,
+          "tokens_in": 10876,
+          "tokens_out": 555,
+          "cost_usd": 0.001965,
+          "spans": 5
+        },
+        "tools": {
+          "latency_ms": 6.6,
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost_usd": 0.0,
+          "spans": 4
+        }
+      }
+    },
+    "wall_s": 46.6,
+    "boot_s": 27.7,
+    "retrieval_version": "hybrid-datefilter-v1"
+  },
+  "w02": {
+    "case_id": "w02",
+    "trace_id": "req-e1aceef67b4b",
+    "outcome": "completed",
+    "referral": {
+      "referral_id": "ref-e1aceef67b4b",
+      "trace_id": "req-e1aceef67b4b",
+      "route": "adjuster",
+      "claim_number": "CLM-2026-80002",
+      "reason_code": "wording_relevant",
+      "loss_date": "2025-03-31",
+      "in_force": true,
+      "in_force_range": [
+        "2023-01-01",
+        "2026-01-01"
+      ],
+      "editions_in_force": {
+        "HO-0100": "01-22",
+        "HO-0850": "07-23"
+      },
+      "summary": "Policy in force on the loss date (2025-03-31). Wording retrieved as at the loss date: HO-0850 ed. 07-23 clause 2.1; HO-0850 ed. 07-23 clause 3.1. This assistant does not decide claims. Referred to an adjuster.",
+      "citations": [
+        {
+          "form_number": "HO-0850",
+          "edition_date": "07-23",
+          "clause": "2.1",
+          "clause_as_given": null,
+          "effective_from": null,
+          "effective_to": null,
+          "loss_date_resolved": null,
+          "grounded": false,
+          "relevance": "Defines flood coverage for the dwelling, directly applicable to the reported river\u2011water flood.",
+          "wording_excerpt": null,
+          "wording_excerpt_is_verbatim_policy_text": true
+        },
+        {
+          "form_number": "HO-0850",
+          "edition_date": "07-23",
+          "clause": "3.1",
+          "clause_as_given": null,
+          "effective_from": "2023-07-01",
+          "effective_to": "2025-04-01",
+          "loss_date_resolved": "2025-03-31",
+          "grounded": true,
+          "relevance": "See wording excerpt.",
+          "wording_excerpt": "Flood, Surface Water and Escape of Water SECTION: Exclusion Table 3.1 EXCLUSION TABLE 3.1 - WATER LOSS EXCLUSIONS (EDITION 07-23) CODE EXCLUSION AND DISPOSITION E-50 Water escaping gradually over fourteen (14) days or more, including seepage and constant leakage. Disposition: Excluded absolutely. E-51 Water entering through an opening the insured left unsealed, including an open window or door. Disposition: Excluded absolutely. E-52 Flood loss to outbuil",
+          "wording_excerpt_is_verbatim_policy_text": true
+        }
+      ],
+      "figures": {
+        "deductible": 1000,
+        "sub_limit": 15000,
+        "policy_limit": 500000,
+        "basis": "HO-0850 ed. 07-23, peril flood",
+        "source": "limits tool"
+      },
+      "guard": {
+        "checked": true,
+        "triggered": true,
+        "hits": [
+          {
+            "field": "summary",
+            "matches": [
+              "excludes"
+            ],
+            "text": "River water overflow on 31\u202fMar\u202f2025 flooded the insured's ground\u2011floor dwelling, causing damage to flooring and joinery. The policy was in force on that date. Clause\u202f2.1 of HO\u20110850\u202f07\u201123 provides flood coverage for the dwelling, and Exclusi"
+          },
+          {
+            "field": "citations[1].relevance",
+            "matches": [
+              "excluded"
+            ],
+            "text": "Lists water\u2011loss exclusions; confirms that the dwelling flood loss is not excluded by code E\u201152."
+          }
+        ]
+      }
+    },
+    "tool_calls": [
+      {
+        "name": "get_fnol",
+        "server": "claims-records",
+        "args": {
+          "claim_number": "CLM-2026-80002"
+        },
+        "ok": true,
+        "actor": "harness"
+      },
+      {
+        "name": "get_fnol",
+        "server": "claims-records",
+        "args": {
+          "claim_number": "CLM-2026-80002"
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "check_coverage_in_force",
+        "server": "claims-records",
+        "args": {
+          "loss_date": "2025-03-31",
+          "policy_number": "POL-H-1002"
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "search_policy_wording",
+        "server": "policy-wording",
+        "args": {
+          "loss_date": "2025-03-31",
+          "product": "household",
+          "query": "flood rising river water exclusion",
+          "top_k": 5
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "get_limits",
+        "server": "policy-wording",
+        "args": {
+          "loss_date": "2025-03-31",
+          "peril_class": "flood",
+          "policy_number": "POL-H-1002"
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "refer_to_adjuster",
+        "server": null,
+        "args": {
+          "reason_code": "wording_relevant"
+        },
+        "ok": true,
+        "actor": "model"
+      }
+    ],
+    "server_spans": [
+      {
+        "trace_id": "req-e1aceef67b4b",
+        "server": "claims-records",
+        "tool": "get_fnol",
+        "arg_names": [
+          "claim_number"
+        ],
+        "latency_ms": 0.5,
+        "result_chars": 371,
+        "is_error": false,
+        "ts": "2026-10-05T07:51:15"
+      },
+      {
+        "trace_id": "req-e1aceef67b4b",
+        "server": "claims-records",
+        "tool": "get_fnol",
+        "arg_names": [
+          "claim_number"
+        ],
+        "latency_ms": 0.2,
+        "result_chars": 371,
+        "is_error": false,
+        "ts": "2026-10-05T07:51:28"
+      },
+      {
+        "trace_id": "req-e1aceef67b4b",
+        "server": "claims-records",
+        "tool": "check_coverage_in_force",
+        "arg_names": [
+          "loss_date",
+          "policy_number"
+        ],
+        "latency_ms": 0.1,
+        "result_chars": 241,
+        "is_error": false,
+        "ts": "2026-10-05T07:51:31"
+      },
+      {
+        "trace_id": "req-e1aceef67b4b",
+        "server": "policy-wording",
+        "tool": "search_policy_wording",
+        "arg_names": [
+          "loss_date",
+          "product",
+          "query",
+          "top_k"
+        ],
+        "latency_ms": 564.5,
+        "result_chars": 2852,
+        "is_error": false,
+        "ts": "2026-10-05T07:51:48"
+      },
+      {
+        "trace_id": "req-e1aceef67b4b",
+        "server": "policy-wording",
+        "tool": "get_limits",
+        "arg_names": [
+          "loss_date",
+          "peril_class",
+          "policy_number"
+        ],
+        "latency_ms": 0.3,
+        "result_chars": 139,
+        "is_error": false,
+        "ts": "2026-10-05T07:52:07"
+      }
+    ],
+    "context_ids": [
+      "HO-0850_flood_escape_of_water_ed_07-23.pdf#4164bf9933aa55ed",
+      "HO-0850_flood_escape_of_water_ed_07-23.pdf#1e71ff92c5c0b142",
+      "HO-0850_flood_escape_of_water_ed_07-23.pdf#b68520625da97f11"
+    ],
+    "totals": {
+      "latency_ms": 99232.2,
+      "tokens_in": 14393,
+      "tokens_out": 1224,
+      "cost_usd": 0.002894,
+      "by_stage": {
+        "retrieval": {
+          "latency_ms": 565.6,
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost_usd": 0.0,
+          "spans": 1
+        },
+        "generation": {
+          "latency_ms": 98642.5,
+          "tokens_in": 14393,
+          "tokens_out": 1224,
+          "cost_usd": 0.002894,
+          "spans": 6
+        },
+        "tools": {
+          "latency_ms": 5.5,
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost_usd": 0.0,
+          "spans": 4
+        }
+      }
+    },
+    "wall_s": 99.2,
+    "boot_s": 27.7,
+    "retrieval_version": "hybrid-datefilter-v1"
+  },
+  "w03": {
+    "case_id": "w03",
+    "trace_id": "req-bb2b5a59d5e7",
+    "outcome": "completed",
+    "referral": {
+      "referral_id": "ref-bb2b5a59d5e7",
+      "trace_id": "req-bb2b5a59d5e7",
+      "route": "adjuster",
+      "claim_number": "CLM-2026-80003",
+      "reason_code": "wording_relevant",
+      "loss_date": "2025-04-01",
+      "in_force": true,
+      "in_force_range": [
+        "2022-06-01",
+        "2026-06-01"
+      ],
+      "editions_in_force": {
+        "HO-0100": "01-22",
+        "HO-0850": "04-25"
+      },
+      "summary": "Policy in force on the loss date (2025-04-01). Wording retrieved as at the loss date: HO-0850 ed. 04-25 clause E-52; HO-0850 ed. 04-25 clause 2.1. This assistant does not decide claims. Referred to an adjuster.",
+      "citations": [
+        {
+          "form_number": "HO-0850",
+          "edition_date": "04-25",
+          "clause": "E-52",
+          "clause_as_given": null,
+          "effective_from": "2025-04-01",
+          "effective_to": null,
+          "loss_date_resolved": "2025-04-01",
+          "grounded": true,
+          "relevance": "See wording excerpt.",
+          "wording_excerpt": "E-52 Flood: rising water from a river, stream, lake or the sea overflowing its normal banks, to any property including the dwelling. Disposition: Excluded absolutely.",
+          "wording_excerpt_is_verbatim_policy_text": true
+        },
+        {
+          "form_number": "HO-0850",
+          "edition_date": "04-25",
+          "clause": "2.1",
+          "clause_as_given": null,
+          "effective_from": "2025-04-01",
+          "effective_to": null,
+          "loss_date_resolved": "2025-04-01",
+          "grounded": true,
+          "relevance": "Defines flood and directs to Exclusion\u202fE\u201152, indicating the loss falls under that exclusion.",
+          "wording_excerpt": "2.1 Flood means rising water from a river, stream, lake or the sea overflowing its normal banks. This endorsement does not provide cover for loss caused by flood; see Exclusion E-52.",
+          "wording_excerpt_is_verbatim_policy_text": true
+        }
+      ],
+      "figures": {
+        "deductible": 2500,
+        "sub_limit": null,
+        "policy_limit": 350000,
+        "basis": "HO-0850 ed. 04-25, peril flood",
+        "source": "limits tool"
+      },
+      "guard": {
+        "checked": true,
+        "triggered": true,
+        "hits": [
+          {
+            "field": "citations[0].relevance",
+            "matches": [
+              "Excludes"
+            ],
+            "text": "Excludes flood loss from river overflow to the dwelling, matching the described event."
+          }
+        ]
+      }
+    },
+    "tool_calls": [
+      {
+        "name": "get_fnol",
+        "server": "claims-records",
+        "args": {
+          "claim_number": "CLM-2026-80003"
+        },
+        "ok": true,
+        "actor": "harness"
+      },
+      {
+        "name": "get_fnol",
+        "server": "claims-records",
+        "args": {
+          "claim_number": "CLM-2026-80003"
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "check_coverage_in_force",
+        "server": "claims-records",
+        "args": {
+          "loss_date": "2025-04-01",
+          "policy_number": "POL-H-1001"
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "search_policy_wording",
+        "server": "policy-wording",
+        "args": {
+          "loss_date": "2025-04-01",
+          "product": "household",
+          "query": "river overflow flood dwelling exclusion",
+          "top_k": 5
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "get_limits",
+        "server": "policy-wording",
+        "args": {
+          "loss_date": "2025-04-01",
+          "peril_class": "flood",
+          "policy_number": "POL-H-1001"
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "refer_to_adjuster",
+        "server": null,
+        "args": {
+          "reason_code": "wording_relevant"
+        },
+        "ok": true,
+        "actor": "model"
+      }
+    ],
+    "server_spans": [
+      {
+        "trace_id": "req-bb2b5a59d5e7",
+        "server": "claims-records",
+        "tool": "get_fnol",
+        "arg_names": [
+          "claim_number"
+        ],
+        "latency_ms": 0.2,
+        "result_chars": 371,
+        "is_error": false,
+        "ts": "2026-10-05T07:52:54"
+      },
+      {
+        "trace_id": "req-bb2b5a59d5e7",
+        "server": "claims-records",
+        "tool": "get_fnol",
+        "arg_names": [
+          "claim_number"
+        ],
+        "latency_ms": 0.6,
+        "result_chars": 371,
+        "is_error": false,
+        "ts": "2026-10-05T07:52:55"
+      },
+      {
+        "trace_id": "req-bb2b5a59d5e7",
+        "server": "claims-records",
+        "tool": "check_coverage_in_force",
+        "arg_names": [
+          "loss_date",
+          "policy_number"
+        ],
+        "latency_ms": 0.1,
+        "result_chars": 241,
+        "is_error": false,
+        "ts": "2026-10-05T07:52:57"
+      },
+      {
+        "trace_id": "req-bb2b5a59d5e7",
+        "server": "policy-wording",
+        "tool": "search_policy_wording",
+        "arg_names": [
+          "loss_date",
+          "product",
+          "query",
+          "top_k"
+        ],
+        "latency_ms": 559.8,
+        "result_chars": 3410,
+        "is_error": false,
+        "ts": "2026-10-05T07:53:13"
+      },
+      {
+        "trace_id": "req-bb2b5a59d5e7",
+        "server": "policy-wording",
+        "tool": "get_limits",
+        "arg_names": [
+          "loss_date",
+          "peril_class",
+          "policy_number"
+        ],
+        "latency_ms": 0.1,
+        "result_chars": 138,
+        "is_error": false,
+        "ts": "2026-10-05T07:53:36"
+      }
+    ],
+    "context_ids": [
+      "HO-0850_flood_escape_of_water_ed_04-25.pdf#70a7303e316d7323",
+      "HO-0850_flood_escape_of_water_ed_04-25.pdf#859ea0eff67d08a2",
+      "HO-0850_flood_escape_of_water_ed_04-25.pdf#7cf75dbfa8b25769"
+    ],
+    "totals": {
+      "latency_ms": 75514.1,
+      "tokens_in": 14635,
+      "tokens_out": 1052,
+      "cost_usd": 0.002826,
+      "by_stage": {
+        "retrieval": {
+          "latency_ms": 581.8,
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost_usd": 0.0,
+          "spans": 1
+        },
+        "generation": {
+          "latency_ms": 74891.5,
+          "tokens_in": 14635,
+          "tokens_out": 1052,
+          "cost_usd": 0.002826,
+          "spans": 6
+        },
+        "tools": {
+          "latency_ms": 5.1,
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost_usd": 0.0,
+          "spans": 4
+        }
+      }
+    },
+    "wall_s": 75.5,
+    "boot_s": 27.7,
+    "retrieval_version": "hybrid-datefilter-v1"
+  },
+  "w04": {
+    "case_id": "w04",
+    "trace_id": "req-091ed2f15154",
+    "outcome": "completed",
+    "referral": {
+      "referral_id": "ref-091ed2f15154",
+      "trace_id": "req-091ed2f15154",
+      "route": "adjuster",
+      "claim_number": "CLM-2026-80004",
+      "reason_code": "wording_relevant",
+      "loss_date": "2025-08-19",
+      "in_force": true,
+      "in_force_range": [
+        "2024-02-01",
+        "2026-02-01"
+      ],
+      "editions_in_force": {
+        "HO-0100": "01-22",
+        "HO-0850": "04-25"
+      },
+      "summary": "Policy in force on the loss date (2025-08-19). Wording retrieved as at the loss date: HO-0850 ed. 04-25 clause 2.1; HO-0850 ed. 04-25 clause E-52. This assistant does not decide claims. Referred to an adjuster.",
+      "citations": [
+        {
+          "form_number": "HO-0850",
+          "edition_date": "04-25",
+          "clause": "2.1",
+          "clause_as_given": null,
+          "effective_from": "2025-04-01",
+          "effective_to": null,
+          "loss_date_resolved": "2025-08-19",
+          "grounded": true,
+          "relevance": "Defines flood as rising water from a river overflowing its banks, matching the reported loss.",
+          "wording_excerpt": "2.1 Flood means rising water from a river, stream, lake or the sea overflowing its normal banks. This endorsement does not provide cover for loss caused by flood; see Exclusion E-52.",
+          "wording_excerpt_is_verbatim_policy_text": true
+        },
+        {
+          "form_number": "HO-0850",
+          "edition_date": "04-25",
+          "clause": "E-52",
+          "clause_as_given": null,
+          "effective_from": "2025-04-01",
+          "effective_to": null,
+          "loss_date_resolved": "2025-08-19",
+          "grounded": true,
+          "relevance": "See wording excerpt.",
+          "wording_excerpt": "E-52 Flood: rising water from a river, stream, lake or the sea overflowing its normal banks, to any property including the dwelling. Disposition: Excluded absolutely.",
+          "wording_excerpt_is_verbatim_policy_text": true
+        }
+      ],
+      "figures": {
+        "deductible": 2500,
+        "sub_limit": null,
+        "policy_limit": 420000,
+        "basis": "HO-0850 ed. 04-25, peril flood",
+        "source": "limits tool"
+      },
+      "guard": {
+        "checked": true,
+        "triggered": true,
+        "hits": [
+          {
+            "field": "citations[1].relevance",
+            "matches": [
+              "excluded"
+            ],
+            "text": "Specifies that flood loss is excluded absolutely."
+          }
+        ]
+      }
+    },
+    "tool_calls": [
+      {
+        "name": "get_fnol",
+        "server": "claims-records",
+        "args": {
+          "claim_number": "CLM-2026-80004"
+        },
+        "ok": true,
+        "actor": "harness"
+      },
+      {
+        "name": "get_fnol",
+        "server": "claims-records",
+        "args": {
+          "claim_number": "CLM-2026-80004"
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "check_coverage_in_force",
+        "server": "claims-records",
+        "args": {
+          "loss_date": "2025-08-19",
+          "policy_number": "POL-H-1004"
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "search_policy_wording",
+        "server": "policy-wording",
+        "args": {
+          "loss_date": "2025-08-19",
+          "product": "household",
+          "query": "flood river overflow",
+          "top_k": 5
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "get_limits",
+        "server": "policy-wording",
+        "args": {
+          "loss_date": "2025-08-19",
+          "peril_class": "flood",
+          "policy_number": "POL-H-1004"
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "refer_to_adjuster",
+        "server": null,
+        "args": {
+          "reason_code": "wording_relevant"
+        },
+        "ok": true,
+        "actor": "model"
+      }
+    ],
+    "server_spans": [
+      {
+        "trace_id": "req-091ed2f15154",
+        "server": "claims-records",
+        "tool": "get_fnol",
+        "arg_names": [
+          "claim_number"
+        ],
+        "latency_ms": 1.1,
+        "result_chars": 371,
+        "is_error": false,
+        "ts": "2026-10-05T07:58:16"
+      },
+      {
+        "trace_id": "req-091ed2f15154",
+        "server": "claims-records",
+        "tool": "get_fnol",
+        "arg_names": [
+          "claim_number"
+        ],
+        "latency_ms": 0.3,
+        "result_chars": 371,
+        "is_error": false,
+        "ts": "2026-10-05T07:58:25"
+      },
+      {
+        "trace_id": "req-091ed2f15154",
+        "server": "claims-records",
+        "tool": "check_coverage_in_force",
+        "arg_names": [
+          "loss_date",
+          "policy_number"
+        ],
+        "latency_ms": 0.2,
+        "result_chars": 241,
+        "is_error": false,
+        "ts": "2026-10-05T07:58:26"
+      },
+      {
+        "trace_id": "req-091ed2f15154",
+        "server": "policy-wording",
+        "tool": "search_policy_wording",
+        "arg_names": [
+          "loss_date",
+          "product",
+          "query",
+          "top_k"
+        ],
+        "latency_ms": 2497.1,
+        "result_chars": 3195,
+        "is_error": false,
+        "ts": "2026-10-05T07:58:29"
+      },
+      {
+        "trace_id": "req-091ed2f15154",
+        "server": "policy-wording",
+        "tool": "get_limits",
+        "arg_names": [
+          "loss_date",
+          "peril_class",
+          "policy_number"
+        ],
+        "latency_ms": 0.2,
+        "result_chars": 138,
+        "is_error": false,
+        "ts": "2026-10-05T07:58:30"
+      }
+    ],
+    "context_ids": [
+      "HO-0850_flood_escape_of_water_ed_04-25.pdf#859ea0eff67d08a2",
+      "HO-0850_flood_escape_of_water_ed_04-25.pdf#70a7303e316d7323",
+      "HO-0850_flood_escape_of_water_ed_04-25.pdf#27a7e900d4cfa534"
+    ],
+    "totals": {
+      "latency_ms": 15176.8,
+      "tokens_in": 10788,
+      "tokens_out": 553,
+      "cost_usd": 0.00195,
+      "by_stage": {
+        "retrieval": {
+          "latency_ms": 2498.4,
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost_usd": 0.0,
+          "spans": 1
+        },
+        "generation": {
+          "latency_ms": 12374.1,
+          "tokens_in": 10788,
+          "tokens_out": 553,
+          "cost_usd": 0.00195,
+          "spans": 5
+        },
+        "tools": {
+          "latency_ms": 24.3,
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost_usd": 0.0,
+          "spans": 4
+        }
+      }
+    },
+    "wall_s": 15.2,
+    "boot_s": 142.9,
+    "retrieval_version": "hybrid-datefilter-v1"
+  },
+  "w11": {
+    "case_id": "w11",
+    "trace_id": "req-ca97abaf89aa",
+    "outcome": "completed",
+    "referral": {
+      "referral_id": "ref-ca97abaf89aa",
+      "trace_id": "req-ca97abaf89aa",
+      "route": "adjuster",
+      "claim_number": "CLM-2026-80011",
+      "reason_code": "wording_relevant",
+      "loss_date": "2024-10-20",
+      "in_force": true,
+      "in_force_range": [
+        "2023-03-01",
+        "2026-03-01"
+      ],
+      "editions_in_force": {
+        "MO-0100": "03-22",
+        "MO-0420": "09-23"
+      },
+      "summary": "Policy in force on the loss date (2024-10-20). Wording retrieved as at the loss date: MO-0420 ed. 09-23 clause E-65; MO-0420 ed. 09-23 clause 2.1. This assistant does not decide claims. Referred to an adjuster.",
+      "citations": [
+        {
+          "form_number": "MO-0420",
+          "edition_date": "09-23",
+          "clause": "E-65",
+          "clause_as_given": null,
+          "effective_from": "2023-09-01",
+          "effective_to": "2025-05-01",
+          "loss_date_resolved": "2024-10-20",
+          "grounded": true,
+          "relevance": "See wording excerpt.",
+          "wording_excerpt": "E-65 Engine damage caused by the engine drawing in water after the vehicle was driven into standing water. Disposition: Excluded above $5,000.",
+          "wording_excerpt_is_verbatim_policy_text": true
+        },
+        {
+          "form_number": "MO-0420",
+          "edition_date": "09-23",
+          "clause": "2.1",
+          "clause_as_given": null,
+          "effective_from": "2023-09-01",
+          "effective_to": "2025-05-01",
+          "loss_date_resolved": "2024-10-20",
+          "grounded": true,
+          "relevance": "Provides coverage for water damage to vehicle interior, electrics and bodywork from standing water, with a flood sub\u2011limit of $8,000 and a deductible of $750.",
+          "wording_excerpt": "2.1 Water damage to the interior, electrics and bodywork of the insured vehicle caused by flood or standing water is within this endorsement, subject to a flood sub-limit of $8,000 and a flood deductible of $750.",
+          "wording_excerpt_is_verbatim_policy_text": true
+        }
+      ],
+      "figures": {
+        "deductible": 750,
+        "sub_limit": 8000,
+        "policy_limit": 28000,
+        "basis": "MO-0420 ed. 09-23, peril flood",
+        "source": "limits tool"
+      },
+      "guard": {
+        "checked": true,
+        "triggered": true,
+        "hits": [
+          {
+            "field": "summary",
+            "matches": [
+              "excluded"
+            ],
+            "text": "The insured drove the car through standing water on 2024-10-20, causing water to be drawn into the engine cylinders. The motor policy was in force on that date. The wording includes an exclusion (E-65) for engine damage caused by driving in"
+          },
+          {
+            "field": "citations[0].relevance",
+            "matches": [
+              "Excludes"
+            ],
+            "text": "Excludes engine damage from driving into standing water above $5,000."
+          }
+        ]
+      }
+    },
+    "tool_calls": [
+      {
+        "name": "get_fnol",
+        "server": "claims-records",
+        "args": {
+          "claim_number": "CLM-2026-80011"
+        },
+        "ok": true,
+        "actor": "harness"
+      },
+      {
+        "name": "get_fnol",
+        "server": "claims-records",
+        "args": {
+          "claim_number": "CLM-2026-80011"
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "check_coverage_in_force",
+        "server": "claims-records",
+        "args": {
+          "loss_date": "2024-10-20",
+          "policy_number": "POL-M-2001"
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "search_policy_wording",
+        "server": "policy-wording",
+        "args": {
+          "loss_date": "2024-10-20",
+          "product": "motor",
+          "query": "water ingress engine flood",
+          "top_k": 5
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "get_limits",
+        "server": "policy-wording",
+        "args": {
+          "loss_date": "2024-10-20",
+          "peril_class": "flood",
+          "policy_number": "POL-M-2001"
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "refer_to_adjuster",
+        "server": null,
+        "args": {
+          "reason_code": "wording_relevant"
+        },
+        "ok": true,
+        "actor": "model"
+      }
+    ],
+    "server_spans": [
+      {
+        "trace_id": "req-ca97abaf89aa",
+        "server": "claims-records",
+        "tool": "get_fnol",
+        "arg_names": [
+          "claim_number"
+        ],
+        "latency_ms": 0.7,
+        "result_chars": 299,
+        "is_error": false,
+        "ts": "2026-10-05T07:58:31"
+      },
+      {
+        "trace_id": "req-ca97abaf89aa",
+        "server": "claims-records",
+        "tool": "get_fnol",
+        "arg_names": [
+          "claim_number"
+        ],
+        "latency_ms": 0.3,
+        "result_chars": 299,
+        "is_error": false,
+        "ts": "2026-10-05T07:58:32"
+      },
+      {
+        "trace_id": "req-ca97abaf89aa",
+        "server": "claims-records",
+        "tool": "check_coverage_in_force",
+        "arg_names": [
+          "loss_date",
+          "policy_number"
+        ],
+        "latency_ms": 0.2,
+        "result_chars": 237,
+        "is_error": false,
+        "ts": "2026-10-05T07:58:33"
+      },
+      {
+        "trace_id": "req-ca97abaf89aa",
+        "server": "policy-wording",
+        "tool": "search_policy_wording",
+        "arg_names": [
+          "loss_date",
+          "product",
+          "query",
+          "top_k"
+        ],
+        "latency_ms": 1360.6,
+        "result_chars": 2515,
+        "is_error": false,
+        "ts": "2026-10-05T07:58:44"
+      },
+      {
+        "trace_id": "req-ca97abaf89aa",
+        "server": "policy-wording",
+        "tool": "get_limits",
+        "arg_names": [
+          "loss_date",
+          "peril_class",
+          "policy_number"
+        ],
+        "latency_ms": 0.2,
+        "result_chars": 136,
+        "is_error": false,
+        "ts": "2026-10-05T07:58:53"
+      }
+    ],
+    "context_ids": [
+      "MO-0420_motor_water_flood_ed_09-23.pdf#e32170ea275d1154",
+      "MO-0420_motor_water_flood_ed_09-23.pdf#7756221bedcb3b8f",
+      "MO-0420_motor_water_flood_ed_09-23.pdf#e53d68ec0322ba10"
+    ],
+    "totals": {
+      "latency_ms": 43447.7,
+      "tokens_in": 10293,
+      "tokens_out": 549,
+      "cost_usd": 0.001873,
+      "by_stage": {
+        "retrieval": {
+          "latency_ms": 1362.1,
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost_usd": 0.0,
+          "spans": 1
+        },
+        "generation": {
+          "latency_ms": 42066.1,
+          "tokens_in": 10293,
+          "tokens_out": 549,
+          "cost_usd": 0.001873,
+          "spans": 5
+        },
+        "tools": {
+          "latency_ms": 6.2,
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost_usd": 0.0,
+          "spans": 4
+        }
+      }
+    },
+    "wall_s": 43.4,
+    "boot_s": 142.9,
+    "retrieval_version": "hybrid-datefilter-v1"
+  },
+  "w12": {
+    "case_id": "w12",
+    "trace_id": "req-0e394fea9b38",
+    "outcome": "completed",
+    "referral": {
+      "referral_id": "ref-0e394fea9b38",
+      "trace_id": "req-0e394fea9b38",
+      "route": "adjuster",
+      "claim_number": "CLM-2026-80012",
+      "reason_code": "wording_relevant",
+      "loss_date": "2025-04-30",
+      "in_force": true,
+      "in_force_range": [
+        "2023-03-01",
+        "2026-03-01"
+      ],
+      "editions_in_force": {
+        "MO-0100": "03-22",
+        "MO-0420": "09-23"
+      },
+      "summary": "Policy in force on the loss date (2025-04-30). Wording retrieved as at the loss date: MO-0420 ed. 09-23 clause 3.1; MO-0420 ed. 09-23 clause 2.1. This assistant does not decide claims. Referred to an adjuster.",
+      "citations": [
+        {
+          "form_number": "MO-0420",
+          "edition_date": "09-23",
+          "clause": "3.1",
+          "clause_as_given": null,
+          "effective_from": "2023-09-01",
+          "effective_to": "2025-05-01",
+          "loss_date_resolved": "2025-04-30",
+          "grounded": true,
+          "relevance": "See wording excerpt.",
+          "wording_excerpt": "Motor Water, Flood and Weather Damage SECTION: Exclusion Table 3.1 EXCLUSION TABLE 3.1 - MOTOR WATER LOSS EXCLUSIONS (EDITION 09-23) CODE EXCLUSION AND DISPOSITION E-65 Engine damage caused by the engine drawing in water after the vehicle was driven into standing water. Disposition: Excluded above $5,000. E-66 Loss to a vehicle left in a location the insured had been warned was subject to flooding. Disposition: Excluded absolutely. Note: In this edition engine",
+          "wording_excerpt_is_verbatim_policy_text": true
+        },
+        {
+          "form_number": "MO-0420",
+          "edition_date": "09-23",
+          "clause": "2.1",
+          "clause_as_given": null,
+          "effective_from": "2023-09-01",
+          "effective_to": "2025-05-01",
+          "loss_date_resolved": "2025-04-30",
+          "grounded": true,
+          "relevance": "Provides flood coverage for water damage with a sub\u2011limit of $8,000 and a deductible of $750.",
+          "wording_excerpt": "2.1 Water damage to the interior, electrics and bodywork of the insured vehicle caused by flood or standing water is within this endorsement, subject to a flood sub-limit of $8,000 and a flood deductible of $750.",
+          "wording_excerpt_is_verbatim_policy_text": true
+        }
+      ],
+      "figures": {
+        "deductible": 750,
+        "sub_limit": 8000,
+        "policy_limit": 28000,
+        "basis": "MO-0420 ed. 09-23, peril flood",
+        "source": "limits tool"
+      },
+      "guard": {
+        "checked": true,
+        "triggered": true,
+        "hits": [
+          {
+            "field": "citations[0].relevance",
+            "matches": [
+              "Excludes"
+            ],
+            "text": "Excludes engine damage caused by the engine drawing in water after the vehicle was driven into standing water."
+          }
+        ]
+      }
+    },
+    "tool_calls": [
+      {
+        "name": "get_fnol",
+        "server": "claims-records",
+        "args": {
+          "claim_number": "CLM-2026-80012"
+        },
+        "ok": true,
+        "actor": "harness"
+      },
+      {
+        "name": "get_fnol",
+        "server": "claims-records",
+        "args": {
+          "claim_number": "CLM-2026-80012"
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "check_coverage_in_force",
+        "server": "claims-records",
+        "args": {
+          "loss_date": "2025-04-30",
+          "policy_number": "POL-M-2001"
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "search_policy_wording",
+        "server": "policy-wording",
+        "args": {
+          "loss_date": "2025-04-30",
+          "product": "motor",
+          "query": "flood water damage engine",
+          "top_k": 5
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "get_limits",
+        "server": "policy-wording",
+        "args": {
+          "loss_date": "2025-04-30",
+          "peril_class": "flood",
+          "policy_number": "POL-M-2001"
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "refer_to_adjuster",
+        "server": null,
+        "args": {
+          "reason_code": "wording_relevant"
+        },
+        "ok": true,
+        "actor": "model"
+      }
+    ],
+    "server_spans": [
+      {
+        "trace_id": "req-0e394fea9b38",
+        "server": "claims-records",
+        "tool": "get_fnol",
+        "arg_names": [
+          "claim_number"
+        ],
+        "latency_ms": 0.6,
+        "result_chars": 300,
+        "is_error": false,
+        "ts": "2026-10-05T07:59:15"
+      },
+      {
+        "trace_id": "req-0e394fea9b38",
+        "server": "claims-records",
+        "tool": "get_fnol",
+        "arg_names": [
+          "claim_number"
+        ],
+        "latency_ms": 0.2,
+        "result_chars": 300,
+        "is_error": false,
+        "ts": "2026-10-05T07:59:19"
+      },
+      {
+        "trace_id": "req-0e394fea9b38",
+        "server": "claims-records",
+        "tool": "check_coverage_in_force",
+        "arg_names": [
+          "loss_date",
+          "policy_number"
+        ],
+        "latency_ms": 0.1,
+        "result_chars": 237,
+        "is_error": false,
+        "ts": "2026-10-05T07:59:29"
+      },
+      {
+        "trace_id": "req-0e394fea9b38",
+        "server": "policy-wording",
+        "tool": "search_policy_wording",
+        "arg_names": [
+          "loss_date",
+          "product",
+          "query",
+          "top_k"
+        ],
+        "latency_ms": 438.6,
+        "result_chars": 2511,
+        "is_error": false,
+        "ts": "2026-10-05T07:59:36"
+      },
+      {
+        "trace_id": "req-0e394fea9b38",
+        "server": "policy-wording",
+        "tool": "get_limits",
+        "arg_names": [
+          "loss_date",
+          "peril_class",
+          "policy_number"
+        ],
+        "latency_ms": 0.1,
+        "result_chars": 136,
+        "is_error": false,
+        "ts": "2026-10-05T07:59:46"
+      }
+    ],
+    "context_ids": [
+      "MO-0420_motor_water_flood_ed_09-23.pdf#e32170ea275d1154",
+      "MO-0420_motor_water_flood_ed_09-23.pdf#7756221bedcb3b8f",
+      "MO-0420_motor_water_flood_ed_09-23.pdf#e53d68ec0322ba10"
+    ],
+    "totals": {
+      "latency_ms": 64881.9,
+      "tokens_in": 13849,
+      "tokens_out": 1120,
+      "cost_usd": 0.002749,
+      "by_stage": {
+        "retrieval": {
+          "latency_ms": 439.7,
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost_usd": 0.0,
+          "spans": 1
+        },
+        "generation": {
+          "latency_ms": 64425.6,
+          "tokens_in": 13849,
+          "tokens_out": 1120,
+          "cost_usd": 0.002749,
+          "spans": 6
+        },
+        "tools": {
+          "latency_ms": 4.9,
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost_usd": 0.0,
+          "spans": 4
+        }
+      }
+    },
+    "wall_s": 64.9,
+    "boot_s": 142.9,
+    "retrieval_version": "hybrid-datefilter-v1"
+  },
+  "w13": {
+    "case_id": "w13",
+    "trace_id": "req-1b9cb75c5f7d",
+    "outcome": "completed",
+    "referral": {
+      "referral_id": "ref-1b9cb75c5f7d",
+      "trace_id": "req-1b9cb75c5f7d",
+      "route": "adjuster",
+      "claim_number": "CLM-2026-80013",
+      "reason_code": "wording_relevant",
+      "loss_date": "2025-05-01",
+      "in_force": true,
+      "in_force_range": [
+        "2024-05-01",
+        "2026-05-01"
+      ],
+      "editions_in_force": {
+        "MO-0100": "03-22",
+        "MO-0420": "05-25"
+      },
+      "summary": "Policy in force on the loss date (2025-05-01). Wording retrieved as at the loss date: MO-0420 ed. 05-25 clause E-65; MO-0420 ed. 05-25 clause 2.1. This assistant does not decide claims. Referred to an adjuster.",
+      "citations": [
+        {
+          "form_number": "MO-0420",
+          "edition_date": "05-25",
+          "clause": "E-65",
+          "clause_as_given": null,
+          "effective_from": "2025-05-01",
+          "effective_to": null,
+          "loss_date_resolved": "2025-05-01",
+          "grounded": true,
+          "relevance": "See wording excerpt.",
+          "wording_excerpt": "E-65 Engine damage caused by the engine drawing in water (hydrolock) after the vehicle was driven into standing water. Disposition: Excluded absolutely.",
+          "wording_excerpt_is_verbatim_policy_text": true
+        },
+        {
+          "form_number": "MO-0420",
+          "edition_date": "05-25",
+          "clause": "2.1",
+          "clause_as_given": null,
+          "effective_from": "2025-05-01",
+          "effective_to": null,
+          "loss_date_resolved": "2025-05-01",
+          "grounded": true,
+          "relevance": "Provides coverage for water damage to the vehicle interior, electrics and bodywork from flood or standing water, subject to a $6,000 sub\u2011limit and $1,000 deductible.",
+          "wording_excerpt": "2.1 Water damage to the interior, electrics and bodywork of the insured vehicle caused by flood or standing water is within this endorsement, subject to a flood sub-limit of $6,000 and a flood deductible of $1,000.",
+          "wording_excerpt_is_verbatim_policy_text": true
+        }
+      ],
+      "figures": {
+        "deductible": 1000,
+        "sub_limit": 6000,
+        "policy_limit": 45000,
+        "basis": "MO-0420 ed. 05-25, peril flood",
+        "source": "limits tool"
+      },
+      "guard": {
+        "checked": true,
+        "triggered": true,
+        "hits": [
+          {
+            "field": "citations[0].relevance",
+            "matches": [
+              "Excludes"
+            ],
+            "text": "Excludes engine damage caused by water drawn into the cylinders after driving into standing water."
+          }
+        ]
+      }
+    },
+    "tool_calls": [
+      {
+        "name": "get_fnol",
+        "server": "claims-records",
+        "args": {
+          "claim_number": "CLM-2026-80013"
+        },
+        "ok": true,
+        "actor": "harness"
+      },
+      {
+        "name": "get_fnol",
+        "server": "claims-records",
+        "args": {
+          "claim_number": "CLM-2026-80013"
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "check_coverage_in_force",
+        "server": "claims-records",
+        "args": {
+          "loss_date": "2025-05-01",
+          "policy_number": "POL-M-2002"
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "search_policy_wording",
+        "server": "policy-wording",
+        "args": {
+          "loss_date": "2025-05-01",
+          "product": "motor",
+          "query": "flood water damage engine",
+          "top_k": 5
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "get_limits",
+        "server": "policy-wording",
+        "args": {
+          "loss_date": "2025-05-01",
+          "peril_class": "flood",
+          "policy_number": "POL-M-2002"
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "refer_to_adjuster",
+        "server": null,
+        "args": {
+          "reason_code": "wording_relevant"
+        },
+        "ok": true,
+        "actor": "model"
+      }
+    ],
+    "server_spans": [
+      {
+        "trace_id": "req-1b9cb75c5f7d",
+        "server": "claims-records",
+        "tool": "get_fnol",
+        "arg_names": [
+          "claim_number"
+        ],
+        "latency_ms": 0.6,
+        "result_chars": 300,
+        "is_error": false,
+        "ts": "2026-10-05T08:00:20"
+      },
+      {
+        "trace_id": "req-1b9cb75c5f7d",
+        "server": "claims-records",
+        "tool": "get_fnol",
+        "arg_names": [
+          "claim_number"
+        ],
+        "latency_ms": 0.2,
+        "result_chars": 300,
+        "is_error": false,
+        "ts": "2026-10-05T08:00:25"
+      },
+      {
+        "trace_id": "req-1b9cb75c5f7d",
+        "server": "claims-records",
+        "tool": "check_coverage_in_force",
+        "arg_names": [
+          "loss_date",
+          "policy_number"
+        ],
+        "latency_ms": 0.1,
+        "result_chars": 237,
+        "is_error": false,
+        "ts": "2026-10-05T08:00:26"
+      },
+      {
+        "trace_id": "req-1b9cb75c5f7d",
+        "server": "policy-wording",
+        "tool": "search_policy_wording",
+        "arg_names": [
+          "loss_date",
+          "product",
+          "query",
+          "top_k"
+        ],
+        "latency_ms": 555.9,
+        "result_chars": 2681,
+        "is_error": false,
+        "ts": "2026-10-05T08:00:32"
+      },
+      {
+        "trace_id": "req-1b9cb75c5f7d",
+        "server": "policy-wording",
+        "tool": "get_limits",
+        "arg_names": [
+          "loss_date",
+          "peril_class",
+          "policy_number"
+        ],
+        "latency_ms": 0.1,
+        "result_chars": 137,
+        "is_error": false,
+        "ts": "2026-10-05T08:00:51"
+      }
+    ],
+    "context_ids": [
+      "MO-0420_motor_water_flood_ed_05-25.pdf#a01cd59c2d58f8da",
+      "MO-0420_motor_water_flood_ed_05-25.pdf#c0a7c830247763b4",
+      "MO-0420_motor_water_flood_ed_05-25.pdf#7b578060c08df792"
+    ],
+    "totals": {
+      "latency_ms": 51136.2,
+      "tokens_in": 10394,
+      "tokens_out": 565,
+      "cost_usd": 0.001898,
+      "by_stage": {
+        "retrieval": {
+          "latency_ms": 557.5,
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost_usd": 0.0,
+          "spans": 1
+        },
+        "generation": {
+          "latency_ms": 50552.8,
+          "tokens_in": 10394,
+          "tokens_out": 565,
+          "cost_usd": 0.001898,
+          "spans": 5
+        },
+        "tools": {
+          "latency_ms": 5.1,
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost_usd": 0.0,
+          "spans": 4
+        }
+      }
+    },
+    "wall_s": 51.1,
+    "boot_s": 142.9,
+    "retrieval_version": "hybrid-datefilter-v1"
+  },
+  "w14": {
+    "case_id": "w14",
+    "trace_id": "req-7afa8e057927",
+    "outcome": "completed",
+    "referral": {
+      "referral_id": "ref-7afa8e057927",
+      "trace_id": "req-7afa8e057927",
+      "route": "adjuster",
+      "claim_number": "CLM-2026-80014",
+      "reason_code": "wording_relevant",
+      "loss_date": "2025-11-12",
+      "in_force": true,
+      "in_force_range": [
+        "2024-05-01",
+        "2026-05-01"
+      ],
+      "editions_in_force": {
+        "MO-0100": "03-22",
+        "MO-0420": "05-25"
+      },
+      "summary": "Policy in force on the loss date (2025-11-12). Wording retrieved as at the loss date: MO-0420 ed. 05-25 clause 2.1; MO-0420 ed. 05-25 clause E-65. This assistant does not decide claims. Referred to an adjuster.",
+      "citations": [
+        {
+          "form_number": "MO-0420",
+          "edition_date": "05-25",
+          "clause": "2.1",
+          "clause_as_given": null,
+          "effective_from": "2025-05-01",
+          "effective_to": null,
+          "loss_date_resolved": "2025-11-12",
+          "grounded": true,
+          "relevance": "See wording excerpt.",
+          "wording_excerpt": "2.1 Water damage to the interior, electrics and bodywork of the insured vehicle caused by flood or standing water is within this endorsement, subject to a flood sub-limit of $6,000 and a flood deductible of $1,000.",
+          "wording_excerpt_is_verbatim_policy_text": true
+        },
+        {
+          "form_number": "MO-0420",
+          "edition_date": "05-25",
+          "clause": "E-65",
+          "clause_as_given": null,
+          "effective_from": "2025-05-01",
+          "effective_to": null,
+          "loss_date_resolved": "2025-11-12",
+          "grounded": true,
+          "relevance": "See wording excerpt.",
+          "wording_excerpt": "E-65 Engine damage caused by the engine drawing in water (hydrolock) after the vehicle was driven into standing water. Disposition: Excluded absolutely.",
+          "wording_excerpt_is_verbatim_policy_text": true
+        }
+      ],
+      "figures": {
+        "deductible": 1000,
+        "sub_limit": 6000,
+        "policy_limit": 45000,
+        "basis": "MO-0420 ed. 05-25, peril flood",
+        "source": "limits tool"
+      },
+      "guard": {
+        "checked": true,
+        "triggered": true,
+        "hits": [
+          {
+            "field": "citations[0].relevance",
+            "matches": [
+              "covers"
+            ],
+            "text": "covers water damage from standing water, which is the type of loss reported."
+          },
+          {
+            "field": "citations[1].relevance",
+            "matches": [
+              "excludes"
+            ],
+            "text": "excludes engine damage caused by water drawn into the cylinders after driving into standing water, matching the reported engine failure."
+          }
+        ]
+      }
+    },
+    "tool_calls": [
+      {
+        "name": "get_fnol",
+        "server": "claims-records",
+        "args": {
+          "claim_number": "CLM-2026-80014"
+        },
+        "ok": true,
+        "actor": "harness"
+      },
+      {
+        "name": "get_fnol",
+        "server": "claims-records",
+        "args": {
+          "claim_number": "CLM-2026-80014"
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "check_coverage_in_force",
+        "server": "claims-records",
+        "args": {
+          "loss_date": "2025-11-12",
+          "policy_number": "POL-M-2002"
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "search_policy_wording",
+        "server": "policy-wording",
+        "args": {
+          "loss_date": "2025-11-12",
+          "product": "motor",
+          "query": "flood",
+          "top_k": 5
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "get_limits",
+        "server": "policy-wording",
+        "args": {
+          "loss_date": "2025-11-12",
+          "peril_class": "flood",
+          "policy_number": "POL-M-2002"
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "refer_to_adjuster",
+        "server": null,
+        "args": {
+          "reason_code": "wording_relevant"
+        },
+        "ok": true,
+        "actor": "model"
+      }
+    ],
+    "server_spans": [
+      {
+        "trace_id": "req-7afa8e057927",
+        "server": "claims-records",
+        "tool": "get_fnol",
+        "arg_names": [
+          "claim_number"
+        ],
+        "latency_ms": 0.4,
+        "result_chars": 300,
+        "is_error": false,
+        "ts": "2026-10-05T08:01:11"
+      },
+      {
+        "trace_id": "req-7afa8e057927",
+        "server": "claims-records",
+        "tool": "get_fnol",
+        "arg_names": [
+          "claim_number"
+        ],
+        "latency_ms": 0.2,
+        "result_chars": 300,
+        "is_error": false,
+        "ts": "2026-10-05T08:01:14"
+      },
+      {
+        "trace_id": "req-7afa8e057927",
+        "server": "claims-records",
+        "tool": "check_coverage_in_force",
+        "arg_names": [
+          "loss_date",
+          "policy_number"
+        ],
+        "latency_ms": 0.1,
+        "result_chars": 237,
+        "is_error": false,
+        "ts": "2026-10-05T08:01:20"
+      },
+      {
+        "trace_id": "req-7afa8e057927",
+        "server": "policy-wording",
+        "tool": "search_policy_wording",
+        "arg_names": [
+          "loss_date",
+          "product",
+          "query",
+          "top_k"
+        ],
+        "latency_ms": 449.0,
+        "result_chars": 2683,
+        "is_error": false,
+        "ts": "2026-10-05T08:01:25"
+      },
+      {
+        "trace_id": "req-7afa8e057927",
+        "server": "policy-wording",
+        "tool": "get_limits",
+        "arg_names": [
+          "loss_date",
+          "peril_class",
+          "policy_number"
+        ],
+        "latency_ms": 0.2,
+        "result_chars": 137,
+        "is_error": false,
+        "ts": "2026-10-05T08:01:37"
+      }
+    ],
+    "context_ids": [
+      "MO-0420_motor_water_flood_ed_05-25.pdf#c0a7c830247763b4",
+      "MO-0420_motor_water_flood_ed_05-25.pdf#7b578060c08df792",
+      "MO-0420_motor_water_flood_ed_05-25.pdf#a01cd59c2d58f8da"
+    ],
+    "totals": {
+      "latency_ms": 53025.9,
+      "tokens_in": 13511,
+      "tokens_out": 804,
+      "cost_usd": 0.002509,
+      "by_stage": {
+        "retrieval": {
+          "latency_ms": 450.2,
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost_usd": 0.0,
+          "spans": 1
+        },
+        "generation": {
+          "latency_ms": 52541.4,
+          "tokens_in": 13511,
+          "tokens_out": 804,
+          "cost_usd": 0.002509,
+          "spans": 6
+        },
+        "tools": {
+          "latency_ms": 5.5,
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost_usd": 0.0,
+          "spans": 4
+        }
+      }
+    },
+    "wall_s": 53.0,
+    "boot_s": 142.9,
+    "retrieval_version": "hybrid-datefilter-v1"
+  },
+  "w05": {
+    "case_id": "w05",
+    "trace_id": "req-e2e70feb488b",
+    "outcome": "completed",
+    "referral": {
+      "referral_id": "ref-e2e70feb488b",
+      "trace_id": "req-e2e70feb488b",
+      "route": "adjuster",
+      "claim_number": "CLM-2026-80005",
+      "reason_code": "wording_relevant",
+      "loss_date": "2024-11-02",
+      "in_force": true,
+      "in_force_range": [
+        "2023-01-01",
+        "2026-01-01"
+      ],
+      "editions_in_force": {
+        "HO-0100": "01-22",
+        "HO-0850": "07-23"
+      },
+      "summary": "Policy in force on the loss date (2024-11-02). Wording retrieved as at the loss date: HO-0850 ed. 07-23 clause E-51; HO-0850 ed. 07-23 clause 2.1. This assistant does not decide claims. Referred to an adjuster.",
+      "citations": [
+        {
+          "form_number": "HO-0850",
+          "edition_date": "07-23",
+          "clause": "E-51",
+          "clause_as_given": null,
+          "effective_from": "2023-07-01",
+          "effective_to": "2025-04-01",
+          "loss_date_resolved": "2024-11-02",
+          "grounded": true,
+          "relevance": "See wording excerpt.",
+          "wording_excerpt": "E-51 Water entering through an opening the insured left unsealed, including an open window or door. Disposition: Excluded absolutely.",
+          "wording_excerpt_is_verbatim_policy_text": true
+        },
+        {
+          "form_number": "HO-0850",
+          "edition_date": "07-23",
+          "clause": "2.1",
+          "clause_as_given": null,
+          "effective_from": null,
+          "effective_to": null,
+          "loss_date_resolved": null,
+          "grounded": false,
+          "relevance": "See wording excerpt.",
+          "wording_excerpt": null,
+          "wording_excerpt_is_verbatim_policy_text": true
+        }
+      ],
+      "figures": {
+        "deductible": 1000,
+        "sub_limit": 15000,
+        "policy_limit": 500000,
+        "basis": "HO-0850 ed. 07-23, peril surface_water",
+        "source": "limits tool"
+      },
+      "guard": {
+        "checked": true,
+        "triggered": true,
+        "hits": [
+          {
+            "field": "summary",
+            "matches": [
+              "excludes"
+            ],
+            "text": "The insured reported intense rainfall on 2024-11-02 causing water to pool and enter the rear door of the home, wetting the ground floor. The policy POL-H-1002 was in force on the loss date. Relevant wording includes Exclusion E-51, which ex"
+          },
+          {
+            "field": "citations[0].relevance",
+            "matches": [
+              "Excludes"
+            ],
+            "text": "Excludes loss where water enters through an unsealed opening such as an open door, which matches the reported water entry at the rear door."
+          },
+          {
+            "field": "citations[1].relevance",
+            "matches": [
+              "covers",
+              "excluded"
+            ],
+            "text": "Clause 2.1 covers flood loss to the dwelling itself, distinguishing it from outbuildings excluded by E-52."
+          }
+        ]
+      }
+    },
+    "tool_calls": [
+      {
+        "name": "get_fnol",
+        "server": "claims-records",
+        "args": {
+          "claim_number": "CLM-2026-80005"
+        },
+        "ok": true,
+        "actor": "harness"
+      },
+      {
+        "name": "get_fnol",
+        "server": "claims-records",
+        "args": {
+          "claim_number": "CLM-2026-80005"
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "check_coverage_in_force",
+        "server": "claims-records",
+        "args": {
+          "loss_date": "2024-11-02",
+          "policy_number": "POL-H-1002"
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "search_policy_wording",
+        "server": "policy-wording",
+        "args": {
+          "loss_date": "2024-11-02",
+          "product": "household",
+          "query": "surface water pooling rainfall exclusion",
+          "top_k": 5
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "get_limits",
+        "server": "policy-wording",
+        "args": {
+          "loss_date": "2024-11-02",
+          "peril_class": "surface_water",
+          "policy_number": "POL-H-1002"
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "refer_to_adjuster",
+        "server": null,
+        "args": {
+          "reason_code": "wording_relevant"
+        },
+        "ok": true,
+        "actor": "model"
+      }
+    ],
+    "server_spans": [
+      {
+        "trace_id": "req-e2e70feb488b",
+        "server": "claims-records",
+        "tool": "get_fnol",
+        "arg_names": [
+          "claim_number"
+        ],
+        "latency_ms": 0.3,
+        "result_chars": 319,
+        "is_error": false,
+        "ts": "2026-10-05T08:02:04"
+      },
+      {
+        "trace_id": "req-e2e70feb488b",
+        "server": "claims-records",
+        "tool": "get_fnol",
+        "arg_names": [
+          "claim_number"
+        ],
+        "latency_ms": 0.1,
+        "result_chars": 319,
+        "is_error": false,
+        "ts": "2026-10-05T08:02:04"
+      },
+      {
+        "trace_id": "req-e2e70feb488b",
+        "server": "claims-records",
+        "tool": "check_coverage_in_force",
+        "arg_names": [
+          "loss_date",
+          "policy_number"
+        ],
+        "latency_ms": 0.1,
+        "result_chars": 241,
+        "is_error": false,
+        "ts": "2026-10-05T08:02:05"
+      },
+      {
+        "trace_id": "req-e2e70feb488b",
+        "server": "policy-wording",
+        "tool": "search_policy_wording",
+        "arg_names": [
+          "loss_date",
+          "product",
+          "query",
+          "top_k"
+        ],
+        "latency_ms": 533.1,
+        "result_chars": 2852,
+        "is_error": false,
+        "ts": "2026-10-05T08:02:06"
+      },
+      {
+        "trace_id": "req-e2e70feb488b",
+        "server": "policy-wording",
+        "tool": "get_limits",
+        "arg_names": [
+          "loss_date",
+          "peril_class",
+          "policy_number"
+        ],
+        "latency_ms": 0.4,
+        "result_chars": 147,
+        "is_error": false,
+        "ts": "2026-10-05T08:02:10"
+      }
+    ],
+    "context_ids": [
+      "HO-0850_flood_escape_of_water_ed_07-23.pdf#4164bf9933aa55ed",
+      "HO-0850_flood_escape_of_water_ed_07-23.pdf#1e71ff92c5c0b142",
+      "HO-0850_flood_escape_of_water_ed_07-23.pdf#b68520625da97f11"
+    ],
+    "totals": {
+      "latency_ms": 23091.2,
+      "tokens_in": 10682,
+      "tokens_out": 532,
+      "cost_usd": 0.001922,
+      "by_stage": {
+        "retrieval": {
+          "latency_ms": 534.2,
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost_usd": 0.0,
+          "spans": 1
+        },
+        "generation": {
+          "latency_ms": 22508.9,
+          "tokens_in": 10682,
+          "tokens_out": 532,
+          "cost_usd": 0.001922,
+          "spans": 5
+        },
+        "tools": {
+          "latency_ms": 5.0,
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost_usd": 0.0,
+          "spans": 4
+        }
+      }
+    },
+    "wall_s": 23.1,
+    "boot_s": 142.9,
+    "retrieval_version": "hybrid-datefilter-v1"
+  },
+  "w06": {
+    "case_id": "w06",
+    "trace_id": "req-3c5b2a5642c0",
+    "outcome": "completed",
+    "referral": {
+      "referral_id": "ref-3c5b2a5642c0",
+      "trace_id": "req-3c5b2a5642c0",
+      "route": "adjuster",
+      "claim_number": "CLM-2026-80006",
+      "reason_code": "wording_relevant",
+      "loss_date": "2025-06-10",
+      "in_force": true,
+      "in_force_range": [
+        "2024-02-01",
+        "2026-02-01"
+      ],
+      "editions_in_force": {
+        "HO-0100": "01-22",
+        "HO-0850": "04-25"
+      },
+      "summary": "Policy in force on the loss date (2025-06-10). Wording retrieved as at the loss date: HO-0850 ed. 04-25 clause 2.2; HO-0850 ed. 04-25 clause 3.1. This assistant does not decide claims. Referred to an adjuster.",
+      "citations": [
+        {
+          "form_number": "HO-0850",
+          "edition_date": "04-25",
+          "clause": "2.2",
+          "clause_as_given": null,
+          "effective_from": "2025-04-01",
+          "effective_to": null,
+          "loss_date_resolved": "2025-06-10",
+          "grounded": true,
+          "relevance": "Defines surface water and sets sub-limit and deductible for loss caused by water from intense rainfall pooling on the ground before entering the dwelling.",
+          "wording_excerpt": "2.2 Surface water means water from intense rainfall that flows or pools on the ground before entering the dwelling. Direct physical loss to the described dwelling caused by surface water is subject to a surface water sub-limit of $5,000 and a deductible of $2,500.",
+          "wording_excerpt_is_verbatim_policy_text": true
+        },
+        {
+          "form_number": "HO-0850",
+          "edition_date": "04-25",
+          "clause": "3.1",
+          "clause_as_given": null,
+          "effective_from": "2025-04-01",
+          "effective_to": null,
+          "loss_date_resolved": "2025-06-10",
+          "grounded": true,
+          "relevance": "See wording excerpt.",
+          "wording_excerpt": "Flood, Surface Water and Escape of Water SECTION: Exclusion Table 3.1 EXCLUSION TABLE 3.1 - WATER LOSS EXCLUSIONS (EDITION 04-25) CODE EXCLUSION AND DISPOSITION E-55 Surface water loss to a basement or any room below ground level. Disposition: Excluded absolutely. Note: Edition 04-25 rewrote E-52. It now excludes flood loss to the dwelling itself, which edition 07-23 did not. Surface water from intense rainfall is not flood for the purposes of E-52. END OF FORM HO-0850 ED. 04-25.",
+          "wording_excerpt_is_verbatim_policy_text": true
+        }
+      ],
+      "figures": {
+        "deductible": 2500,
+        "sub_limit": 5000,
+        "policy_limit": 420000,
+        "basis": "HO-0850 ed. 04-25, peril surface_water",
+        "source": "limits tool"
+      },
+      "guard": {
+        "checked": true,
+        "triggered": true,
+        "hits": [
+          {
+            "field": "citations[1].relevance",
+            "matches": [
+              "Excludes"
+            ],
+            "text": "Excludes surface water loss to a basement or any room below ground level."
+          }
+        ]
+      }
+    },
+    "tool_calls": [
+      {
+        "name": "get_fnol",
+        "server": "claims-records",
+        "args": {
+          "claim_number": "CLM-2026-80006"
+        },
+        "ok": true,
+        "actor": "harness"
+      },
+      {
+        "name": "get_fnol",
+        "server": "claims-records",
+        "args": {
+          "claim_number": "CLM-2026-80006"
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "check_coverage_in_force",
+        "server": "claims-records",
+        "args": {
+          "loss_date": "2025-06-10",
+          "policy_number": "POL-H-1004"
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "search_policy_wording",
+        "server": "policy-wording",
+        "args": {
+          "loss_date": "2025-06-10",
+          "product": "household",
+          "query": "surface water flood pooling rainwater",
+          "top_k": 5
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "get_limits",
+        "server": "policy-wording",
+        "args": {
+          "loss_date": "2025-06-10",
+          "peril_class": "surface_water",
+          "policy_number": "POL-H-1004"
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "refer_to_adjuster",
+        "server": null,
+        "args": {
+          "reason_code": "wording_relevant"
+        },
+        "ok": true,
+        "actor": "model"
+      }
+    ],
+    "server_spans": [
+      {
+        "trace_id": "req-3c5b2a5642c0",
+        "server": "claims-records",
+        "tool": "get_fnol",
+        "arg_names": [
+          "claim_number"
+        ],
+        "latency_ms": 0.4,
+        "result_chars": 319,
+        "is_error": false,
+        "ts": "2026-10-05T08:02:27"
+      },
+      {
+        "trace_id": "req-3c5b2a5642c0",
+        "server": "claims-records",
+        "tool": "get_fnol",
+        "arg_names": [
+          "claim_number"
+        ],
+        "latency_ms": 0.4,
+        "result_chars": 319,
+        "is_error": false,
+        "ts": "2026-10-05T08:02:28"
+      },
+      {
+        "trace_id": "req-3c5b2a5642c0",
+        "server": "claims-records",
+        "tool": "check_coverage_in_force",
+        "arg_names": [
+          "loss_date",
+          "policy_number"
+        ],
+        "latency_ms": 0.1,
+        "result_chars": 241,
+        "is_error": false,
+        "ts": "2026-10-05T08:02:34"
+      },
+      {
+        "trace_id": "req-3c5b2a5642c0",
+        "server": "policy-wording",
+        "tool": "search_policy_wording",
+        "arg_names": [
+          "loss_date",
+          "product",
+          "query",
+          "top_k"
+        ],
+        "latency_ms": 768.1,
+        "result_chars": 2857,
+        "is_error": false,
+        "ts": "2026-10-05T08:02:36"
+      },
+      {
+        "trace_id": "req-3c5b2a5642c0",
+        "server": "policy-wording",
+        "tool": "get_limits",
+        "arg_names": [
+          "loss_date",
+          "peril_class",
+          "policy_number"
+        ],
+        "latency_ms": 0.2,
+        "result_chars": 146,
+        "is_error": false,
+        "ts": "2026-10-05T08:02:48"
+      }
+    ],
+    "context_ids": [
+      "HO-0850_flood_escape_of_water_ed_04-25.pdf#859ea0eff67d08a2",
+      "HO-0850_flood_escape_of_water_ed_04-25.pdf#7cf75dbfa8b25769",
+      "HO-0850_flood_escape_of_water_ed_04-25.pdf#27a7e900d4cfa534"
+    ],
+    "totals": {
+      "latency_ms": 30191.6,
+      "tokens_in": 10488,
+      "tokens_out": 459,
+      "cost_usd": 0.001848,
+      "by_stage": {
+        "retrieval": {
+          "latency_ms": 769.2,
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost_usd": 0.0,
+          "spans": 1
+        },
+        "generation": {
+          "latency_ms": 29370.8,
+          "tokens_in": 10488,
+          "tokens_out": 459,
+          "cost_usd": 0.001848,
+          "spans": 5
+        },
+        "tools": {
+          "latency_ms": 6.0,
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost_usd": 0.0,
+          "spans": 4
+        }
+      }
+    },
+    "wall_s": 30.2,
+    "boot_s": 142.9,
+    "retrieval_version": "hybrid-datefilter-v1"
+  },
+  "w07": {
+    "case_id": "w07",
+    "trace_id": "req-c8c3fe062b0f",
+    "outcome": "completed",
+    "referral": {
+      "referral_id": "ref-c8c3fe062b0f",
+      "trace_id": "req-c8c3fe062b0f",
+      "route": "adjuster",
+      "claim_number": "CLM-2026-80007",
+      "reason_code": "wording_relevant",
+      "loss_date": "2024-02-14",
+      "in_force": true,
+      "in_force_range": [
+        "2022-06-01",
+        "2026-06-01"
+      ],
+      "editions_in_force": {
+        "HO-0100": "01-22",
+        "HO-0850": "07-23"
+      },
+      "summary": "Policy in force on the loss date (2024-02-14). Wording retrieved as at the loss date: HO-0850 ed. 07-23 clause 1.1; HO-0850 ed. 07-23 clause E-50; HO-0850 ed. 07-23 clause E-51. This assistant does not decide claims. Referred to an adjuster.",
+      "citations": [
+        {
+          "form_number": "HO-0850",
+          "edition_date": "07-23",
+          "clause": "1.1",
+          "clause_as_given": null,
+          "effective_from": null,
+          "effective_to": null,
+          "loss_date_resolved": null,
+          "grounded": false,
+          "relevance": "See wording excerpt.",
+          "wording_excerpt": null,
+          "wording_excerpt_is_verbatim_policy_text": true
+        },
+        {
+          "form_number": "HO-0850",
+          "edition_date": "07-23",
+          "clause": "E-50",
+          "clause_as_given": null,
+          "effective_from": "2023-07-01",
+          "effective_to": "2025-04-01",
+          "loss_date_resolved": "2024-02-14",
+          "grounded": true,
+          "relevance": "See wording excerpt.",
+          "wording_excerpt": "E-50 Water escaping gradually over fourteen (14) days or more, including seepage and constant leakage. Disposition: Excluded absolutely.",
+          "wording_excerpt_is_verbatim_policy_text": true
+        },
+        {
+          "form_number": "HO-0850",
+          "edition_date": "07-23",
+          "clause": "E-51",
+          "clause_as_given": null,
+          "effective_from": "2023-07-01",
+          "effective_to": "2025-04-01",
+          "loss_date_resolved": "2024-02-14",
+          "grounded": true,
+          "relevance": "See wording excerpt.",
+          "wording_excerpt": "E-51 Water entering through an opening the insured left unsealed, including an open window or door. Disposition: Excluded absolutely.",
+          "wording_excerpt_is_verbatim_policy_text": true
+        }
+      ],
+      "figures": {
+        "deductible": 500,
+        "sub_limit": null,
+        "policy_limit": 350000,
+        "basis": "HO-0850 ed. 07-23, peril escape_of_water",
+        "source": "limits tool"
+      },
+      "guard": {
+        "checked": true,
+        "triggered": true,
+        "hits": [
+          {
+            "field": "citations[0].relevance",
+            "matches": [
+              "covered"
+            ],
+            "text": "Defines that escape of water from fixed plumbing is covered for losses occurring on the date of loss."
+          },
+          {
+            "field": "citations[1].relevance",
+            "matches": [
+              "Excludes"
+            ],
+            "text": "Excludes water escaping gradually over 14 days or more; the loss was a sudden burst, so this exclusion does not apply."
+          },
+          {
+            "field": "citations[2].relevance",
+            "matches": [
+              "Excludes"
+            ],
+            "text": "Excludes water entering through unsealed openings; the loss was from a pipe, not an opening."
+          }
+        ]
+      }
+    },
+    "tool_calls": [
+      {
+        "name": "get_fnol",
+        "server": "claims-records",
+        "args": {
+          "claim_number": "CLM-2026-80007"
+        },
+        "ok": true,
+        "actor": "harness"
+      },
+      {
+        "name": "get_fnol",
+        "server": "claims-records",
+        "args": {
+          "claim_number": "CLM-2026-80007"
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "check_coverage_in_force",
+        "server": "claims-records",
+        "args": {
+          "loss_date": "2024-02-14",
+          "policy_number": "POL-H-1001"
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "search_policy_wording",
+        "server": "policy-wording",
+        "args": {
+          "loss_date": "2024-02-14",
+          "product": "household",
+          "query": "burst pipe water damage escape of water clause",
+          "top_k": 5
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "get_limits",
+        "server": "policy-wording",
+        "args": {
+          "loss_date": "2024-02-14",
+          "peril_class": "escape_of_water",
+          "policy_number": "POL-H-1001"
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "refer_to_adjuster",
+        "server": null,
+        "args": {
+          "reason_code": "wording_relevant"
+        },
+        "ok": true,
+        "actor": "model"
+      }
+    ],
+    "server_spans": [
+      {
+        "trace_id": "req-c8c3fe062b0f",
+        "server": "claims-records",
+        "tool": "get_fnol",
+        "arg_names": [
+          "claim_number"
+        ],
+        "latency_ms": 1.6,
+        "result_chars": 321,
+        "is_error": false,
+        "ts": "2026-10-05T08:02:57"
+      },
+      {
+        "trace_id": "req-c8c3fe062b0f",
+        "server": "claims-records",
+        "tool": "get_fnol",
+        "arg_names": [
+          "claim_number"
+        ],
+        "latency_ms": 0.3,
+        "result_chars": 321,
+        "is_error": false,
+        "ts": "2026-10-05T08:03:00"
+      },
+      {
+        "trace_id": "req-c8c3fe062b0f",
+        "server": "claims-records",
+        "tool": "check_coverage_in_force",
+        "arg_names": [
+          "loss_date",
+          "policy_number"
+        ],
+        "latency_ms": 0.2,
+        "result_chars": 241,
+        "is_error": false,
+        "ts": "2026-10-05T08:03:13"
+      },
+      {
+        "trace_id": "req-c8c3fe062b0f",
+        "server": "policy-wording",
+        "tool": "search_policy_wording",
+        "arg_names": [
+          "loss_date",
+          "product",
+          "query",
+          "top_k"
+        ],
+        "latency_ms": 2344.3,
+        "result_chars": 2867,
+        "is_error": false,
+        "ts": "2026-10-05T08:03:16"
+      },
+      {
+        "trace_id": "req-c8c3fe062b0f",
+        "server": "policy-wording",
+        "tool": "get_limits",
+        "arg_names": [
+          "loss_date",
+          "peril_class",
+          "policy_number"
+        ],
+        "latency_ms": 0.1,
+        "result_chars": 147,
+        "is_error": false,
+        "ts": "2026-10-05T08:03:29"
+      }
+    ],
+    "context_ids": [
+      "HO-0850_flood_escape_of_water_ed_07-23.pdf#1e71ff92c5c0b142",
+      "HO-0850_flood_escape_of_water_ed_07-23.pdf#4164bf9933aa55ed",
+      "HO-0850_flood_escape_of_water_ed_07-23.pdf#0f052387462a7b8b"
+    ],
+    "totals": {
+      "latency_ms": 62967.8,
+      "tokens_in": 13986,
+      "tokens_out": 990,
+      "cost_usd": 0.002692,
+      "by_stage": {
+        "retrieval": {
+          "latency_ms": 2346.0,
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost_usd": 0.0,
+          "spans": 1
+        },
+        "generation": {
+          "latency_ms": 60591.3,
+          "tokens_in": 13986,
+          "tokens_out": 990,
+          "cost_usd": 0.002692,
+          "spans": 6
+        },
+        "tools": {
+          "latency_ms": 7.3,
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost_usd": 0.0,
+          "spans": 4
+        }
+      }
+    },
+    "wall_s": 63.0,
+    "boot_s": 142.9,
+    "retrieval_version": "hybrid-datefilter-v1"
+  },
+  "w08": {
+    "case_id": "w08",
+    "trace_id": "req-1138f32dcd01",
+    "outcome": "completed",
+    "referral": {
+      "referral_id": "ref-1138f32dcd01",
+      "trace_id": "req-1138f32dcd01",
+      "route": "adjuster",
+      "claim_number": "CLM-2026-80008",
+      "reason_code": "wording_relevant",
+      "loss_date": "2025-09-03",
+      "in_force": true,
+      "in_force_range": [
+        "2024-02-01",
+        "2026-02-01"
+      ],
+      "editions_in_force": {
+        "HO-0100": "01-22",
+        "HO-0850": "04-25"
+      },
+      "summary": "Policy in force on the loss date (2025-09-03). Wording retrieved as at the loss date: HO-0850 ed. 04-25 clause 2.3; HO-0850 ed. 04-25 clause E-50. This assistant does not decide claims. Referred to an adjuster.",
+      "citations": [
+        {
+          "form_number": "HO-0850",
+          "edition_date": "04-25",
+          "clause": "2.3",
+          "clause_as_given": null,
+          "effective_from": "2025-04-01",
+          "effective_to": null,
+          "loss_date_resolved": "2025-09-03",
+          "grounded": true,
+          "relevance": "Defines 'Escape of water' coverage and the deductible applicable to a sudden discharge from fixed plumbing.",
+          "wording_excerpt": "2.3 Escape of water means the sudden and accidental discharge of water from fixed plumbing, heating or appliance supply lines. It is subject to a deductible of $750 and has no sub-limit.",
+          "wording_excerpt_is_verbatim_policy_text": true
+        },
+        {
+          "form_number": "HO-0850",
+          "edition_date": "04-25",
+          "clause": "E-50",
+          "clause_as_given": null,
+          "effective_from": "2025-04-01",
+          "effective_to": null,
+          "loss_date_resolved": "2025-09-03",
+          "grounded": true,
+          "relevance": "See wording excerpt.",
+          "wording_excerpt": "E-50 Water escaping gradually over fourteen (14) days or more, including seepage and constant leakage. Disposition: Excluded absolutely.",
+          "wording_excerpt_is_verbatim_policy_text": true
+        }
+      ],
+      "figures": {
+        "deductible": 750,
+        "sub_limit": null,
+        "policy_limit": 420000,
+        "basis": "HO-0850 ed. 04-25, peril escape_of_water",
+        "source": "limits tool"
+      },
+      "guard": {
+        "checked": true,
+        "triggered": true,
+        "hits": [
+          {
+            "field": "citations[1].relevance",
+            "matches": [
+              "Excludes"
+            ],
+            "text": "Excludes gradual water loss; the burst pipe was sudden, so this exclusion does not apply."
+          }
+        ]
+      }
+    },
+    "tool_calls": [
+      {
+        "name": "get_fnol",
+        "server": "claims-records",
+        "args": {
+          "claim_number": "CLM-2026-80008"
+        },
+        "ok": true,
+        "actor": "harness"
+      },
+      {
+        "name": "get_fnol",
+        "server": "claims-records",
+        "args": {
+          "claim_number": "CLM-2026-80008"
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "check_coverage_in_force",
+        "server": "claims-records",
+        "args": {
+          "loss_date": "2025-09-03",
+          "policy_number": "POL-H-1004"
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "search_policy_wording",
+        "server": "policy-wording",
+        "args": {
+          "loss_date": "2025-09-03",
+          "product": "household",
+          "query": "escape of water pipe burst",
+          "top_k": 5
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "get_limits",
+        "server": "policy-wording",
+        "args": {
+          "loss_date": "2025-09-03",
+          "peril_class": "escape_of_water",
+          "policy_number": "POL-H-1004"
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "refer_to_adjuster",
+        "server": null,
+        "args": {
+          "reason_code": "wording_relevant"
+        },
+        "ok": true,
+        "actor": "model"
+      }
+    ],
+    "server_spans": [
+      {
+        "trace_id": "req-1138f32dcd01",
+        "server": "claims-records",
+        "tool": "get_fnol",
+        "arg_names": [
+          "claim_number"
+        ],
+        "latency_ms": 0.4,
+        "result_chars": 320,
+        "is_error": false,
+        "ts": "2026-10-05T08:04:00"
+      },
+      {
+        "trace_id": "req-1138f32dcd01",
+        "server": "claims-records",
+        "tool": "get_fnol",
+        "arg_names": [
+          "claim_number"
+        ],
+        "latency_ms": 0.2,
+        "result_chars": 320,
+        "is_error": false,
+        "ts": "2026-10-05T08:04:01"
+      },
+      {
+        "trace_id": "req-1138f32dcd01",
+        "server": "claims-records",
+        "tool": "check_coverage_in_force",
+        "arg_names": [
+          "loss_date",
+          "policy_number"
+        ],
+        "latency_ms": 0.1,
+        "result_chars": 241,
+        "is_error": false,
+        "ts": "2026-10-05T08:04:06"
+      },
+      {
+        "trace_id": "req-1138f32dcd01",
+        "server": "policy-wording",
+        "tool": "search_policy_wording",
+        "arg_names": [
+          "loss_date",
+          "product",
+          "query",
+          "top_k"
+        ],
+        "latency_ms": 603.8,
+        "result_chars": 3195,
+        "is_error": false,
+        "ts": "2026-10-05T08:04:10"
+      },
+      {
+        "trace_id": "req-1138f32dcd01",
+        "server": "policy-wording",
+        "tool": "get_limits",
+        "arg_names": [
+          "loss_date",
+          "peril_class",
+          "policy_number"
+        ],
+        "latency_ms": 0.1,
+        "result_chars": 147,
+        "is_error": false,
+        "ts": "2026-10-05T08:04:24"
+      }
+    ],
+    "context_ids": [
+      "HO-0850_flood_escape_of_water_ed_04-25.pdf#27a7e900d4cfa534",
+      "HO-0850_flood_escape_of_water_ed_04-25.pdf#859ea0eff67d08a2",
+      "HO-0850_flood_escape_of_water_ed_04-25.pdf#70a7303e316d7323"
+    ],
+    "totals": {
+      "latency_ms": 37402.7,
+      "tokens_in": 10735,
+      "tokens_out": 504,
+      "cost_usd": 0.001913,
+      "by_stage": {
+        "retrieval": {
+          "latency_ms": 604.9,
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost_usd": 0.0,
+          "spans": 1
+        },
+        "generation": {
+          "latency_ms": 36725.4,
+          "tokens_in": 10735,
+          "tokens_out": 504,
+          "cost_usd": 0.001913,
+          "spans": 5
+        },
+        "tools": {
+          "latency_ms": 5.5,
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost_usd": 0.0,
+          "spans": 4
+        }
+      }
+    },
+    "wall_s": 37.4,
+    "boot_s": 142.9,
+    "retrieval_version": "hybrid-datefilter-v1"
+  },
+  "w09": {
+    "case_id": "w09",
+    "trace_id": "req-391fd10e1165",
+    "outcome": "completed",
+    "referral": {
+      "referral_id": "ref-391fd10e1165",
+      "trace_id": "req-391fd10e1165",
+      "route": "adjuster",
+      "claim_number": "CLM-2026-80009",
+      "reason_code": "wording_relevant",
+      "loss_date": "2025-05-20",
+      "in_force": true,
+      "in_force_range": [
+        "2024-02-01",
+        "2026-02-01"
+      ],
+      "editions_in_force": {
+        "HO-0100": "01-22",
+        "HO-0850": "04-25"
+      },
+      "summary": "Policy in force on the loss date (2025-05-20). Wording retrieved as at the loss date: HO-0850 ed. 04-25 clause E-55; HO-0850 ed. 04-25 clause 2.2. This assistant does not decide claims. Referred to an adjuster.",
+      "citations": [
+        {
+          "form_number": "HO-0850",
+          "edition_date": "04-25",
+          "clause": "E-55",
+          "clause_as_given": null,
+          "effective_from": "2025-04-01",
+          "effective_to": null,
+          "loss_date_resolved": "2025-05-20",
+          "grounded": true,
+          "relevance": "See wording excerpt.",
+          "wording_excerpt": "E-55 Surface water loss to a basement or any room below ground level. Disposition: Excluded absolutely.",
+          "wording_excerpt_is_verbatim_policy_text": true
+        },
+        {
+          "form_number": "HO-0850",
+          "edition_date": "04-25",
+          "clause": "2.2",
+          "clause_as_given": null,
+          "effective_from": "2025-04-01",
+          "effective_to": null,
+          "loss_date_resolved": "2025-05-20",
+          "grounded": true,
+          "relevance": "Defines surface water and provides sub\u2011limit and deductible details relevant to the loss.",
+          "wording_excerpt": "2.2 Surface water means water from intense rainfall that flows or pools on the ground before entering the dwelling. Direct physical loss to the described dwelling caused by surface water is subject to a surface water sub-limit of $5,000 and a deductible of $2,500.",
+          "wording_excerpt_is_verbatim_policy_text": true
+        }
+      ],
+      "figures": {
+        "deductible": 2500,
+        "sub_limit": 5000,
+        "policy_limit": 420000,
+        "basis": "HO-0850 ed. 04-25, peril surface_water",
+        "source": "limits tool"
+      },
+      "guard": {
+        "checked": true,
+        "triggered": true,
+        "hits": [
+          {
+            "field": "citations[0].relevance",
+            "matches": [
+              "Excludes"
+            ],
+            "text": "Excludes surface water loss to a basement, which matches the reported water entering the basement."
+          }
+        ]
+      }
+    },
+    "tool_calls": [
+      {
+        "name": "get_fnol",
+        "server": "claims-records",
+        "args": {
+          "claim_number": "CLM-2026-80009"
+        },
+        "ok": true,
+        "actor": "harness"
+      },
+      {
+        "name": "get_fnol",
+        "server": "claims-records",
+        "args": {
+          "claim_number": "CLM-2026-80009"
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "check_coverage_in_force",
+        "server": "claims-records",
+        "args": {
+          "loss_date": "2025-05-20",
+          "policy_number": "POL-H-1004"
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "search_policy_wording",
+        "server": "policy-wording",
+        "args": {
+          "loss_date": "2025-05-20",
+          "product": "household",
+          "query": "surface water basement flood",
+          "top_k": 3
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "get_limits",
+        "server": "policy-wording",
+        "args": {
+          "loss_date": "2025-05-20",
+          "peril_class": "surface_water",
+          "policy_number": "POL-H-1004"
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "refer_to_adjuster",
+        "server": null,
+        "args": {
+          "reason_code": "wording_relevant"
+        },
+        "ok": true,
+        "actor": "model"
+      }
+    ],
+    "server_spans": [
+      {
+        "trace_id": "req-391fd10e1165",
+        "server": "claims-records",
+        "tool": "get_fnol",
+        "arg_names": [
+          "claim_number"
+        ],
+        "latency_ms": 1.2,
+        "result_chars": 307,
+        "is_error": false,
+        "ts": "2026-10-05T08:04:37"
+      },
+      {
+        "trace_id": "req-391fd10e1165",
+        "server": "claims-records",
+        "tool": "get_fnol",
+        "arg_names": [
+          "claim_number"
+        ],
+        "latency_ms": 0.4,
+        "result_chars": 307,
+        "is_error": false,
+        "ts": "2026-10-05T08:04:38"
+      },
+      {
+        "trace_id": "req-391fd10e1165",
+        "server": "claims-records",
+        "tool": "check_coverage_in_force",
+        "arg_names": [
+          "loss_date",
+          "policy_number"
+        ],
+        "latency_ms": 0.2,
+        "result_chars": 241,
+        "is_error": false,
+        "ts": "2026-10-05T08:04:52"
+      },
+      {
+        "trace_id": "req-391fd10e1165",
+        "server": "policy-wording",
+        "tool": "search_policy_wording",
+        "arg_names": [
+          "loss_date",
+          "product",
+          "query",
+          "top_k"
+        ],
+        "latency_ms": 2965.4,
+        "result_chars": 2858,
+        "is_error": false,
+        "ts": "2026-10-05T08:04:59"
+      },
+      {
+        "trace_id": "req-391fd10e1165",
+        "server": "policy-wording",
+        "tool": "get_limits",
+        "arg_names": [
+          "loss_date",
+          "peril_class",
+          "policy_number"
+        ],
+        "latency_ms": 0.1,
+        "result_chars": 146,
+        "is_error": false,
+        "ts": "2026-10-05T08:05:06"
+      }
+    ],
+    "context_ids": [
+      "HO-0850_flood_escape_of_water_ed_04-25.pdf#7cf75dbfa8b25769",
+      "HO-0850_flood_escape_of_water_ed_04-25.pdf#859ea0eff67d08a2",
+      "HO-0850_flood_escape_of_water_ed_04-25.pdf#27a7e900d4cfa534"
+    ],
+    "totals": {
+      "latency_ms": 41869.1,
+      "tokens_in": 10439,
+      "tokens_out": 443,
+      "cost_usd": 0.001832,
+      "by_stage": {
+        "retrieval": {
+          "latency_ms": 2967.2,
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost_usd": 0.0,
+          "spans": 1
+        },
+        "generation": {
+          "latency_ms": 38811.2,
+          "tokens_in": 10439,
+          "tokens_out": 443,
+          "cost_usd": 0.001832,
+          "spans": 5
+        },
+        "tools": {
+          "latency_ms": 12.7,
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost_usd": 0.0,
+          "spans": 4
+        }
+      }
+    },
+    "wall_s": 41.9,
+    "boot_s": 142.9,
+    "retrieval_version": "hybrid-datefilter-v1"
+  },
+  "w10": {
+    "case_id": "w10",
+    "trace_id": "req-05b5e764750f",
+    "outcome": "completed",
+    "referral": {
+      "referral_id": "ref-05b5e764750f",
+      "trace_id": "req-05b5e764750f",
+      "route": "adjuster",
+      "claim_number": "CLM-2026-80010",
+      "reason_code": "wording_relevant",
+      "loss_date": "2024-09-09",
+      "in_force": true,
+      "in_force_range": [
+        "2023-01-01",
+        "2026-01-01"
+      ],
+      "editions_in_force": {
+        "HO-0100": "01-22",
+        "HO-0850": "07-23"
+      },
+      "summary": "Policy in force on the loss date (2024-09-09). Wording retrieved as at the loss date: HO-0850 ed. 07-23 clause E-52; HO-0850 ed. 07-23 clause 3.1. This assistant does not decide claims. Referred to an adjuster.",
+      "citations": [
+        {
+          "form_number": "HO-0850",
+          "edition_date": "07-23",
+          "clause": "E-52",
+          "clause_as_given": null,
+          "effective_from": "2023-07-01",
+          "effective_to": "2025-04-01",
+          "loss_date_resolved": "2024-09-09",
+          "grounded": true,
+          "relevance": "See wording excerpt.",
+          "wording_excerpt": "E-52 Flood loss to outbuildings, fences, gardens, driveways and landscaping. Disposition: Excluded absolutely.",
+          "wording_excerpt_is_verbatim_policy_text": true
+        },
+        {
+          "form_number": "HO-0850",
+          "edition_date": "07-23",
+          "clause": "3.1",
+          "clause_as_given": null,
+          "effective_from": "2023-07-01",
+          "effective_to": "2025-04-01",
+          "loss_date_resolved": "2024-09-09",
+          "grounded": true,
+          "relevance": "States that the exclusion table applies to water loss, referencing E-52.",
+          "wording_excerpt": "Flood, Surface Water and Escape of Water SECTION: Exclusion Table 3.1 EXCLUSION TABLE 3.1 - WATER LOSS EXCLUSIONS (EDITION 07-23) CODE EXCLUSION AND DISPOSITION E-50 Water escaping gradually over fourteen (14) days or more, including seepage and constant leakage. Disposition: Excluded absolutely. E-51 Water entering through an opening the insured left unsealed, including an open window or door. Disposition: Excluded absolutely. E-52 Flood loss to outbuil",
+          "wording_excerpt_is_verbatim_policy_text": true
+        }
+      ],
+      "figures": {
+        "deductible": 1000,
+        "sub_limit": 15000,
+        "policy_limit": 500000,
+        "basis": "HO-0850 ed. 07-23, peril flood",
+        "source": "limits tool"
+      },
+      "guard": {
+        "checked": true,
+        "triggered": true,
+        "hits": [
+          {
+            "field": "summary",
+            "matches": [
+              "excludes",
+              "covered",
+              "excluded"
+            ],
+            "text": "The loss occurred on 2024-09-09 when river water overflowed its banks and flooded the garden shed and driveway, while the house remained dry. The policy POL-H-1002 was in force on that date. The relevant policy wording includes Exclusion E-"
+          },
+          {
+            "field": "citations[0].relevance",
+            "matches": [
+              "Excludes"
+            ],
+            "text": "Excludes flood loss to outbuildings, gardens, driveways and landscaping, which matches the damaged shed and driveway."
+          }
+        ]
+      }
+    },
+    "tool_calls": [
+      {
+        "name": "get_fnol",
+        "server": "claims-records",
+        "args": {
+          "claim_number": "CLM-2026-80010"
+        },
+        "ok": true,
+        "actor": "harness"
+      },
+      {
+        "name": "get_fnol",
+        "server": "claims-records",
+        "args": {
+          "claim_number": "CLM-2026-80010"
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "check_coverage_in_force",
+        "server": "claims-records",
+        "args": {
+          "loss_date": "2024-09-09",
+          "policy_number": "POL-H-1002"
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "search_policy_wording",
+        "server": "policy-wording",
+        "args": {
+          "loss_date": "2024-09-09",
+          "product": "household",
+          "query": "river water overflow flood garden shed driveway exclusion",
+          "top_k": 5
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "get_limits",
+        "server": "policy-wording",
+        "args": {
+          "loss_date": "2024-09-09",
+          "peril_class": "flood",
+          "policy_number": "POL-H-1002"
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "refer_to_adjuster",
+        "server": null,
+        "args": {
+          "reason_code": "wording_relevant"
+        },
+        "ok": true,
+        "actor": "model"
+      }
+    ],
+    "server_spans": [
+      {
+        "trace_id": "req-05b5e764750f",
+        "server": "claims-records",
+        "tool": "get_fnol",
+        "arg_names": [
+          "claim_number"
+        ],
+        "latency_ms": 2.3,
+        "result_chars": 291,
+        "is_error": false,
+        "ts": "2026-10-05T08:05:19"
+      },
+      {
+        "trace_id": "req-05b5e764750f",
+        "server": "claims-records",
+        "tool": "get_fnol",
+        "arg_names": [
+          "claim_number"
+        ],
+        "latency_ms": 0.3,
+        "result_chars": 291,
+        "is_error": false,
+        "ts": "2026-10-05T08:05:20"
+      },
+      {
+        "trace_id": "req-05b5e764750f",
+        "server": "claims-records",
+        "tool": "check_coverage_in_force",
+        "arg_names": [
+          "loss_date",
+          "policy_number"
+        ],
+        "latency_ms": 0.2,
+        "result_chars": 241,
+        "is_error": false,
+        "ts": "2026-10-05T08:05:25"
+      },
+      {
+        "trace_id": "req-05b5e764750f",
+        "server": "policy-wording",
+        "tool": "search_policy_wording",
+        "arg_names": [
+          "loss_date",
+          "product",
+          "query",
+          "top_k"
+        ],
+        "latency_ms": 1137.8,
+        "result_chars": 2855,
+        "is_error": false,
+        "ts": "2026-10-05T08:05:28"
+      },
+      {
+        "trace_id": "req-05b5e764750f",
+        "server": "policy-wording",
+        "tool": "get_limits",
+        "arg_names": [
+          "loss_date",
+          "peril_class",
+          "policy_number"
+        ],
+        "latency_ms": 0.1,
+        "result_chars": 139,
+        "is_error": false,
+        "ts": "2026-10-05T08:05:38"
+      }
+    ],
+    "context_ids": [
+      "HO-0850_flood_escape_of_water_ed_07-23.pdf#4164bf9933aa55ed",
+      "HO-0850_flood_escape_of_water_ed_07-23.pdf#1e71ff92c5c0b142",
+      "HO-0850_flood_escape_of_water_ed_07-23.pdf#b68520625da97f11"
+    ],
+    "totals": {
+      "latency_ms": 44091.9,
+      "tokens_in": 10544,
+      "tokens_out": 528,
+      "cost_usd": 0.001898,
+      "by_stage": {
+        "retrieval": {
+          "latency_ms": 1139.3,
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost_usd": 0.0,
+          "spans": 1
+        },
+        "generation": {
+          "latency_ms": 42913.2,
+          "tokens_in": 10544,
+          "tokens_out": 528,
+          "cost_usd": 0.001898,
+          "spans": 5
+        },
+        "tools": {
+          "latency_ms": 9.1,
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost_usd": 0.0,
+          "spans": 4
+        }
+      }
+    },
+    "wall_s": 44.1,
+    "boot_s": 142.9,
+    "retrieval_version": "hybrid-datefilter-v1"
+  },
+  "w15": {
+    "case_id": "w15",
+    "trace_id": "req-81aea0cc551a",
+    "outcome": "completed",
+    "referral": {
+      "referral_id": "ref-81aea0cc551a",
+      "trace_id": "req-81aea0cc551a",
+      "route": "adjuster",
+      "claim_number": "CLM-2026-80015",
+      "reason_code": "wording_relevant",
+      "loss_date": "2024-12-03",
+      "in_force": true,
+      "in_force_range": [
+        "2022-08-01",
+        "2025-08-01"
+      ],
+      "editions_in_force": {
+        "MO-0100": "03-22",
+        "MO-0420": "09-23"
+      },
+      "summary": "The insured\u2019s car was parked near the residence and was submerged as flood water rose on 2024\u201112\u201103, damaging seats and dashboard electronics. The motor policy POL\u2011M\u20112003 was in force on the loss date. Clause 2.1 of form MO\u20110420 (edition 09\u201123) outlines flood coverage with a sub\u2011limit and deductible, while exclusion E\u201166 in clause 3.1 may apply because the vehicle was left in a location warned about flooding.",
+      "citations": [
+        {
+          "form_number": "MO-0420",
+          "edition_date": "09-23",
+          "clause": "2.1",
+          "clause_as_given": null,
+          "effective_from": "2023-09-01",
+          "effective_to": "2025-05-01",
+          "loss_date_resolved": "2024-12-03",
+          "grounded": true,
+          "relevance": "Provides coverage for water damage to the interior, electrics and bodywork of the insured vehicle caused by flood, with a flood sub\u2011limit and deductible.",
+          "wording_excerpt": "2.1 Water damage to the interior, electrics and bodywork of the insured vehicle caused by flood or standing water is within this endorsement, subject to a flood sub-limit of $8,000 and a flood deductible of $750.",
+          "wording_excerpt_is_verbatim_policy_text": true
+        },
+        {
+          "form_number": "MO-0420",
+          "edition_date": "09-23",
+          "clause": "3.1",
+          "clause_as_given": null,
+          "effective_from": "2023-09-01",
+          "effective_to": "2025-05-01",
+          "loss_date_resolved": "2024-12-03",
+          "grounded": true,
+          "relevance": "Contains exclusion E\u201166 for loss to a vehicle left in a location warned about flooding.",
+          "wording_excerpt": "Motor Water, Flood and Weather Damage SECTION: Exclusion Table 3.1 EXCLUSION TABLE 3.1 - MOTOR WATER LOSS EXCLUSIONS (EDITION 09-23) CODE EXCLUSION AND DISPOSITION E-65 Engine damage caused by the engine drawing in water after the vehicle was driven into standing water. Disposition: Excluded above $5,000. E-66 Loss to a vehicle left in a location the insured had been warned was subject to flooding. Disposition: Excluded absolutely. Note: In this edition engine",
+          "wording_excerpt_is_verbatim_policy_text": true
+        }
+      ],
+      "figures": {
+        "deductible": 750,
+        "sub_limit": 8000,
+        "policy_limit": 19000,
+        "basis": "MO-0420 ed. 09-23, peril flood",
+        "source": "limits tool"
+      },
+      "guard": {
+        "checked": true,
+        "triggered": false,
+        "hits": []
+      }
+    },
+    "tool_calls": [
+      {
+        "name": "get_fnol",
+        "server": "claims-records",
+        "args": {
+          "claim_number": "CLM-2026-80015"
+        },
+        "ok": true,
+        "actor": "harness"
+      },
+      {
+        "name": "get_fnol",
+        "server": "claims-records",
+        "args": {
+          "claim_number": "CLM-2026-80015"
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "check_coverage_in_force",
+        "server": "claims-records",
+        "args": {
+          "loss_date": "2024-12-03",
+          "policy_number": "POL-M-2003"
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "search_policy_wording",
+        "server": "policy-wording",
+        "args": {
+          "loss_date": "2024-12-03",
+          "product": "motor",
+          "query": "flood water damage car",
+          "top_k": 3
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "get_limits",
+        "server": "policy-wording",
+        "args": {
+          "loss_date": "2024-12-03",
+          "peril_class": "flood",
+          "policy_number": "POL-M-2003"
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "refer_to_adjuster",
+        "server": null,
+        "args": {
+          "reason_code": "wording_relevant"
+        },
+        "ok": true,
+        "actor": "model"
+      }
+    ],
+    "server_spans": [
+      {
+        "trace_id": "req-81aea0cc551a",
+        "server": "claims-records",
+        "tool": "get_fnol",
+        "arg_names": [
+          "claim_number"
+        ],
+        "latency_ms": 0.3,
+        "result_chars": 275,
+        "is_error": false,
+        "ts": "2026-10-05T08:06:03"
+      },
+      {
+        "trace_id": "req-81aea0cc551a",
+        "server": "claims-records",
+        "tool": "get_fnol",
+        "arg_names": [
+          "claim_number"
+        ],
+        "latency_ms": 0.2,
+        "result_chars": 275,
+        "is_error": false,
+        "ts": "2026-10-05T08:06:06"
+      },
+      {
+        "trace_id": "req-81aea0cc551a",
+        "server": "claims-records",
+        "tool": "check_coverage_in_force",
+        "arg_names": [
+          "loss_date",
+          "policy_number"
+        ],
+        "latency_ms": 0.2,
+        "result_chars": 237,
+        "is_error": false,
+        "ts": "2026-10-05T08:06:11"
+      },
+      {
+        "trace_id": "req-81aea0cc551a",
+        "server": "policy-wording",
+        "tool": "search_policy_wording",
+        "arg_names": [
+          "loss_date",
+          "product",
+          "query",
+          "top_k"
+        ],
+        "latency_ms": 434.0,
+        "result_chars": 2511,
+        "is_error": false,
+        "ts": "2026-10-05T08:06:14"
+      },
+      {
+        "trace_id": "req-81aea0cc551a",
+        "server": "policy-wording",
+        "tool": "get_limits",
+        "arg_names": [
+          "loss_date",
+          "peril_class",
+          "policy_number"
+        ],
+        "latency_ms": 0.1,
+        "result_chars": 136,
+        "is_error": false,
+        "ts": "2026-10-05T08:06:24"
+      }
+    ],
+    "context_ids": [
+      "MO-0420_motor_water_flood_ed_09-23.pdf#7756221bedcb3b8f",
+      "MO-0420_motor_water_flood_ed_09-23.pdf#e53d68ec0322ba10",
+      "MO-0420_motor_water_flood_ed_09-23.pdf#e32170ea275d1154"
+    ],
+    "totals": {
+      "latency_ms": 46742.3,
+      "tokens_in": 13316,
+      "tokens_out": 811,
+      "cost_usd": 0.002485,
+      "by_stage": {
+        "retrieval": {
+          "latency_ms": 435.3,
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost_usd": 0.0,
+          "spans": 1
+        },
+        "generation": {
+          "latency_ms": 46204.5,
+          "tokens_in": 13316,
+          "tokens_out": 811,
+          "cost_usd": 0.002485,
+          "spans": 6
+        },
+        "tools": {
+          "latency_ms": 42.0,
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost_usd": 0.0,
+          "spans": 4
+        }
+      }
+    },
+    "wall_s": 46.7,
+    "boot_s": 142.9,
+    "retrieval_version": "hybrid-datefilter-v1"
+  },
+  "w16": {
+    "case_id": "w16",
+    "trace_id": "req-59158f2f24a6",
+    "outcome": "completed",
+    "referral": {
+      "referral_id": "ref-59158f2f24a6",
+      "trace_id": "req-59158f2f24a6",
+      "route": "adjuster",
+      "claim_number": "CLM-2026-80016",
+      "reason_code": "wording_relevant",
+      "loss_date": "2025-06-18",
+      "in_force": true,
+      "in_force_range": [
+        "2025-01-01",
+        "2026-01-01"
+      ],
+      "editions_in_force": {
+        "MO-0100": "03-22",
+        "MO-0420": "05-25"
+      },
+      "summary": "Policy in force on the loss date (2025-06-18). Wording retrieved as at the loss date: MO-0420 ed. 05-25 clause 2.1; MO-0420 ed. 05-25 clause E-66; MO-0420 ed. 05-25 clause E-67. This assistant does not decide claims. Referred to an adjuster.",
+      "citations": [
+        {
+          "form_number": "MO-0420",
+          "edition_date": "05-25",
+          "clause": "2.1",
+          "clause_as_given": null,
+          "effective_from": "2025-05-01",
+          "effective_to": null,
+          "loss_date_resolved": "2025-06-18",
+          "grounded": true,
+          "relevance": "Defines flood coverage for water damage to vehicle interior, electrics and bodywork.",
+          "wording_excerpt": "2.1 Water damage to the interior, electrics and bodywork of the insured vehicle caused by flood or standing water is within this endorsement, subject to a flood sub-limit of $6,000 and a flood deductible of $1,000.",
+          "wording_excerpt_is_verbatim_policy_text": true
+        },
+        {
+          "form_number": "MO-0420",
+          "edition_date": "05-25",
+          "clause": "E-66",
+          "clause_as_given": null,
+          "effective_from": "2025-05-01",
+          "effective_to": null,
+          "loss_date_resolved": "2025-06-18",
+          "grounded": true,
+          "relevance": "See wording excerpt.",
+          "wording_excerpt": "E-66 Loss to a vehicle left in a location the insured had been warned was subject to flooding. Disposition: Excluded absolutely.",
+          "wording_excerpt_is_verbatim_policy_text": true
+        },
+        {
+          "form_number": "MO-0420",
+          "edition_date": "05-25",
+          "clause": "E-67",
+          "clause_as_given": null,
+          "effective_from": "2025-05-01",
+          "effective_to": null,
+          "loss_date_resolved": "2025-06-18",
+          "grounded": true,
+          "relevance": "See wording excerpt.",
+          "wording_excerpt": "E-67 Water damage to a vehicle parked below ground level during a declared flood warning. Disposition: Excluded absolutely.",
+          "wording_excerpt_is_verbatim_policy_text": true
+        }
+      ],
+      "figures": {
+        "deductible": 1000,
+        "sub_limit": 6000,
+        "policy_limit": 60000,
+        "basis": "MO-0420 ed. 05-25, peril flood",
+        "source": "limits tool"
+      },
+      "guard": {
+        "checked": true,
+        "triggered": true,
+        "hits": [
+          {
+            "field": "citations[1].relevance",
+            "matches": [
+              "Excludes"
+            ],
+            "text": "Excludes loss to a vehicle left in a location warned about flooding."
+          },
+          {
+            "field": "citations[2].relevance",
+            "matches": [
+              "Excludes"
+            ],
+            "text": "Excludes water damage to a vehicle parked below ground level during a declared flood warning."
+          }
+        ]
+      }
+    },
+    "tool_calls": [
+      {
+        "name": "get_fnol",
+        "server": "claims-records",
+        "args": {
+          "claim_number": "CLM-2026-80016"
+        },
+        "ok": true,
+        "actor": "harness"
+      },
+      {
+        "name": "get_fnol",
+        "server": "claims-records",
+        "args": {
+          "claim_number": "CLM-2026-80016"
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "check_coverage_in_force",
+        "server": "claims-records",
+        "args": {
+          "loss_date": "2025-06-18",
+          "policy_number": "POL-M-2004"
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "search_policy_wording",
+        "server": "policy-wording",
+        "args": {
+          "loss_date": "2025-06-18",
+          "product": "motor",
+          "query": "flood",
+          "top_k": 3
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "get_limits",
+        "server": "policy-wording",
+        "args": {
+          "loss_date": "2025-06-18",
+          "peril_class": "flood",
+          "policy_number": "POL-M-2004"
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "refer_to_adjuster",
+        "server": null,
+        "args": {
+          "reason_code": "wording_relevant"
+        },
+        "ok": true,
+        "actor": "model"
+      }
+    ],
+    "server_spans": [
+      {
+        "trace_id": "req-59158f2f24a6",
+        "server": "claims-records",
+        "tool": "get_fnol",
+        "arg_names": [
+          "claim_number"
+        ],
+        "latency_ms": 0.6,
+        "result_chars": 275,
+        "is_error": false,
+        "ts": "2026-10-05T08:06:50"
+      },
+      {
+        "trace_id": "req-59158f2f24a6",
+        "server": "claims-records",
+        "tool": "get_fnol",
+        "arg_names": [
+          "claim_number"
+        ],
+        "latency_ms": 0.2,
+        "result_chars": 275,
+        "is_error": false,
+        "ts": "2026-10-05T08:06:51"
+      },
+      {
+        "trace_id": "req-59158f2f24a6",
+        "server": "claims-records",
+        "tool": "check_coverage_in_force",
+        "arg_names": [
+          "loss_date",
+          "policy_number"
+        ],
+        "latency_ms": 0.1,
+        "result_chars": 237,
+        "is_error": false,
+        "ts": "2026-10-05T08:06:54"
+      },
+      {
+        "trace_id": "req-59158f2f24a6",
+        "server": "policy-wording",
+        "tool": "search_policy_wording",
+        "arg_names": [
+          "loss_date",
+          "product",
+          "query",
+          "top_k"
+        ],
+        "latency_ms": 407.3,
+        "result_chars": 2683,
+        "is_error": false,
+        "ts": "2026-10-05T08:06:58"
+      },
+      {
+        "trace_id": "req-59158f2f24a6",
+        "server": "policy-wording",
+        "tool": "get_limits",
+        "arg_names": [
+          "loss_date",
+          "peril_class",
+          "policy_number"
+        ],
+        "latency_ms": 0.2,
+        "result_chars": 137,
+        "is_error": false,
+        "ts": "2026-10-05T08:07:12"
+      }
+    ],
+    "context_ids": [
+      "MO-0420_motor_water_flood_ed_05-25.pdf#c0a7c830247763b4",
+      "MO-0420_motor_water_flood_ed_05-25.pdf#7b578060c08df792",
+      "MO-0420_motor_water_flood_ed_05-25.pdf#a01cd59c2d58f8da"
+    ],
+    "totals": {
+      "latency_ms": 30763.2,
+      "tokens_in": 10320,
+      "tokens_out": 520,
+      "cost_usd": 0.00186,
+      "by_stage": {
+        "retrieval": {
+          "latency_ms": 408.3,
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost_usd": 0.0,
+          "spans": 1
+        },
+        "generation": {
+          "latency_ms": 30276.2,
+          "tokens_in": 10320,
+          "tokens_out": 520,
+          "cost_usd": 0.00186,
+          "spans": 5
+        },
+        "tools": {
+          "latency_ms": 4.8,
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost_usd": 0.0,
+          "spans": 4
+        }
+      }
+    },
+    "wall_s": 30.8,
+    "boot_s": 142.9,
+    "retrieval_version": "hybrid-datefilter-v1"
+  },
+  "w18": {
+    "case_id": "w18",
+    "trace_id": "req-a055e3435927",
+    "outcome": "completed",
+    "referral": {
+      "referral_id": "ref-a055e3435927",
+      "trace_id": "req-a055e3435927",
+      "route": "adjuster",
+      "claim_number": "CLM-2026-80018",
+      "reason_code": "wording_relevant",
+      "loss_date": "2024-05-05",
+      "in_force": true,
+      "in_force_range": [
+        "2023-01-01",
+        "2026-01-01"
+      ],
+      "editions_in_force": {
+        "HO-0100": "01-22",
+        "HO-0850": "07-23"
+      },
+      "summary": "Policy in force on the loss date (2024-05-05). Wording retrieved as at the loss date: HO-0850 ed. 07-23 clause E-50; HO-0850 ed. 07-23 clause 2.3. This assistant does not decide claims. Referred to an adjuster.",
+      "citations": [
+        {
+          "form_number": "HO-0850",
+          "edition_date": "07-23",
+          "clause": "E-50",
+          "clause_as_given": null,
+          "effective_from": "2023-07-01",
+          "effective_to": "2025-04-01",
+          "loss_date_resolved": "2024-05-05",
+          "grounded": true,
+          "relevance": "See wording excerpt.",
+          "wording_excerpt": "E-50 Water escaping gradually over fourteen (14) days or more, including seepage and constant leakage. Disposition: Excluded absolutely.",
+          "wording_excerpt_is_verbatim_policy_text": true
+        },
+        {
+          "form_number": "HO-0850",
+          "edition_date": "07-23",
+          "clause": "2.3",
+          "clause_as_given": null,
+          "effective_from": "2023-07-01",
+          "effective_to": "2025-04-01",
+          "loss_date_resolved": "2024-05-05",
+          "grounded": true,
+          "relevance": "Defines escape of water coverage and sets a $500 deductible with no sub\u2011limit.",
+          "wording_excerpt": "2.3 Escape of water means the sudden and accidental discharge of water from fixed plumbing, heating or appliance supply lines. It is subject to a deductible of $500 and has no sub-limit.",
+          "wording_excerpt_is_verbatim_policy_text": true
+        }
+      ],
+      "figures": {
+        "deductible": 500,
+        "sub_limit": null,
+        "policy_limit": 500000,
+        "basis": "HO-0850 ed. 07-23, peril escape_of_water",
+        "source": "limits tool"
+      },
+      "guard": {
+        "checked": true,
+        "triggered": true,
+        "hits": [
+          {
+            "field": "citations[0].relevance",
+            "matches": [
+              "Excludes"
+            ],
+            "text": "Excludes water escaping gradually over fourteen days or more, which matches the reported three\u2011week slow leak."
+          }
+        ]
+      }
+    },
+    "tool_calls": [
+      {
+        "name": "get_fnol",
+        "server": "claims-records",
+        "args": {
+          "claim_number": "CLM-2026-80018"
+        },
+        "ok": true,
+        "actor": "harness"
+      },
+      {
+        "name": "get_fnol",
+        "server": "claims-records",
+        "args": {
+          "claim_number": "CLM-2026-80018"
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "check_coverage_in_force",
+        "server": "claims-records",
+        "args": {
+          "loss_date": "2024-05-05",
+          "policy_number": "POL-H-1002"
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "search_policy_wording",
+        "server": "policy-wording",
+        "args": {
+          "loss_date": "2024-05-05",
+          "product": "household",
+          "query": "escape of water leak bathroom ceiling pipe",
+          "top_k": 5
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "get_limits",
+        "server": "policy-wording",
+        "args": {
+          "loss_date": "2024-05-05",
+          "peril_class": "escape_of_water",
+          "policy_number": "POL-H-1002"
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "refer_to_adjuster",
+        "server": null,
+        "args": {
+          "reason_code": "wording_relevant"
+        },
+        "ok": true,
+        "actor": "model"
+      }
+    ],
+    "server_spans": [
+      {
+        "trace_id": "req-a055e3435927",
+        "server": "claims-records",
+        "tool": "get_fnol",
+        "arg_names": [
+          "claim_number"
+        ],
+        "latency_ms": 0.2,
+        "result_chars": 310,
+        "is_error": false,
+        "ts": "2026-10-05T08:07:21"
+      },
+      {
+        "trace_id": "req-a055e3435927",
+        "server": "claims-records",
+        "tool": "get_fnol",
+        "arg_names": [
+          "claim_number"
+        ],
+        "latency_ms": 0.3,
+        "result_chars": 310,
+        "is_error": false,
+        "ts": "2026-10-05T08:07:21"
+      },
+      {
+        "trace_id": "req-a055e3435927",
+        "server": "claims-records",
+        "tool": "check_coverage_in_force",
+        "arg_names": [
+          "loss_date",
+          "policy_number"
+        ],
+        "latency_ms": 0.1,
+        "result_chars": 241,
+        "is_error": false,
+        "ts": "2026-10-05T08:07:22"
+      },
+      {
+        "trace_id": "req-a055e3435927",
+        "server": "policy-wording",
+        "tool": "search_policy_wording",
+        "arg_names": [
+          "loss_date",
+          "product",
+          "query",
+          "top_k"
+        ],
+        "latency_ms": 528.7,
+        "result_chars": 3320,
+        "is_error": false,
+        "ts": "2026-10-05T08:07:32"
+      },
+      {
+        "trace_id": "req-a055e3435927",
+        "server": "policy-wording",
+        "tool": "get_limits",
+        "arg_names": [
+          "loss_date",
+          "peril_class",
+          "policy_number"
+        ],
+        "latency_ms": 0.2,
+        "result_chars": 147,
+        "is_error": false,
+        "ts": "2026-10-05T08:07:56"
+      }
+    ],
+    "context_ids": [
+      "HO-0850_flood_escape_of_water_ed_07-23.pdf#4164bf9933aa55ed",
+      "HO-0850_flood_escape_of_water_ed_07-23.pdf#0f052387462a7b8b",
+      "HO-0850_flood_escape_of_water_ed_07-23.pdf#774b4ff55417458c"
+    ],
+    "totals": {
+      "latency_ms": 46795.0,
+      "tokens_in": 10784,
+      "tokens_out": 575,
+      "cost_usd": 0.001962,
+      "by_stage": {
+        "retrieval": {
+          "latency_ms": 529.9,
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost_usd": 0.0,
+          "spans": 1
+        },
+        "generation": {
+          "latency_ms": 46230.1,
+          "tokens_in": 10784,
+          "tokens_out": 575,
+          "cost_usd": 0.001962,
+          "spans": 5
+        },
+        "tools": {
+          "latency_ms": 6.2,
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost_usd": 0.0,
+          "spans": 4
+        }
+      }
+    },
+    "wall_s": 46.8,
+    "boot_s": 142.9,
+    "retrieval_version": "hybrid-datefilter-v1"
+  },
+  "w19": {
+    "case_id": "w19",
+    "trace_id": "req-25fc01fd5c93",
+    "outcome": "completed",
+    "referral": {
+      "referral_id": "ref-25fc01fd5c93",
+      "trace_id": "req-25fc01fd5c93",
+      "route": "adjuster",
+      "claim_number": "CLM-2026-80019",
+      "reason_code": "wording_relevant",
+      "loss_date": "2025-07-07",
+      "in_force": true,
+      "in_force_range": [
+        "2024-02-01",
+        "2026-02-01"
+      ],
+      "editions_in_force": {
+        "HO-0100": "01-22",
+        "HO-0850": "04-25"
+      },
+      "summary": "Policy in force on the loss date (2025-07-07). Wording retrieved as at the loss date: HO-0850 ed. 04-25 clause 2.3; HO-0850 ed. 04-25 clause E-50. This assistant does not decide claims. Referred to an adjuster.",
+      "citations": [
+        {
+          "form_number": "HO-0850",
+          "edition_date": "04-25",
+          "clause": "2.3",
+          "clause_as_given": null,
+          "effective_from": "2025-04-01",
+          "effective_to": null,
+          "loss_date_resolved": "2025-07-07",
+          "grounded": true,
+          "relevance": "Defines escape of water coverage applicable to a leak from fixed plumbing.",
+          "wording_excerpt": "2.3 Escape of water means the sudden and accidental discharge of water from fixed plumbing, heating or appliance supply lines. It is subject to a deductible of $750 and has no sub-limit.",
+          "wording_excerpt_is_verbatim_policy_text": true
+        },
+        {
+          "form_number": "HO-0850",
+          "edition_date": "04-25",
+          "clause": "E-50",
+          "clause_as_given": null,
+          "effective_from": "2025-04-01",
+          "effective_to": null,
+          "loss_date_resolved": "2025-07-07",
+          "grounded": true,
+          "relevance": "See wording excerpt.",
+          "wording_excerpt": "E-50 Water escaping gradually over fourteen (14) days or more, including seepage and constant leakage. Disposition: Excluded absolutely.",
+          "wording_excerpt_is_verbatim_policy_text": true
+        }
+      ],
+      "figures": {
+        "deductible": 750,
+        "sub_limit": null,
+        "policy_limit": 420000,
+        "basis": "HO-0850 ed. 04-25, peril escape_of_water",
+        "source": "limits tool"
+      },
+      "guard": {
+        "checked": true,
+        "triggered": true,
+        "hits": [
+          {
+            "field": "summary",
+            "matches": [
+              "excluding"
+            ],
+            "text": "On 2025-07-07 the insured found a water\u2011stained bathroom ceiling. A plumber traced a slow leak behind the bath that had been dripping for about three weeks. The policy was in force on the loss date. Relevant wording includes clause 2.3 defi"
+          },
+          {
+            "field": "citations[1].relevance",
+            "matches": [
+              "Excludes"
+            ],
+            "text": "Excludes water escaping gradually over fourteen days or more, which may relate to the three\u2011week leak."
+          }
+        ]
+      }
+    },
+    "tool_calls": [
+      {
+        "name": "get_fnol",
+        "server": "claims-records",
+        "args": {
+          "claim_number": "CLM-2026-80019"
+        },
+        "ok": true,
+        "actor": "harness"
+      },
+      {
+        "name": "get_fnol",
+        "server": "claims-records",
+        "args": {
+          "claim_number": "CLM-2026-80019"
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "check_coverage_in_force",
+        "server": "claims-records",
+        "args": {
+          "loss_date": "2025-07-07",
+          "policy_number": "POL-H-1004"
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "search_policy_wording",
+        "server": "policy-wording",
+        "args": {
+          "loss_date": "2025-07-07",
+          "product": "household",
+          "query": "escape of water leak ceiling bathroom",
+          "top_k": 5
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "get_limits",
+        "server": "policy-wording",
+        "args": {
+          "loss_date": "2025-07-07",
+          "peril_class": "escape_of_water",
+          "policy_number": "POL-H-1004"
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "refer_to_adjuster",
+        "server": null,
+        "args": {
+          "reason_code": "wording_relevant"
+        },
+        "ok": true,
+        "actor": "model"
+      }
+    ],
+    "server_spans": [
+      {
+        "trace_id": "req-25fc01fd5c93",
+        "server": "claims-records",
+        "tool": "get_fnol",
+        "arg_names": [
+          "claim_number"
+        ],
+        "latency_ms": 0.2,
+        "result_chars": 311,
+        "is_error": false,
+        "ts": "2026-10-05T08:08:08"
+      },
+      {
+        "trace_id": "req-25fc01fd5c93",
+        "server": "claims-records",
+        "tool": "get_fnol",
+        "arg_names": [
+          "claim_number"
+        ],
+        "latency_ms": 0.3,
+        "result_chars": 311,
+        "is_error": false,
+        "ts": "2026-10-05T08:08:13"
+      },
+      {
+        "trace_id": "req-25fc01fd5c93",
+        "server": "claims-records",
+        "tool": "check_coverage_in_force",
+        "arg_names": [
+          "loss_date",
+          "policy_number"
+        ],
+        "latency_ms": 0.1,
+        "result_chars": 241,
+        "is_error": false,
+        "ts": "2026-10-05T08:08:14"
+      },
+      {
+        "trace_id": "req-25fc01fd5c93",
+        "server": "policy-wording",
+        "tool": "search_policy_wording",
+        "arg_names": [
+          "loss_date",
+          "product",
+          "query",
+          "top_k"
+        ],
+        "latency_ms": 487.5,
+        "result_chars": 3196,
+        "is_error": false,
+        "ts": "2026-10-05T08:08:19"
+      },
+      {
+        "trace_id": "req-25fc01fd5c93",
+        "server": "policy-wording",
+        "tool": "get_limits",
+        "arg_names": [
+          "loss_date",
+          "peril_class",
+          "policy_number"
+        ],
+        "latency_ms": 0.1,
+        "result_chars": 147,
+        "is_error": false,
+        "ts": "2026-10-05T08:08:33"
+      }
+    ],
+    "context_ids": [
+      "HO-0850_flood_escape_of_water_ed_04-25.pdf#70a7303e316d7323",
+      "HO-0850_flood_escape_of_water_ed_04-25.pdf#27a7e900d4cfa534",
+      "HO-0850_flood_escape_of_water_ed_04-25.pdf#859ea0eff67d08a2"
+    ],
+    "totals": {
+      "latency_ms": 56073.2,
+      "tokens_in": 13965,
+      "tokens_out": 845,
+      "cost_usd": 0.002601,
+      "by_stage": {
+        "retrieval": {
+          "latency_ms": 488.6,
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost_usd": 0.0,
+          "spans": 1
+        },
+        "generation": {
+          "latency_ms": 55536.1,
+          "tokens_in": 13965,
+          "tokens_out": 845,
+          "cost_usd": 0.002601,
+          "spans": 6
+        },
+        "tools": {
+          "latency_ms": 4.0,
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost_usd": 0.0,
+          "spans": 4
+        }
+      }
+    },
+    "wall_s": 56.1,
+    "boot_s": 142.9,
+    "retrieval_version": "hybrid-datefilter-v1"
+  },
+  "w17": {
+    "case_id": "w17",
+    "trace_id": "req-2c3a5525ce62",
+    "outcome": "completed",
+    "referral": {
+      "referral_id": "ref-2c3a5525ce62",
+      "trace_id": "req-2c3a5525ce62",
+      "route": "adjuster",
+      "claim_number": "CLM-2026-80017",
+      "reason_code": "wording_relevant",
+      "loss_date": "2025-01-20",
+      "in_force": true,
+      "in_force_range": [
+        "2022-06-01",
+        "2026-06-01"
+      ],
+      "editions_in_force": {
+        "HO-0100": "01-22",
+        "HO-0850": "07-23"
+      },
+      "summary": "Policy in force on the loss date (2025-01-20). Wording retrieved as at the loss date: HO-0100 ed. 01-22 clause E-03; HO-0100 ed. 01-22 clause 2.1. This assistant does not decide claims. Referred to an adjuster.",
+      "citations": [
+        {
+          "form_number": "HO-0100",
+          "edition_date": "01-22",
+          "clause": "E-03",
+          "clause_as_given": null,
+          "effective_from": "2022-01-01",
+          "effective_to": null,
+          "loss_date_resolved": "2025-01-20",
+          "grounded": true,
+          "relevance": "See wording excerpt.",
+          "wording_excerpt": "E-03 Theft or attempted theft by a person lawfully living in the described dwelling, including a lodger or tenant. Disposition: Excluded absolutely.",
+          "wording_excerpt_is_verbatim_policy_text": true
+        },
+        {
+          "form_number": "HO-0100",
+          "edition_date": "01-22",
+          "clause": "2.1",
+          "clause_as_given": null,
+          "effective_from": "2022-01-01",
+          "effective_to": null,
+          "loss_date_resolved": "2025-01-20",
+          "grounded": true,
+          "relevance": "See wording excerpt.",
+          "wording_excerpt": "2.1 Theft of contents following forced entry to the described dwelling is subject to a deductible of $500 and a theft sub-limit of $5,000 for any single item or set of items.",
+          "wording_excerpt_is_verbatim_policy_text": true
+        }
+      ],
+      "figures": {
+        "deductible": 500,
+        "sub_limit": 5000,
+        "policy_limit": 350000,
+        "basis": "HO-0100 ed. 01-22, peril theft",
+        "source": "limits tool"
+      },
+      "guard": {
+        "checked": true,
+        "triggered": true,
+        "hits": [
+          {
+            "field": "citations[0].relevance",
+            "matches": [
+              "Excludes"
+            ],
+            "text": "Excludes theft or attempted theft by a person lawfully living in the dwelling, such as a lodger."
+          },
+          {
+            "field": "citations[1].relevance",
+            "matches": [
+              "covered"
+            ],
+            "text": "Defines theft of contents after forced entry as covered, subject to deductible and sub\u2011limit."
+          }
+        ]
+      }
+    },
+    "tool_calls": [
+      {
+        "name": "get_fnol",
+        "server": "claims-records",
+        "args": {
+          "claim_number": "CLM-2026-80017"
+        },
+        "ok": true,
+        "actor": "harness"
+      },
+      {
+        "name": "get_fnol",
+        "server": "claims-records",
+        "args": {
+          "claim_number": "CLM-2026-80017"
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "check_coverage_in_force",
+        "server": "claims-records",
+        "args": {
+          "loss_date": "2025-01-20",
+          "policy_number": "POL-H-1001"
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "search_policy_wording",
+        "server": "policy-wording",
+        "args": {
+          "loss_date": "2025-01-20",
+          "product": "household",
+          "query": "theft exclusion dwelling",
+          "top_k": 5
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "get_limits",
+        "server": "policy-wording",
+        "args": {
+          "loss_date": "2025-01-20",
+          "peril_class": "theft",
+          "policy_number": "POL-H-1001"
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "refer_to_adjuster",
+        "server": null,
+        "args": {
+          "reason_code": "wording_relevant"
+        },
+        "ok": true,
+        "actor": "model"
+      }
+    ],
+    "server_spans": [
+      {
+        "trace_id": "req-2c3a5525ce62",
+        "server": "claims-records",
+        "tool": "get_fnol",
+        "arg_names": [
+          "claim_number"
+        ],
+        "latency_ms": 0.3,
+        "result_chars": 321,
+        "is_error": false,
+        "ts": "2026-10-05T08:09:04"
+      },
+      {
+        "trace_id": "req-2c3a5525ce62",
+        "server": "claims-records",
+        "tool": "get_fnol",
+        "arg_names": [
+          "claim_number"
+        ],
+        "latency_ms": 0.2,
+        "result_chars": 321,
+        "is_error": false,
+        "ts": "2026-10-05T08:09:07"
+      },
+      {
+        "trace_id": "req-2c3a5525ce62",
+        "server": "claims-records",
+        "tool": "check_coverage_in_force",
+        "arg_names": [
+          "loss_date",
+          "policy_number"
+        ],
+        "latency_ms": 0.1,
+        "result_chars": 241,
+        "is_error": false,
+        "ts": "2026-10-05T08:09:17"
+      },
+      {
+        "trace_id": "req-2c3a5525ce62",
+        "server": "policy-wording",
+        "tool": "search_policy_wording",
+        "arg_names": [
+          "loss_date",
+          "product",
+          "query",
+          "top_k"
+        ],
+        "latency_ms": 508.8,
+        "result_chars": 3533,
+        "is_error": false,
+        "ts": "2026-10-05T08:09:24"
+      },
+      {
+        "trace_id": "req-2c3a5525ce62",
+        "server": "policy-wording",
+        "tool": "get_limits",
+        "arg_names": [
+          "loss_date",
+          "peril_class",
+          "policy_number"
+        ],
+        "latency_ms": 0.1,
+        "result_chars": 137,
+        "is_error": false,
+        "ts": "2026-10-05T08:09:35"
+      }
+    ],
+    "context_ids": [
+      "HO-0100_household_base_wording_ed_01-22.pdf#1033bcbb5a6287a3",
+      "HO-0100_household_base_wording_ed_01-22.pdf#e296dcf2c8609a3a",
+      "HO-0850_flood_escape_of_water_ed_07-23.pdf#4164bf9933aa55ed"
+    ],
+    "totals": {
+      "latency_ms": 45640.3,
+      "tokens_in": 11049,
+      "tokens_out": 527,
+      "cost_usd": 0.001974,
+      "by_stage": {
+        "retrieval": {
+          "latency_ms": 509.9,
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost_usd": 0.0,
+          "spans": 1
+        },
+        "generation": {
+          "latency_ms": 45090.1,
+          "tokens_in": 11049,
+          "tokens_out": 527,
+          "cost_usd": 0.001974,
+          "spans": 5
+        },
+        "tools": {
+          "latency_ms": 5.1,
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost_usd": 0.0,
+          "spans": 4
+        }
+      }
+    },
+    "wall_s": 45.6,
+    "boot_s": 142.9,
+    "retrieval_version": "hybrid-datefilter-v1"
+  },
+  "w20": {
+    "case_id": "w20",
+    "trace_id": "req-2af22a07c008",
+    "outcome": "completed",
+    "referral": {
+      "referral_id": "ref-2af22a07c008",
+      "trace_id": "req-2af22a07c008",
+      "route": "adjuster",
+      "claim_number": "CLM-2026-80020",
+      "reason_code": "wording_relevant",
+      "loss_date": "2025-02-10",
+      "in_force": true,
+      "in_force_range": [
+        "2022-06-01",
+        "2026-06-01"
+      ],
+      "editions_in_force": {
+        "HO-0100": "01-22",
+        "HO-0850": "07-23"
+      },
+      "summary": "Policy in force on the loss date (2025-02-10). Wording retrieved as at the loss date: HO-0850 ed. 07-23 clause 3.1; HO-0850 ed. 07-23 clause E-50; HO-0850 ed. 07-23 clause E-51. This assistant does not decide claims. Referred to an adjuster.",
+      "citations": [
+        {
+          "form_number": "HO-0850",
+          "edition_date": "07-23",
+          "clause": "3.1",
+          "clause_as_given": null,
+          "effective_from": "2023-07-01",
+          "effective_to": "2025-04-01",
+          "loss_date_resolved": "2025-02-10",
+          "grounded": true,
+          "relevance": "Exclusion Table 3.1 lists water loss exclusions that apply to escape of water incidents.",
+          "wording_excerpt": "Flood, Surface Water and Escape of Water SECTION: Exclusion Table 3.1 EXCLUSION TABLE 3.1 - WATER LOSS EXCLUSIONS (EDITION 07-23) CODE EXCLUSION AND DISPOSITION Note: In this edition flood loss to the dwelling itself is within Clause 2.1. E-52 removes only outbuildings and landscaping. END OF FORM HO-0850 ED. 07-23.",
+          "wording_excerpt_is_verbatim_policy_text": true
+        },
+        {
+          "form_number": "HO-0850",
+          "edition_date": "07-23",
+          "clause": "E-50",
+          "clause_as_given": null,
+          "effective_from": "2023-07-01",
+          "effective_to": "2025-04-01",
+          "loss_date_resolved": "2025-02-10",
+          "grounded": true,
+          "relevance": "See wording excerpt.",
+          "wording_excerpt": "E-50 Water escaping gradually over fourteen (14) days or more, including seepage and constant leakage. Disposition: Excluded absolutely.",
+          "wording_excerpt_is_verbatim_policy_text": true
+        },
+        {
+          "form_number": "HO-0850",
+          "edition_date": "07-23",
+          "clause": "E-51",
+          "clause_as_given": null,
+          "effective_from": "2023-07-01",
+          "effective_to": "2025-04-01",
+          "loss_date_resolved": "2025-02-10",
+          "grounded": true,
+          "relevance": "See wording excerpt.",
+          "wording_excerpt": "E-51 Water entering through an opening the insured left unsealed, including an open window or door. Disposition: Excluded absolutely.",
+          "wording_excerpt_is_verbatim_policy_text": true
+        }
+      ],
+      "figures": {
+        "deductible": 500,
+        "sub_limit": null,
+        "policy_limit": 350000,
+        "basis": "HO-0850 ed. 07-23, peril escape_of_water",
+        "source": "limits tool"
+      },
+      "guard": {
+        "checked": true,
+        "triggered": true,
+        "hits": [
+          {
+            "field": "citations[1].relevance",
+            "matches": [
+              "excludes"
+            ],
+            "text": "E-50 excludes water escaping gradually over fourteen days or more, which may relate to a burst tank."
+          },
+          {
+            "field": "citations[2].relevance",
+            "matches": [
+              "excludes"
+            ],
+            "text": "E-51 excludes water entering through an unsealed opening, relevant if the tank failure involved such a condition."
+          }
+        ]
+      }
+    },
+    "tool_calls": [
+      {
+        "name": "get_fnol",
+        "server": "claims-records",
+        "args": {
+          "claim_number": "CLM-2026-80020"
+        },
+        "ok": true,
+        "actor": "harness"
+      },
+      {
+        "name": "get_fnol",
+        "server": "claims-records",
+        "args": {
+          "claim_number": "CLM-2026-80020"
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "check_coverage_in_force",
+        "server": "claims-records",
+        "args": {
+          "loss_date": "2025-02-10",
+          "policy_number": "POL-H-1001"
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "search_policy_wording",
+        "server": "policy-wording",
+        "args": {
+          "loss_date": "2025-02-10",
+          "product": "household",
+          "query": "escape of water burst tank clause",
+          "top_k": 5
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "get_limits",
+        "server": "policy-wording",
+        "args": {
+          "loss_date": "2025-02-10",
+          "peril_class": "escape_of_water",
+          "policy_number": "POL-H-1001"
+        },
+        "ok": true,
+        "actor": "model"
+      },
+      {
+        "name": "refer_to_adjuster",
+        "server": null,
+        "args": {
+          "reason_code": "wording_relevant"
+        },
+        "ok": true,
+        "actor": "model"
+      }
+    ],
+    "server_spans": [
+      {
+        "trace_id": "req-2af22a07c008",
+        "server": "claims-records",
+        "tool": "get_fnol",
+        "arg_names": [
+          "claim_number"
+        ],
+        "latency_ms": 1.1,
+        "result_chars": 282,
+        "is_error": false,
+        "ts": "2026-10-05T08:09:49"
+      },
+      {
+        "trace_id": "req-2af22a07c008",
+        "server": "claims-records",
+        "tool": "get_fnol",
+        "arg_names": [
+          "claim_number"
+        ],
+        "latency_ms": 0.4,
+        "result_chars": 282,
+        "is_error": false,
+        "ts": "2026-10-05T08:10:05"
+      },
+      {
+        "trace_id": "req-2af22a07c008",
+        "server": "claims-records",
+        "tool": "check_coverage_in_force",
+        "arg_names": [
+          "loss_date",
+          "policy_number"
+        ],
+        "latency_ms": 0.2,
+        "result_chars": 241,
+        "is_error": false,
+        "ts": "2026-10-05T08:10:05"
+      },
+      {
+        "trace_id": "req-2af22a07c008",
+        "server": "policy-wording",
+        "tool": "search_policy_wording",
+        "arg_names": [
+          "loss_date",
+          "product",
+          "query",
+          "top_k"
+        ],
+        "latency_ms": 577.3,
+        "result_chars": 2865,
+        "is_error": false,
+        "ts": "2026-10-05T08:10:12"
+      },
+      {
+        "trace_id": "req-2af22a07c008",
+        "server": "policy-wording",
+        "tool": "get_limits",
+        "arg_names": [
+          "loss_date",
+          "peril_class",
+          "policy_number"
+        ],
+        "latency_ms": 0.1,
+        "result_chars": 147,
+        "is_error": false,
+        "ts": "2026-10-05T08:10:24"
+      }
+    ],
+    "context_ids": [
+      "HO-0850_flood_escape_of_water_ed_07-23.pdf#1e71ff92c5c0b142",
+      "HO-0850_flood_escape_of_water_ed_07-23.pdf#4164bf9933aa55ed",
+      "HO-0850_flood_escape_of_water_ed_07-23.pdf#0f052387462a7b8b"
+    ],
+    "totals": {
+      "latency_ms": 514237.5,
+      "tokens_in": 13799,
+      "tokens_out": 926,
+      "cost_usd": 0.002625,
+      "by_stage": {
+        "retrieval": {
+          "latency_ms": 578.6,
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost_usd": 0.0,
+          "spans": 1
+        },
+        "generation": {
+          "latency_ms": 513591.8,
+          "tokens_in": 13799,
+          "tokens_out": 926,
+          "cost_usd": 0.002625,
+          "spans": 6
+        },
+        "tools": {
+          "latency_ms": 7.1,
+          "tokens_in": 0,
+          "tokens_out": 0,
+          "cost_usd": 0.0,
+          "spans": 4
+        }
+      }
+    },
+    "wall_s": 514.2,
+    "boot_s": 142.9,
+    "retrieval_version": "hybrid-datefilter-v1"
+  }
+}

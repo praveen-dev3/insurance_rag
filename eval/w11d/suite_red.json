@@ -1,0 +1,468 @@
+{
+  "label": "red",
+  "prompt_version": "triage-v1",
+  "retrieval_version": "kw-r1",
+  "trials_per_case": 2,
+  "order": [
+    "c01",
+    "c02",
+    "c03",
+    "c04",
+    "c05",
+    "c06",
+    "c07",
+    "c08",
+    "c09",
+    "c10",
+    "c11",
+    "c12"
+  ],
+  "done": {
+    "c01": [
+      {
+        "trial": 1,
+        "pass": true,
+        "why": "ok",
+        "trace_id": "req-393ed5a7fee0",
+        "status": "covered",
+        "payout": 15500.0,
+        "context_ids": [
+          "HO-0304#2",
+          "HO-0304#4",
+          "HO-0304#10",
+          "HO-0304#24",
+          "HO-0304#23",
+          "HO-0304#20"
+        ],
+        "tokens": 7626,
+        "cost_usd": 0.000641
+      },
+      {
+        "trial": 2,
+        "pass": true,
+        "why": "ok",
+        "trace_id": "req-112b591d014a",
+        "status": "covered",
+        "payout": 15500.0,
+        "context_ids": [
+          "HO-0304#2",
+          "HO-0304#4",
+          "HO-0304#13",
+          "HO-0304#24",
+          "HO-0304#23",
+          "HO-0304#20"
+        ],
+        "tokens": 7615,
+        "cost_usd": 0.00063
+      }
+    ],
+    "c02": [
+      {
+        "trial": 1,
+        "pass": true,
+        "why": "ok",
+        "trace_id": "req-0b82b5d3afbd",
+        "status": "excluded",
+        "payout": 0.0,
+        "context_ids": [
+          "HO-0304#10",
+          "HO-0304#24",
+          "HO-0304#23",
+          "HO-0304#20",
+          "HO-0304#22"
+        ],
+        "tokens": 8266,
+        "cost_usd": 0.000685
+      },
+      {
+        "trial": 2,
+        "pass": true,
+        "why": "ok",
+        "trace_id": "req-118e8ab778a0",
+        "status": "excluded",
+        "payout": 0.0,
+        "context_ids": [
+          "HO-0304#10"
+        ],
+        "tokens": 4738,
+        "cost_usd": 0.00041
+      }
+    ],
+    "c03": [
+      {
+        "trial": 1,
+        "pass": true,
+        "why": "ok",
+        "trace_id": "req-fd506409c95d",
+        "status": "excluded",
+        "payout": 0.0,
+        "context_ids": [
+          "HO-0304#18"
+        ],
+        "tokens": 4729,
+        "cost_usd": 0.000412
+      },
+      {
+        "trial": 2,
+        "pass": true,
+        "why": "ok",
+        "trace_id": "req-b48996a90b92",
+        "status": "excluded",
+        "payout": 0.0,
+        "context_ids": [
+          "HO-0304#18"
+        ],
+        "tokens": 4659,
+        "cost_usd": 0.0004
+      }
+    ],
+    "c04": [
+      {
+        "trial": 1,
+        "pass": true,
+        "why": "ok",
+        "trace_id": "req-5f9e85c1cbd3",
+        "status": "covered",
+        "payout": 13000,
+        "context_ids": [
+          "HO-0304#9",
+          "HO-0304#15",
+          "HO-0521#44",
+          "HO-0521#47",
+          "HO-0521#48",
+          "HO-0521#49",
+          "HO-0521#50",
+          "HO-0521#45",
+          "HO-0521#62",
+          "HO-0521#55",
+          "HO-0521#61"
+        ],
+        "tokens": 12625,
+        "cost_usd": 0.001056
+      },
+      {
+        "trial": 2,
+        "pass": true,
+        "why": "ok",
+        "trace_id": "req-d421bed252fa",
+        "status": "covered",
+        "payout": 13000.0,
+        "context_ids": [
+          "HO-0304#9",
+          "HO-0304#15",
+          "HO-0304#24",
+          "HO-0304#23",
+          "HO-0304#20",
+          "HO-0521#44",
+          "HO-0521#47",
+          "HO-0521#48",
+          "HO-0521#62",
+          "HO-0521#55",
+          "HO-0521#61"
+        ],
+        "tokens": 12584,
+        "cost_usd": 0.001036
+      }
+    ],
+    "c05": [
+      {
+        "trial": 1,
+        "pass": true,
+        "why": "ok",
+        "trace_id": "req-50afa37b01cc",
+        "status": "excluded",
+        "payout": 0.0,
+        "context_ids": [
+          "HO-0521#44",
+          "HO-0521#45",
+          "HO-0521#46",
+          "HO-0521#62",
+          "HO-0521#55",
+          "HO-0521#61"
+        ],
+        "tokens": 7417,
+        "cost_usd": 0.000626
+      },
+      {
+        "trial": 2,
+        "pass": true,
+        "why": "ok",
+        "trace_id": "req-ce588785f4e3",
+        "status": "excluded",
+        "payout": 0.0,
+        "context_ids": [
+          "HO-0521#44",
+          "HO-0521#45",
+          "HO-0521#46",
+          "HO-0521#50",
+          "HO-0521#52",
+          "HO-0521#62",
+          "HO-0521#55",
+          "HO-0521#61"
+        ],
+        "tokens": 7997,
+        "cost_usd": 0.000662
+      }
+    ],
+    "c06": [
+      {
+        "trial": 1,
+        "pass": true,
+        "why": "ok",
+        "trace_id": "req-e0191b8e57ab",
+        "status": "covered",
+        "payout": 16000.0,
+        "context_ids": [
+          "HO-0412#25",
+          "HO-0412#26",
+          "HO-0412#29",
+          "HO-0412#32",
+          "HO-0412#35",
+          "HO-0412#43",
+          "HO-0412#33",
+          "HO-0412#37"
+        ],
+        "tokens": 7962,
+        "cost_usd": 0.000661
+      },
+      {
+        "trial": 2,
+        "pass": true,
+        "why": "ok",
+        "trace_id": "req-92a90800c775",
+        "status": "covered",
+        "payout": 16000.0,
+        "context_ids": [
+          "HO-0412#25",
+          "HO-0412#26",
+          "HO-0412#29",
+          "HO-0412#32",
+          "HO-0412#35",
+          "HO-0412#43",
+          "HO-0412#33",
+          "HO-0412#37"
+        ],
+        "tokens": 8019,
+        "cost_usd": 0.000673
+      }
+    ],
+    "c07": [
+      {
+        "trial": 1,
+        "pass": false,
+        "why": "status 'covered' != 'excluded'",
+        "trace_id": "req-b3554ad7d323",
+        "status": "covered",
+        "payout": 3000.0,
+        "context_ids": [
+          "HO-0412#25",
+          "HO-0412#26",
+          "HO-0412#29",
+          "HO-0412#32",
+          "HO-0412#35",
+          "HO-0412#43",
+          "HO-0412#33",
+          "HO-0412#37"
+        ],
+        "tokens": 7934,
+        "cost_usd": 0.000658
+      },
+      {
+        "trial": 2,
+        "pass": false,
+        "why": "status 'covered' != 'excluded'",
+        "trace_id": "req-fa58a8dbc394",
+        "status": "covered",
+        "payout": 3000.0,
+        "context_ids": [
+          "HO-0412#43",
+          "HO-0412#33",
+          "HO-0412#37"
+        ],
+        "tokens": 5161,
+        "cost_usd": 0.000448
+      }
+    ],
+    "c08": [
+      {
+        "trial": 1,
+        "pass": true,
+        "why": "ok",
+        "trace_id": "req-17fbae6dc426",
+        "status": "excluded",
+        "payout": 0.0,
+        "context_ids": [
+          "HO-0633#63",
+          "HO-0633#64",
+          "HO-0633#65",
+          "HO-0633#68",
+          "HO-0633#69"
+        ],
+        "tokens": 5520,
+        "cost_usd": 0.000465
+      },
+      {
+        "trial": 2,
+        "pass": true,
+        "why": "ok",
+        "trace_id": "req-2639bfd7e913",
+        "status": "excluded",
+        "payout": 0.0,
+        "context_ids": [
+          "HO-0633#63",
+          "HO-0633#64",
+          "HO-0633#65"
+        ],
+        "tokens": 5054,
+        "cost_usd": 0.000427
+      }
+    ],
+    "c09": [
+      {
+        "trial": 1,
+        "pass": true,
+        "why": "ok",
+        "trace_id": "req-f65443a915cc",
+        "status": "excluded",
+        "payout": 0.0,
+        "context_ids": [
+          "DP-0208#106"
+        ],
+        "tokens": 4583,
+        "cost_usd": 0.000393
+      },
+      {
+        "trial": 2,
+        "pass": true,
+        "why": "ok",
+        "trace_id": "req-fd9803036afb",
+        "status": "excluded",
+        "payout": 0.0,
+        "context_ids": [
+          "DP-0208#106",
+          "DP-0208#111"
+        ],
+        "tokens": 6155,
+        "cost_usd": 0.000521
+      }
+    ],
+    "c10": [
+      {
+        "trial": 1,
+        "pass": true,
+        "why": "ok",
+        "trace_id": "req-fb26694fb4c7",
+        "status": "covered",
+        "payout": 4400.0,
+        "context_ids": [
+          "DP-0208#95",
+          "DP-0208#94",
+          "DP-0208#97",
+          "DP-0208#98",
+          "DP-0208#99",
+          "DP-0208#100",
+          "DP-0208#111"
+        ],
+        "tokens": 11844,
+        "cost_usd": 0.000974
+      },
+      {
+        "trial": 2,
+        "pass": true,
+        "why": "ok",
+        "trace_id": "req-22e3025e72cc",
+        "status": "covered",
+        "payout": 4400.0,
+        "context_ids": [
+          "DP-0208#95",
+          "DP-0208#111"
+        ],
+        "tokens": 7534,
+        "cost_usd": 0.00063
+      }
+    ],
+    "c11": [
+      {
+        "trial": 1,
+        "pass": false,
+        "why": "status 'covered' != 'excluded'",
+        "trace_id": "req-7060c0c1d556",
+        "status": "covered",
+        "payout": 4000.0,
+        "context_ids": [
+          "HO-0412#25",
+          "HO-0412#26",
+          "HO-0412#29",
+          "HO-0412#32",
+          "HO-0412#35",
+          "HO-0412#43",
+          "HO-0412#33",
+          "HO-0412#37"
+        ],
+        "tokens": 7995,
+        "cost_usd": 0.000665
+      },
+      {
+        "trial": 2,
+        "pass": false,
+        "why": "status 'covered' != 'excluded'",
+        "trace_id": "req-e34437f57b40",
+        "status": "covered",
+        "payout": 4000.0,
+        "context_ids": [
+          "HO-0412#25",
+          "HO-0412#26",
+          "HO-0412#29",
+          "HO-0412#32",
+          "HO-0412#35",
+          "HO-0412#43",
+          "HO-0412#33",
+          "HO-0412#37"
+        ],
+        "tokens": 8082,
+        "cost_usd": 0.000682
+      }
+    ],
+    "c12": [
+      {
+        "trial": 1,
+        "pass": true,
+        "why": "ok",
+        "trace_id": "req-e61dbd9536f6",
+        "status": "covered",
+        "payout": 6000.0,
+        "context_ids": [
+          "HO-0412#25",
+          "HO-0412#26",
+          "HO-0412#29",
+          "HO-0412#30",
+          "HO-0412#31",
+          "HO-0412#32",
+          "HO-0412#33",
+          "HO-0412#43",
+          "HO-0412#37"
+        ],
+        "tokens": 10491,
+        "cost_usd": 0.000862
+      },
+      {
+        "trial": 2,
+        "pass": true,
+        "why": "ok",
+        "trace_id": "req-a6a49aa18b76",
+        "status": "covered",
+        "payout": 6000.0,
+        "context_ids": [
+          "HO-0412#25",
+          "HO-0412#26",
+          "HO-0412#29",
+          "HO-0412#43",
+          "HO-0412#33",
+          "HO-0412#37"
+        ],
+        "tokens": 7276,
+        "cost_usd": 0.000611
+      }
+    ]
+  }
+}

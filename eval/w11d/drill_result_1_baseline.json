@@ -1,0 +1,11 @@
+[
+  {
+    "guess": "req-b0c8b1c0efcf",
+    "correct": true,
+    "time_to_find": "01:47",
+    "seconds": 107.0,
+    "slice": "time (yesterday) x output text ('covered', triage) -> 10 hits / 6 distinct claims; resolved context ids: c11 was shown exclusion rows E-32/33/35/37 but not E-34/E-36; claim notes (claims system) describe cosmetic hail damage",
+    "timed_by": "self-drill, same agent planted+found (NOT a squadmate)",
+    "under_5_minutes": true
+  }
+]

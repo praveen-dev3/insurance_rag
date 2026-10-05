@@ -1,0 +1,1459 @@
+{
+  "summary": {
+    "STRADDLE: loss on an older edition (pre_2025)": {
+      "n": 9,
+      "hit3_off": 0.7777777777777778,
+      "hit3_on": 1.0,
+      "stale_off": 9,
+      "stale_on": 0
+    },
+    "post_2025 (latest edition applies)": {
+      "n": 9,
+      "hit3_off": 1.0,
+      "hit3_on": 1.0,
+      "stale_off": 9,
+      "stale_on": 0
+    },
+    "base wording (single edition)": {
+      "n": 8,
+      "hit3_off": 1.0,
+      "hit3_on": 1.0,
+      "stale_off": 2,
+      "stale_on": 0
+    },
+    "NON-straddle = post_2025 + base": {
+      "n": 17,
+      "hit3_off": 1.0,
+      "hit3_on": 1.0,
+      "stale_off": 11,
+      "stale_on": 0
+    },
+    "all cases with an expected clause": {
+      "n": 26,
+      "hit3_off": 0.9230769230769231,
+      "hit3_on": 1.0,
+      "stale_off": 20,
+      "stale_on": 0
+    }
+  },
+  "rows": [
+    {
+      "case_id": "w01",
+      "boundary": "pre_2025",
+      "off": {
+        "hit3": false,
+        "stale_in_top3": 1,
+        "stale_form_when_none_in_force": false,
+        "top3": [
+          [
+            "HO-0850",
+            "04-25",
+            [
+              "E-50"
+            ]
+          ],
+          [
+            "HO-0850",
+            "07-23",
+            [
+              "E-50"
+            ]
+          ],
+          [
+            "HO-0850",
+            "07-23",
+            []
+          ]
+        ]
+      },
+      "on": {
+        "hit3": true,
+        "stale_in_top3": 0,
+        "stale_form_when_none_in_force": false,
+        "top3": [
+          [
+            "HO-0850",
+            "07-23",
+            [
+              "E-50"
+            ]
+          ],
+          [
+            "HO-0850",
+            "07-23",
+            []
+          ],
+          [
+            "HO-0850",
+            "07-23",
+            []
+          ]
+        ]
+      }
+    },
+    {
+      "case_id": "w02",
+      "boundary": "pre_2025",
+      "off": {
+        "hit3": false,
+        "stale_in_top3": 1,
+        "stale_form_when_none_in_force": false,
+        "top3": [
+          [
+            "HO-0850",
+            "04-25",
+            [
+              "E-50"
+            ]
+          ],
+          [
+            "HO-0850",
+            "07-23",
+            [
+              "E-50"
+            ]
+          ],
+          [
+            "HO-0850",
+            "07-23",
+            []
+          ]
+        ]
+      },
+      "on": {
+        "hit3": true,
+        "stale_in_top3": 0,
+        "stale_form_when_none_in_force": false,
+        "top3": [
+          [
+            "HO-0850",
+            "07-23",
+            [
+              "E-50"
+            ]
+          ],
+          [
+            "HO-0850",
+            "07-23",
+            []
+          ],
+          [
+            "HO-0850",
+            "07-23",
+            []
+          ]
+        ]
+      }
+    },
+    {
+      "case_id": "w03",
+      "boundary": "post_2025",
+      "off": {
+        "hit3": true,
+        "stale_in_top3": 2,
+        "stale_form_when_none_in_force": false,
+        "top3": [
+          [
+            "HO-0850",
+            "04-25",
+            [
+              "E-50"
+            ]
+          ],
+          [
+            "HO-0850",
+            "07-23",
+            [
+              "E-50"
+            ]
+          ],
+          [
+            "HO-0850",
+            "07-23",
+            []
+          ]
+        ]
+      },
+      "on": {
+        "hit3": true,
+        "stale_in_top3": 0,
+        "stale_form_when_none_in_force": false,
+        "top3": [
+          [
+            "HO-0850",
+            "04-25",
+            [
+              "E-50"
+            ]
+          ],
+          [
+            "HO-0850",
+            "04-25",
+            [
+              "E-55"
+            ]
+          ],
+          [
+            "HO-0850",
+            "04-25",
+            []
+          ]
+        ]
+      }
+    },
+    {
+      "case_id": "w04",
+      "boundary": "post_2025",
+      "off": {
+        "hit3": true,
+        "stale_in_top3": 2,
+        "stale_form_when_none_in_force": false,
+        "top3": [
+          [
+            "HO-0850",
+            "04-25",
+            [
+              "E-50"
+            ]
+          ],
+          [
+            "HO-0850",
+            "07-23",
+            [
+              "E-50"
+            ]
+          ],
+          [
+            "HO-0850",
+            "07-23",
+            []
+          ]
+        ]
+      },
+      "on": {
+        "hit3": true,
+        "stale_in_top3": 0,
+        "stale_form_when_none_in_force": false,
+        "top3": [
+          [
+            "HO-0850",
+            "04-25",
+            [
+              "E-50"
+            ]
+          ],
+          [
+            "HO-0850",
+            "04-25",
+            [
+              "E-55"
+            ]
+          ],
+          [
+            "HO-0850",
+            "04-25",
+            []
+          ]
+        ]
+      }
+    },
+    {
+      "case_id": "w05",
+      "boundary": "pre_2025",
+      "off": {
+        "hit3": true,
+        "stale_in_top3": 2,
+        "stale_form_when_none_in_force": false,
+        "top3": [
+          [
+            "HO-0850",
+            "04-25",
+            []
+          ],
+          [
+            "HO-0850",
+            "07-23",
+            []
+          ],
+          [
+            "HO-0850",
+            "04-25",
+            [
+              "E-55"
+            ]
+          ]
+        ]
+      },
+      "on": {
+        "hit3": true,
+        "stale_in_top3": 0,
+        "stale_form_when_none_in_force": false,
+        "top3": [
+          [
+            "HO-0850",
+            "07-23",
+            []
+          ],
+          [
+            "HO-0850",
+            "07-23",
+            [
+              "E-50"
+            ]
+          ],
+          [
+            "HO-0850",
+            "07-23",
+            []
+          ]
+        ]
+      }
+    },
+    {
+      "case_id": "w06",
+      "boundary": "post_2025",
+      "off": {
+        "hit3": true,
+        "stale_in_top3": 1,
+        "stale_form_when_none_in_force": false,
+        "top3": [
+          [
+            "HO-0850",
+            "04-25",
+            []
+          ],
+          [
+            "HO-0850",
+            "07-23",
+            []
+          ],
+          [
+            "HO-0850",
+            "04-25",
+            [
+              "E-55"
+            ]
+          ]
+        ]
+      },
+      "on": {
+        "hit3": true,
+        "stale_in_top3": 0,
+        "stale_form_when_none_in_force": false,
+        "top3": [
+          [
+            "HO-0850",
+            "04-25",
+            []
+          ],
+          [
+            "HO-0850",
+            "04-25",
+            [
+              "E-55"
+            ]
+          ],
+          [
+            "HO-0850",
+            "04-25",
+            [
+              "E-50"
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "case_id": "w07",
+      "boundary": "pre_2025",
+      "off": {
+        "hit3": true,
+        "stale_in_top3": 2,
+        "stale_form_when_none_in_force": false,
+        "top3": [
+          [
+            "HO-0850",
+            "04-25",
+            []
+          ],
+          [
+            "HO-0850",
+            "07-23",
+            []
+          ],
+          [
+            "HO-0850",
+            "04-25",
+            [
+              "E-50"
+            ]
+          ]
+        ]
+      },
+      "on": {
+        "hit3": true,
+        "stale_in_top3": 0,
+        "stale_form_when_none_in_force": false,
+        "top3": [
+          [
+            "HO-0850",
+            "07-23",
+            []
+          ],
+          [
+            "HO-0850",
+            "07-23",
+            [
+              "E-50"
+            ]
+          ],
+          [
+            "HO-0850",
+            "07-23",
+            []
+          ]
+        ]
+      }
+    },
+    {
+      "case_id": "w08",
+      "boundary": "post_2025",
+      "off": {
+        "hit3": true,
+        "stale_in_top3": 1,
+        "stale_form_when_none_in_force": false,
+        "top3": [
+          [
+            "HO-0850",
+            "04-25",
+            []
+          ],
+          [
+            "HO-0850",
+            "07-23",
+            []
+          ],
+          [
+            "HO-0850",
+            "04-25",
+            [
+              "E-50"
+            ]
+          ]
+        ]
+      },
+      "on": {
+        "hit3": true,
+        "stale_in_top3": 0,
+        "stale_form_when_none_in_force": false,
+        "top3": [
+          [
+            "HO-0850",
+            "04-25",
+            []
+          ],
+          [
+            "HO-0850",
+            "04-25",
+            [
+              "E-50"
+            ]
+          ],
+          [
+            "HO-0850",
+            "04-25",
+            []
+          ]
+        ]
+      }
+    },
+    {
+      "case_id": "w09",
+      "boundary": "post_2025",
+      "off": {
+        "hit3": true,
+        "stale_in_top3": 1,
+        "stale_form_when_none_in_force": false,
+        "top3": [
+          [
+            "HO-0850",
+            "04-25",
+            [
+              "E-55"
+            ]
+          ],
+          [
+            "HO-0850",
+            "07-23",
+            [
+              "E-50"
+            ]
+          ],
+          [
+            "HO-0850",
+            "04-25",
+            [
+              "E-50"
+            ]
+          ]
+        ]
+      },
+      "on": {
+        "hit3": true,
+        "stale_in_top3": 0,
+        "stale_form_when_none_in_force": false,
+        "top3": [
+          [
+            "HO-0850",
+            "04-25",
+            [
+              "E-55"
+            ]
+          ],
+          [
+            "HO-0850",
+            "04-25",
+            [
+              "E-50"
+            ]
+          ],
+          [
+            "HO-0850",
+            "04-25",
+            []
+          ]
+        ]
+      }
+    },
+    {
+      "case_id": "w10",
+      "boundary": "pre_2025",
+      "off": {
+        "hit3": true,
+        "stale_in_top3": 1,
+        "stale_form_when_none_in_force": false,
+        "top3": [
+          [
+            "HO-0850",
+            "07-23",
+            [
+              "E-50"
+            ]
+          ],
+          [
+            "HO-0850",
+            "07-23",
+            []
+          ],
+          [
+            "HO-0850",
+            "04-25",
+            [
+              "E-55"
+            ]
+          ]
+        ]
+      },
+      "on": {
+        "hit3": true,
+        "stale_in_top3": 0,
+        "stale_form_when_none_in_force": false,
+        "top3": [
+          [
+            "HO-0850",
+            "07-23",
+            [
+              "E-50"
+            ]
+          ],
+          [
+            "HO-0850",
+            "07-23",
+            []
+          ],
+          [
+            "HO-0850",
+            "07-23",
+            []
+          ]
+        ]
+      }
+    },
+    {
+      "case_id": "w11",
+      "boundary": "pre_2025",
+      "off": {
+        "hit3": true,
+        "stale_in_top3": 2,
+        "stale_form_when_none_in_force": false,
+        "top3": [
+          [
+            "MO-0420",
+            "05-25",
+            [
+              "E-65"
+            ]
+          ],
+          [
+            "MO-0420",
+            "09-23",
+            [
+              "E-65"
+            ]
+          ],
+          [
+            "MO-0420",
+            "05-25",
+            []
+          ]
+        ]
+      },
+      "on": {
+        "hit3": true,
+        "stale_in_top3": 0,
+        "stale_form_when_none_in_force": false,
+        "top3": [
+          [
+            "MO-0420",
+            "09-23",
+            [
+              "E-65"
+            ]
+          ],
+          [
+            "MO-0420",
+            "09-23",
+            []
+          ],
+          [
+            "MO-0420",
+            "09-23",
+            []
+          ]
+        ]
+      }
+    },
+    {
+      "case_id": "w12",
+      "boundary": "pre_2025",
+      "off": {
+        "hit3": true,
+        "stale_in_top3": 2,
+        "stale_form_when_none_in_force": false,
+        "top3": [
+          [
+            "MO-0420",
+            "05-25",
+            [
+              "E-65"
+            ]
+          ],
+          [
+            "MO-0420",
+            "09-23",
+            [
+              "E-65"
+            ]
+          ],
+          [
+            "MO-0420",
+            "05-25",
+            []
+          ]
+        ]
+      },
+      "on": {
+        "hit3": true,
+        "stale_in_top3": 0,
+        "stale_form_when_none_in_force": false,
+        "top3": [
+          [
+            "MO-0420",
+            "09-23",
+            [
+              "E-65"
+            ]
+          ],
+          [
+            "MO-0420",
+            "09-23",
+            []
+          ],
+          [
+            "MO-0420",
+            "09-23",
+            []
+          ]
+        ]
+      }
+    },
+    {
+      "case_id": "w13",
+      "boundary": "post_2025",
+      "off": {
+        "hit3": true,
+        "stale_in_top3": 1,
+        "stale_form_when_none_in_force": false,
+        "top3": [
+          [
+            "MO-0420",
+            "05-25",
+            [
+              "E-65"
+            ]
+          ],
+          [
+            "MO-0420",
+            "09-23",
+            [
+              "E-65"
+            ]
+          ],
+          [
+            "MO-0420",
+            "05-25",
+            []
+          ]
+        ]
+      },
+      "on": {
+        "hit3": true,
+        "stale_in_top3": 0,
+        "stale_form_when_none_in_force": false,
+        "top3": [
+          [
+            "MO-0420",
+            "05-25",
+            [
+              "E-65"
+            ]
+          ],
+          [
+            "MO-0420",
+            "05-25",
+            []
+          ],
+          [
+            "MO-0420",
+            "05-25",
+            []
+          ]
+        ]
+      }
+    },
+    {
+      "case_id": "w14",
+      "boundary": "post_2025",
+      "off": {
+        "hit3": true,
+        "stale_in_top3": 1,
+        "stale_form_when_none_in_force": false,
+        "top3": [
+          [
+            "MO-0420",
+            "05-25",
+            [
+              "E-65"
+            ]
+          ],
+          [
+            "MO-0420",
+            "09-23",
+            [
+              "E-65"
+            ]
+          ],
+          [
+            "MO-0420",
+            "05-25",
+            []
+          ]
+        ]
+      },
+      "on": {
+        "hit3": true,
+        "stale_in_top3": 0,
+        "stale_form_when_none_in_force": false,
+        "top3": [
+          [
+            "MO-0420",
+            "05-25",
+            [
+              "E-65"
+            ]
+          ],
+          [
+            "MO-0420",
+            "05-25",
+            []
+          ],
+          [
+            "MO-0420",
+            "05-25",
+            []
+          ]
+        ]
+      }
+    },
+    {
+      "case_id": "w15",
+      "boundary": "pre_2025",
+      "off": {
+        "hit3": true,
+        "stale_in_top3": 2,
+        "stale_form_when_none_in_force": false,
+        "top3": [
+          [
+            "MO-0420",
+            "05-25",
+            []
+          ],
+          [
+            "MO-0420",
+            "09-23",
+            []
+          ],
+          [
+            "MO-0420",
+            "05-25",
+            [
+              "E-65"
+            ]
+          ]
+        ]
+      },
+      "on": {
+        "hit3": true,
+        "stale_in_top3": 0,
+        "stale_form_when_none_in_force": false,
+        "top3": [
+          [
+            "MO-0420",
+            "09-23",
+            []
+          ],
+          [
+            "MO-0420",
+            "09-23",
+            [
+              "E-65"
+            ]
+          ],
+          [
+            "MO-0420",
+            "09-23",
+            []
+          ]
+        ]
+      }
+    },
+    {
+      "case_id": "w16",
+      "boundary": "post_2025",
+      "off": {
+        "hit3": true,
+        "stale_in_top3": 1,
+        "stale_form_when_none_in_force": false,
+        "top3": [
+          [
+            "MO-0420",
+            "05-25",
+            []
+          ],
+          [
+            "MO-0420",
+            "09-23",
+            []
+          ],
+          [
+            "MO-0420",
+            "05-25",
+            [
+              "E-65"
+            ]
+          ]
+        ]
+      },
+      "on": {
+        "hit3": true,
+        "stale_in_top3": 0,
+        "stale_form_when_none_in_force": false,
+        "top3": [
+          [
+            "MO-0420",
+            "05-25",
+            []
+          ],
+          [
+            "MO-0420",
+            "05-25",
+            [
+              "E-65"
+            ]
+          ],
+          [
+            "MO-0420",
+            "05-25",
+            []
+          ]
+        ]
+      }
+    },
+    {
+      "case_id": "w17",
+      "boundary": "base",
+      "off": {
+        "hit3": true,
+        "stale_in_top3": 0,
+        "stale_form_when_none_in_force": false,
+        "top3": [
+          [
+            "HO-0100",
+            "01-22",
+            [
+              "E-01"
+            ]
+          ],
+          [
+            "HO-0100",
+            "01-22",
+            []
+          ],
+          [
+            "HO-0850",
+            "07-23",
+            [
+              "E-50"
+            ]
+          ]
+        ]
+      },
+      "on": {
+        "hit3": true,
+        "stale_in_top3": 0,
+        "stale_form_when_none_in_force": false,
+        "top3": [
+          [
+            "HO-0100",
+            "01-22",
+            [
+              "E-01"
+            ]
+          ],
+          [
+            "HO-0100",
+            "01-22",
+            []
+          ],
+          [
+            "HO-0850",
+            "07-23",
+            [
+              "E-50"
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "case_id": "w18",
+      "boundary": "pre_2025",
+      "off": {
+        "hit3": true,
+        "stale_in_top3": 1,
+        "stale_form_when_none_in_force": false,
+        "top3": [
+          [
+            "HO-0850",
+            "07-23",
+            [
+              "E-50"
+            ]
+          ],
+          [
+            "HO-0850",
+            "04-25",
+            [
+              "E-50"
+            ]
+          ],
+          [
+            "HO-0100",
+            "01-22",
+            [
+              "E-01"
+            ]
+          ]
+        ]
+      },
+      "on": {
+        "hit3": true,
+        "stale_in_top3": 0,
+        "stale_form_when_none_in_force": false,
+        "top3": [
+          [
+            "HO-0850",
+            "07-23",
+            [
+              "E-50"
+            ]
+          ],
+          [
+            "HO-0100",
+            "01-22",
+            [
+              "E-01"
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "case_id": "w19",
+      "boundary": "post_2025",
+      "off": {
+        "hit3": true,
+        "stale_in_top3": 1,
+        "stale_form_when_none_in_force": false,
+        "top3": [
+          [
+            "HO-0850",
+            "07-23",
+            [
+              "E-50"
+            ]
+          ],
+          [
+            "HO-0850",
+            "04-25",
+            [
+              "E-50"
+            ]
+          ],
+          [
+            "HO-0100",
+            "01-22",
+            [
+              "E-01"
+            ]
+          ]
+        ]
+      },
+      "on": {
+        "hit3": true,
+        "stale_in_top3": 0,
+        "stale_form_when_none_in_force": false,
+        "top3": [
+          [
+            "HO-0850",
+            "04-25",
+            [
+              "E-50"
+            ]
+          ],
+          [
+            "HO-0100",
+            "01-22",
+            [
+              "E-01"
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "case_id": "w20",
+      "boundary": "base",
+      "off": {
+        "hit3": true,
+        "stale_in_top3": 1,
+        "stale_form_when_none_in_force": false,
+        "top3": [
+          [
+            "HO-0100",
+            "01-22",
+            [
+              "E-01"
+            ]
+          ],
+          [
+            "HO-0850",
+            "07-23",
+            [
+              "E-50"
+            ]
+          ],
+          [
+            "HO-0850",
+            "04-25",
+            [
+              "E-50"
+            ]
+          ]
+        ]
+      },
+      "on": {
+        "hit3": true,
+        "stale_in_top3": 0,
+        "stale_form_when_none_in_force": false,
+        "top3": [
+          [
+            "HO-0100",
+            "01-22",
+            [
+              "E-01"
+            ]
+          ],
+          [
+            "HO-0850",
+            "07-23",
+            [
+              "E-50"
+            ]
+          ],
+          [
+            "HO-0850",
+            "07-23",
+            []
+          ]
+        ]
+      }
+    },
+    {
+      "case_id": "w21",
+      "boundary": "base",
+      "off": {
+        "hit3": true,
+        "stale_in_top3": 0,
+        "stale_form_when_none_in_force": false,
+        "top3": [
+          [
+            "HO-0100",
+            "01-22",
+            []
+          ],
+          [
+            "HO-0850",
+            "07-23",
+            []
+          ],
+          [
+            "HO-0100",
+            "01-22",
+            []
+          ]
+        ]
+      },
+      "on": {
+        "hit3": true,
+        "stale_in_top3": 0,
+        "stale_form_when_none_in_force": false,
+        "top3": [
+          [
+            "HO-0100",
+            "01-22",
+            []
+          ],
+          [
+            "HO-0850",
+            "07-23",
+            []
+          ],
+          [
+            "HO-0100",
+            "01-22",
+            []
+          ]
+        ]
+      }
+    },
+    {
+      "case_id": "w22",
+      "boundary": "base",
+      "off": {
+        "hit3": true,
+        "stale_in_top3": 0,
+        "stale_form_when_none_in_force": false,
+        "top3": [
+          [
+            "MO-0100",
+            "03-22",
+            [
+              "E-60"
+            ]
+          ],
+          [
+            "MO-0100",
+            "03-22",
+            []
+          ],
+          [
+            "MO-0100",
+            "03-22",
+            []
+          ]
+        ]
+      },
+      "on": {
+        "hit3": true,
+        "stale_in_top3": 0,
+        "stale_form_when_none_in_force": false,
+        "top3": [
+          [
+            "MO-0100",
+            "03-22",
+            [
+              "E-60"
+            ]
+          ],
+          [
+            "MO-0100",
+            "03-22",
+            []
+          ],
+          [
+            "MO-0100",
+            "03-22",
+            []
+          ]
+        ]
+      }
+    },
+    {
+      "case_id": "w23",
+      "boundary": "base",
+      "off": {
+        "hit3": true,
+        "stale_in_top3": 0,
+        "stale_form_when_none_in_force": false,
+        "top3": [
+          [
+            "MO-0100",
+            "03-22",
+            [
+              "E-60"
+            ]
+          ],
+          [
+            "MO-0100",
+            "03-22",
+            []
+          ],
+          [
+            "MO-0100",
+            "03-22",
+            []
+          ]
+        ]
+      },
+      "on": {
+        "hit3": true,
+        "stale_in_top3": 0,
+        "stale_form_when_none_in_force": false,
+        "top3": [
+          [
+            "MO-0100",
+            "03-22",
+            [
+              "E-60"
+            ]
+          ],
+          [
+            "MO-0100",
+            "03-22",
+            []
+          ],
+          [
+            "MO-0100",
+            "03-22",
+            []
+          ]
+        ]
+      }
+    },
+    {
+      "case_id": "w24",
+      "boundary": "base",
+      "off": {
+        "hit3": true,
+        "stale_in_top3": 1,
+        "stale_form_when_none_in_force": false,
+        "top3": [
+          [
+            "MO-0100",
+            "03-22",
+            []
+          ],
+          [
+            "MO-0420",
+            "09-23",
+            []
+          ],
+          [
+            "MO-0420",
+            "05-25",
+            []
+          ]
+        ]
+      },
+      "on": {
+        "hit3": true,
+        "stale_in_top3": 0,
+        "stale_form_when_none_in_force": false,
+        "top3": [
+          [
+            "MO-0100",
+            "03-22",
+            []
+          ],
+          [
+            "MO-0420",
+            "05-25",
+            []
+          ]
+        ]
+      }
+    },
+    {
+      "case_id": "w25",
+      "boundary": "base",
+      "off": {
+        "hit3": true,
+        "stale_in_top3": 0,
+        "stale_form_when_none_in_force": false,
+        "top3": [
+          [
+            "MO-0100",
+            "03-22",
+            [
+              "E-60"
+            ]
+          ]
+        ]
+      },
+      "on": {
+        "hit3": true,
+        "stale_in_top3": 0,
+        "stale_form_when_none_in_force": false,
+        "top3": [
+          [
+            "MO-0100",
+            "03-22",
+            [
+              "E-60"
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "case_id": "w26",
+      "boundary": "base",
+      "off": {
+        "hit3": true,
+        "stale_in_top3": 0,
+        "stale_form_when_none_in_force": false,
+        "top3": [
+          [
+            "HO-0100",
+            "01-22",
+            [
+              "E-01"
+            ]
+          ],
+          [
+            "HO-0100",
+            "01-22",
+            [
+              "E-06"
+            ]
+          ],
+          [
+            "HO-0850",
+            "07-23",
+            [
+              "E-50"
+            ]
+          ]
+        ]
+      },
+      "on": {
+        "hit3": true,
+        "stale_in_top3": 0,
+        "stale_form_when_none_in_force": false,
+        "top3": [
+          [
+            "HO-0100",
+            "01-22",
+            [
+              "E-01"
+            ]
+          ],
+          [
+            "HO-0100",
+            "01-22",
+            [
+              "E-06"
+            ]
+          ],
+          [
+            "HO-0850",
+            "07-23",
+            [
+              "E-50"
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "case_id": "w31",
+      "boundary": "no_edition",
+      "off": {
+        "hit3": null,
+        "stale_in_top3": 3,
+        "stale_form_when_none_in_force": true,
+        "top3": [
+          [
+            "HO-0850",
+            "04-25",
+            [
+              "E-50"
+            ]
+          ],
+          [
+            "HO-0850",
+            "07-23",
+            [
+              "E-50"
+            ]
+          ],
+          [
+            "HO-0850",
+            "07-23",
+            []
+          ]
+        ]
+      },
+      "on": {
+        "hit3": null,
+        "stale_in_top3": 0,
+        "stale_form_when_none_in_force": false,
+        "top3": [
+          [
+            "HO-0100",
+            "01-22",
+            []
+          ],
+          [
+            "HO-0100",
+            "01-22",
+            [
+              "E-01"
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,211 @@
+{
+  "found_in_log_as": {
+    "trace_id": "req-0634f7dd22d9",
+    "ts": "2026-10-04T19:47:59+00:00",
+    "user_id": "u-1150",
+    "note": "The drill log holds this request re-stamped (new id, time, user) and with span latencies scaled by a seeded jitter. The record below is the original, un-jittered run it was cut from, so latencies are as measured."
+  },
+  "original_trace_id": "req-7060c0c1d556",
+  "prompt_version": "triage-v1",
+  "prompt_sha256": "76089605d263424c",
+  "retrieval_version": "kw-r1",
+  "model": "openai/gpt-oss-20b",
+  "claim_id": "c11",
+  "retrieved_context_ids": [
+    "HO-0412#25",
+    "HO-0412#26",
+    "HO-0412#29",
+    "HO-0412#32",
+    "HO-0412#35",
+    "HO-0412#43",
+    "HO-0412#33",
+    "HO-0412#37"
+  ],
+  "spans": [
+    {
+      "span_id": "sp-01",
+      "name": "llm.lap1",
+      "stage": "generation",
+      "t_start_ms": 0.2,
+      "latency_ms": 547.9,
+      "tokens_in": 868,
+      "tokens_out": 31,
+      "cost_usd": 7.4e-05,
+      "attrs": {
+        "lap": 1
+      }
+    },
+    {
+      "span_id": "sp-02",
+      "name": "tool.get_claim",
+      "stage": "tools",
+      "t_start_ms": 548.2,
+      "latency_ms": 0.5,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "cost_usd": 0.0,
+      "attrs": {
+        "lap": 1,
+        "args": {
+          "claim_id": "c11"
+        }
+      }
+    },
+    {
+      "span_id": "sp-03",
+      "name": "llm.lap2",
+      "stage": "generation",
+      "t_start_ms": 548.7,
+      "latency_ms": 2731.1,
+      "tokens_in": 1045,
+      "tokens_out": 46,
+      "cost_usd": 9.2e-05,
+      "attrs": {
+        "lap": 2
+      }
+    },
+    {
+      "span_id": "sp-04",
+      "name": "tool.search_policy",
+      "stage": "retrieval",
+      "t_start_ms": 3279.9,
+      "latency_ms": 0.2,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "cost_usd": 0.0,
+      "attrs": {
+        "lap": 2,
+        "args": {
+          "form_number": "HO-0412",
+          "query": "hail",
+          "top_k": 5
+        },
+        "context_ids": [
+          "HO-0412#25",
+          "HO-0412#26",
+          "HO-0412#29",
+          "HO-0412#32",
+          "HO-0412#35"
+        ]
+      }
+    },
+    {
+      "span_id": "sp-05",
+      "name": "llm.lap3",
+      "stage": "generation",
+      "t_start_ms": 3280.2,
+      "latency_ms": 6987.0,
+      "tokens_in": 1627,
+      "tokens_out": 50,
+      "cost_usd": 0.000137,
+      "attrs": {
+        "lap": 3
+      }
+    },
+    {
+      "span_id": "sp-06",
+      "name": "tool.search_policy",
+      "stage": "retrieval",
+      "t_start_ms": 10267.3,
+      "latency_ms": 0.1,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "cost_usd": 0.0,
+      "attrs": {
+        "lap": 3,
+        "args": {
+          "form_number": "HO-0412",
+          "query": "deductible",
+          "top_k": 3
+        },
+        "context_ids": [
+          "HO-0412#43",
+          "HO-0412#33",
+          "HO-0412#37"
+        ]
+      }
+    },
+    {
+      "span_id": "sp-07",
+      "name": "llm.lap4",
+      "stage": "generation",
+      "t_start_ms": 10267.4,
+      "latency_ms": 16056.3,
+      "tokens_in": 2023,
+      "tokens_out": 79,
+      "cost_usd": 0.000175,
+      "attrs": {
+        "lap": 4
+      }
+    },
+    {
+      "span_id": "sp-08",
+      "name": "tool.compute_payout",
+      "stage": "tools",
+      "t_start_ms": 26323.8,
+      "latency_ms": 0.0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "cost_usd": 0.0,
+      "attrs": {
+        "lap": 4,
+        "args": {
+          "claim_id": "c11",
+          "claim_status": "covered",
+          "deductible": 5000,
+          "loss_amount": 9000
+        }
+      }
+    },
+    {
+      "span_id": "sp-09",
+      "name": "llm.lap5",
+      "stage": "generation",
+      "t_start_ms": 26323.8,
+      "latency_ms": 10554.7,
+      "tokens_in": 2139,
+      "tokens_out": 87,
+      "cost_usd": 0.000187,
+      "attrs": {
+        "lap": 5
+      }
+    }
+  ],
+  "totals": {
+    "latency_ms": 36878.7,
+    "tokens_in": 7702,
+    "tokens_out": 293,
+    "cost_usd": 0.000665,
+    "by_stage": {
+      "retrieval": {
+        "latency_ms": 0.3,
+        "tokens_in": 0,
+        "tokens_out": 0,
+        "cost_usd": 0.0,
+        "spans": 2
+      },
+      "generation": {
+        "latency_ms": 36877.0,
+        "tokens_in": 7702,
+        "tokens_out": 293,
+        "cost_usd": 0.000665,
+        "spans": 5
+      },
+      "tools": {
+        "latency_ms": 0.5,
+        "tokens_in": 0,
+        "tokens_out": 0,
+        "cost_usd": 0.0,
+        "spans": 2
+      }
+    }
+  },
+  "output": {
+    "text": "```json\n{\"claim_id\":\"c11\",\"coverage_status\":\"covered\",\"exclusion_code\":null,\"deductible\":5000,\"payout\":4000,\"rationale\":\"The hail claim is covered under HO\u20110412 with a 2% deductible of the Coverage A limit ($5,000) as stated in clause 5.1, yielding a $4,000 payout.\"}\n```\n",
+    "coverage_status": "covered",
+    "exclusion_code": null,
+    "deductible": 5000,
+    "payout": 4000.0,
+    "rationale": "The hail claim is covered under HO\u20110412 with a 2% deductible of the Coverage A limit ($5,000) as stated in clause 5.1, yielding a $4,000 payout."
+  }
+}

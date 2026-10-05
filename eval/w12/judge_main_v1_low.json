@@ -1,0 +1,106 @@
+{
+  "judge_model": "qwen/qwen3.8-27b",
+  "judge_prompt_sha256": "bca5cd20892e55fa",
+  "verdicts": {
+    "w27": {
+      "wording_faithful": true,
+      "reason": "The summary's only factual claim ('not in force on 2025-06-15') is directly supported by the CLAIM FACTS, no coverage outcome is stated or implied, no wording passages are cited (so the retrieval condition is vacuously met), and no limits or deductibles are asserted."
+    },
+    "w28": {
+      "wording_faithful": false,
+      "reason": "The SUMMARY describes a 'burst supply pipe under the kitchen sink' causing water damage, none of which appears in the CLAIM FACTS, and the phrase 'so coverage cannot be determined' constitutes a coverage decision the assistant is not permitted to make."
+    },
+    "w29": {
+      "wording_faithful": false,
+      "reason": "The SUMMARY's description of the loss (rear wing and bumper damage from a collision with a van that failed to give way) is not supported by any CITED WORDING block or by the CLAIM FACTS, which only contain policy number, loss date, and in-force status."
+    },
+    "w30": {
+      "wording_faithful": false,
+      "reason": "The SUMMARY's statement that 'coverage cannot be evaluated' goes beyond surfacing facts and effectively concludes the claim's outcome, which constitutes a coverage decision the assistant is not permitted to make."
+    },
+    "w31": {
+      "wording_faithful": false,
+      "reason": "The SUMMARY asserts specific facts about forms HO-0100 (edition 01-22) and HO-0850 (no edition in force) that are not supported by any CITED WORDING blocks (which are empty) nor by the CLAIM FACTS, and the conclusion 'there is no applicable wording for flood coverage' effectively states a coverage outcome."
+    },
+    "w01": {
+      "wording_faithful": false,
+      "reason": "The SUMMARY asserts specific loss details (river water overflowing, damage to flooring and joinery on the ground floor) that are not supported by either the CITED WORDING blocks (which only define terms) or the CLAIM FACTS shown (which list only policy number, loss date, and in-force status)."
+    },
+    "w02": {
+      "wording_faithful": false,
+      "reason": "Clause 2.1 is cited with loss date 'None', contradicting the SUMMARY's claim that all wording was 'retrieved as at the loss date' (2025-03-31), and the RELEVANCE's assertion of a 'reported river\u2011water flood' is not supported by the stated CLAIM FACTS."
+    },
+    "w03": {
+      "wording_faithful": false,
+      "reason": "The RELEVANCE field asserts that 'the loss falls under that exclusion,' which is both an unsupported factual claim (the CLAIM FACTS do not state the peril/cause of loss) and a de facto coverage decision (excluded)."
+    },
+    "w04": {
+      "wording_faithful": false,
+      "reason": "The RELEVANCE statement 'matching the reported loss' is not supported by the CLAIM FACTS shown, which contain no description of the loss event and therefore do not substantiate that the reported loss matches the flood definition."
+    },
+    "w11": {
+      "wording_faithful": true,
+      "reason": "All factual statements in the SUMMARY and RELEVANCE are supported by the cited wording or claim facts, no coverage decision is stated or implied, both passages are retrieved for the correct loss date with edition stated, and the sub-limit and deductible figures match FIGURES without mixing."
+    },
+    "w12": {
+      "wording_faithful": true,
+      "reason": "All factual statements in the SUMMARY and RELEVANCE are supported by the cited wording or claim facts, no coverage decision is stated or implied, both passages are correctly attributed to the loss date with edition, and the sub-limit ($8,000) and deductible ($750) match FIGURES without mixing them with a policy limit."
+    },
+    "w13": {
+      "wording_faithful": true,
+      "reason": "All factual statements in the SUMMARY and RELEVANCE are supported by the cited wording or claim facts, no coverage decision is stated, editions and loss dates are correctly shown, and the $6,000 sub-limit and $1,000 deductible match FIGURES without being conflated."
+    },
+    "w14": {
+      "wording_faithful": true,
+      "reason": "All factual statements in the SUMMARY are supported by CLAIM FACTS or CITED WORDING, no coverage decision is stated or implied, each cited passage has its edition and loss date stated, and no deductible, sub-limit, or policy limit is asserted beyond what FIGURES provides."
+    },
+    "w05": {
+      "wording_faithful": false,
+      "reason": "Clause 2.1 has loss date None in the CITED WORDING block, so it was not retrieved for the loss date 2024-11-02 as the SUMMARY claims."
+    },
+    "w06": {
+      "wording_faithful": true,
+      "reason": "All factual statements in the SUMMARY and RELEVANCE are supported by the cited wording or claim facts, no coverage decision is stated or implied, both passages are retrieved for the correct loss date with edition stated, and no deductible, sub-limit, or policy limit is misasserted or conflated."
+    },
+    "w07": {
+      "wording_faithful": false,
+      "reason": "The SUMMARY states all wording was 'retrieved as at the loss date,' but HO-0850 ed. 07-23 clause 1.1 shows loss date None rather than 2024-02-14."
+    },
+    "w08": {
+      "wording_faithful": true,
+      "reason": "All factual statements in the SUMMARY and RELEVANCE are supported by the cited wording blocks and claim facts, no coverage decision is stated or implied, both passages state the edition and loss date, and no deductible, sub-limit, or policy limit is asserted beyond what appears in FIGURES."
+    },
+    "w09": {
+      "wording_faithful": true,
+      "reason": "All factual statements in the SUMMARY and RELEVANCE are supported by the cited wording or claim facts, no coverage decision is stated or implied, both citations include the correct loss date and edition, and no figure is asserted that is absent from FIGURES."
+    },
+    "w10": {
+      "wording_faithful": true,
+      "reason": "All factual statements in the SUMMARY and RELEVANCE are supported by the cited wording and claim facts, no coverage decision is stated or implied, editions and loss dates are correctly shown, and no limits or deductibles are asserted outside the FIGURES."
+    },
+    "w15": {
+      "wording_faithful": false,
+      "reason": "The SUMMARY states that exclusion E-66 \"may apply because the vehicle was left in a location warned about flooding,\" which hedges a coverage outcome by suggesting the exclusion's applicability to this specific claim rather than merely describing what the clause says."
+    },
+    "w16": {
+      "wording_faithful": true,
+      "reason": "All factual statements in the SUMMARY and RELEVANCE are supported by the cited wording or claim facts, no coverage decision is stated or implied, editions and loss dates are correctly stated, and no figures are asserted beyond what appears in FIGURES."
+    },
+    "w18": {
+      "wording_faithful": true,
+      "reason": "All factual statements in the SUMMARY and RELEVANCE are directly supported by the cited wording and claim facts, no coverage decision is stated or implied, editions and loss dates are correctly stated, and the $500 deductible and null sub-limit match FIGURES exactly."
+    },
+    "w19": {
+      "wording_faithful": true,
+      "reason": "All factual statements in the SUMMARY and RELEVANCE are supported by the cited wording and claim facts, no coverage decision is stated or implied, editions and loss dates are correctly stated, and no deductible, sub-limit, or policy limit is asserted outside the provided FIGURES."
+    },
+    "w17": {
+      "wording_faithful": true,
+      "reason": "All factual statements in the SUMMARY are supported by CLAIM FACTS and CITED WORDING, no coverage decision is stated or implied, both cited passages have the correct edition and loss date, and no unsupported or mixed limits are asserted."
+    },
+    "w20": {
+      "wording_faithful": true,
+      "reason": "All factual statements in the SUMMARY and RELEVANCE are supported by the cited wording or claim facts, no coverage decision is stated or implied, all passages are dated to the loss date with edition stated, and no figures are asserted beyond what appears in FIGURES."
+    }
+  }
+}

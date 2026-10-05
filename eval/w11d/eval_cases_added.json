@@ -1,0 +1,42 @@
+[
+  {
+    "case_id": "c11",
+    "added": "week 11 task set D (the drill's failure)",
+    "claim": {
+      "claim_number": "CLM-7011",
+      "date_of_loss": "2026-04-02",
+      "policy_line": "homeowners",
+      "form_number": "HO-0412",
+      "reported_loss_amount": 9000,
+      "coverage_a_limit": 250000,
+      "notes": "Hail left the south-facing shingles dimpled and pitted. The insured's roofer found the shingle surface intact, no leaks in the attic and no breach anywhere. Insured wants the slope replaced because it looks bad from the street, estimated 9,000."
+    },
+    "golden": {
+      "status": "excluded",
+      "exclusion_code": "E-34",
+      "deductible": null,
+      "payout": 0
+    },
+    "assertion": "grade(): coverage_status == golden.status AND |payout - golden.payout| <= 1"
+  },
+  {
+    "case_id": "c12",
+    "added": "week 11 task set D (guard against over-correcting)",
+    "claim": {
+      "claim_number": "CLM-7012",
+      "date_of_loss": "2026-04-09",
+      "policy_line": "homeowners",
+      "form_number": "HO-0412",
+      "reported_loss_amount": 12000,
+      "coverage_a_limit": 300000,
+      "notes": "Hail dented the roof surfacing and punched through the shingle mat over the back bedroom; water came through the ceiling the same night. Roofer confirms penetration. Repair estimate 12,000."
+    },
+    "golden": {
+      "status": "covered",
+      "exclusion_code": null,
+      "deductible": 6000,
+      "payout": 6000
+    },
+    "assertion": "grade(): coverage_status == golden.status AND |payout - golden.payout| <= 1"
+  }
+]
